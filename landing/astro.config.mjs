@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://peterlarnholt.github.io',
-  base: '/smedjan/',
+  base: '/smedjan_staging/',
   integrations: [tailwind()],
 });
