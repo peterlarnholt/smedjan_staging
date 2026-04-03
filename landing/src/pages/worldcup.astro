@@ -5,12 +5,100 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Base
-  title="World Cup 2026 — Never miss a goal. Live in WhatsApp. | Handled"
-  description="104 matches. 3 time zones. Zero excuses. Live scores, ticket alerts, match reminders, player stats — all in WhatsApp. No app needed."
+  title="World Cup 2026 — Never miss a goal. Live scores in WhatsApp. | Handled"
+  description="104 matches. 3 time zones. Zero excuses. Live scores, ticket alerts, match reminders, player stats — all in WhatsApp. No app needed. Free forever."
   canonical="https://handled.sh/worldcup/"
   icpSegment="soccer"
   geoTarget="global"
 >
+  <!-- SEO: Additional meta tags -->
+  <meta slot="head" name="keywords" content="world cup 2026, world cup whatsapp, live scores whatsapp, world cup reminders, fifa 2026 schedule, world cup tickets, world cup match alerts, world cup calendar, world cup stadiums, handled" />
+  <meta slot="head" name="author" content="Handled - handled.sh" />
+  <meta slot="head" name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+  <meta slot="head" property="og:image:alt" content="World Cup 2026 live scores and match reminders in WhatsApp" />
+
+  <!-- AEO: FAQ Schema for AI answer engines (Google, Perplexity, ChatGPT) -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can I get World Cup 2026 live scores on WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Handled delivers real-time World Cup 2026 live scores directly to your WhatsApp. Just message Handled on WhatsApp, tell it which teams you follow, and you will receive goal alerts, halftime scores, and full-time results automatically. No app download needed. Free forever at handled.sh/worldcup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get World Cup 2026 match reminders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Send a WhatsApp message to Handled saying something like 'Remind me 30 minutes before every Brazil game' and it will automatically send you reminders before each match. It can also block your calendar so meetings don't clash with games. Set up in 30 seconds at handled.sh/worldcup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I get World Cup 2026 ticket alerts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tell Handled 'Alert me when semifinal tickets go on sale' and you will receive a WhatsApp message the moment tickets drop on FIFA.com. Tickets sell out in minutes, so getting the alert first gives you the best chance. Available free at handled.sh/worldcup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does the FIFA World Cup 2026 start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The FIFA World Cup 2026 kicks off on June 11, 2026. The tournament is hosted across the USA, Mexico, and Canada with 48 teams playing 104 matches over 39 days. The final is on July 19, 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What World Cup 2026 stadiums and cities are hosting matches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "World Cup 2026 matches will be played across 16 stadiums in the USA, Mexico, and Canada, including MetLife Stadium (New York/New Jersey), AT&T Stadium (Dallas), SoFi Stadium (Los Angeles), Estadio Azteca (Mexico City), and BMO Field (Toronto). Ask Handled on WhatsApp for details about any venue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Handled free for the World Cup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Handled is completely free for World Cup 2026 features including live scores, match reminders, ticket alerts, player stats, and news. No app to download, no signup form. Just open WhatsApp and start chatting at handled.sh/worldcup."
+        }
+      }
+    ]
+  })} />
+
+  <!-- GEO: Event schema for generative search engines -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "FIFA World Cup 2026",
+    "startDate": "2026-06-11",
+    "endDate": "2026-07-19",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "location": [
+      {"@type": "Place", "name": "MetLife Stadium", "address": {"@type": "PostalAddress", "addressLocality": "East Rutherford", "addressCountry": "US"}},
+      {"@type": "Place", "name": "Estadio Azteca", "address": {"@type": "PostalAddress", "addressLocality": "Mexico City", "addressCountry": "MX"}},
+      {"@type": "Place", "name": "BMO Field", "address": {"@type": "PostalAddress", "addressLocality": "Toronto", "addressCountry": "CA"}}
+    ],
+    "description": "The 2026 FIFA World Cup featuring 48 teams across the USA, Mexico, and Canada. 104 matches over 39 days. Get live scores, match reminders, and ticket alerts via WhatsApp with Handled.",
+    "organizer": {"@type": "Organization", "name": "FIFA", "url": "https://www.fifa.com"},
+    "offers": {
+      "@type": "Offer",
+      "name": "Handled World Cup WhatsApp Assistant",
+      "price": "0",
+      "priceCurrency": "USD",
+      "url": "https://handled.sh/worldcup/",
+      "description": "Free live scores, match reminders, ticket alerts, and player stats delivered via WhatsApp"
+    }
+  })} />
+
   <Nav cta="Get it on WhatsApp" ctaLink="https://handled.sh/whatsapp" />
   <main class="pt-20 bg-[#0a1a0a]">
 
@@ -297,6 +385,71 @@ import Footer from '../components/Footer.astro';
           Get it on WhatsApp
         </a>
         <p class="text-[#555] text-xs mt-3">Free. Forever. No app. No signup form. Just WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- FAQ (SEO + AEO + user trust) -->
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-10 uppercase tracking-tight text-center">
+          QUESTIONS
+        </h2>
+        <div class="space-y-4">
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              How do I get live World Cup scores on WhatsApp?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">Open WhatsApp and message Handled. Tell it which teams you follow. You will receive real-time goal alerts, halftime scores, and full-time results automatically throughout the World Cup. No app to download, no account to create.</p>
+            </div>
+          </details>
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              Is it really free?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">Yes. All World Cup features are free forever. Live scores, match reminders, ticket alerts, player stats, news. No credit card, no trial, no catch. Pro features for year-round productivity start at $1/month, but the World Cup experience is completely free.</p>
+            </div>
+          </details>
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              How do I get World Cup ticket alerts?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">Message Handled on WhatsApp: "Alert me when semifinal tickets go on sale." You will get a WhatsApp message the moment tickets drop on FIFA.com. Tickets sell out in minutes, so knowing first is everything.</p>
+            </div>
+          </details>
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              When does the World Cup 2026 start?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">The FIFA World Cup 2026 kicks off on June 11, 2026. It is hosted across the USA, Mexico, and Canada with 48 teams, 104 matches, and 16 stadiums over 39 days. The final is on July 19, 2026 at MetLife Stadium in New Jersey.</p>
+            </div>
+          </details>
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              Do I need to download an app?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">No. Handled works entirely inside WhatsApp, which you already have. No download, no signup form, no new passwords. Just open WhatsApp, send a message, and you are set up in 30 seconds.</p>
+            </div>
+          </details>
+          <details class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary class="px-5 py-4 cursor-pointer text-white font-heading font-semibold text-sm md:text-base list-none flex justify-between items-center" itemprop="name">
+              Where are the World Cup 2026 stadiums?
+              <span class="text-[#23DF8C] text-xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text">Matches are played across 16 stadiums in the USA, Mexico, and Canada. Key venues include MetLife Stadium (New York), AT&T Stadium (Dallas), SoFi Stadium (Los Angeles), Estadio Azteca (Mexico City), and BMO Field (Toronto). Ask Handled on WhatsApp about any venue for capacity, location, and match schedule.</p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
