@@ -573,18 +573,80 @@ const lang = "en";
       <div style="max-width:550px;margin:0 auto;">
         <h2 style="color:#fff;font-family:Exo,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;margin-bottom:8px;">TICKETS SELL OUT IN SECONDS</h2>
         <p style="color:#a0a0a0;font-size:13px;margin-bottom:20px;">Millions refresh FIFA.com at the same time. You're not refreshing. You're getting a WhatsApp message the moment they drop.</p>
-        <div class="ticket-card" style="background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.2);border-radius:14px;padding:20px;max-width:380px;margin:0 auto;text-align:left;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(37,211,102,0.5)';this.style.boxShadow='0 0 30px rgba(37,211,102,0.1)';" onmouseout="this.style.borderColor='rgba(37,211,102,0.2)';this.style.boxShadow='';">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-            <div style="width:24px;height:24px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
-              <span style="color:#0a1a0a;font-size:12px;font-weight:700;">H</span>
+        <div style="max-width:260px;margin:0 auto;">
+          <!-- Mini phone frame -->
+          <div style="background:#000;border-radius:28px;padding:6px;box-shadow:0 15px 40px rgba(0,0,0,0.5),0 0 20px rgba(37,211,102,0.08);">
+            <div style="border-radius:22px;overflow:hidden;background:#0B141A;">
+              <!-- Mini WA header -->
+              <div style="background:#1F2C34;padding:6px 10px;display:flex;align-items:center;gap:6px;">
+                <svg style="width:12px;height:12px;color:#aebac1;" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <div style="width:22px;height:22px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
+                  <span style="color:#fff;font-size:9px;font-weight:700;">H</span>
+                </div>
+                <div style="flex:1;">
+                  <div style="color:#e9edef;font-size:11px;font-weight:600;">Handled</div>
+                  <div style="color:#8696a0;font-size:8px;">online</div>
+                </div>
+              </div>
+              <!-- Chat -->
+              <div style="padding:8px;min-height:200px;display:flex;flex-direction:column;gap:5px;">
+                <!-- User asks -->
+                <div style="display:flex;justify-content:flex-end;">
+                  <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:5px 8px;max-width:80%;">
+                    <p style="color:#e9edef;font-size:10px;line-height:1.4;margin:0;">Alert me when semifinal tickets go on sale</p>
+                    <div style="display:flex;align-items:center;justify-content:flex-end;gap:2px;margin-top:1px;">
+                      <span style="color:rgba(255,255,255,0.4);font-size:7px;">14:22</span>
+                      <svg style="width:10px;height:8px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <!-- Bot confirms -->
+                <div style="display:flex;justify-content:flex-start;">
+                  <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:5px 8px;max-width:85%;">
+                    <p style="color:#e9edef;font-size:10px;line-height:1.3;margin:0;">Got it. I will message you the second they drop.</p>
+                    <span style="color:rgba(255,255,255,0.3);font-size:7px;float:right;">14:22</span>
+                  </div>
+                </div>
+                <!-- Time skip -->
+                <div style="display:flex;justify-content:center;margin:4px 0;">
+                  <div style="background:#1a2a23;border-radius:4px;padding:2px 8px;">
+                    <span style="color:#8696a0;font-size:7px;">2 DAYS LATER</span>
+                  </div>
+                </div>
+                <!-- Ticket alert! -->
+                <div style="display:flex;justify-content:flex-start;">
+                  <div style="background:#202C33;border:1px solid rgba(37,211,102,0.3);border-radius:0 8px 8px 8px;padding:5px 8px;max-width:88%;">
+                    <p style="color:#25D366;font-size:11px;font-weight:700;line-height:1.2;margin:0;">Semifinal tickets LIVE!</p>
+                    <p style="color:#e9edef;font-size:10px;line-height:1.3;margin:2px 0 0;">FIFA.com — Cat 3 from $195</p>
+                    <p style="color:#e9edef;font-size:10px;line-height:1.3;margin:0;">MetLife Stadium, Jul 14</p>
+                    <p style="color:#ff3b3b;font-size:9px;font-weight:600;margin:3px 0 0;">Selling fast. Go now.</p>
+                    <span style="color:rgba(255,255,255,0.3);font-size:7px;float:right;margin-top:1px;">09:01</span>
+                  </div>
+                </div>
+                <!-- User reacts -->
+                <div style="display:flex;justify-content:flex-end;">
+                  <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:5px 8px;max-width:80%;">
+                    <p style="color:#e9edef;font-size:10px;line-height:1.4;margin:0;">BUYING NOW</p>
+                    <div style="display:flex;align-items:center;justify-content:flex-end;gap:2px;margin-top:1px;">
+                      <span style="color:rgba(255,255,255,0.4);font-size:7px;">09:01</span>
+                      <svg style="width:10px;height:8px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Input -->
+              <div style="background:#1F2C34;padding:5px 8px;display:flex;align-items:center;gap:6px;">
+                <div style="flex:1;background:#2A3942;border-radius:16px;padding:5px 10px;color:#8696a0;font-size:10px;">Type a message...</div>
+                <div style="width:26px;height:26px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
+                  <svg style="width:12px;height:12px;color:#fff;" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </div>
+              </div>
+              <!-- Home bar -->
+              <div style="background:#0B141A;padding:4px 0;display:flex;justify-content:center;">
+                <div style="width:60px;height:3px;background:#555;border-radius:2px;"></div>
+              </div>
             </div>
-            <span style="color:#25D366;font-size:12px;font-weight:600;">Handled</span>
-            <span style="color:#555;font-size:10px;margin-left:auto;">just now</span>
           </div>
-          <p style="color:#25D366;font-size:14px;font-weight:700;margin:0 0 4px;">Semifinal tickets just dropped!</p>
-          <p style="color:#e9edef;font-size:13px;margin:0 0 4px;">FIFA.com - Category 3 from $195</p>
-          <p style="color:#e9edef;font-size:13px;margin:0 0 8px;">MetLife Stadium, July 14</p>
-          <p style="color:#ff3b3b;font-size:11px;font-weight:600;margin:0;">Selling fast. Go now.</p>
         </div>
         <p style="color:#555;font-size:11px;margin-top:14px;">You told us once. We handle the rest.</p>
       </div>
