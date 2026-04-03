@@ -151,8 +151,11 @@ import Base from '../layouts/Base.astro';
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Force dark green on body */
+    /* Force dark green on body and all sections */
     body { background: #0a1a0a !important; }
+    details { background: #0d0d0d !important; }
+    details summary { background: transparent !important; }
+    details > div { background: transparent !important; }
     .light-mode #main-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
     .light-mode #main-nav a:not([style]) { color: #5a6a5a !important; }
     .light-mode #main-nav a:not([style]):hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
@@ -552,11 +555,11 @@ import Base from '../layouts/Base.astro';
   </main>
 
   <!-- Custom Footer (World Cup themed) -->
-  <footer class="py-12 px-6 border-t" style="background:#060f06;border-color:rgba(26,77,42,0.2);">
+  <footer class="py-12 px-6 border-t" style="background:#0a1a0a;border-color:rgba(26,77,42,0.2);">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Handled" class="w-6 h-6" />
-        <span class="font-heading font-semibold text-white">handled.sh</span>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#23DF8C"/><path d="M9 16.5l4.5 4.5L23 11" stroke="#0a1a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="font-heading font-semibold text-[#23DF8C]">handled.sh</span>
       </div>
       <p class="text-[#555] text-sm">
         &copy; 2026 Handled. Free forever. Not affiliated with FIFA.
