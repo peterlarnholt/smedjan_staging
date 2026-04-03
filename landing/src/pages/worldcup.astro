@@ -111,7 +111,31 @@ import Footer from '../components/Footer.astro';
     <svg id="icon-moon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
 
-  <main class="pt-20 bg-[#0a1a0a] transition-colors duration-300" id="main-content">
+  <!-- Sub-nav: World Cup sections -->
+  <div class="fixed top-[60px] left-0 right-0 z-40 bg-[#0a1a0a]/95 backdrop-blur-md border-b border-[#1a4d2a]/30 transition-colors duration-300" id="sub-nav">
+    <div class="overflow-x-auto scrollbar-hide">
+      <div class="flex items-center gap-1 px-4 py-2 min-w-max mx-auto justify-center">
+        <a href="#scores" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Scores</a>
+        <a href="#standings" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Standings</a>
+        <a href="#teams" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Teams</a>
+        <a href="#knockout" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Knockout</a>
+        <a href="#stadiums" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Stadiums</a>
+        <a href="#tickets" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Tickets</a>
+        <a href="#stats" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Stats</a>
+        <a href="#news" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">News</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .light-mode #sub-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
+    .light-mode #sub-nav a { color: #5a6a5a !important; }
+    .light-mode #sub-nav a:hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
+  </style>
+
+  <main class="pt-[100px] bg-[#0a1a0a] transition-colors duration-300" id="main-content">
 
     <!-- Hero -->
     <section class="min-h-[90vh] flex items-center px-5 py-12 md:px-6 md:py-16 relative overflow-hidden">
@@ -271,7 +295,7 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Live Scores -->
-    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+    <section id="scores" class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20 scroll-mt-28">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10">
           <div class="inline-block px-3 py-1 mb-3 text-[10px] font-bold rounded-full bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-widest">
@@ -327,7 +351,7 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Ticket Alert -->
-    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+    <section id="tickets" class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20 scroll-mt-28">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-4 uppercase tracking-tight">
           TICKETS SELL OUT IN MINUTES
@@ -343,6 +367,42 @@ import Footer from '../components/Footer.astro';
           <p class="text-[#23DF8C]/80 text-sm font-mono">"Semifinal tickets just dropped on FIFA.com. Category 3 starts at $195. Go now."</p>
         </div>
         <p class="text-[#555] text-xs mt-4">You get the alert. Not an hour later. Not tomorrow. Now.</p>
+      </div>
+    </section>
+
+    <!-- Standings, Teams, Knockout, Stadiums, Stats, News -->
+    <section id="standings" class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20 scroll-mt-28">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-4">
+          <div id="teams" class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 scroll-mt-28">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-2 uppercase tracking-wide">48 TEAMS. ONE CHAMPION.</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm mb-3">Groups, rosters, key players, form guide. Ask about any team.</p>
+            <p class="text-[#23DF8C] text-xs font-mono">"Show me Group C teams and their FIFA ranking"</p>
+          </div>
+          <div id="knockout" class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 scroll-mt-28">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-2 uppercase tracking-wide">KNOCKOUT BRACKET</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm mb-3">Round of 32, quarterfinals, semis, final. Updated in real time.</p>
+            <p class="text-[#23DF8C] text-xs font-mono">"Who plays in the quarterfinals?"</p>
+          </div>
+          <div id="stadiums" class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 scroll-mt-28">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-2 uppercase tracking-wide">16 STADIUMS. 3 COUNTRIES.</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm mb-3">MetLife, Azteca, SoFi, BMO Field. Capacity, location, match schedule.</p>
+            <p class="text-[#23DF8C] text-xs font-mono">"Which matches are at Estadio Azteca?"</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div id="stats" class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 scroll-mt-28">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-2 uppercase tracking-wide">STATS AND INSIGHTS</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm mb-3">Top scorers, assists, clean sheets, possession stats. Know more than the pundits.</p>
+            <p class="text-[#23DF8C] text-xs font-mono">"Who has the most assists this tournament?"</p>
+          </div>
+          <div id="news" class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 scroll-mt-28">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-2 uppercase tracking-wide">NEWS AND UPDATES</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm mb-3">Injuries, lineup changes, transfer rumors, post-match analysis. Daily summaries.</p>
+            <p class="text-[#23DF8C] text-xs font-mono">"Give me today's World Cup headlines"</p>
+          </div>
+        </div>
+        <p class="text-center text-[#555] text-xs mt-6">All of this. One WhatsApp message. No app switching.</p>
       </div>
     </section>
 
