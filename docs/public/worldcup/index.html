@@ -177,12 +177,18 @@ const lang = "en";
 
  <!-- Right: Phone mockup -->
  <div class="order-1 md:order-2 flex justify-center" data-astro-cid-hadypdna>
- <div class="relative" style="width:280px;">
- <!-- FIFA logo badge hovering over phone -->
-              <div style="position:absolute;bottom:40%;left:-20px;z-index:20;animation:floatBadge 3s ease-in-out infinite;">
-                <div style="background:#0a1a0a;border:2px solid rgba(37,211,102,0.3);border-radius:14px;padding:8px 10px;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
-                  <img src="FIFA-2026-World-Cup-White-Logo.png" alt="FIFA World Cup 2026" class="wc-logo-dark" style="height:35px;width:auto;">
-                  <img src="FIFA-2026-World-Cup-Logo-75.png" alt="FIFA World Cup 2026" class="wc-logo-light" style="height:35px;width:auto;display:none;">
+ <div class="relative" style="width:240px;">
+ <!-- Badges hovering over phone: Meta + FIFA vertical -->
+              <div style="position:absolute;bottom:35%;left:-25px;z-index:20;animation:floatBadge 3s ease-in-out infinite;display:flex;flex-direction:column;gap:6px;align-items:center;">
+                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:5px 8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);text-align:center;">
+                  <div style="display:flex;align-items:center;gap:4px;justify-content:center;">
+                    <svg style="width:12px;height:12px;color:#25D366;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span style="color:#25D366;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Meta Business Partner</span>
+                  </div>
+                </div>
+                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+                  <img src="FIFA-2026-World-Cup-White-Logo.png" alt="FIFA World Cup 2026" class="wc-logo-dark" style="height:30px;width:auto;">
+                  <img src="FIFA-2026-World-Cup-Logo-75.png" alt="FIFA World Cup 2026" class="wc-logo-light" style="height:30px;width:auto;display:none;">
                 </div>
               </div>
               <!-- Phone frame -->
