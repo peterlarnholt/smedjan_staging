@@ -69,6 +69,11 @@ const lang = "en";
 .score-flash { animation: scoreFlash 3s ease-in-out infinite; }
 
     #hero-word { transition: opacity 0.3s ease, transform 0.3s ease; }
+    
+    @keyframes typeDot {
+      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-3px); }
+    }
     </style>
 <style>.countdown-num[data-astro-cid-hadypdna]{transition:transform .3s ease}.countdown-flip[data-astro-cid-hadypdna]{transform:scaleY(.8)}.fade-in[data-astro-cid-hadypdna]{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fade-in[data-astro-cid-hadypdna].visible{opacity:1;transform:translateY(0)}.chat-msg[data-astro-cid-hadypdna]{opacity:0;transform:translateY(10px)}.chat-msg[data-astro-cid-hadypdna].show{opacity:1;transform:translateY(0);transition:opacity .4s ease,transform .4s ease}.light-mode[data-astro-cid-hadypdna],body.light-mode{background:#f5f7f5!important}.light-mode[data-astro-cid-hadypdna] h1[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] h2[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] h3[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] summary[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] p[data-astro-cid-hadypdna]:not(.keep-green){color:#4a5a4a!important}.light-mode[data-astro-cid-hadypdna] .text-white[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#a0a0a0]"]{color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#555]"],.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#707070]"]{color:#7a8a7a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#0d0d0d]"],.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#111]"]{background:#fff!important;border-color:#d0e0d0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#141f14]"]{background:#e8f0e8!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#0d2a15]"]{background:#e0f5e8!important;border-color:#b0d8b8!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#1a3a1a]"]{background:#d8f0e0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="border-[#1a4d2a]"]{border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#25D366]"],.light-mode[data-astro-cid-hadypdna] .text-\[\#25D366\][data-astro-cid-hadypdna]{color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#25D366]"]{background:#0a8a4a!important;color:#fff!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*=shadow-]{box-shadow:0 0 20px #0a8a4a26!important}.light-mode[data-astro-cid-hadypdna] #theme-toggle[data-astro-cid-hadypdna]{background:#e0f0e0!important;border-color:#0a8a4a40!important;color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna]{background:#eef5ee!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna] span[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna] p[data-astro-cid-hadypdna]{color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] details[data-astro-cid-hadypdna]{background:#fff!important;border-color:#d0e0d0!important}.light-mode[data-astro-cid-hadypdna] section[data-astro-cid-hadypdna][itemtype*=FAQPage]{background:#f5f7f5!important}.light-mode[data-astro-cid-hadypdna] section[data-astro-cid-hadypdna][itemtype*=FAQPage] h2[data-astro-cid-hadypdna]{color:#0a1a0a!important}.scrollbar-hide[data-astro-cid-hadypdna]::-webkit-scrollbar{display:none}.scrollbar-hide[data-astro-cid-hadypdna]{-ms-overflow-style:none;scrollbar-width:none}body{background:#0a1a0a!important}details[data-astro-cid-hadypdna]{background:#0d0d0d!important}details[data-astro-cid-hadypdna] summary[data-astro-cid-hadypdna]{background:transparent!important}details[data-astro-cid-hadypdna]>div[data-astro-cid-hadypdna]{background:transparent!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna]{background:#f5f7f5f2!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna]:not([style]){color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna]:not([style]):hover{color:#0a8a4a!important;background:#0a8a4a1a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] span[data-astro-cid-hadypdna]{color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna][style*=background]{background:#0a8a4a!important;color:#fff!important}
 </style><script type="module">const u=new Date("2026-06-11T00:00:00Z").getTime();function m(){const t=new Date().getTime(),e=u-t;if(e<=0){["days","hours","mins","secs"].forEach(n=>document.getElementById(n).textContent="0");return}const g={days:Math.floor(e/(1e3*60*60*24)),hours:Math.floor(e%(1e3*60*60*24)/(1e3*60*60)),mins:Math.floor(e%(1e3*60*60)/(1e3*60)),secs:Math.floor(e%(1e3*60)/1e3)};Object.entries(g).forEach(([n,c])=>{const s=document.getElementById(n);s&&s.textContent!==String(c)&&(s.classList.add("countdown-flip"),setTimeout(()=>{s.textContent=c,s.classList.remove("countdown-flip")},150))})}m();setInterval(m,1e3);const i=document.getElementById("sticky-cta");window.addEventListener("scroll",()=>{window.scrollY>600?i.classList.remove("translate-y-full"):i.classList.add("translate-y-full")});const f=new IntersectionObserver(t=>{t.forEach(e=>{e.isIntersecting&&e.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll("section > div").forEach(t=>{t.classList.add("fade-in"),f.observe(t)});const L=document.querySelectorAll(".chat-msg");L.forEach((t,e)=>{setTimeout(()=>t.classList.add("show"),500+e*600)});const y=document.getElementById("theme-toggle"),d=document.getElementById("icon-sun"),l=document.getElementById("icon-moon"),a=document.getElementById("main-content"),r=document.body;let o=!1;localStorage.getItem("wc-theme")==="light"&&(o=!0,h());y.addEventListener("click",()=>{o=!o,h(),localStorage.setItem("wc-theme",o?"light":"dark")});function h(){o?(a.classList.add("light-mode"),r.classList.add("light-mode"),d.classList.remove("hidden"),l.classList.add("hidden")):(a.classList.remove("light-mode"),r.classList.remove("light-mode"),d.classList.add("hidden"),l.classList.remove("hidden"))}
@@ -89,6 +94,43 @@ const lang = "en";
         }, 300);
       }, 2500);
     }
+    
+    // Dynamic chat sequence
+    function runChat() {
+      const msgs = ['msg-2','msg-3','msg-4','msg-5','msg-6','msg-7'];
+      const typing = document.getElementById('typing-1');
+      let i = 0;
+      
+      // Show typing for 1.5s then first reply
+      setTimeout(() => {
+        if(typing) typing.style.display = 'none';
+        const m2 = document.getElementById('msg-2');
+        if(m2) { m2.style.display = 'flex'; m2.style.opacity = '0'; m2.style.transform = 'translateY(8px)';
+          setTimeout(() => { m2.style.transition = 'all 0.3s'; m2.style.opacity = '1'; m2.style.transform = 'translateY(0)'; }, 50);
+        }
+        
+        // Then show remaining messages
+        let delay = 1200;
+        for(let j = 1; j < msgs.length; j++) {
+          ((idx, d) => {
+            setTimeout(() => {
+              const el = document.getElementById(msgs[idx]);
+              if(el) { el.style.display = 'flex'; el.style.opacity = '0'; el.style.transform = 'translateY(8px)';
+                setTimeout(() => { el.style.transition = 'all 0.3s'; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 50);
+              }
+            }, d);
+          })(j, delay);
+          delay += (j === 3) ? 800 : 1200; // Goal appears faster
+        }
+      }, 1800);
+    }
+    
+    // Start chat animation when phone is visible
+    const phoneObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { runChat(); phoneObserver.disconnect(); }});
+    }, {threshold: 0.3});
+    const waChat = document.getElementById('wa-chat');
+    if(waChat) phoneObserver.observe(waChat);
     </script></head> <body class="bg-surface-black text-text-primary font-body antialiased">             <nav class="fixed top-0 w-full z-50 border-b" style="background:#0a1a0a;border-color:rgba(26,77,42,0.3);" id="main-nav" data-astro-cid-hadypdna> <div class="max-w-6xl mx-auto px-4 md:px-6" data-astro-cid-hadypdna> <div class="flex items-center justify-between py-2.5" data-astro-cid-hadypdna> <a href="https://handled.sh/" class="flex items-center gap-2 shrink-0" data-astro-cid-hadypdna> <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" data-astro-cid-hadypdna><rect width="32" height="32" rx="8" fill="#25D366" data-astro-cid-hadypdna></rect><path d="M9 16.5l4.5 4.5L23 11" stroke="#0a1a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-hadypdna></path></svg> <span class="font-heading font-bold text-base text-[#25D366] tracking-tight" data-astro-cid-hadypdna>handled.sh <span style="color:#a0a0a0;font-weight:400;font-size:10px;margin-left:4px;">livescore 24/7</span></span> </a> <div class="overflow-x-auto scrollbar-hide mx-4 hidden md:block" data-astro-cid-hadypdna> <div class="flex items-center gap-0.5 min-w-max" data-astro-cid-hadypdna> <a href="#scores" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Scores</a> <a href="#standings" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Standings</a> <a href="#teams" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Teams</a> <a href="#knockout" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Knockout</a> <a href="#stadiums" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Stadiums</a> <a href="#tickets" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Tickets</a> <a href="#stats" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Stats</a> <a href="#news" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>News</a> </div> </div> <!-- CTA removed from nav — sticky bottom CTA instead --> </div> <!-- Mobile menu row --> <div class="overflow-x-auto scrollbar-hide md:hidden -mx-4 px-4 pb-2" data-astro-cid-hadypdna> <div class="flex items-center gap-0.5 min-w-max" data-astro-cid-hadypdna> <a href="#scores" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Scores</a> <a href="#standings" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Standings</a> <a href="#teams" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Teams</a> <a href="#knockout" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Knockout</a> <a href="#stadiums" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Stadiums</a> <a href="#tickets" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Tickets</a> <a href="#stats" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>Stats</a> <a href="#news" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10" data-astro-cid-hadypdna>News</a> </div> </div> </div> </nav>  <button id="theme-toggle" style="position:fixed;top:12px;right:12px;z-index:100;width:36px;height:36px;border-radius:50%;background:#1a4d2a;border:1px solid rgba(37,211,102,0.3);display:flex;align-items:center;justify-content:center;color:#25D366;cursor:pointer;" aria-label="Toggle light/dark mode" data-astro-cid-hadypdna> <svg id="icon-sun" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-hadypdna><circle cx="12" cy="12" r="5" data-astro-cid-hadypdna></circle><line x1="12" y1="1" x2="12" y2="3" data-astro-cid-hadypdna></line><line x1="12" y1="21" x2="12" y2="23" data-astro-cid-hadypdna></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-astro-cid-hadypdna></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-astro-cid-hadypdna></line><line x1="1" y1="12" x2="3" y2="12" data-astro-cid-hadypdna></line><line x1="21" y1="12" x2="23" y2="12" data-astro-cid-hadypdna></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-astro-cid-hadypdna></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-astro-cid-hadypdna></line></svg> <svg id="icon-moon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-hadypdna><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" data-astro-cid-hadypdna></path></svg> </button>  <main class="pt-[100px] bg-[#0a1a0a] transition-colors duration-300" id="main-content" data-astro-cid-hadypdna> <!-- Hero -->
     <section class="min-h-[100vh] flex items-center justify-center px-5 py-8 md:px-6 md:py-16 relative overflow-hidden" data-astro-cid-hadypdna>
       <!-- WC Logo watermark background -->
@@ -165,46 +207,81 @@ const lang = "en";
                     </div>
                     <svg style="width:18px;height:18px;color:#aebac1;" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
                   </div>
-                  <!-- WA Chat -->
-                  <div style="padding:10px;min-height:340px;display:flex;flex-direction:column;gap:6px;background:#0B141A;">
-                    <!-- Outgoing -->
+                  <!-- WA Chat - Dynamic conversation -->
+                  <div style="padding:8px;min-height:360px;display:flex;flex-direction:column;gap:5px;background:#0B141A;" id="wa-chat">
+                    <!-- Messages appear one by one -->
                     <div class="chat-msg" style="display:flex;justify-content:flex-end;">
-                      <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:6px 10px;max-width:82%;">
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:0;">Follow Argentina for me. Live scores, reminders, everything.</p>
-                        <div style="display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:2px;">
-                          <span style="color:rgba(255,255,255,0.5);font-size:9px;">09:41</span>
-                          <svg style="width:14px;height:10px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
+                      <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:5px 10px;max-width:82%;">
+                        <p style="color:#e9edef;font-size:11px;line-height:1.4;margin:0;">Set up World Cup for me. Argentina + Brazil. Everything.</p>
+                        <div style="display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:1px;">
+                          <span style="color:rgba(255,255,255,0.4);font-size:8px;">09:41</span>
+                          <svg style="width:12px;height:9px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
                         </div>
                       </div>
                     </div>
-                    <!-- Incoming -->
-                    <div class="chat-msg" style="display:flex;justify-content:flex-start;">
-                      <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:6px 10px;max-width:85%;">
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:0;">You are locked in! I will send you:</p>
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:2px 0 0;">- Reminders 30 min before kickoff</p>
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:0;">- Live goals, HT, FT alerts</p>
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:0;">- Post-match summary</p>
-                        <p style="color:#25D366;font-size:12px;line-height:1.4;margin:4px 0 0;font-weight:500;">Next: ARG vs SAU, Jun 14</p>
-                        <span style="color:rgba(255,255,255,0.35);font-size:9px;float:right;margin-top:2px;">09:41</span>
-                      </div>
-                    </div>
-                    <!-- Goal alert -->
-                    <div class="chat-msg" style="display:flex;justify-content:flex-start;">
-                      <div style="background:#202C33;border:1px solid rgba(37,211,102,0.25);border-radius:0 8px 8px 8px;padding:6px 10px;max-width:85%;">
-                        <p style="color:#25D366;font-size:13px;font-weight:700;line-height:1.3;margin:0;">GOOOOOL!</p>
-                        <p style="color:#25D366;font-size:12px;line-height:1.3;margin:0;">Argentina 1 - 0</p>
-                        <p style="color:#e9edef;font-size:11px;line-height:1.4;margin:2px 0 0;">Messi. Free kick. Top corner. 23'</p>
-                        <span style="color:rgba(255,255,255,0.35);font-size:9px;float:right;margin-top:2px;">20:23</span>
-                      </div>
-                    </div>
-                    <!-- Outgoing -->
-                    <div class="chat-msg" style="display:flex;justify-content:flex-end;">
-                      <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:6px 10px;max-width:82%;">
-                        <p style="color:#e9edef;font-size:12px;line-height:1.4;margin:0;">Alert me when semifinal tickets drop</p>
-                        <div style="display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:2px;">
-                          <span style="color:rgba(255,255,255,0.5);font-size:9px;">20:24</span>
-                          <svg style="width:14px;height:10px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
+                    <!-- Typing indicator -->
+                    <div class="chat-msg" id="typing-1" style="display:flex;justify-content:flex-start;">
+                      <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:8px 14px;">
+                        <div style="display:flex;gap:4px;align-items:center;">
+                          <div style="width:6px;height:6px;background:#8696a0;border-radius:50%;animation:typeDot 1.4s infinite;"></div>
+                          <div style="width:6px;height:6px;background:#8696a0;border-radius:50%;animation:typeDot 1.4s infinite 0.2s;"></div>
+                          <div style="width:6px;height:6px;background:#8696a0;border-radius:50%;animation:typeDot 1.4s infinite 0.4s;"></div>
                         </div>
+                      </div>
+                    </div>
+                    <!-- Bot reply -->
+                    <div class="chat-msg" style="display:none;justify-content:flex-start;" id="msg-2">
+                      <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:5px 10px;max-width:85%;">
+                        <p style="color:#25D366;font-size:11px;line-height:1.3;margin:0;font-weight:600;">Done! You are all set for WC 2026</p>
+                        <p style="color:#e9edef;font-size:11px;line-height:1.3;margin:2px 0 0;">Following: Argentina + Brazil</p>
+                        <p style="color:#e9edef;font-size:11px;line-height:1.3;margin:0;">Live scores + reminders + news</p>
+                        <p style="color:#25D366;font-size:11px;line-height:1.3;margin:3px 0 0;">First match: Jun 14, ARG vs SAU</p>
+                        <span style="color:rgba(255,255,255,0.3);font-size:8px;float:right;margin-top:1px;">09:41</span>
+                      </div>
+                    </div>
+                    <!-- Time skip -->
+                    <div class="chat-msg" style="display:none;justify-content:center;" id="msg-3">
+                      <div style="background:#1a2a23;border-radius:6px;padding:3px 10px;">
+                        <span style="color:#8696a0;font-size:9px;">MATCH DAY - June 14</span>
+                      </div>
+                    </div>
+                    <!-- Reminder -->
+                    <div class="chat-msg" style="display:none;justify-content:flex-start;" id="msg-4">
+                      <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:5px 10px;max-width:85%;">
+                        <p style="color:#e9edef;font-size:11px;line-height:1.3;margin:0;">Kickoff in 30 minutes!</p>
+                        <p style="color:#25D366;font-size:12px;line-height:1.3;margin:2px 0 0;font-weight:700;">ARG vs SAU | 20:00</p>
+                        <p style="color:#8696a0;font-size:10px;line-height:1.3;margin:1px 0 0;">Lusail Stadium, Qatar</p>
+                        <span style="color:rgba(255,255,255,0.3);font-size:8px;float:right;margin-top:1px;">19:30</span>
+                      </div>
+                    </div>
+                    <!-- GOAL! -->
+                    <div class="chat-msg" style="display:none;justify-content:flex-start;" id="msg-5">
+                      <div style="background:#202C33;border:1px solid rgba(37,211,102,0.3);border-radius:0 8px 8px 8px;padding:5px 10px;max-width:85%;">
+                        <p style="color:#25D366;font-size:14px;font-weight:800;line-height:1.2;margin:0;letter-spacing:1px;">GOOOOOL!!!</p>
+                        <p style="color:#25D366;font-size:12px;line-height:1.2;margin:1px 0 0;font-weight:600;">Argentina 1 - 0</p>
+                        <p style="color:#e9edef;font-size:11px;line-height:1.3;margin:3px 0 0;">Messi 10' - Free kick, top corner</p>
+                        <p style="color:#8696a0;font-size:10px;line-height:1.3;margin:1px 0 0;">What. A. Strike.</p>
+                        <span style="color:rgba(255,255,255,0.3);font-size:8px;float:right;margin-top:1px;">20:10</span>
+                      </div>
+                    </div>
+                    <!-- Fan reaction -->
+                    <div class="chat-msg" style="display:none;justify-content:flex-end;" id="msg-6">
+                      <div style="background:#005C4B;border-radius:8px 0 8px 8px;padding:5px 10px;max-width:82%;">
+                        <p style="color:#e9edef;font-size:11px;line-height:1.4;margin:0;">VAMOOOOS!! Who has the most goals now?</p>
+                        <div style="display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:1px;">
+                          <span style="color:rgba(255,255,255,0.4);font-size:8px;">20:10</span>
+                          <svg style="width:12px;height:9px;color:#53bdeb;" viewBox="0 0 16 11" fill="currentColor"><path d="M11.07.66L5.4 7.36 2.93 4.89 1.51 6.31l3.9 3.9L12.49 2.08z"/><path d="M14.07.66L8.4 7.36 7.58 6.54l-1.42 1.42 2.24 2.24L15.49 2.08z"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Stats reply -->
+                    <div class="chat-msg" style="display:none;justify-content:flex-start;" id="msg-7">
+                      <div style="background:#202C33;border-radius:0 8px 8px 8px;padding:5px 10px;max-width:85%;">
+                        <p style="color:#e9edef;font-size:11px;line-height:1.3;margin:0;font-weight:500;">Top scorers WC 2026:</p>
+                        <p style="color:#e9edef;font-size:11px;line-height:1.4;margin:2px 0 0;">1. Mbappe - 3 goals</p>
+                        <p style="color:#25D366;font-size:11px;line-height:1.4;margin:0;font-weight:600;">2. Messi - 2 goals</p>
+                        <p style="color:#e9edef;font-size:11px;line-height:1.4;margin:0;">3. Vinicius Jr - 2 goals</p>
+                        <span style="color:rgba(255,255,255,0.3);font-size:8px;float:right;margin-top:1px;">20:11</span>
                       </div>
                     </div>
                   </div>
