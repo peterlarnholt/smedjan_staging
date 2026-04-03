@@ -178,17 +178,46 @@ const lang = "en";
  <!-- Right: Phone mockup -->
  <div class="order-1 md:order-2 flex justify-center" data-astro-cid-hadypdna>
  <div class="relative" style="width:240px;">
- <!-- Badges hovering over phone: Meta + FIFA vertical -->
-              <div style="position:absolute;bottom:35%;left:-25px;z-index:20;animation:floatBadge 3s ease-in-out infinite;display:flex;flex-direction:column;gap:6px;align-items:center;">
-                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:5px 8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);text-align:center;">
-                  <div style="display:flex;align-items:center;gap:4px;justify-content:center;">
-                    <svg style="width:12px;height:12px;color:#25D366;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    <span style="color:#25D366;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Meta Business Partner</span>
+ <!-- Small trust phone beside main phone -->
+              <div style="position:absolute;bottom:15%;right:-60px;z-index:20;animation:floatBadge 4s ease-in-out infinite;width:110px;" class="hidden md:block">
+                <div style="background:#000;border-radius:20px;padding:5px;box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 20px rgba(37,211,102,0.08);">
+                  <div style="border-radius:16px;overflow:hidden;background:#0B141A;">
+                    <!-- Mini status bar -->
+                    <div style="padding:4px 8px 2px;display:flex;justify-content:space-between;align-items:center;">
+                      <span style="color:#aebac1;font-size:7px;">9:41</span>
+                      <div style="width:8px;height:6px;border:1px solid #aebac1;border-radius:1px;"></div>
+                    </div>
+                    <!-- Trust content -->
+                    <div style="padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:12px;min-height:160px;justify-content:center;">
+                      <!-- Meta Business Partner -->
+                      <div style="text-align:center;">
+                        <svg style="width:20px;height:20px;color:#25D366;margin:0 auto 4px;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <div style="color:#25D366;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;line-height:1.3;">Meta<br>Business<br>Partner</div>
+                      </div>
+                      <!-- Divider -->
+                      <div style="width:40px;height:1px;background:rgba(37,211,102,0.2);"></div>
+                      <!-- FIFA Logo -->
+                      <div style="text-align:center;">
+                        <img src="FIFA-2026-World-Cup-White-Logo.png" alt="FIFA World Cup 2026" class="wc-logo-dark" style="height:40px;width:auto;">
+                        <img src="FIFA-2026-World-Cup-Logo-75.png" alt="FIFA World Cup 2026" class="wc-logo-light" style="height:40px;width:auto;display:none;">
+                      </div>
+                    </div>
+                    <!-- Bottom bar -->
+                    <div style="padding:4px 0;display:flex;justify-content:center;">
+                      <div style="width:40px;height:3px;background:#555;border-radius:2px;"></div>
+                    </div>
                   </div>
                 </div>
-                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);">
-                  <img src="FIFA-2026-World-Cup-White-Logo.png" alt="FIFA World Cup 2026" class="wc-logo-dark" style="height:30px;width:auto;">
-                  <img src="FIFA-2026-World-Cup-Logo-75.png" alt="FIFA World Cup 2026" class="wc-logo-light" style="height:30px;width:auto;display:none;">
+              </div>
+              <!-- Mobile: badges below phone instead -->
+              <div class="md:hidden" style="display:flex;gap:8px;justify-content:center;margin-top:10px;">
+                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.2);border-radius:8px;padding:4px 8px;display:flex;align-items:center;gap:4px;">
+                  <svg style="width:10px;height:10px;color:#25D366;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span style="color:#25D366;font-size:8px;font-weight:600;">Meta Partner</span>
+                </div>
+                <div style="background:#0a1a0a;border:1px solid rgba(37,211,102,0.2);border-radius:8px;padding:4px 8px;">
+                  <img src="FIFA-2026-World-Cup-White-Logo.png" alt="FIFA" class="wc-logo-dark" style="height:18px;width:auto;">
+                  <img src="FIFA-2026-World-Cup-Logo-75.png" alt="FIFA" class="wc-logo-light" style="height:18px;width:auto;display:none;">
                 </div>
               </div>
               <!-- Phone frame -->
