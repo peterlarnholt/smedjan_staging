@@ -1,7 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Base
@@ -99,7 +97,18 @@ import Footer from '../components/Footer.astro';
     }
   })} />
 
-  <Nav cta="Get it on WhatsApp" ctaLink="https://handled.sh/whatsapp" />
+  <!-- Custom Nav (World Cup themed, replaces shared Nav) -->
+  <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b" style="background:rgba(10,26,10,0.92);border-color:rgba(26,77,42,0.3);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="https://handled.sh/" class="flex items-center gap-3">
+        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Handled" class="w-8 h-8" />
+        <span class="font-heading font-bold text-xl text-white tracking-tight">handled.sh</span>
+      </a>
+      <a href="https://handled.sh/whatsapp" style="background:#23DF8C;color:#0a1a0a;box-shadow:0 0 20px rgba(35,223,140,0.3);" class="px-5 py-2.5 font-heading font-semibold text-sm rounded-lg hover:opacity-90 transition-all">
+        Get it on WhatsApp
+      </a>
+    </div>
+  </nav>
 
   <!-- Dark/Light toggle -->
   <button
@@ -131,20 +140,7 @@ import Footer from '../components/Footer.astro';
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Override nav for World Cup theme */
-    nav { background: rgba(10, 26, 10, 0.9) !important; border-color: rgba(26, 77, 42, 0.3) !important; }
-    nav a[class*="bg-brand-purple"] {
-      background: #23DF8C !important;
-      color: #0a1a0a !important;
-      box-shadow: 0 0 20px rgba(35, 223, 140, 0.3) !important;
-    }
-    nav a[class*="bg-brand-purple"]:hover {
-      background: #1ec97a !important;
-      box-shadow: 0 0 30px rgba(35, 223, 140, 0.4) !important;
-    }
-
-    /* Override footer for World Cup theme */
-    footer { background: #060f06 !important; border-color: rgba(26, 77, 42, 0.2) !important; }
+    /* Light mode nav + footer */
     .light-mode #sub-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
     .light-mode #sub-nav a { color: #5a6a5a !important; }
     .light-mode #sub-nav a:hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
@@ -540,7 +536,19 @@ import Footer from '../components/Footer.astro';
     </section>
 
   </main>
-  <Footer />
+
+  <!-- Custom Footer (World Cup themed) -->
+  <footer class="py-12 px-6 border-t" style="background:#060f06;border-color:rgba(26,77,42,0.2);">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Handled" class="w-6 h-6" />
+        <span class="font-heading font-semibold text-white">handled.sh</span>
+      </div>
+      <p class="text-[#555] text-sm">
+        &copy; 2026 Handled. Free forever. Not affiliated with FIFA.
+      </p>
+    </div>
+  </footer>
 
   <style>
     /* Light mode overrides */
@@ -565,10 +573,9 @@ import Footer from '../components/Footer.astro';
     .light-mode [class*="bg-[#23DF8C]"] { background: #0a8a4a !important; color: #ffffff !important; }
     .light-mode [class*="shadow-"] { box-shadow: 0 0 20px rgba(10, 138, 74, 0.15) !important; }
     .light-mode #theme-toggle { background: #e0f0e0 !important; border-color: #0a8a4a40 !important; color: #0a8a4a !important; }
-    .light-mode nav { background: rgba(245, 247, 245, 0.9) !important; border-color: #c0d8c0 !important; }
-    .light-mode nav span,
-    .light-mode nav a:not([class*="bg-"]) { color: #0a1a0a !important; }
-    .light-mode nav a[class*="bg-brand-purple"] { background: #0a8a4a !important; color: #fff !important; box-shadow: 0 0 15px rgba(10,138,74,0.2) !important; }
+    .light-mode nav { background: rgba(245,247,245,0.92) !important; border-color: #c0d8c0 !important; }
+    .light-mode nav span { color: #0a1a0a !important; }
+    .light-mode nav a[style*="background"] { background: #0a8a4a !important; color: #fff !important; }
     .light-mode footer { background: #eef5ee !important; border-color: #c0d8c0 !important; }
     .light-mode footer span { color: #0a1a0a !important; }
     .light-mode footer p { color: #5a6a5a !important; }
