@@ -1,0 +1,23 @@
+---
+interface Props {
+  cta?: string;
+  ctaLink?: string;
+}
+
+const { cta = 'Get Started — Free', ctaLink = 'https://handled.sh' } = Astro.props;
+---
+
+<nav class="fixed top-0 w-full z-50 bg-surface-black/80 backdrop-blur-md border-b border-border-divider">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="https://handled.sh/" class="flex items-center gap-3">
+      <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Handled" class="w-8 h-8" />
+      <span class="font-heading font-bold text-xl text-white tracking-tight">handled.sh</span>
+    </a>
+    <a
+      href={ctaLink}
+      class="px-5 py-2.5 bg-brand-purple text-white font-heading font-semibold text-sm rounded-lg shadow-glow hover:bg-brand-dark transition-all"
+    >
+      {cta}
+    </a>
+  </div>
+</nav>

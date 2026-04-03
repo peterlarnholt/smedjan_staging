@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  canonical?: string;
+  ogImage?: string;
+  hreflangAlts?: { lang: string; href: string }[];
+  noindex?: boolean;
+  icpSegment?: string;
+  geoTarget?: string;
+}
+
+const {
+  title,
+  description,
+  lang = 'en',
+  canonical,
+  ogImage = 'https://handled.sh/og-default.png',
+  hreflangAlts = [],
+  noindex = false,
+  icpSegment = 'main',
+  geoTarget = 'global',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    {hreflangAlts.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:site_name" content="Handled" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Handled",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "description": description,
+      "url": "https://handled.sh",
+      "offers": [
+        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free forever" },
+        { "@type": "Offer", "price": "1", "priceCurrency": "USD", "description": "Pro first month" }
+      ]
+    })} />
+    <title>{title}</title>
+    <!-- GA4 Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+    <script define:vars={{ icpSegment, geoTarget, lang }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXLGWW1JSV', {
+        content_group: icpSegment,
+        custom_map: {
+          dimension1: 'icp_segment',
+          dimension2: 'geo_target',
+          dimension3: 'language'
+        }
+      });
+      gtag('event', 'page_view', {
+        icp_segment: icpSegment,
+        geo_target: geoTarget,
+        language: lang
+      });
+    </script>
+  </head>
+  <body class="bg-surface-black text-text-primary font-body antialiased">
+    <slot />
+  </body>
+</html>

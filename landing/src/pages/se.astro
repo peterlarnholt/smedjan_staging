@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="handled.sh — Din produktivitetsassistent i WhatsApp & Telegram"
+  description="Hantera kalender, e-post, uppgifter och paminnelser fran ett chattmeddelande. Gratis for alltid."
+  lang="sv"
+  canonical="https://handled.sh/se/"
+  icpSegment="founders"
+  geoTarget="se"
+  hreflangAlts={[
+    { lang: 'sv', href: 'https://handled.sh/se/' },
+    { lang: 'en', href: 'https://handled.sh/founders/' },
+  ]}
+>
+  <Nav cta="Kom igang — Gratis" ctaLink="https://handled.sh" />
+  <main class="pt-20">
+
+    <!-- Hero -->
+    <section class="min-h-[80vh] flex items-center px-6 py-20">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-6">
+            Ett meddelande.<br />Hela din dag, <span class="text-brand-light">fixad.</span>
+          </h1>
+          <p class="text-text-secondary text-lg md:text-xl mb-8 leading-relaxed">
+            En produktivitetsassistent som lever i WhatsApp och Telegram. Kalender, e-post, uppgifter, paminnelser — allt fran ett chattmeddelande.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://handled.sh" class="px-8 py-4 bg-brand-purple text-white font-heading font-bold text-lg rounded-xl shadow-glow-lg hover:bg-brand-dark transition-all text-center">
+              Kom igang — Gratis for alltid
+            </a>
+          </div>
+          <p class="text-text-muted text-sm mt-4">Ingen app att ladda ner. Bara skriv ett meddelande.</p>
+        </div>
+        <div class="bg-surface-card border border-border-default rounded-2xl p-6 shadow-glow">
+          <div class="space-y-4">
+            <div class="flex justify-end">
+              <div class="bg-brand-dark/30 border border-brand-purple/20 rounded-2xl rounded-br-md px-4 py-3 max-w-xs">
+                <p class="font-mono text-sm text-text-primary">Flytta mitt mote kl 15 till imorgon och maila kunden</p>
+              </div>
+            </div>
+            <div class="flex justify-start">
+              <div class="bg-surface-subtle border border-border-default rounded-2xl rounded-bl-md px-4 py-3 max-w-sm">
+                <p class="font-mono text-sm text-brand-light">Klart. Motet flyttat till imorgon kl 15. E-post skickat till erik@foretag.se.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="px-6 py-20 border-t border-border-divider">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white text-center mb-4">
+          Vad kan Handled gora?
+        </h2>
+        <p class="text-text-secondary text-center mb-16 max-w-xl mx-auto">
+          Allt du behover, fran ett chattmeddelande.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">📅</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">Kalenderhantering</h3>
+            <p class="text-text-secondary">Boka, flytta och avboka moten. Synkad med Google Calendar och Outlook.</p>
+          </div>
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">✉️</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">E-post fran chatten</h3>
+            <p class="text-text-secondary">Skicka och las e-post utan att oppna Gmail. Snabbt och enkelt.</p>
+          </div>
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">✅</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">Uppgifter & paminnelser</h3>
+            <p class="text-text-secondary">Skapa uppgifter, satt paminnelser. Synkad med Todoist. Glomm aldrig igen.</p>
+          </div>
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">🔄</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">Automatiserade rutiner</h3>
+            <p class="text-text-secondary">"Varje morgon kl 7, skicka dagens schema och mina topp 3 uppgifter."</p>
+          </div>
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">💰</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">Prisbevakning</h3>
+            <p class="text-text-secondary">Bevaka flyg, hotell och produkter. Far notis nar priset sjunker.</p>
+          </div>
+          <div class="bg-surface-card border border-border-default rounded-xl p-8">
+            <div class="text-3xl mb-4">🌐</div>
+            <h3 class="font-heading font-semibold text-white text-lg mb-3">Fungerar pa svenska</h3>
+            <p class="text-text-secondary">Skriv pa svenska, engelska eller 5 andra sprak. Handled forstar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="px-6 py-20 border-t border-border-divider">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+          Gratis for alltid. Pro nar du ar redo.
+        </h2>
+        <p class="text-text-secondary mb-12 max-w-xl mx-auto">
+          Borja med allt du behover. Uppgradera nar du vill ha mer.
+        </p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div class="bg-surface-card border border-border-default rounded-2xl p-8 text-left">
+            <h3 class="font-heading font-bold text-white text-xl mb-2">Gratis</h3>
+            <p class="text-3xl font-heading font-extrabold text-white mb-1">0 kr<span class="text-text-muted text-lg font-normal"> for alltid</span></p>
+            <p class="text-text-secondary text-sm mb-6">Obegransade uppgifter. Alla integrationer.</p>
+            <a href="https://handled.sh" class="block w-full py-3 border border-border-default text-text-primary font-heading font-semibold rounded-xl text-center hover:border-brand-purple transition-all">
+              Kom igang
+            </a>
+          </div>
+          <div class="bg-surface-card border border-brand-purple rounded-2xl p-8 text-left shadow-glow">
+            <h3 class="font-heading font-bold text-brand-light text-xl mb-2">Pro</h3>
+            <p class="text-3xl font-heading font-extrabold text-white mb-1">10 kr<span class="text-text-muted text-lg font-normal"> forsta manaden</span></p>
+            <p class="text-text-secondary text-sm mb-6">Obegransade meddelanden. Full kraft.</p>
+            <a href="https://handled.sh/pricing" class="block w-full py-3 bg-brand-purple text-white font-heading font-semibold rounded-xl text-center shadow-glow hover:bg-brand-dark transition-all">
+              Testa Pro for 10 kr
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-6 py-20 border-t border-border-divider">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-6">
+          Du ar redan i WhatsApp.<br />Nu kan du fa saker gjorda dar.
+        </h2>
+        <a href="https://handled.sh" class="inline-block px-10 py-5 bg-brand-purple text-white font-heading font-bold text-xl rounded-xl shadow-glow-lg hover:bg-brand-dark transition-all">
+          Borja gratis — Inget kreditkort
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer lang="sv" />
+</Base>

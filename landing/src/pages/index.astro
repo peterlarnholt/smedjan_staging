@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Main Smedjan — Handled LP Hub" description="Handled landing page hub. For the live site visit handled.sh." noindex={true} icpSegment="main" geoTarget="global">
+  <Nav />
+  <main class="pt-20">
+    <section class="min-h-[60vh] flex items-center justify-center px-6 py-20">
+      <div class="max-w-3xl text-center">
+        <h1 class="font-heading font-extrabold text-4xl md:text-6xl text-white tracking-tight leading-tight mb-6">
+          One message.<br />Your whole day, <span class="text-brand-light">handled.</span>
+        </h1>
+        <p class="text-text-secondary text-lg md:text-xl mb-10 max-w-xl mx-auto">
+          A productivity assistant that lives in WhatsApp and Telegram. Calendar, email, tasks, reminders — all from a chat message.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://handled.sh" class="px-8 py-4 bg-brand-purple text-white font-heading font-bold text-lg rounded-xl shadow-glow-lg hover:bg-brand-dark transition-all">
+            Get Started — Free
+          </a>
+          <a href="/founders" class="px-8 py-4 border border-border-default text-text-primary font-heading font-semibold text-lg rounded-xl hover:border-brand-purple transition-all">
+            For Founders
+          </a>
+        </div>
+        <p class="text-text-muted text-sm mt-6">Free forever. Pro for $1.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
