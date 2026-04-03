@@ -162,6 +162,96 @@ const lang = "en";
 .menu-box:nth-child(6) { animation-delay: 2.5s; }
 
 
+
+/* NUCLEAR light mode fix — catch ALL remaining white text */
+body.light-mode, body.light-mode main, body.light-mode section {
+  background: #f5f7f5 !important;
+}
+body.light-mode h1, body.light-mode h2, body.light-mode h3 {
+  color: #0a1a0a !important;
+}
+body.light-mode p, body.light-mode span, body.light-mode div {
+  color: inherit;
+}
+body.light-mode [style*="color:#fff"],
+body.light-mode [style*="color: #fff"],
+body.light-mode [style*="color:#e9edef"],
+body.light-mode [style*="color:#a0a0a0"],
+body.light-mode [style*="color:#8696a0"],
+body.light-mode [style*="color:#555"],
+body.light-mode [style*="color:#aebac1"] {
+  color: #333 !important;
+}
+body.light-mode [style*="color:#25D366"] {
+  color: #0a8a4a !important;
+}
+body.light-mode [style*="color:#ff3b3b"] {
+  color: #cc0000 !important;
+}
+body.light-mode [style*="color:rgba(255,255,255"] {
+  color: rgba(0,0,0,0.5) !important;
+}
+body.light-mode [style*="background:#0a1a0a"],
+body.light-mode [style*="background:#0B141A"],
+body.light-mode [style*="background:#0d0d0d"],
+body.light-mode [style*="background:#000"] {
+  background: #f0f0f0 !important;
+}
+body.light-mode [style*="background:#1F2C34"],
+body.light-mode [style*="background:#202C33"],
+body.light-mode [style*="background:#1a2a23"],
+body.light-mode [style*="background:#2A3942"] {
+  background: #e8e8e8 !important;
+}
+body.light-mode [style*="background:#005C4B"] {
+  background: #DCF8C6 !important;
+}
+body.light-mode [style*="background:#25D366"] {
+  background: #0a8a4a !important;
+}
+body.light-mode [style*="background:linear-gradient"] {
+  background: linear-gradient(135deg, #fff, #f0f8f0) !important;
+}
+body.light-mode [style*="border-color:rgba(37,211,102"],
+body.light-mode [style*="border:1px solid rgba(37,211,102"] {
+  border-color: rgba(10,138,74,0.3) !important;
+}
+body.light-mode [style*="border:1px solid rgba(37,211,102,0.3)"] {
+  border-color: rgba(10,138,74,0.3) !important;
+}
+body.light-mode [style*="box-shadow"] {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+}
+body.light-mode nav {
+  background: #f5f7f5 !important;
+  border-color: #c0d8c0 !important;
+}
+body.light-mode footer {
+  background: #eef5ee !important;
+}
+body.light-mode details {
+  background: #fff !important;
+  border-color: #d0e0d0 !important;
+}
+body.light-mode details summary {
+  color: #0a1a0a !important;
+}
+body.light-mode #toggle-track {
+  background: #c0d8c0 !important;
+  border-color: #0a8a4a !important;
+}
+
+/* 2. Mobile centering fix */
+@media (max-width: 768px) {
+  section { text-align: center !important; }
+  section > div { margin-left: auto !important; margin-right: auto !important; }
+  section p, section h2, section h3, section div { text-align: center !important; }
+  .menu-box { text-align: center !important; }
+  .feature-card { text-align: center !important; }
+}
+
+/* 3. Smooth scroll for sub-nav anchors */
+html { scroll-behavior: smooth; }
 </style>
 <style>.countdown-num[data-astro-cid-hadypdna]{transition:transform .3s ease}.countdown-flip[data-astro-cid-hadypdna]{transform:scaleY(.8)}.fade-in[data-astro-cid-hadypdna]{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fade-in[data-astro-cid-hadypdna].visible{opacity:1;transform:translateY(0)}.chat-msg[data-astro-cid-hadypdna]{opacity:0;transform:translateY(10px)}.chat-msg[data-astro-cid-hadypdna].show{opacity:1;transform:translateY(0);transition:opacity .4s ease,transform .4s ease}.light-mode[data-astro-cid-hadypdna],body.light-mode{background:#f5f7f5!important}.light-mode[data-astro-cid-hadypdna] h1[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] h2[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] h3[data-astro-cid-hadypdna],.light-mode[data-astro-cid-hadypdna] summary[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] p[data-astro-cid-hadypdna]:not(.keep-green){color:#4a5a4a!important}.light-mode[data-astro-cid-hadypdna] .text-white[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#a0a0a0]"]{color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#555]"],.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#707070]"]{color:#7a8a7a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#0d0d0d]"],.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#111]"]{background:#fff!important;border-color:#d0e0d0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#141f14]"]{background:#e8f0e8!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#0d2a15]"]{background:#e0f5e8!important;border-color:#b0d8b8!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#1a3a1a]"]{background:#d8f0e0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="border-[#1a4d2a]"]{border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="text-[#25D366]"],.light-mode[data-astro-cid-hadypdna] .text-\[\#25D366\][data-astro-cid-hadypdna]{color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*="bg-[#25D366]"]{background:#0a8a4a!important;color:#fff!important}.light-mode[data-astro-cid-hadypdna] [data-astro-cid-hadypdna][class*=shadow-]{box-shadow:0 0 20px #0a8a4a26!important}.light-mode[data-astro-cid-hadypdna] #theme-toggle[data-astro-cid-hadypdna]{background:#e0f0e0!important;border-color:#0a8a4a40!important;color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna]{background:#eef5ee!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna] span[data-astro-cid-hadypdna]{color:#0a1a0a!important}.light-mode[data-astro-cid-hadypdna] footer[data-astro-cid-hadypdna] p[data-astro-cid-hadypdna]{color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] details[data-astro-cid-hadypdna]{background:#fff!important;border-color:#d0e0d0!important}.light-mode[data-astro-cid-hadypdna] section[data-astro-cid-hadypdna][itemtype*=FAQPage]{background:#f5f7f5!important}.light-mode[data-astro-cid-hadypdna] section[data-astro-cid-hadypdna][itemtype*=FAQPage] h2[data-astro-cid-hadypdna]{color:#0a1a0a!important}.scrollbar-hide[data-astro-cid-hadypdna]::-webkit-scrollbar{display:none}.scrollbar-hide[data-astro-cid-hadypdna]{-ms-overflow-style:none;scrollbar-width:none}body{background:#0a1a0a!important}details[data-astro-cid-hadypdna]{background:#0d0d0d!important}details[data-astro-cid-hadypdna] summary[data-astro-cid-hadypdna]{background:transparent!important}details[data-astro-cid-hadypdna]>div[data-astro-cid-hadypdna]{background:transparent!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna]{background:#f5f7f5f2!important;border-color:#c0d8c0!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna]:not([style]){color:#5a6a5a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna]:not([style]):hover{color:#0a8a4a!important;background:#0a8a4a1a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] span[data-astro-cid-hadypdna]{color:#0a8a4a!important}.light-mode[data-astro-cid-hadypdna] #main-nav[data-astro-cid-hadypdna] a[data-astro-cid-hadypdna][style*=background]{background:#0a8a4a!important;color:#fff!important}
 </style><script type="module">const u=new Date("2026-06-11T00:00:00Z").getTime();function m(){const t=new Date().getTime(),e=u-t;if(e<=0){["days","hours","mins","secs"].forEach(n=>document.getElementById(n).textContent="0");return}const g={days:Math.floor(e/(1e3*60*60*24)),hours:Math.floor(e%(1e3*60*60*24)/(1e3*60*60)),mins:Math.floor(e%(1e3*60*60)/(1e3*60)),secs:Math.floor(e%(1e3*60)/1e3)};Object.entries(g).forEach(([n,c])=>{const s=document.getElementById(n);s&&s.textContent!==String(c)&&(s.classList.add("countdown-flip"),setTimeout(()=>{s.textContent=c,s.classList.remove("countdown-flip")},150))})}m();setInterval(m,1e3);const i=document.getElementById("sticky-cta");window.addEventListener("scroll",()=>{window.scrollY>600?i.classList.remove("translate-y-full"):i.classList.add("translate-y-full")});const f=new IntersectionObserver(t=>{t.forEach(e=>{e.isIntersecting&&e.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll("section > div").forEach(t=>{t.classList.add("fade-in"),f.observe(t)});const L=document.querySelectorAll(".chat-msg");L.forEach((t,e)=>{setTimeout(()=>t.classList.add("show"),500+e*600)});const y=document.getElementById("theme-toggle"),d=document.getElementById("icon-sun"),l=document.getElementById("icon-moon"),a=document.getElementById("main-content"),r=document.body;let o=!1;localStorage.getItem("wc-theme")==="light"&&(o=!0,h());document.getElementById("theme-toggle").addEventListener("click",()=>{o=!o,h(),localStorage.setItem("wc-theme",o?"light":"dark")});function h(){o?(a.classList.add("light-mode"),r.classList.add("light-mode"),d.classList.remove("hidden"),l.classList.add("hidden")):(a.classList.remove("light-mode"),r.classList.remove("light-mode"),d.classList.add("hidden"),l.classList.remove("hidden"))
@@ -524,7 +614,7 @@ const lang = "en";
         <h2 style="color:#fff;font-family:Exo,sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin-bottom:6px;">KICKOFF: JUNE 11</h2>
         <p style="color:#a0a0a0;font-size:14px;margin-bottom:20px;">The fans who set up early don't miss the opening goal.</p>
         <p style="color:#25D366;font-family:Exo,sans-serif;font-weight:700;font-size:18px;margin-bottom:20px;">Which fan are you?</p>
-        <a href="https://handled.sh/whatsapp" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:#25D366;color:#0a1a0a;font-family:Exo,sans-serif;font-weight:700;font-size:16px;border-radius:14px;text-decoration:none;transition:all 0.3s;animation:ctaGlow 2s infinite;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';">
+        <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:#25D366;color:#0a1a0a;font-family:Exo,sans-serif;font-weight:700;font-size:16px;border-radius:14px;text-decoration:none;transition:all 0.3s;animation:ctaGlow 2s infinite;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';">
           <svg style="width:20px;height:20px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Get it on WhatsApp
         </a>
@@ -699,6 +789,6 @@ Do I need to download an app?
 Where are the World Cup 2026 stadiums?
 <span class="text-[#25D366] text-xl group-open:rotate-45 transition-transform" data-astro-cid-hadypdna>+</span> </summary> <div class="px-5 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" data-astro-cid-hadypdna> <p class="text-[#a0a0a0] text-sm leading-relaxed" itemprop="text" data-astro-cid-hadypdna>Matches are played across 16 stadiums in the USA, Mexico, and Canada. Key venues include MetLife Stadium (New York), AT&T Stadium (Dallas), SoFi Stadium (Los Angeles), Estadio Azteca (Mexico City), and BMO Field (Toronto). Ask Handled on WhatsApp about any venue for capacity, location, and match schedule.</p> </div> </details> </div> </div> </section> </main> <footer class="py-12 px-6 border-t" style="background:#0a1a0a;border-color:rgba(26,77,42,0.2);" data-astro-cid-hadypdna> <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4" data-astro-cid-hadypdna> <div class="flex items-center gap-2" data-astro-cid-hadypdna> <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none" data-astro-cid-hadypdna><rect width="32" height="32" rx="8" fill="#25D366" data-astro-cid-hadypdna></rect><path d="M9 16.5l4.5 4.5L23 11" stroke="#0a1a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-hadypdna></path></svg> <span class="font-heading font-semibold text-[#25D366]" data-astro-cid-hadypdna>handled.sh <span style="color:#a0a0a0;font-weight:400;font-size:10px;margin-left:4px;">livescore 24/7</span></span> </div> <p class="text-[#555] text-sm" data-astro-cid-hadypdna>
 &copy; 2026 Handled. Not affiliated with FIFA.
-</p> </div> </footer> <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-300" style="background:#0a1a0a;border-top:1px solid rgba(37,211,102,0.2);" data-astro-cid-hadypdna> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" data-astro-cid-hadypdna> <p class="text-[#a0a0a0] text-xs md:text-sm hidden sm:block" data-astro-cid-hadypdna>Your World Cup. One WhatsApp message.</p> <a href="https://handled.sh/whatsapp" style="background:#25D366;color:#0a1a0a;" class="flex items-center gap-2 px-5 py-2.5 font-heading font-bold text-sm rounded-lg hover:opacity-90 transition-all mx-auto sm:mx-0" data-astro-cid-hadypdna> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-hadypdna><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" data-astro-cid-hadypdna></path></svg>
+</p> </div> </footer> <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-300" style="background:#0a1a0a;border-top:1px solid rgba(37,211,102,0.2);" data-astro-cid-hadypdna> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" data-astro-cid-hadypdna> <p class="text-[#a0a0a0] text-xs md:text-sm hidden sm:block" data-astro-cid-hadypdna>Your World Cup. One WhatsApp message.</p> <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean" style="background:#25D366;color:#0a1a0a;" class="flex items-center gap-2 px-5 py-2.5 font-heading font-bold text-sm rounded-lg hover:opacity-90 transition-all mx-auto sm:mx-0" data-astro-cid-hadypdna> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-hadypdna><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" data-astro-cid-hadypdna></path></svg>
 Get it on WhatsApp
 </a> </div> </div> </body></html>
