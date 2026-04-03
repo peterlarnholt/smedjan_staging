@@ -97,16 +97,43 @@ import Base from '../layouts/Base.astro';
     }
   })} />
 
-  <!-- Custom Nav (World Cup themed, replaces shared Nav) -->
-  <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b" style="background:rgba(10,26,10,0.92);border-color:rgba(26,77,42,0.3);">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="https://handled.sh/" class="flex items-center gap-3">
-        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Handled" class="w-8 h-8" />
-        <span class="font-heading font-bold text-xl text-white tracking-tight">handled.sh</span>
-      </a>
-      <a href="https://handled.sh/whatsapp" style="background:#23DF8C;color:#0a1a0a;box-shadow:0 0 20px rgba(35,223,140,0.3);" class="px-5 py-2.5 font-heading font-semibold text-sm rounded-lg hover:opacity-90 transition-all">
-        Get it on WhatsApp
-      </a>
+  <!-- Unified Nav: logo + menu + CTA in one bar -->
+  <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b" style="background:rgba(10,26,10,0.95);border-color:rgba(26,77,42,0.3);" id="main-nav">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between py-2.5">
+        <a href="https://handled.sh/" class="flex items-center gap-2 shrink-0">
+          <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#23DF8C"/><path d="M9 16.5l4.5 4.5L23 11" stroke="#0a1a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="font-heading font-bold text-base text-[#23DF8C] tracking-tight">handled.sh</span>
+        </a>
+        <div class="overflow-x-auto scrollbar-hide mx-4 hidden md:block">
+          <div class="flex items-center gap-0.5 min-w-max">
+            <a href="#scores" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Scores</a>
+            <a href="#standings" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Standings</a>
+            <a href="#teams" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Teams</a>
+            <a href="#knockout" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Knockout</a>
+            <a href="#stadiums" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Stadiums</a>
+            <a href="#tickets" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Tickets</a>
+            <a href="#stats" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Stats</a>
+            <a href="#news" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">News</a>
+          </div>
+        </div>
+        <a href="https://handled.sh/whatsapp" style="background:#23DF8C;color:#0a1a0a;" class="px-4 py-2 font-heading font-bold text-xs rounded-lg hover:opacity-90 transition-all shrink-0">
+          Get it on WhatsApp
+        </a>
+      </div>
+      <!-- Mobile menu row -->
+      <div class="overflow-x-auto scrollbar-hide md:hidden -mx-4 px-4 pb-2">
+        <div class="flex items-center gap-0.5 min-w-max">
+          <a href="#scores" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Scores</a>
+          <a href="#standings" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Standings</a>
+          <a href="#teams" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Teams</a>
+          <a href="#knockout" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Knockout</a>
+          <a href="#stadiums" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Stadiums</a>
+          <a href="#tickets" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Tickets</a>
+          <a href="#stats" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">Stats</a>
+          <a href="#news" class="px-2.5 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-md hover:bg-[#23DF8C]/10">News</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -120,31 +147,17 @@ import Base from '../layouts/Base.astro';
     <svg id="icon-moon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
 
-  <!-- Sub-nav: World Cup sections -->
-  <div class="fixed top-[60px] left-0 right-0 z-40 bg-[#0a1a0a]/95 backdrop-blur-md border-b border-[#1a4d2a]/30 transition-colors duration-300" id="sub-nav">
-    <div class="overflow-x-auto scrollbar-hide">
-      <div class="flex items-center gap-1 px-4 py-2 min-w-max mx-auto justify-center">
-        <a href="#scores" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Scores</a>
-        <a href="#standings" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Standings</a>
-        <a href="#teams" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Teams</a>
-        <a href="#knockout" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Knockout</a>
-        <a href="#stadiums" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Stadiums</a>
-        <a href="#tickets" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Tickets</a>
-        <a href="#stats" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">Stats</a>
-        <a href="#news" class="px-3 py-1.5 text-[11px] md:text-xs font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#23DF8C] transition-colors whitespace-nowrap rounded-lg hover:bg-[#23DF8C]/10">News</a>
-      </div>
-    </div>
-  </div>
-
   <style>
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
     /* Force dark green on body */
     body { background: #0a1a0a !important; }
-    .light-mode #sub-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
-    .light-mode #sub-nav a { color: #5a6a5a !important; }
-    .light-mode #sub-nav a:hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
+    .light-mode #main-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
+    .light-mode #main-nav a:not([style]) { color: #5a6a5a !important; }
+    .light-mode #main-nav a:not([style]):hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
+    .light-mode #main-nav span { color: #0a8a4a !important; }
+    .light-mode #main-nav a[style*="background"] { background: #0a8a4a !important; color: #fff !important; }
   </style>
 
   <main class="pt-[100px] bg-[#0a1a0a] transition-colors duration-300" id="main-content">
@@ -574,9 +587,7 @@ import Base from '../layouts/Base.astro';
     .light-mode [class*="bg-[#23DF8C]"] { background: #0a8a4a !important; color: #ffffff !important; }
     .light-mode [class*="shadow-"] { box-shadow: 0 0 20px rgba(10, 138, 74, 0.15) !important; }
     .light-mode #theme-toggle { background: #e0f0e0 !important; border-color: #0a8a4a40 !important; color: #0a8a4a !important; }
-    .light-mode nav { background: rgba(245,247,245,0.92) !important; border-color: #c0d8c0 !important; }
-    .light-mode nav span { color: #0a1a0a !important; }
-    .light-mode nav a[style*="background"] { background: #0a8a4a !important; color: #fff !important; }
+    /* nav light mode handled by #main-nav rules above */
     .light-mode footer { background: #eef5ee !important; border-color: #c0d8c0 !important; }
     .light-mode footer span { color: #0a1a0a !important; }
     .light-mode footer p { color: #5a6a5a !important; }
