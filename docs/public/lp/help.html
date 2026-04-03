@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Handled</title>
+    <meta name="description" content="Handled Help Center. Getting started, common questions, troubleshooting, and support.">
+    <link rel="canonical" href="https://handled.sh/help">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8b5cf6;
+            --purple-light: #a78bfa;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        p, li {
+            font-size: 17px;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        ol, ul {
+            margin-left: 24px;
+            margin-bottom: 24px;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+
+        .help-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: border-color 0.3s;
+        }
+
+        .help-card:hover {
+            border-color: var(--purple);
+        }
+
+        .help-card h3 {
+            margin-top: 0;
+            color: var(--purple);
+        }
+
+        .command-example {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .support-box {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .support-box h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .support-box p {
+            color: white;
+            opacity: 0.95;
+            margin-bottom: 24px;
+        }
+
+        .support-box a {
+            background: white;
+            color: var(--purple);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        a {
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+            padding: 60px 24px 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            .container { padding: 60px 24px; }
+            .support-box { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Handled</a>
+            <a href="https://handled.sh/whatsapp" class="header-cta">Start Free</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Help Center</h1>
+        <p class="intro">Everything you need to get started and make the most of your AI intern.</p>
+
+        <h2>Getting Started</h2>
+
+        <div class="help-card">
+            <h3>How do I start using Handled?</h3>
+            <ol>
+                <li>Click "Start Free" or visit <a href="https://handled.sh/whatsapp">handled.sh/whatsapp</a></li>
+                <li>Open the WhatsApp conversation with Handled</li>
+                <li>Send a message to activate your AI intern</li>
+                <li>Start creating tasks, reminders, and notes immediately</li>
+            </ol>
+            <p>That's it! No signup forms, no passwords, no downloads.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>What can I ask my AI intern to do?</h3>
+            <p>Your AI intern can handle many productivity tasks:</p>
+            <ul>
+                <li><strong>Tasks:</strong> "Create task to finish report by Friday"</li>
+                <li><strong>Reminders:</strong> "Remind me to call John at 3pm"</li>
+                <li><strong>Notes:</strong> "Save this idea for later: [your note]"</li>
+                <li><strong>Calendar:</strong> "Schedule meeting with Sarah tomorrow at 10am"</li>
+                <li><strong>Lists:</strong> "Add milk to grocery list"</li>
+                <li><strong>Quick info:</strong> "What's my schedule today?"</li>
+            </ul>
+        </div>
+
+        <h2>Common Questions</h2>
+
+        <div class="help-card">
+            <h3>Do I need to download an app?</h3>
+            <p>No! Handled works entirely within WhatsApp. If you have WhatsApp, you're ready to use Handled.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>Is Handled free?</h3>
+            <p>Yes! The free plan includes unlimited tasks, reminders, and notes. Pro plan ($79/year) adds advanced features like priority support and premium integrations.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>How is my data protected?</h3>
+            <p>All messages are encrypted by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner. We never sell your data. Learn more on our <a href="/security.html">Security page</a>.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>Can I use Handled on multiple devices?</h3>
+            <p>Yes! Since Handled works through WhatsApp, you can access it on any device where you use WhatsApp (phone, desktop, web).</p>
+        </div>
+
+        <h2>Integrations</h2>
+
+        <div class="help-card">
+            <h3>How do I connect Gmail?</h3>
+            <p>Send this message to your AI intern:</p>
+            <div class="command-example">"Connect Gmail"</div>
+            <p>Follow the authentication link to grant access. Once connected, you can read and send emails via Handled.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>How do I connect Google Calendar?</h3>
+            <p>Send this message:</p>
+            <div class="command-example">"Connect calendar"</div>
+            <p>Authorize access, and Handled can create events and show your schedule.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>What other integrations are available?</h3>
+            <p>Currently supported:</p>
+            <ul>
+                <li>Gmail (email management)</li>
+                <li>Google Calendar (scheduling)</li>
+                <li>Todoist (task management)</li>
+                <li>Notion (note taking)</li>
+            </ul>
+            <p>New integrations added regularly based on user requests.</p>
+        </div>
+
+        <h2>Troubleshooting</h2>
+
+        <div class="help-card">
+            <h3>My AI intern isn't responding</h3>
+            <p>Try these steps:</p>
+            <ol>
+                <li>Check your WhatsApp connection</li>
+                <li>Send a simple message like "Hello"</li>
+                <li>Wait 30 seconds (processing may take a moment)</li>
+                <li>Restart WhatsApp if still not responding</li>
+            </ol>
+            <p>If issue persists, contact <a href="mailto:hello@handled.sh">hello@handled.sh</a></p>
+        </div>
+
+        <div class="help-card">
+            <h3>A reminder didn't trigger</h3>
+            <p>Possible causes:</p>
+            <ul>
+                <li>Timezone mismatch (check your timezone settings)</li>
+                <li>Ambiguous time ("tomorrow afternoon" vs "tomorrow 2pm")</li>
+                <li>WhatsApp notifications disabled</li>
+            </ul>
+            <p>For critical reminders, use specific times: "Remind me at 3:00pm"</p>
+        </div>
+
+        <div class="help-card">
+            <h3>How do I delete my data?</h3>
+            <p>Send this message to your AI intern:</p>
+            <div class="command-example">"Delete my account"</div>
+            <p>Or email <a href="mailto:hello@handled.sh">hello@handled.sh</a> and we'll delete everything within 30 days.</p>
+        </div>
+
+        <h2>Pro Plan</h2>
+
+        <div class="help-card">
+            <h3>How do I upgrade to Pro?</h3>
+            <p>Send this message:</p>
+            <div class="command-example">"Upgrade to Pro"</div>
+            <p>You'll receive a payment link. Complete payment, and Pro features activate immediately.</p>
+        </div>
+
+        <div class="help-card">
+            <h3>What's included in Pro?</h3>
+            <ul>
+                <li>Everything in Free</li>
+                <li>Priority support (faster response times)</li>
+                <li>Advanced automation features</li>
+                <li>Early access to new features</li>
+                <li>Premium integrations</li>
+            </ul>
+        </div>
+
+        <div class="support-box">
+            <h2>Still Need Help?</h2>
+            <p>Can't find what you're looking for? We're here to help.</p>
+            <a href="mailto:hello@handled.sh">Contact Support</a>
+            <p style="margin-top: 24px; font-size: 15px; opacity: 0.9;">Response time: under 24 hours</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <span>·</span>
+            <a href="/contact.html">Contact</a>
+            <span>·</span>
+            <a href="/security.html">Security</a>
+            <span>·</span>
+            <a href="/privacy.html">Privacy</a>
+            <span>·</span>
+            <a href="/terms.html">Terms</a>
+            <span>·</span>
+            <a href="/help.html">Help</a>
+        </div>
+        <div class="copyright">
+            Copyright © 2025–2026 handled.sh — a product of EXCOM AI L.L.C-FZ
+        </div>
+    </footer>
+</body>
+</html>

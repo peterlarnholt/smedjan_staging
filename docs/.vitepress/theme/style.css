@@ -1,0 +1,395 @@
+/* Terminal-inspired dark theme for Handled */
+
+/* Import terminal font */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Dark terminal colors */
+  --vp-c-bg: #0a0a0a;
+  --vp-c-bg-soft: #111111;
+  --vp-c-bg-mute: #1a1a1a;
+  --vp-c-bg-alt: #0d0d0d;
+
+  /* Purple accent */
+  --vp-c-brand-1: #a78bfa;
+  --vp-c-brand-2: #8b5cf6;
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(139, 92, 246, 0.14);
+
+  /* Text colors */
+  --vp-c-text-1: #e0e0e0;
+  --vp-c-text-2: #a0a0a0;
+  --vp-c-text-3: #707070;
+
+  /* Border colors */
+  --vp-c-border: #2a2a2a;
+  --vp-c-divider: #1f1f1f;
+  --vp-c-gutter: #1a1a1a;
+
+  /* Code colors */
+  --vp-code-block-bg: #0d0d0d;
+  --vp-code-line-highlight-color: rgba(139, 92, 246, 0.08);
+  --vp-code-copy-code-hover-bg: #1a1a1a;
+
+  /* Button colors */
+  --vp-button-brand-bg: #8b5cf6;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-hover-bg: #7c3aed;
+  --vp-button-brand-active-bg: #6d28d9;
+
+  --vp-button-alt-bg: #1a1a1a;
+  --vp-button-alt-text: #e0e0e0;
+  --vp-button-alt-hover-bg: #252525;
+  --vp-button-alt-active-bg: #303030;
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #0a0a0a;
+
+  /* Home hero */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #7c3aed 100%);
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+  --vp-home-hero-image-filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.3));
+}
+
+/* Force dark mode always */
+html {
+  color-scheme: dark;
+}
+
+.dark {
+  --vp-c-bg: #0a0a0a;
+  --vp-c-bg-soft: #111111;
+  --vp-c-bg-mute: #1a1a1a;
+}
+
+/* Terminal font for headings */
+h1, h2, h3, h4, h5, h6,
+.VPHero .name,
+.VPHero .text,
+.VPNavBarTitle .title {
+  font-family: 'Exo', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+/* Terminal font for code blocks */
+code, pre, .vp-code,
+.VPHero .tagline {
+  font-family: 'Exo', sans-serif !important;
+}
+
+/* Hero section styling */
+.VPHero .name {
+  font-weight: 700;
+  text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+.VPHero .text {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.VPHero .tagline {
+  color: #707070;
+  font-size: 1rem;
+}
+
+/* Glowing effect on brand buttons */
+.VPButton.brand {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.VPButton.brand:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Feature cards with terminal styling */
+.VPFeature {
+  background: linear-gradient(180deg, #111111 0%, #0d0d0d 100%) !important;
+  border: 1px solid #1f1f1f !important;
+  transition: all 0.3s ease;
+}
+
+.VPFeature:hover {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+.VPFeature .title {
+  font-family: 'Exo', sans-serif !important;
+  color: #a78bfa;
+}
+
+.VPFeature .details {
+  color: #a0a0a0;
+}
+
+/* Code blocks terminal style */
+div[class*="language-"] {
+  background: #0d0d0d !important;
+  border: 1px solid #1f1f1f;
+  border-radius: 8px;
+}
+
+div[class*="language-"]::before {
+  color: #8b5cf6 !important;
+  font-family: 'Exo', sans-serif !important;
+}
+
+/* Navbar styling */
+.VPNavBar {
+  background: rgba(10, 10, 10, 0.8) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1f1f1f !important;
+}
+
+.VPNavBarTitle .title {
+  color: #a78bfa !important;
+  font-weight: 600;
+}
+
+/* Sidebar styling */
+.VPSidebar {
+  background: #0a0a0a !important;
+  border-right: 1px solid #1f1f1f !important;
+}
+
+.VPSidebarItem .link {
+  font-family: 'Exo', sans-serif !important;
+  font-size: 0.9rem;
+}
+
+.VPSidebarItem.is-active > .item > .link {
+  color: #8b5cf6 !important;
+}
+
+/* Footer styling */
+.VPFooter {
+  background: #0a0a0a !important;
+  border-top: 1px solid #1f1f1f !important;
+}
+
+/* Tables with terminal styling */
+table {
+  border: 1px solid #1f1f1f !important;
+}
+
+th {
+  background: #111111 !important;
+  font-family: 'Exo', sans-serif !important;
+  color: #a78bfa !important;
+}
+
+td {
+  border-color: #1f1f1f !important;
+}
+
+tr:hover {
+  background: rgba(139, 92, 246, 0.05) !important;
+}
+
+/* Links */
+a {
+  color: #a78bfa;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #8b5cf6;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Custom cursor blink animation for hero */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.VPHero .name::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: #8b5cf6;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+}
+
+/* ─── Shared page layout ─── */
+
+.page-content {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 640px) {
+  .page-content { padding: 0 48px; }
+}
+
+@media (min-width: 960px) {
+  .page-content { padding: 0 64px; }
+}
+
+.page-content section {
+  padding: 2rem 0;
+}
+
+.page-content section + section {
+  border-top: 1px solid var(--vp-c-border);
+}
+
+.page-content h2 {
+  font-size: 1.4rem;
+  font-family: 'Exo', sans-serif;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.page-content h3 {
+  margin: 0 0 0.4rem;
+}
+
+.page-content p {
+  margin: 0;
+}
+
+/* Shared CTA button */
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  background: var(--vp-c-brand-2);
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Exo', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.cta-btn:hover {
+  background: var(--vp-c-brand-3);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+.cta-btn-alt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  height: 48px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Exo', sans-serif;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  border: 1px solid var(--vp-c-border);
+  color: var(--vp-c-text-1) !important;
+}
+
+.cta-btn-alt:hover {
+  border-color: var(--vp-c-brand-2);
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* Shared integration grid */
+.integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+}
+
+.integration-item span {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+
+.integration-logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.integration-logo svg { width: 100%; height: 100%; }
+.logo-telegram { color: #26A5E4; }
+.logo-whatsapp { color: #25D366; }
+.logo-google-calendar { color: #4285F4; }
+.logo-todoist { color: #E44332; }
+.logo-email { color: var(--vp-c-brand-1); }
+.logo-outlook { color: #0078D4; }
+.logo-ms-calendar { color: #0078D4; }
+.logo-slack { color: #E01E5A; }
+.logo-more { color: var(--vp-c-text-3); }
+
+.coming-soon { opacity: 0.4; }
+.coming-soon span { color: var(--vp-c-text-3); }
+
+/* Language switcher dropdown */
+.VPFlyout .VPMenu {
+  background: #111111 !important;
+  border: 1px solid #2a2a2a !important;
+}
+
+.VPFlyout .VPMenu .item a,
+.VPFlyout .VPMenu .item span {
+  color: #e0e0e0 !important;
+}
+
+.VPFlyout .VPMenu .item a:hover,
+.VPFlyout .VPMenu .item span:hover {
+  color: #a78bfa !important;
+}
+
+.VPFlyout .VPMenu .item a.active,
+.VPFlyout .VPMenu .item span.active {
+  color: #8b5cf6 !important;
+}
+
+.soon-badge {
+  font-size: 0.65rem;
+  background: var(--vp-c-bg-mute);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--vp-c-text-3) !important;
+  vertical-align: middle;
+}

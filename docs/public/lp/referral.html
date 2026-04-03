@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Program - Handled</title>
+    <meta name="description" content="Refer friends to Handled and both get rewards. Share your AI intern and earn benefits.">
+    <link rel="canonical" href="https://handled.sh/referral">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8b5cf6;
+            --purple-light: #a78bfa;
+            --purple-dark: #7c3aed;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-purple-light: #f3f0ff;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 22px;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-top: 60px;
+            margin-bottom: 32px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .benefit-card {
+            background: var(--bg-purple-light);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: 16px;
+        }
+
+        .benefit-card p {
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .reward-amount {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--purple);
+            display: block;
+            margin: 20px 0;
+        }
+
+        .steps {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 40px 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            flex-shrink: 0;
+            margin-right: 24px;
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .step-content p {
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .terms-box {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 60px;
+        }
+
+        .terms-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .terms-box ul {
+            margin-left: 24px;
+        }
+
+        .terms-box li {
+            margin: 10px 0;
+            color: var(--text-gray);
+            font-size: 16px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .cta-center {
+            text-align: center;
+        }
+
+        footer {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+            padding: 60px 24px 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .container { padding: 60px 24px; }
+            .steps { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Handled</a>
+            <a href="https://handled.sh/whatsapp" class="header-cta">Start Free</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Referral Program</h1>
+        <p class="intro">Love Handled? Share it with friends and both get rewarded.</p>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>You Get</h3>
+                <span class="reward-amount">1 Month</span>
+                <p>Free Pro access for every friend who signs up</p>
+            </div>
+            <div class="benefit-card">
+                <h3>They Get</h3>
+                <span class="reward-amount">1 Month</span>
+                <p>Free Pro trial when they use your link</p>
+            </div>
+        </div>
+
+        <h2>How It Works</h2>
+
+        <div class="steps">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Get Your Link</h3>
+                    <p>Sign up for Handled and receive your unique referral link in WhatsApp.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Share With Friends</h3>
+                    <p>Send your link via WhatsApp, email, social media, or however you prefer.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Both Get Rewarded</h3>
+                    <p>When your friend signs up, you both get 1 month of Pro features free.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Keep Earning</h3>
+                    <p>No limit! Refer unlimited friends and stack your free Pro months.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-center">
+            <a href="https://handled.sh/whatsapp" class="cta-button">Get Your Referral Link</a>
+        </div>
+
+        <div class="terms-box">
+            <h3>Terms & Conditions</h3>
+            <ul>
+                <li>Both you and your friend must sign up for Handled to receive rewards</li>
+                <li>Referral rewards (1 month Pro) are applied automatically</li>
+                <li>Pro months can be stacked (unlimited referrals)</li>
+                <li>Self-referrals and fraudulent activity will result in disqualification</li>
+                <li>Referral rewards cannot be exchanged for cash</li>
+                <li>We reserve the right to modify or terminate the program at any time</li>
+                <li>Referral links are personal and non-transferable</li>
+                <li>Your friend must sign up within 30 days of clicking your link</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; margin-top: 60px; color: var(--text-gray);">
+            Questions about the referral program? Email <a href="mailto:hello@handled.sh" style="color: var(--purple); text-decoration: none;">hello@handled.sh</a>
+        </p>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <span>·</span>
+            <a href="/contact.html">Contact</a>
+            <span>·</span>
+            <a href="/security.html">Security</a>
+            <span>·</span>
+            <a href="/privacy.html">Privacy</a>
+            <span>·</span>
+            <a href="/terms.html">Terms</a>
+            <span>·</span>
+            <a href="/help.html">Help</a>
+        </div>
+        <div class="copyright">
+            Copyright © 2025–2026 handled.sh — a product of EXCOM AI L.L.C-FZ
+        </div>
+    </footer>
+</body>
+</html>

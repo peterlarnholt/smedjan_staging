@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Handled</title>
+    <meta name="description" content="Share your feedback with Handled. Feature requests, bug reports, and suggestions welcome.">
+    <link rel="canonical" href="https://handled.sh/feedback">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8b5cf6;
+            --purple-light: #a78bfa;
+            --purple-dark: #7c3aed;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-purple-light: #f3f0ff;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .feedback-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .feedback-type {
+            background: var(--bg-purple-light);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .feedback-type h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+
+        .feedback-type p {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        form {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 48px 40px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            margin-bottom: 24px;
+            min-height: 48px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 18px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            min-height: 56px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .note {
+            background: var(--bg-white);
+            border-left: 4px solid var(--purple);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+
+        .note p {
+            color: var(--text-gray);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        footer {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+            padding: 60px 24px 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .container { padding: 60px 24px; }
+            form { padding: 32px 24px; }
+            .feedback-types { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Handled</a>
+            <a href="https://handled.sh/whatsapp" class="header-cta">Start Free</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Your Feedback Matters</h1>
+        <p class="intro">Help us make Handled better. Share your ideas, report bugs, or just tell us what you think.</p>
+
+        <div class="feedback-types">
+            <div class="feedback-type">
+                <h3>Feature Requests</h3>
+                <p>What would make Handled more useful for you?</p>
+            </div>
+            <div class="feedback-type">
+                <h3>Bug Reports</h3>
+                <p>Something not working? Let us know.</p>
+            </div>
+            <div class="feedback-type">
+                <h3>General Feedback</h3>
+                <p>Love something? Hate something? Tell us.</p>
+            </div>
+        </div>
+
+        <form action="/submit-feedback" method="POST">
+            <div>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label for="type">Feedback Type</label>
+                <select id="type" name="type" required>
+                    <option value="">Select a type...</option>
+                    <option value="feature">Feature Request</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="improvement">Improvement Suggestion</option>
+                    <option value="general">General Feedback</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">Your Feedback</label>
+                <textarea id="message" name="message" required placeholder="Tell us more..."></textarea>
+            </div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <div class="note">
+            <p><strong>We read every submission.</strong> While we can't reply to every piece of feedback, we carefully consider all input when planning future updates. Your voice helps shape Handled.</p>
+        </div>
+
+        <p style="margin-top: 48px; text-align: center; color: var(--text-gray);">
+            Prefer email? Send feedback directly to <a href="mailto:hello@handled.sh" style="color: var(--purple); text-decoration: none;">hello@handled.sh</a>
+        </p>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <span>·</span>
+            <a href="/contact.html">Contact</a>
+            <span>·</span>
+            <a href="/security.html">Security</a>
+            <span>·</span>
+            <a href="/privacy.html">Privacy</a>
+            <span>·</span>
+            <a href="/terms.html">Terms</a>
+            <span>·</span>
+            <a href="/help.html">Help</a>
+        </div>
+        <div class="copyright">
+            Copyright © 2025–2026 handled.sh — a product of EXCOM AI L.L.C-FZ
+        </div>
+    </footer>
+</body>
+</html>

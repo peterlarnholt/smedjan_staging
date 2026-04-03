@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Chat bubble -->
+  <path d="M20 8 H80 C88 8, 94 14, 94 22 V50 C94 58, 88 64, 80 64 H36 L18 82 L18 64 H20 C12 64, 6 58, 6 50 V22 C6 14, 12 8, 20 8 Z" fill="url(#grad)"/>
+
+  <!-- Checkmark -->
+  <path d="M30 36 L44 52 L72 24" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Sparkles -->
+  <circle cx="86" cy="12" r="3" fill="#e9d5ff" opacity="0.8"/>
+  <circle cx="94" cy="4" r="2" fill="#e9d5ff" opacity="0.5"/>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "name": "handled-site",
+  "version": "1.0.0",
+  "description": "Handled - Your AI agent on Telegram",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "keywords": ["ai", "telegram", "claude", "agent", "automation"],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

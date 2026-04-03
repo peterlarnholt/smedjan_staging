@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Business - Handled Team Plans</title>
+    <meta name="description" content="Handled for teams and businesses. Team plans, enterprise features, volume discounts, and dedicated support.">
+    <link rel="canonical" href="https://handled.sh/business">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8b5cf6;
+            --purple-light: #a78bfa;
+            --purple-dark: #7c3aed;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-purple-light: #f3f0ff;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero {
+            padding: 80px 24px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .intro {
+            font-size: 22px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--purple);
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .pricing-section {
+            background: var(--bg-purple-light);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .pricing-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .pricing-section p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 32px;
+        }
+
+        .volume-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .tier {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .tier-users {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+
+        .tier-discount {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--text-dark);
+        }
+
+        .enterprise-box {
+            background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .enterprise-box h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .enterprise-box p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .enterprise-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 32px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enterprise-box li {
+            padding: 12px 0;
+            font-size: 18px;
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .enterprise-box li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') center/contain no-repeat;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--purple);
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+            padding: 60px 24px 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            .hero { padding: 60px 24px; }
+            .container { padding: 60px 24px; }
+            .pricing-section { padding: 40px 24px; }
+            .enterprise-box { padding: 40px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Handled</a>
+            <a href="https://handled.sh/whatsapp" class="header-cta">Start Free</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Handled for Business</h1>
+        <p class="intro">Give your entire team an AI intern. Boost productivity across your organization without adding apps or complexity.</p>
+    </section>
+
+    <main class="container">
+        <h2>Team Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Centralized Billing</h3>
+                <p>One invoice for your entire team. Add or remove seats anytime.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Team Dashboard</h3>
+                <p>Track usage, adoption, and productivity gains across your organization.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Priority Support</h3>
+                <p>Dedicated support channel with faster response times for team admins.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom Integrations</h3>
+                <p>Connect Handled to your company's internal tools and workflows.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Advanced Security</h3>
+                <p>Additional security controls, audit logs, and compliance features.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Training & Onboarding</h3>
+                <p>We help your team get up to speed quickly with guided onboarding.</p>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h2>Volume Discounts</h2>
+            <p>The more seats, the more you save. Pricing is per user, per year.</p>
+            
+            <div class="volume-tiers">
+                <div class="tier">
+                    <div class="tier-users">5-10 users</div>
+                    <div class="tier-discount">10% off</div>
+                </div>
+                <div class="tier">
+                    <div class="tier-users">11-25 users</div>
+                    <div class="tier-discount">15% off</div>
+                </div>
+                <div class="tier">
+                    <div class="tier-users">26-50 users</div>
+                    <div class="tier-discount">20% off</div>
+                </div>
+                <div class="tier">
+                    <div class="tier-users">51+ users</div>
+                    <div class="tier-discount">25% off</div>
+                </div>
+            </div>
+
+            <p style="font-size: 16px; color: var(--text-gray); margin-top: 32px;">
+                Base price: $79/user/year (before discount)
+            </p>
+        </div>
+
+        <div class="enterprise-box">
+            <h2>Enterprise Plan</h2>
+            <p>For organizations with 100+ users or custom requirements.</p>
+            
+            <ul>
+                <li>Custom pricing and volume discounts</li>
+                <li>Dedicated account manager</li>
+                <li>Service Level Agreement (SLA)</li>
+                <li>On-premise deployment options</li>
+                <li>Single Sign-On (SSO)</li>
+                <li>Advanced compliance (SOC 2, HIPAA)</li>
+                <li>Custom feature development</li>
+                <li>White-label options</li>
+            </ul>
+
+            <a href="mailto:hello@handled.sh?subject=Enterprise%20Inquiry" class="cta-button">Contact for Pricing</a>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center;">
+            <h2>Ready to Get Started?</h2>
+            <p style="font-size: 18px; color: var(--text-gray); margin-bottom: 32px;">
+                Contact us to discuss your team's needs and get a custom quote.
+            </p>
+            <a href="mailto:hello@handled.sh?subject=Team%20Plan%20Inquiry" class="header-cta" style="display: inline-flex;">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <span>·</span>
+            <a href="/contact.html">Contact</a>
+            <span>·</span>
+            <a href="/security.html">Security</a>
+            <span>·</span>
+            <a href="/privacy.html">Privacy</a>
+            <span>·</span>
+            <a href="/terms.html">Terms</a>
+            <span>·</span>
+            <a href="/help.html">Help</a>
+        </div>
+        <div class="copyright">
+            Copyright © 2025–2026 handled.sh — a product of EXCOM AI L.L.C-FZ
+        </div>
+    </footer>
+</body>
+</html>
