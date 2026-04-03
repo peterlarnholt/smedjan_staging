@@ -117,9 +117,7 @@ import Base from '../layouts/Base.astro';
             <a href="#news" class="px-2 py-1 text-[10px] font-heading font-semibold uppercase tracking-wider text-[#a0a0a0] hover:text-[#25D366] transition-colors whitespace-nowrap rounded-md hover:bg-[#25D366]/10">News</a>
           </div>
         </div>
-        <a href="https://handled.sh/whatsapp" style="background:#25D366;color:#0a1a0a;" class="px-4 py-2 font-heading font-bold text-xs rounded-lg hover:opacity-90 transition-all shrink-0">
-          Get it on WhatsApp
-        </a>
+        <!-- CTA removed from nav — sticky bottom CTA instead -->
       </div>
       <!-- Mobile menu row -->
       <div class="overflow-x-auto scrollbar-hide md:hidden -mx-4 px-4 pb-2">
@@ -190,26 +188,26 @@ import Base from '../layouts/Base.astro';
           </p>
 
           <!-- Countdown -->
-          <div class="flex gap-3 mb-6" id="countdown">
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
-              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl" id="days">--</div>
+          <!-- Centered countdown with seconds -->
+          <div class="flex gap-3 mb-4 justify-center md:justify-start" id="countdown">
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[56px]">
+              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl countdown-num" id="days">--</div>
               <div class="text-[#555] text-[10px] uppercase tracking-wider">Days</div>
             </div>
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
-              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl" id="hours">--</div>
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[56px]">
+              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl countdown-num" id="hours">--</div>
               <div class="text-[#555] text-[10px] uppercase tracking-wider">Hours</div>
             </div>
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
-              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl" id="mins">--</div>
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[56px]">
+              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl countdown-num" id="mins">--</div>
               <div class="text-[#555] text-[10px] uppercase tracking-wider">Min</div>
             </div>
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[56px]">
+              <div class="text-[#25D366] font-heading font-bold text-xl md:text-2xl countdown-num" id="secs">--</div>
+              <div class="text-[#555] text-[10px] uppercase tracking-wider">Sec</div>
+            </div>
           </div>
-
-          <a href="https://handled.sh/whatsapp" class="inline-flex items-center gap-3 px-7 py-3.5 bg-[#25D366] text-[#0a1a0a] font-heading font-bold text-base md:text-lg rounded-xl hover:bg-[#128C7E] transition-all shadow-[0_0_30px_rgba(35,223,140,0.3)] w-full sm:w-auto justify-center">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Get it on WhatsApp
-          </a>
-          <p class="text-[#555] text-xs mt-2">Free forever. No app to download.</p>
+          <p class="text-[#555] text-xs text-center md:text-left">Free forever. No app to download.</p>
         </div>
 
         <!-- WhatsApp-authentic chat mockup -->
@@ -229,7 +227,7 @@ import Base from '../layouts/Base.astro';
           <!-- WA Chat area -->
           <div class="px-3 py-3 space-y-2" style="background:#0B141A;">
             <!-- Outgoing (user) -->
-            <div class="flex justify-end">
+            <div class="flex justify-end chat-msg">
               <div class="rounded-lg rounded-tr-none px-3 py-1.5 max-w-[80%]" style="background:#005C4B;">
                 <p class="text-[#e9edef] text-[13px] leading-snug">Follow Argentina for me. Live scores, reminders, everything.</p>
                 <div class="flex items-center justify-end gap-1 mt-0.5">
@@ -239,7 +237,7 @@ import Base from '../layouts/Base.astro';
               </div>
             </div>
             <!-- Incoming (Handled) -->
-            <div class="flex justify-start">
+            <div class="flex justify-start chat-msg">
               <div class="rounded-lg rounded-tl-none px-3 py-1.5 max-w-[85%]" style="background:#202C33;">
                 <p class="text-[#e9edef] text-[13px] leading-snug">You're locked in. I'll send you:</p>
                 <p class="text-[#e9edef] text-[13px] leading-snug">- Reminders 30 min before kickoff</p>
@@ -250,7 +248,7 @@ import Base from '../layouts/Base.astro';
               </div>
             </div>
             <!-- Incoming (goal alert) -->
-            <div class="flex justify-start">
+            <div class="flex justify-start chat-msg">
               <div class="rounded-lg rounded-tl-none px-3 py-1.5 max-w-[85%] border border-[#25D366]/20" style="background:#202C33;">
                 <p class="text-[#25D366] text-[13px] font-bold leading-snug">GOOOOOL! Argentina 1 - 0</p>
                 <p class="text-[#e9edef] text-[13px] leading-snug">Messi. Free kick. Top corner. 23'</p>
@@ -258,7 +256,7 @@ import Base from '../layouts/Base.astro';
               </div>
             </div>
             <!-- Outgoing -->
-            <div class="flex justify-end">
+            <div class="flex justify-end chat-msg">
               <div class="rounded-lg rounded-tr-none px-3 py-1.5 max-w-[80%]" style="background:#005C4B;">
                 <p class="text-[#e9edef] text-[13px] leading-snug">Alert me when semifinal tickets drop</p>
                 <div class="flex items-center justify-end gap-1 mt-0.5">
@@ -268,7 +266,7 @@ import Base from '../layouts/Base.astro';
               </div>
             </div>
             <!-- Incoming -->
-            <div class="flex justify-start">
+            <div class="flex justify-start chat-msg">
               <div class="rounded-lg rounded-tl-none px-3 py-1.5 max-w-[85%]" style="background:#202C33;">
                 <p class="text-[#e9edef] text-[13px] leading-snug">Done. I'll message you the moment semifinal tickets go on sale.</p>
                 <span class="text-[#ffffff50] text-[10px] float-right mt-0.5">20:24</span>
@@ -661,22 +659,88 @@ import Base from '../layouts/Base.astro';
     }
   </script>
 
+  <!-- Sticky bottom CTA (appears on scroll) -->
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-300" style="background:#0a1a0a;border-top:1px solid rgba(37,211,102,0.2);">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <p class="text-[#a0a0a0] text-xs md:text-sm hidden sm:block">Your World Cup. One WhatsApp message.</p>
+      <a href="https://handled.sh/whatsapp" style="background:#25D366;color:#0a1a0a;" class="flex items-center gap-2 px-5 py-2.5 font-heading font-bold text-sm rounded-lg hover:opacity-90 transition-all mx-auto sm:mx-0">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get it on WhatsApp — Free
+      </a>
+    </div>
+  </div>
+
+  <style>
+    /* Countdown flip animation */
+    .countdown-num { transition: transform 0.3s ease; }
+    .countdown-flip { transform: scaleY(0.8); }
+
+    /* Fade in on scroll */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Chat message animation */
+    .chat-msg { opacity: 0; transform: translateY(10px); }
+    .chat-msg.show { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+  </style>
+
   <script>
+    // Countdown with seconds + flip animation
     const kickoff = new Date('2026-06-11T00:00:00Z').getTime();
     function updateCountdown() {
       const now = new Date().getTime();
       const diff = kickoff - now;
       if (diff <= 0) {
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '0';
-        document.getElementById('mins').textContent = '0';
+        ['days','hours','mins','secs'].forEach(id => document.getElementById(id).textContent = '0');
         return;
       }
-      document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      document.getElementById('mins').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const vals = {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        secs: Math.floor((diff % (1000 * 60)) / 1000)
+      };
+      Object.entries(vals).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el && el.textContent !== String(val)) {
+          el.classList.add('countdown-flip');
+          setTimeout(() => {
+            el.textContent = val;
+            el.classList.remove('countdown-flip');
+          }, 150);
+        }
+      });
     }
     updateCountdown();
-    setInterval(updateCountdown, 60000);
+    setInterval(updateCountdown, 1000);
+
+    // Sticky CTA — show after scrolling past hero
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        stickyCta.classList.remove('translate-y-full');
+      } else {
+        stickyCta.classList.add('translate-y-full');
+      }
+    });
+
+    // Fade in sections on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section > div').forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+
+    // Animate chat messages one by one
+    const chatMsgs = document.querySelectorAll('.chat-msg');
+    chatMsgs.forEach((msg, i) => {
+      setTimeout(() => msg.classList.add('show'), 500 + i * 600);
+    });
   </script>
 </Base>
