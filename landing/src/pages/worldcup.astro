@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Base
-  title="World Cup 2026 — Live scores, reminders & news in WhatsApp | Handled"
-  description="104 matches. 3 time zones. Get live scores, match reminders, player stats, and news — all in WhatsApp. No app to download."
+  title="World Cup 2026 — Never miss a goal. Live in WhatsApp. | Handled"
+  description="104 matches. 3 time zones. Zero excuses. Live scores, ticket alerts, match reminders, player stats — all in WhatsApp. No app needed."
   canonical="https://handled.sh/worldcup/"
   icpSegment="soccer"
   geoTarget="global"
@@ -15,83 +15,93 @@ import Footer from '../components/Footer.astro';
   <main class="pt-20 bg-[#0a1a0a]">
 
     <!-- Hero -->
-    <section class="min-h-[85vh] flex items-center px-6 py-16 relative overflow-hidden">
-      <!-- Subtle pitch lines -->
-      <div class="absolute inset-0 opacity-5">
+    <section class="min-h-[90vh] flex items-center px-5 py-12 md:px-6 md:py-16 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03]">
         <div class="absolute top-1/2 left-0 right-0 h-px bg-[#23DF8C]"></div>
         <div class="absolute top-1/2 left-1/2 w-32 h-32 border border-[#23DF8C] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
-      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
         <div>
-          <div class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold rounded-full bg-[#23DF8C]/10 text-[#23DF8C] border border-[#23DF8C]/20 font-mono tracking-wider uppercase">
+          <div class="inline-block px-4 py-1.5 mb-5 text-xs font-semibold rounded-full bg-[#23DF8C]/10 text-[#23DF8C] border border-[#23DF8C]/20 font-mono tracking-wider uppercase">
             FIFA World Cup 2026
           </div>
-          <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-3">
-            104 MATCHES.<br />3 TIME ZONES.
+          <h1 class="font-heading font-extrabold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-2">
+            NEVER MISS<br/>A GOAL.
           </h1>
-          <h2 class="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#23DF8C] tracking-tight leading-tight mb-6">
-            YOUR WORLD CUP. HANDLED.
+          <h2 class="font-heading font-extrabold text-2xl md:text-4xl lg:text-5xl text-[#23DF8C] tracking-tight leading-tight mb-5">
+            LIVE IN YOUR WHATSAPP.
           </h2>
-          <p class="text-[#a0a0a0] text-lg md:text-xl mb-8 leading-relaxed">
-            FotMob for scores. FIFA for schedule. Twitter for news. Google for stats.
-            <span class="text-white font-semibold">Or... one WhatsApp message.</span>
+          <p class="text-[#a0a0a0] text-base md:text-lg mb-6 leading-relaxed max-w-md">
+            104 matches. 3 time zones. 39 days of pure football.
+            Scores, reminders, news, tickets — one chat handles everything.
+            <span class="text-white font-semibold">No app. No tab. No excuse.</span>
           </p>
 
           <!-- Countdown -->
-          <div class="flex gap-4 mb-8" id="countdown">
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-xl px-4 py-3 text-center min-w-[70px]">
-              <div class="text-[#23DF8C] font-heading font-bold text-2xl" id="days">--</div>
-              <div class="text-[#707070] text-xs uppercase tracking-wider">Days</div>
+          <div class="flex gap-3 mb-6" id="countdown">
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
+              <div class="text-[#23DF8C] font-heading font-bold text-xl md:text-2xl" id="days">--</div>
+              <div class="text-[#555] text-[10px] uppercase tracking-wider">Days</div>
             </div>
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-xl px-4 py-3 text-center min-w-[70px]">
-              <div class="text-[#23DF8C] font-heading font-bold text-2xl" id="hours">--</div>
-              <div class="text-[#707070] text-xs uppercase tracking-wider">Hours</div>
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
+              <div class="text-[#23DF8C] font-heading font-bold text-xl md:text-2xl" id="hours">--</div>
+              <div class="text-[#555] text-[10px] uppercase tracking-wider">Hours</div>
             </div>
-            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-xl px-4 py-3 text-center min-w-[70px]">
-              <div class="text-[#23DF8C] font-heading font-bold text-2xl" id="mins">--</div>
-              <div class="text-[#707070] text-xs uppercase tracking-wider">Min</div>
+            <div class="bg-[#141f14] border border-[#1a4d2a] rounded-lg px-3 py-2 text-center min-w-[60px]">
+              <div class="text-[#23DF8C] font-heading font-bold text-xl md:text-2xl" id="mins">--</div>
+              <div class="text-[#555] text-[10px] uppercase tracking-wider">Min</div>
             </div>
           </div>
 
-          <a href="https://handled.sh/whatsapp" class="inline-flex items-center gap-3 px-8 py-4 bg-[#23DF8C] text-[#0a1a0a] font-heading font-bold text-lg rounded-xl hover:bg-[#1ec97a] transition-all shadow-[0_0_30px_rgba(35,223,140,0.3)] hover:shadow-[0_0_40px_rgba(35,223,140,0.5)]">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Get it on WhatsApp — Free
+          <a href="https://handled.sh/whatsapp" class="inline-flex items-center gap-3 px-7 py-3.5 bg-[#23DF8C] text-[#0a1a0a] font-heading font-bold text-base md:text-lg rounded-xl hover:bg-[#1ec97a] transition-all shadow-[0_0_30px_rgba(35,223,140,0.3)] w-full sm:w-auto justify-center">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Get it on WhatsApp
           </a>
-          <p class="text-[#707070] text-sm mt-3">No app to download. Free forever.</p>
+          <p class="text-[#555] text-xs mt-2">Free forever. No app to download.</p>
         </div>
 
         <!-- Chat mockup -->
-        <div class="bg-[#111] border border-[#1a4d2a] rounded-2xl p-5 shadow-[0_0_30px_rgba(35,223,140,0.1)]">
-          <div class="flex items-center gap-2 mb-4 pb-3 border-b border-[#1a4d2a]">
-            <div class="w-8 h-8 rounded-full bg-[#23DF8C]/20 flex items-center justify-center text-[#23DF8C] text-sm font-bold">H</div>
+        <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-2xl p-4 md:p-5 shadow-[0_0_30px_rgba(35,223,140,0.08)]">
+          <div class="flex items-center gap-2 mb-3 pb-2 border-b border-[#1a4d2a]/50">
+            <div class="w-7 h-7 rounded-full bg-[#23DF8C]/20 flex items-center justify-center text-[#23DF8C] text-xs font-bold">H</div>
             <span class="text-white text-sm font-semibold">Handled</span>
-            <span class="text-[#23DF8C] text-xs ml-auto">online</span>
+            <span class="text-[#23DF8C] text-[10px] ml-auto">online</span>
           </div>
-          <div class="space-y-3">
-            <!-- User message -->
+          <div class="space-y-2.5">
             <div class="flex justify-end">
-              <div class="bg-[#1a3a1a] rounded-2xl rounded-br-md px-4 py-2.5 max-w-[80%]">
-                <p class="text-white text-sm">Remind me 30 min before every Brazil game and give me live scores</p>
-                <p class="text-[#707070] text-[10px] text-right mt-1">09:41</p>
+              <div class="bg-[#1a3a1a] rounded-2xl rounded-br-md px-3 py-2 max-w-[85%]">
+                <p class="text-white text-[13px]">Follow Argentina for me. Live scores, reminders, everything.</p>
+                <p class="text-[#555] text-[9px] text-right mt-0.5">09:41</p>
               </div>
             </div>
-            <!-- Bot reply -->
             <div class="flex justify-start">
-              <div class="bg-[#0d2a15] border border-[#1a4d2a] rounded-2xl rounded-bl-md px-4 py-2.5 max-w-[85%]">
-                <p class="text-[#23DF8C] text-sm">Done! You'll get:</p>
-                <p class="text-[#23DF8C] text-sm">- Reminder 30 min before kickoff</p>
-                <p class="text-[#23DF8C] text-sm">- Live score alerts (goals, HT, FT)</p>
-                <p class="text-[#23DF8C] text-sm mt-1">Next: Brazil vs Serbia, June 15 at 8pm</p>
-                <p class="text-[#707070] text-[10px] mt-1">09:41</p>
+              <div class="bg-[#0d2a15] border border-[#1a4d2a]/50 rounded-2xl rounded-bl-md px-3 py-2 max-w-[88%]">
+                <p class="text-[#23DF8C] text-[13px] font-medium">You're locked in. I'll send you:</p>
+                <p class="text-[#23DF8C]/80 text-[13px]">- Reminders 30 min before kickoff</p>
+                <p class="text-[#23DF8C]/80 text-[13px]">- Live goals, HT, FT alerts</p>
+                <p class="text-[#23DF8C]/80 text-[13px]">- Post-match summary</p>
+                <p class="text-[#23DF8C] text-[13px] font-medium mt-1">First up: Argentina vs Saudi Arabia, June 14</p>
+                <p class="text-[#555] text-[9px] mt-0.5">09:41</p>
               </div>
             </div>
-            <!-- Score alert -->
             <div class="flex justify-start">
-              <div class="bg-[#0d2a15] border border-[#23DF8C]/30 rounded-2xl rounded-bl-md px-4 py-2.5 max-w-[85%]">
-                <p class="text-[#23DF8C] text-sm font-bold">GOAL! Brazil 1 - 0 Serbia (23')</p>
-                <p class="text-[#23DF8C] text-sm">Vinicius Jr. Left foot, bottom corner.</p>
-                <p class="text-[#707070] text-[10px] mt-1">20:23</p>
+              <div class="bg-[#0d2a15] border border-[#23DF8C]/30 rounded-2xl rounded-bl-md px-3 py-2 max-w-[88%]">
+                <p class="text-white text-[13px] font-bold">GOOOOOL! Argentina 1 - 0</p>
+                <p class="text-[#23DF8C] text-[13px]">Messi. Free kick. Top corner. 23'</p>
+                <p class="text-[#555] text-[9px] mt-0.5">20:23</p>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <div class="bg-[#1a3a1a] rounded-2xl rounded-br-md px-3 py-2 max-w-[85%]">
+                <p class="text-white text-[13px]">Alert me when semifinal tickets drop</p>
+                <p class="text-[#555] text-[9px] text-right mt-0.5">20:24</p>
+              </div>
+            </div>
+            <div class="flex justify-start">
+              <div class="bg-[#0d2a15] border border-[#1a4d2a]/50 rounded-2xl rounded-bl-md px-3 py-2 max-w-[88%]">
+                <p class="text-[#23DF8C] text-[13px]">Done. I'll message you the moment semifinal tickets go on sale.</p>
+                <p class="text-[#555] text-[9px] mt-0.5">20:24</p>
               </div>
             </div>
           </div>
@@ -100,176 +110,199 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- The Problem -->
-    <section class="px-6 py-20 border-t border-[#1a4d2a]/30">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-6 uppercase tracking-tight">
-          Stop switching apps
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-5 uppercase tracking-tight leading-tight">
+          YOUR WORLD CUP IS SCATTERED<br/>ACROSS 5 APPS
         </h2>
-        <p class="text-[#a0a0a0] text-lg leading-relaxed mb-8">
-          You already follow the World Cup. FotMob for scores. FIFA app for schedule. Twitter for news. Google for stats.
-          <span class="text-white font-semibold">4 apps. 104 matches. 39 days.</span>
+        <p class="text-[#a0a0a0] text-base md:text-lg leading-relaxed mb-6">
+          FotMob for scores. FIFA for fixtures. Twitter for drama.
+          Google for stats. Your calendar for... nothing, because you forgot to add the matches.
         </p>
-        <p class="text-[#23DF8C] text-xl font-heading font-bold">
-          Or... one WhatsApp message.
+        <p class="text-[#23DF8C] text-lg md:text-xl font-heading font-bold">
+          One WhatsApp message replaces all of it.
         </p>
       </div>
     </section>
 
     <!-- What you can ask -->
-    <section class="px-6 py-20 border-t border-[#1a4d2a]/30">
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
       <div class="max-w-6xl mx-auto">
-        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white text-center mb-4 uppercase tracking-tight">
-          Just ask
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white text-center mb-3 uppercase tracking-tight">
+          JUST TEXT IT
         </h2>
-        <p class="text-[#a0a0a0] text-center mb-12 max-w-xl mx-auto">
-          Text Handled like you'd text a friend. Get instant answers.
+        <p class="text-[#a0a0a0] text-center mb-10 max-w-md mx-auto text-sm md:text-base">
+          Ask anything about the World Cup. Like texting a friend who knows everything.
         </p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">⚽</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">Matches</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"Remind me before every Spain game"</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Live scores</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Give me live updates for every match today"</p>
           </div>
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">📰</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">News</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"What happened in today's matches?"</p>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Reminders</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Remind me 30 min before every Spain game"</p>
           </div>
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">🌟</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">Players</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"Show me Mbappe's stats"</p>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Tickets</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Alert me when quarterfinal tickets drop"</p>
           </div>
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">🏟️</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">Stadiums</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"Where is the final being played?"</p>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">News</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"What happened in todays matches?"</p>
           </div>
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">📊</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">Insights</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"Who is the top scorer so far?"</p>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Players</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"How many goals has Mbappe scored?"</p>
           </div>
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-xl p-6 hover:border-[#23DF8C]/40 transition-all">
-            <div class="text-2xl mb-3">📅</div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-2">Calendar</h3>
-            <p class="text-[#23DF8C] text-sm font-mono">"Block my calendar for the semis"</p>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Stadiums</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Where is the final? How do I get there?"</p>
+          </div>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Standings</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Show me Group B table after today"</p>
+          </div>
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-4 md:p-5 hover:border-[#23DF8C]/40 transition-all">
+            <h3 class="font-heading font-bold text-white text-sm md:text-base mb-1.5 uppercase tracking-wide">Calendar</h3>
+            <p class="text-[#23DF8C] text-xs md:text-sm font-mono leading-relaxed">"Block my calendar for every knockout game"</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Live Scores -->
-    <section class="px-6 py-20 border-t border-[#1a4d2a]/30">
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
       <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <div class="inline-block px-3 py-1 mb-4 text-xs font-bold rounded-full bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-wider">
+        <div class="text-center mb-10">
+          <div class="inline-block px-3 py-1 mb-3 text-[10px] font-bold rounded-full bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-widest">
             Live
           </div>
-          <h2 class="font-heading font-bold text-3xl md:text-4xl text-white uppercase tracking-tight">
-            Real-time scores in WhatsApp
+          <h2 class="font-heading font-bold text-2xl md:text-4xl text-white uppercase tracking-tight">
+            FEEL EVERY GOAL.<br/>THE SECOND IT HAPPENS.
           </h2>
-          <p class="text-[#a0a0a0] mt-4 max-w-lg mx-auto">
-            Goals, halftime, fulltime — delivered to your chat the moment it happens. No refreshing. No switching apps.
+          <p class="text-[#a0a0a0] mt-3 max-w-md mx-auto text-sm md:text-base">
+            Not 30 seconds later on Twitter. Not when your friend texts you.
+            You know first. Straight to your WhatsApp.
           </p>
         </div>
 
-        <!-- Match card mockup -->
-        <div class="max-w-sm mx-auto">
-          <div class="bg-[#111] border border-[#1a4d2a] rounded-2xl p-6">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[#707070] text-xs uppercase tracking-wider">Group A</span>
-              <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs font-bold rounded-full animate-pulse">LIVE 67'</span>
+        <div class="max-w-xs mx-auto">
+          <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[#555] text-[10px] uppercase tracking-widest">Group A</span>
+              <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full animate-pulse">LIVE 67'</span>
             </div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="text-center">
-                <div class="text-3xl mb-1">🇧🇷</div>
-                <span class="text-white font-heading font-bold text-sm">BRA</span>
+            <div class="flex items-center justify-between mb-5">
+              <div class="text-center flex-1">
+                <div class="text-white font-heading font-bold text-lg">ARG</div>
               </div>
-              <div class="text-center">
-                <span class="text-[#23DF8C] font-heading font-extrabold text-4xl">2 - 1</span>
+              <div class="text-center px-4">
+                <span class="text-[#23DF8C] font-heading font-extrabold text-3xl md:text-4xl">2 - 1</span>
               </div>
-              <div class="text-center">
-                <div class="text-3xl mb-1">🇷🇸</div>
-                <span class="text-white font-heading font-bold text-sm">SRB</span>
+              <div class="text-center flex-1">
+                <div class="text-white font-heading font-bold text-lg">MEX</div>
               </div>
             </div>
-            <div class="space-y-2 border-t border-[#1a4d2a] pt-4">
-              <div class="flex items-center gap-2 text-sm">
-                <span class="text-[#23DF8C]">23'</span>
-                <span class="text-white">Vinicius Jr.</span>
-                <span class="text-[#707070]">1-0</span>
+            <div class="space-y-1.5 border-t border-[#1a4d2a]/50 pt-3">
+              <div class="flex items-center gap-2 text-xs md:text-sm">
+                <span class="text-[#23DF8C] font-mono w-8">23'</span>
+                <span class="text-white">Messi</span>
+                <span class="text-[#555] ml-auto">1-0</span>
               </div>
-              <div class="flex items-center gap-2 text-sm">
-                <span class="text-[#23DF8C]">45'</span>
-                <span class="text-white">Vlahovic</span>
-                <span class="text-[#707070]">1-1</span>
+              <div class="flex items-center gap-2 text-xs md:text-sm">
+                <span class="text-[#23DF8C] font-mono w-8">41'</span>
+                <span class="text-white">Lozano</span>
+                <span class="text-[#555] ml-auto">1-1</span>
               </div>
-              <div class="flex items-center gap-2 text-sm">
-                <span class="text-[#23DF8C]">67'</span>
-                <span class="text-white">Rodrygo</span>
-                <span class="text-[#707070]">2-1</span>
+              <div class="flex items-center gap-2 text-xs md:text-sm">
+                <span class="text-[#23DF8C] font-mono w-8">67'</span>
+                <span class="text-white">Alvarez</span>
+                <span class="text-[#555] ml-auto">2-1</span>
               </div>
             </div>
           </div>
-          <p class="text-center text-[#707070] text-sm mt-4">You get this in WhatsApp. Automatically.</p>
+          <p class="text-center text-[#555] text-xs mt-3">This lands in your WhatsApp. Automatically.</p>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="px-6 py-20 border-t border-[#1a4d2a]/30">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-16 uppercase tracking-tight">
-          30 seconds. That's it.
+    <!-- Ticket Alert -->
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-4 uppercase tracking-tight">
+          TICKETS SELL OUT IN MINUTES
         </h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <p class="text-[#a0a0a0] text-sm md:text-base leading-relaxed mb-6">
+          FIFA ticket drops are chaos. Millions refreshing the same page.
+          The fans who know first, get in first.
+        </p>
+        <div class="bg-[#0d0d0d] border border-[#1a4d2a] rounded-xl p-5 max-w-sm mx-auto text-left">
+          <p class="text-white text-sm font-medium mb-2">You:</p>
+          <p class="text-[#a0a0a0] text-sm font-mono mb-3">"Alert me when semifinal tickets go on sale"</p>
+          <p class="text-[#23DF8C] text-sm font-medium mb-2">Handled:</p>
+          <p class="text-[#23DF8C]/80 text-sm font-mono">"Semifinal tickets just dropped on FIFA.com. Category 3 starts at $195. Go now."</p>
+        </div>
+        <p class="text-[#555] text-xs mt-4">You get the alert. Not an hour later. Not tomorrow. Now.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-12 uppercase tracking-tight">
+          30 SECONDS. YOU'RE IN.
+        </h2>
+        <div class="grid grid-cols-3 gap-4 md:gap-8">
           <div>
-            <div class="w-16 h-16 rounded-2xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-6">
-              <span class="font-heading font-bold text-[#23DF8C] text-2xl">1</span>
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-4">
+              <span class="font-heading font-bold text-[#23DF8C] text-lg md:text-2xl">1</span>
             </div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-3">Open WhatsApp</h3>
-            <p class="text-[#a0a0a0]">Tap the button below. Opens right in WhatsApp.</p>
+            <h3 class="font-heading font-semibold text-white text-sm md:text-lg mb-2">Open WhatsApp</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm">Tap the button. It opens right there.</p>
           </div>
           <div>
-            <div class="w-16 h-16 rounded-2xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-6">
-              <span class="font-heading font-bold text-[#23DF8C] text-2xl">2</span>
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-4">
+              <span class="font-heading font-bold text-[#23DF8C] text-lg md:text-2xl">2</span>
             </div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-3">Tell it your teams</h3>
-            <p class="text-[#a0a0a0]">"Follow Brazil, Argentina, and USA for me."</p>
+            <h3 class="font-heading font-semibold text-white text-sm md:text-lg mb-2">Pick your teams</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm">"Follow Brazil and Argentina."</p>
           </div>
           <div>
-            <div class="w-16 h-16 rounded-2xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-6">
-              <span class="font-heading font-bold text-[#23DF8C] text-2xl">3</span>
+            <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-[#23DF8C]/10 border border-[#23DF8C]/20 flex items-center justify-center mx-auto mb-4">
+              <span class="font-heading font-bold text-[#23DF8C] text-lg md:text-2xl">3</span>
             </div>
-            <h3 class="font-heading font-semibold text-white text-lg mb-3">Never miss a moment</h3>
-            <p class="text-[#a0a0a0]">Scores, reminders, news — all in your chat.</p>
+            <h3 class="font-heading font-semibold text-white text-sm md:text-lg mb-2">Never miss a moment</h3>
+            <p class="text-[#a0a0a0] text-xs md:text-sm">Goals, news, tickets. All in your chat.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Bottom CTA -->
-    <section class="px-6 py-20 border-t border-[#1a4d2a]/30">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-2 uppercase tracking-tight">
-          Starts June 11.
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-heading font-bold text-2xl md:text-4xl text-white mb-2 uppercase tracking-tight">
+          KICKOFF: JUNE 11.
         </h2>
-        <h3 class="font-heading font-bold text-2xl md:text-3xl text-[#23DF8C] mb-8">
-          Set up in 30 seconds.
-        </h3>
-        <a href="https://handled.sh/whatsapp" class="inline-flex items-center gap-3 px-10 py-5 bg-[#23DF8C] text-[#0a1a0a] font-heading font-bold text-xl rounded-xl hover:bg-[#1ec97a] transition-all shadow-[0_0_30px_rgba(35,223,140,0.3)]">
-          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Get it on WhatsApp — Free
+        <p class="text-[#a0a0a0] text-sm md:text-base mb-6">
+          The fans who set up early don't miss the opening goal.
+          The ones who wait, check the score on Twitter 10 minutes late.
+        </p>
+        <p class="text-[#23DF8C] font-heading font-bold text-lg md:text-xl mb-8">
+          Which one are you?
+        </p>
+        <a href="https://handled.sh/whatsapp" class="inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-[#23DF8C] text-[#0a1a0a] font-heading font-bold text-lg md:text-xl rounded-xl hover:bg-[#1ec97a] transition-all shadow-[0_0_30px_rgba(35,223,140,0.3)] w-full sm:w-auto justify-center">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Get it on WhatsApp
         </a>
-        <p class="text-[#707070] text-sm mt-4">No app to download. Free forever. Works on any phone.</p>
+        <p class="text-[#555] text-xs mt-3">Free. Forever. No app. No signup form. Just WhatsApp.</p>
       </div>
     </section>
 
   </main>
   <Footer />
 
-  <!-- Countdown Script -->
   <script>
     const kickoff = new Date('2026-06-11T00:00:00Z').getTime();
     function updateCountdown() {
