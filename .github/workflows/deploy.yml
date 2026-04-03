@@ -23,36 +23,19 @@ jobs:
         with:
           node-version: 20
 
-      # Build VitePress site (main site)
-      - name: Install VitePress dependencies
+      # Build VitePress site (full site mirror of handled-site)
+      - name: Install dependencies
         run: npm ci
       - name: Build VitePress
         run: npx vitepress build docs
         env:
           BASE: /smedjan_staging/
 
-      # Copy VitePress output as base
-      - name: Prepare output
-        run: |
-          mkdir -p _site
-          cp -r docs/.vitepress/dist/* _site/
-
-      # Build Astro landing pages
-      - name: Install Astro dependencies
-        working-directory: landing
-        run: npm ci
-      - name: Build Astro
-        working-directory: landing
-        run: npx astro build
-
-      # Merge Astro output into site
-      - name: Merge Astro pages
-        run: |
-          cp -r landing/dist/* _site/ 2>/dev/null || true
-
+      # VitePress output is the complete site
+      # Static LPs (worldcup, founders, etc) are in docs/public/ and included automatically
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: docs/.vitepress/dist
 
   deploy:
     needs: build
