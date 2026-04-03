@@ -100,7 +100,18 @@ import Footer from '../components/Footer.astro';
   })} />
 
   <Nav cta="Get it on WhatsApp" ctaLink="https://handled.sh/whatsapp" />
-  <main class="pt-20 bg-[#0a1a0a]">
+
+  <!-- Dark/Light toggle -->
+  <button
+    id="theme-toggle"
+    class="fixed top-24 right-4 z-50 w-10 h-10 rounded-full bg-[#1a4d2a] border border-[#23DF8C]/30 flex items-center justify-center text-[#23DF8C] hover:bg-[#23DF8C]/20 transition-all"
+    aria-label="Toggle light/dark mode"
+  >
+    <svg id="icon-sun" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="icon-moon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <main class="pt-20 bg-[#0a1a0a] transition-colors duration-300" id="main-content">
 
     <!-- Hero -->
     <section class="min-h-[90vh] flex items-center px-5 py-12 md:px-6 md:py-16 relative overflow-hidden">
@@ -455,6 +466,71 @@ import Footer from '../components/Footer.astro';
 
   </main>
   <Footer />
+
+  <style>
+    /* Light mode overrides */
+    .light-mode { background: #f5f7f5 !important; }
+    .light-mode h1,
+    .light-mode h2,
+    .light-mode h3,
+    .light-mode summary { color: #0a1a0a !important; }
+    .light-mode p:not(.keep-green) { color: #4a5a4a !important; }
+    .light-mode .text-white { color: #0a1a0a !important; }
+    .light-mode [class*="text-[#a0a0a0]"] { color: #5a6a5a !important; }
+    .light-mode [class*="text-[#555]"],
+    .light-mode [class*="text-[#707070]"] { color: #7a8a7a !important; }
+    .light-mode [class*="bg-[#0d0d0d]"],
+    .light-mode [class*="bg-[#111]"] { background: #ffffff !important; border-color: #d0e0d0 !important; }
+    .light-mode [class*="bg-[#141f14]"] { background: #e8f0e8 !important; border-color: #c0d8c0 !important; }
+    .light-mode [class*="bg-[#0d2a15]"] { background: #e0f5e8 !important; border-color: #b0d8b8 !important; }
+    .light-mode [class*="bg-[#1a3a1a]"] { background: #d8f0e0 !important; }
+    .light-mode [class*="border-[#1a4d2a]"] { border-color: #c0d8c0 !important; }
+    .light-mode [class*="text-[#23DF8C]"] { color: #0a8a4a !important; }
+    .light-mode .text-\[\#23DF8C\] { color: #0a8a4a !important; }
+    .light-mode [class*="bg-[#23DF8C]"] { background: #0a8a4a !important; color: #ffffff !important; }
+    .light-mode [class*="shadow-"] { box-shadow: 0 0 20px rgba(10, 138, 74, 0.15) !important; }
+    .light-mode #theme-toggle { background: #e0f0e0 !important; border-color: #0a8a4a40 !important; color: #0a8a4a !important; }
+    .light-mode nav { background: rgba(245, 247, 245, 0.8) !important; }
+    .light-mode nav span,
+    .light-mode nav a { color: #0a1a0a !important; }
+    .light-mode details { background: #ffffff !important; border-color: #d0e0d0 !important; }
+  </style>
+
+  <script>
+    // Dark/Light toggle
+    const toggle = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    const main = document.getElementById('main-content');
+    const body = document.body;
+    let isLight = false;
+
+    // Check saved preference
+    if (localStorage.getItem('wc-theme') === 'light') {
+      isLight = true;
+      applyTheme();
+    }
+
+    toggle.addEventListener('click', () => {
+      isLight = !isLight;
+      applyTheme();
+      localStorage.setItem('wc-theme', isLight ? 'light' : 'dark');
+    });
+
+    function applyTheme() {
+      if (isLight) {
+        main.classList.add('light-mode');
+        body.classList.add('light-mode');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      } else {
+        main.classList.remove('light-mode');
+        body.classList.remove('light-mode');
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      }
+    }
+  </script>
 
   <script>
     const kickoff = new Date('2026-06-11T00:00:00Z').getTime();
