@@ -113,7 +113,7 @@ import Base from '../layouts/Base.astro';
   <!-- Dark/Light toggle -->
   <button
     id="theme-toggle"
-    class="fixed top-24 right-4 z-50 w-10 h-10 rounded-full bg-[#1a4d2a] border border-[#23DF8C]/30 flex items-center justify-center text-[#23DF8C] hover:bg-[#23DF8C]/20 transition-all"
+    class="fixed bottom-6 right-4 z-50 w-10 h-10 rounded-full bg-[#1a4d2a] border border-[#23DF8C]/30 flex items-center justify-center text-[#23DF8C] hover:bg-[#23DF8C]/20 transition-all"
     aria-label="Toggle light/dark mode"
   >
     <svg id="icon-sun" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -140,7 +140,8 @@ import Base from '../layouts/Base.astro';
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Light mode nav + footer */
+    /* Force dark green on body */
+    body { background: #0a1a0a !important; }
     .light-mode #sub-nav { background: rgba(245,247,245,0.95) !important; border-color: #c0d8c0 !important; }
     .light-mode #sub-nav a { color: #5a6a5a !important; }
     .light-mode #sub-nav a:hover { color: #0a8a4a !important; background: rgba(10,138,74,0.1) !important; }
@@ -471,7 +472,7 @@ import Base from '../layouts/Base.astro';
     </section>
 
     <!-- FAQ (SEO + AEO + user trust) -->
-    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20" itemscope itemtype="https://schema.org/FAQPage">
+    <section class="px-5 py-16 md:px-6 md:py-20 border-t border-[#1a4d2a]/20 bg-[#0a1a0a]" itemscope itemtype="https://schema.org/FAQPage">
       <div class="max-w-2xl mx-auto">
         <h2 class="font-heading font-bold text-2xl md:text-3xl text-white mb-10 uppercase tracking-tight text-center">
           QUESTIONS
@@ -552,7 +553,7 @@ import Base from '../layouts/Base.astro';
 
   <style>
     /* Light mode overrides */
-    .light-mode { background: #f5f7f5 !important; }
+    .light-mode, body.light-mode { background: #f5f7f5 !important; }
     .light-mode h1,
     .light-mode h2,
     .light-mode h3,
