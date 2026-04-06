@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Cup 2026 Knockout Stage | Handled</title>
-  <meta name="description" content="Bracket, results, and knockout round schedule.">
+  <meta name="description" content="Full knockout bracket for the 2026 FIFA World Cup — Round of 32 through the Final at MetLife Stadium.">
   <link rel="canonical" href="https://handled.sh/worldcup/knockout/">
   <link rel="icon" type="image/svg+xml" href="/smedjan_staging/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,47 +12,122 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{background:#0a1a0a;color:#e0e0e0;font-family:'Exo',sans-serif;min-height:100vh;transition:background 0.3s,color 0.3s}
     a{color:#25D366;text-decoration:none}
+
+    /* Nav */
     nav{position:sticky;top:0;z-index:50;background:#0a1a0a;border-bottom:1px solid rgba(26,77,42,0.3)}
-    .nav-inner{max-width:900px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+    .nav-inner{max-width:1400px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#25D366}
     .nav-logo img{width:22px;height:22px;border-radius:50%;background:#25D366}
     .nav-back{color:#a0a0a0;font-size:13px}.nav-back:hover{color:#25D366}
+
+    /* Toggle */
     .toggle{position:fixed;top:14px;right:14px;z-index:100;cursor:pointer}
     .toggle-track{width:40px;height:22px;border-radius:11px;background:#1a4d2a;border:1px solid rgba(37,211,102,0.3);position:relative;transition:background 0.3s}
     .toggle-knob{width:18px;height:18px;border-radius:9px;background:#25D366;position:absolute;top:1px;left:1px;transition:transform 0.3s;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
-    .container{max-width:900px;margin:0 auto;padding:20px 16px 60px}
-    h1{font-size:24px;font-weight:800;text-transform:uppercase;color:#fff;text-align:center;margin-bottom:6px}
-    .subtitle{color:#a0a0a0;font-size:13px;text-align:center;margin-bottom:24px}
-    .card{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:12px;padding:14px;transition:all 0.3s}
-    .card:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 20px rgba(37,211,102,0.08)}
-    .loading{text-align:center;padding:60px;color:#555}
-    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#25D366;margin:0 3px;animation:b 1.4s infinite}
-    .dot:nth-child(2){animation-delay:0.2s}.dot:nth-child(3){animation-delay:0.4s}
-    @keyframes b{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}}
-    .cta-bar{text-align:center;margin-top:30px;padding:20px;background:linear-gradient(135deg,#0d2a15,#1a4d2a);border-radius:14px;border:1px solid rgba(37,211,102,0.2)}
+
+    /* Page header */
+    .page-header{max-width:1400px;margin:0 auto;padding:20px 16px 0;text-align:center}
+    h1{font-size:24px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:6px}
+    .subtitle{color:#a0a0a0;font-size:13px;margin-bottom:4px}
+    .scroll-hint{color:#555;font-size:11px;margin-bottom:16px;display:none}
+    @media(max-width:1100px){.scroll-hint{display:block}}
+
+    /* Bracket wrapper */
+    .bracket-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 8px 20px}
+    .bracket-scroll::-webkit-scrollbar{height:6px}
+    .bracket-scroll::-webkit-scrollbar-track{background:#0d0d0d;border-radius:3px}
+    .bracket-scroll::-webkit-scrollbar-thumb{background:#1a4d2a;border-radius:3px}
+
+    .bracket{display:flex;align-items:center;min-width:1200px;gap:0;padding:10px 0}
+
+    /* Round columns */
+    .round{display:flex;flex-direction:column;justify-content:center;position:relative}
+
+    .round-label{text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;color:#25D366;letter-spacing:1px;margin-bottom:10px;white-space:nowrap}
+
+    /* Match card */
+    .match{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:10px;padding:8px 10px;width:150px;transition:all 0.3s;position:relative}
+    .match:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 16px rgba(37,211,102,0.08)}
+    .match-num{font-size:9px;color:#555;font-weight:600;margin-bottom:4px}
+    .match-teams{font-size:11px;color:#e0e0e0;font-weight:600;line-height:1.6}
+    .match-teams .vs{color:#25D366;font-size:9px;font-weight:700}
+    .match-date{font-size:9px;color:#777;margin-top:4px}
+    .match-venue{font-size:8px;color:#25D366;margin-top:2px;font-weight:600}
+
+    /* Bracket connectors — pair wrapper */
+    .pair{display:flex;flex-direction:column;align-items:center;position:relative}
+
+    /* Spacing per round */
+    .r32 .match{margin:4px 0}
+    .r16 .match{margin:24px 0}
+    .qf .match{margin:68px 0}
+    .sf .match{margin:160px 0}
+
+    /* Connector lines */
+    .connector{display:flex;flex-direction:column;justify-content:center;width:20px;position:relative}
+
+    /* Left-side connectors (R32→R16, R16→QF, QF→SF, SF→Final) */
+    .conn-l .cline{position:relative;display:flex;align-items:center}
+    .conn-l .cline::after{content:'';position:absolute;right:0;width:10px;height:1px;background:rgba(37,211,102,0.3)}
+
+    /* Generic connector pairs */
+    .conn-pair{display:flex;flex-direction:column;position:relative}
+    .conn-pair::after{content:'';position:absolute;right:0;top:50%;width:10px;height:1px;background:rgba(37,211,102,0.3)}
+    .conn-pair .ctop,.conn-pair .cbot{flex:1;position:relative}
+    .conn-pair .ctop::after{content:'';position:absolute;right:0;top:50%;bottom:0;width:1px;background:rgba(37,211,102,0.3)}
+    .conn-pair .cbot::after{content:'';position:absolute;right:0;top:0;bottom:50%;width:1px;background:rgba(37,211,102,0.3)}
+
+    /* Simple horizontal connector */
+    .hconn{width:20px;display:flex;align-items:center;justify-content:center}
+    .hconn::after{content:'';width:100%;height:1px;background:rgba(37,211,102,0.3)}
+
+    /* Trophy center */
+    .trophy-col{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px;min-width:140px}
+    .trophy-icon{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 0 20px rgba(37,211,102,0.3))}
+    .trophy-label{font-size:11px;font-weight:800;text-transform:uppercase;color:#25D366;letter-spacing:2px;margin-bottom:16px}
+    .final-card{width:160px;margin-bottom:12px}
+    .third-card{width:140px;opacity:0.7}
+
+    /* CTA bar */
+    .cta-section{max-width:900px;margin:0 auto;padding:0 16px 40px}
+    .cta-bar{text-align:center;padding:20px;background:linear-gradient(135deg,#0d2a15,#1a4d2a);border-radius:14px;border:1px solid rgba(37,211,102,0.2)}
     .cta-bar p{color:#a0a0a0;font-size:13px;margin-bottom:12px}
-    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:14px;border-radius:10px}
-    .error{text-align:center;padding:40px;color:#ff5555}
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:14px;border-radius:10px;transition:transform 0.2s}
+    .cta-btn:hover{transform:scale(1.03)}
+
+    /* Footer */
     footer{border-top:1px solid rgba(26,77,42,0.2);padding:20px 16px;text-align:center}
     footer span{color:#25D366;font-size:13px;font-weight:600}
     footer p{color:#555;font-size:11px;margin-top:4px}
-    /* Light mode */
+
+    /* ===== LIGHT MODE ===== */
     body.light{background:#f5f7f5!important;color:#333!important}
     body.light nav{background:#f5f7f5!important;border-color:#c0d8c0!important}
     body.light .nav-logo{color:#0a8a4a!important}
     body.light .nav-back{color:#777!important}
     body.light h1{color:#0a1a0a!important}
     body.light .subtitle{color:#666!important}
-    body.light .card{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .scroll-hint{color:#999!important}
+    body.light .match{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .match:hover{border-color:#0a8a4a!important;box-shadow:0 0 16px rgba(10,138,74,0.1)!important}
+    body.light .match-num{color:#999!important}
+    body.light .match-teams{color:#222!important}
+    body.light .match-teams .vs{color:#0a8a4a!important}
+    body.light .match-date{color:#888!important}
+    body.light .match-venue{color:#0a8a4a!important}
+    body.light .round-label{color:#0a8a4a!important}
+    body.light .trophy-label{color:#0a8a4a!important}
+    body.light .conn-pair::after,
+    body.light .conn-pair .ctop::after,
+    body.light .conn-pair .cbot::after,
+    body.light .hconn::after{background:rgba(10,138,74,0.3)!important}
     body.light .cta-bar{background:linear-gradient(135deg,#e0f5e8,#c0e8d0)!important;border-color:#c0d8c0!important}
     body.light .cta-btn{background:#0a8a4a!important;color:#fff!important}
     body.light footer{border-color:#c0d8c0!important}
     body.light footer span{color:#0a8a4a!important}
     body.light .toggle-track{background:#c0d8c0!important;border-color:#0a8a4a!important}
-    body.light td,body.light th{color:#333!important}
-    body.light .team-name{color:#0a1a0a!important}
-    body.light .pts{color:#0a8a4a!important}
-    
+    body.light .bracket-scroll::-webkit-scrollbar-track{background:#e8e8e8!important}
+    body.light .bracket-scroll::-webkit-scrollbar-thumb{background:#0a8a4a!important}
   </style>
 </head>
 <body>
@@ -60,27 +135,209 @@
     <a href="../" class="nav-logo"><img src="../trionda-ball.png" alt="">handled.sh</a>
     <a href="../" class="nav-back">Back to World Cup</a>
   </div></nav>
+
   <div class="toggle" onclick="toggleTheme()"><div class="toggle-track" id="track"><div class="toggle-knob" id="knob"></div></div></div>
-  <div class="container">
-    <h1>World Cup 2026 Knockout Stage</h1>
-    <p class="subtitle">Bracket, results, and knockout round schedule.</p>
-    <div id="content"><div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p style="margin-top:12px;font-size:12px">Loading...</p></div></div>
+
+  <div class="page-header">
+    <h1>Knockout Bracket</h1>
+    <p class="subtitle">World Cup 2026 — Round of 32 to the Final</p>
+    <p class="scroll-hint">Swipe to scroll the bracket</p>
+  </div>
+
+  <div class="bracket-scroll">
+    <div class="bracket" id="bracket"></div>
+  </div>
+
+  <div class="cta-section">
     <div class="cta-bar">
-      <p>Get live updates in WhatsApp. Just ask.</p>
-      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=knockout" class="cta-btn">Get it on WhatsApp</a>
+      <p>Get live knockout stage updates on WhatsApp. Just ask.</p>
+      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=knockout" class="cta-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.655-6.434-1.794l-.449-.271-3.29 1.103 1.103-3.29-.271-.449A9.963 9.963 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Get it on WhatsApp
+      </a>
     </div>
   </div>
-  <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
-  <script>
-    const API='https://football-api-746371360705.us-central1.run.app',KEY='0740cf9a932cee0bbaf2b31274dfca386e021a7548073bac';
-    function toggleTheme(){document.body.classList.toggle('light');var k=document.getElementById('knob'),t=document.getElementById('track');if(document.body.classList.contains('light')){k.style.transform='translateX(19px)';t.style.background='#c0d8c0';localStorage.setItem('wc-theme','light')}else{k.style.transform='';t.style.background='';localStorage.setItem('wc-theme','dark')}}
-    if(localStorage.getItem('wc-theme')==='light'){document.body.classList.add('light');document.getElementById('knob').style.transform='translateX(19px)'}
-    
-async function load(){
-  document.getElementById('content').innerHTML='<div style="text-align:center;padding:40px"><div class="card" style="max-width:400px;margin:0 auto;padding:24px"><h2 style="color:#25D366;font-size:18px;font-weight:800;margin-bottom:12px">KNOCKOUT BRACKET</h2><p style="color:#a0a0a0;font-size:13px;margin-bottom:16px">The knockout stage begins after the group phase. Round of 32, quarterfinals, semifinals, and the final.</p><div style="color:#fff;font-size:13px;text-align:left;line-height:2"><div>Round of 32: June 28 - July 2</div><div>Quarterfinals: July 4-5</div><div>Semifinals: July 8-9</div><div>Third Place: July 18</div><div style="color:#25D366;font-weight:700">Final: July 19 - MetLife Stadium</div></div></div></div>'
-}
-load();
 
+  <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
+
+  <script>
+    /* Theme toggle */
+    function toggleTheme(){
+      document.body.classList.toggle('light');
+      var k=document.getElementById('knob'),t=document.getElementById('track');
+      if(document.body.classList.contains('light')){
+        k.style.transform='translateX(19px)';t.style.background='#c0d8c0';
+        localStorage.setItem('wc-theme','light');
+      }else{
+        k.style.transform='';t.style.background='';
+        localStorage.setItem('wc-theme','dark');
+      }
+    }
+    if(localStorage.getItem('wc-theme')==='light'){
+      document.body.classList.add('light');
+      document.getElementById('knob').style.transform='translateX(19px)';
+    }
+
+    /* Bracket data */
+    var leftR32 = [
+      {n:49,t1:'1A',t2:'3C/D/E',d:'Jun 28'},
+      {n:50,t1:'2C',t2:'2D',d:'Jun 29'},
+      {n:51,t1:'1B',t2:'3A/D/E',d:'Jun 29'},
+      {n:52,t1:'2A',t2:'2B',d:'Jun 30'},
+      {n:53,t1:'1C',t2:'3B/F/G',d:'Jun 28'},
+      {n:54,t1:'2E',t2:'2F',d:'Jun 29'},
+      {n:55,t1:'1D',t2:'3A/B/F',d:'Jun 29'},
+      {n:56,t1:'2G',t2:'2H',d:'Jun 30'}
+    ];
+    var leftR16 = [
+      {n:57,t1:'W49',t2:'W50',d:'Jul 3'},
+      {n:58,t1:'W51',t2:'W52',d:'Jul 3'},
+      {n:59,t1:'W53',t2:'W54',d:'Jul 4'},
+      {n:60,t1:'W55',t2:'W56',d:'Jul 4'}
+    ];
+    var leftQF = [
+      {n:61,t1:'W57',t2:'W58',d:'Jul 8'},
+      {n:62,t1:'W59',t2:'W60',d:'Jul 9'}
+    ];
+    var leftSF = [
+      {n:65,t1:'W61',t2:'W62',d:'Jul 14'}
+    ];
+
+    var rightR32 = [
+      {n:41,t1:'1E',t2:'3I/J/K',d:'Jun 28'},
+      {n:42,t1:'2I',t2:'2J',d:'Jun 29'},
+      {n:43,t1:'1F',t2:'3H/I/K',d:'Jun 29'},
+      {n:44,t1:'2K',t2:'2L',d:'Jun 30'},
+      {n:45,t1:'1G',t2:'3G/H/L',d:'Jun 28'},
+      {n:46,t1:'2G',t2:'2L',d:'Jun 29'},
+      {n:47,t1:'1H',t2:'3E/F/J',d:'Jun 29'},
+      {n:48,t1:'2I',t2:'2J',d:'Jun 30'}
+    ];
+    var rightR16 = [
+      {n:63,t1:'W41',t2:'W42',d:'Jul 3'},
+      {n:64,t1:'W43',t2:'W44',d:'Jul 4'},
+      {n:'65b',t1:'W45',t2:'W46',d:'Jul 3'},
+      {n:66,t1:'W47',t2:'W48',d:'Jul 4'}
+    ];
+    var rightQF = [
+      {n:67,t1:'W63',t2:'W64',d:'Jul 8'},
+      {n:68,t1:'W65b',t2:'W66',d:'Jul 9'}
+    ];
+    var rightSF = [
+      {n:69,t1:'W67',t2:'W68',d:'Jul 15'}
+    ];
+
+    function matchCard(m, extra){
+      var v = extra || '';
+      return '<div class="match">' +
+        '<div class="match-num">Match ' + m.n + '</div>' +
+        '<div class="match-teams">' + m.t1 + ' <span class="vs">vs</span> ' + m.t2 + '</div>' +
+        '<div class="match-date">' + m.d + '</div>' +
+        v +
+      '</div>';
+    }
+
+    function roundCol(matches, cls, label){
+      var h = '<div class="round ' + cls + '">';
+      h += '<div class="round-label">' + label + '</div>';
+      for(var i=0;i<matches.length;i++){
+        h += matchCard(matches[i]);
+      }
+      h += '</div>';
+      return h;
+    }
+
+    /* Connector column: draws bracket lines between pairs */
+    function connectorCol(count, spacing){
+      /* count = number of output lines (half the input matches) */
+      var h = '<div class="round" style="width:24px">';
+      h += '<div class="round-label" style="visibility:hidden">.</div>';
+      for(var i=0;i<count;i++){
+        var my = spacing;
+        h += '<svg class="bracket-line" width="24" height="' + my + '" style="display:block;margin:0 auto">';
+        var mid = my / 2;
+        var q1 = my * 0.25;
+        var q3 = my * 0.75;
+        h += '<line x1="0" y1="' + q1 + '" x2="8" y1="' + q1 + '" y2="' + q1 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="0" y1="' + q3 + '" x2="8" y1="' + q3 + '" y2="' + q3 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="8" y1="' + q1 + '" x2="8" y2="' + q3 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="8" y1="' + mid + '" x2="24" y2="' + mid + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '</svg>';
+      }
+      h += '</div>';
+      return h;
+    }
+
+    function connectorColReverse(count, spacing){
+      var h = '<div class="round" style="width:24px">';
+      h += '<div class="round-label" style="visibility:hidden">.</div>';
+      for(var i=0;i<count;i++){
+        var my = spacing;
+        h += '<svg class="bracket-line" width="24" height="' + my + '" style="display:block;margin:0 auto">';
+        var mid = my / 2;
+        var q1 = my * 0.25;
+        var q3 = my * 0.75;
+        h += '<line x1="16" y1="' + q1 + '" x2="24" y2="' + q1 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="16" y1="' + q3 + '" x2="24" y2="' + q3 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="16" y1="' + q1 + '" x2="16" y2="' + q3 + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '<line x1="0" y1="' + mid + '" x2="16" y2="' + mid + '" stroke="rgba(37,211,102,0.35)" stroke-width="1"/>';
+        h += '</svg>';
+      }
+      h += '</div>';
+      return h;
+    }
+
+    /* Build bracket using a table-like approach for reliable alignment */
+    function buildBracket(){
+      var el = document.getElementById('bracket');
+      /* We'll build the bracket as a CSS grid with 13 columns:
+         L-R32 | conn | L-R16 | conn | L-QF | conn | L-SF | conn | CENTER | conn | R-SF | conn | R-QF | conn | R-R16 | conn | R-R32
+      */
+
+      var html = '';
+
+      /* Left half */
+      html += roundCol(leftR32, 'r32', 'Round of 32');
+      html += connectorCol(4, 80);
+      html += roundCol(leftR16, 'r16', 'Round of 16');
+      html += connectorCol(2, 175);
+      html += roundCol(leftQF, 'qf', 'Quarterfinals');
+      html += connectorCol(1, 380);
+      html += roundCol(leftSF, 'sf', 'Semifinals');
+      html += connectorCol(1, 60);
+
+      /* Center: Final + Trophy */
+      html += '<div class="trophy-col">';
+      html += '<div class="round-label">Final</div>';
+      html += '<div class="trophy-icon">&#127942;</div>';
+      html += '<div class="trophy-label">Champion</div>';
+      html += '<div class="match final-card">';
+      html += '<div class="match-num">Final</div>';
+      html += '<div class="match-teams">W65 <span class="vs">vs</span> W69</div>';
+      html += '<div class="match-date">Jul 19</div>';
+      html += '<div class="match-venue">MetLife Stadium, NJ</div>';
+      html += '</div>';
+      html += '<div class="match third-card">';
+      html += '<div class="match-num">3rd Place</div>';
+      html += '<div class="match-teams">L65 <span class="vs">vs</span> L69</div>';
+      html += '<div class="match-date">Jul 18</div>';
+      html += '</div>';
+      html += '</div>';
+
+      /* Right half (mirrored) */
+      html += connectorColReverse(1, 60);
+      html += roundCol(rightSF, 'sf', 'Semifinals');
+      html += connectorColReverse(1, 380);
+      html += roundCol(rightQF, 'qf', 'Quarterfinals');
+      html += connectorColReverse(2, 175);
+      html += roundCol(rightR16, 'r16', 'Round of 16');
+      html += connectorColReverse(4, 80);
+      html += roundCol(rightR32, 'r32', 'Round of 32');
+
+      el.innerHTML = html;
+    }
+
+    buildBracket();
   </script>
 </body>
 </html>
