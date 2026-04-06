@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026 Scores | Handled</title>
-  <meta name="description" content="Live scores and today's fixtures. Updated in real-time.">
+  <title>World Cup 2026 Scores & Fixtures | Handled</title>
+  <meta name="description" content="FIFA World Cup 2026 scores, fixtures, and results. All 104 matches. Live updates via WhatsApp.">
   <link rel="canonical" href="https://handled.sh/worldcup/scores/">
-  <link rel="icon" type="image/svg+xml" href="/smedjan_staging/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -22,37 +22,63 @@
     .toggle-knob{width:18px;height:18px;border-radius:9px;background:#25D366;position:absolute;top:1px;left:1px;transition:transform 0.3s;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
     .container{max-width:900px;margin:0 auto;padding:20px 16px 60px}
     h1{font-size:24px;font-weight:800;text-transform:uppercase;color:#fff;text-align:center;margin-bottom:6px}
-    .subtitle{color:#a0a0a0;font-size:13px;text-align:center;margin-bottom:24px}
-    .card{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:12px;padding:14px;transition:all 0.3s}
-    .card:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 20px rgba(37,211,102,0.08)}
+    .subtitle{color:#a0a0a0;font-size:13px;text-align:center;margin-bottom:16px}
+    
+    /* Date navigation */
+    .date-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+    .date-btn{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:600;border:1px solid rgba(37,211,102,0.2);background:transparent;color:#a0a0a0;cursor:pointer;transition:all 0.3s}
+    .date-btn:hover,.date-btn.active{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4);color:#25D366}
+    
+    /* Match cards */
+    .match-list{display:flex;flex-direction:column;gap:8px;max-width:500px;margin:0 auto}
+    .match-card{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:12px;padding:12px 16px;transition:all 0.3s}
+    .match-card:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 15px rgba(37,211,102,0.08)}
+    .match-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .match-round{color:#555;font-size:9px;text-transform:uppercase;letter-spacing:1px}
+    .match-time{color:#25D366;font-size:11px;font-weight:600}
+    .match-status-live{color:#ff3b3b;font-size:10px;font-weight:700;animation:pulse 1.5s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+    .match-teams{display:flex;align-items:center;justify-content:space-between}
+    .team{display:flex;align-items:center;gap:8px;flex:1}
+    .team-right{justify-content:flex-end;text-align:right}
+    .team img{width:24px;height:24px;border-radius:2px}
+    .team-name{color:#fff;font-size:13px;font-weight:700}
+    .match-score{text-align:center;min-width:60px}
+    .score{color:#25D366;font-size:22px;font-weight:800}
+    .score-vs{color:#555;font-size:14px;font-weight:700}
+    .match-venue{color:#555;font-size:10px;text-align:center;margin-top:6px}
+    
+    .day-header{color:#25D366;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto}
+    
     .loading{text-align:center;padding:60px;color:#555}
     .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#25D366;margin:0 3px;animation:b 1.4s infinite}
     .dot:nth-child(2){animation-delay:0.2s}.dot:nth-child(3){animation-delay:0.4s}
     @keyframes b{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}}
+    .empty{text-align:center;padding:40px;color:#a0a0a0}
+    .error{text-align:center;padding:40px;color:#ff5555}
+    
     .cta-bar{text-align:center;margin-top:30px;padding:20px;background:linear-gradient(135deg,#0d2a15,#1a4d2a);border-radius:14px;border:1px solid rgba(37,211,102,0.2)}
     .cta-bar p{color:#a0a0a0;font-size:13px;margin-bottom:12px}
     .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:14px;border-radius:10px}
-    .error{text-align:center;padding:40px;color:#ff5555}
     footer{border-top:1px solid rgba(26,77,42,0.2);padding:20px 16px;text-align:center}
     footer span{color:#25D366;font-size:13px;font-weight:600}
     footer p{color:#555;font-size:11px;margin-top:4px}
-    /* Light mode */
+    
     body.light{background:#f5f7f5!important;color:#333!important}
     body.light nav{background:#f5f7f5!important;border-color:#c0d8c0!important}
     body.light .nav-logo{color:#0a8a4a!important}
-    body.light .nav-back{color:#777!important}
     body.light h1{color:#0a1a0a!important}
     body.light .subtitle{color:#666!important}
-    body.light .card{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .match-card{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .team-name{color:#0a1a0a!important}
+    body.light .score{color:#0a8a4a!important}
+    body.light .match-time{color:#0a8a4a!important}
+    body.light .day-header{color:#0a8a4a!important}
+    body.light .date-btn.active{background:rgba(10,138,74,0.15)!important;color:#0a8a4a!important;border-color:#0a8a4a!important}
     body.light .cta-bar{background:linear-gradient(135deg,#e0f5e8,#c0e8d0)!important;border-color:#c0d8c0!important}
     body.light .cta-btn{background:#0a8a4a!important;color:#fff!important}
     body.light footer{border-color:#c0d8c0!important}
-    body.light footer span{color:#0a8a4a!important}
     body.light .toggle-track{background:#c0d8c0!important;border-color:#0a8a4a!important}
-    body.light td,body.light th{color:#333!important}
-    body.light .team-name{color:#0a1a0a!important}
-    body.light .pts{color:#0a8a4a!important}
-    
   </style>
 </head>
 <body>
@@ -61,38 +87,151 @@
     <a href="../" class="nav-back">Back to World Cup</a>
   </div></nav>
   <div class="toggle" onclick="toggleTheme()"><div class="toggle-track" id="track"><div class="toggle-knob" id="knob"></div></div></div>
+  
   <div class="container">
-    <h1>World Cup 2026 Scores</h1>
-    <p class="subtitle">Live scores and today's fixtures. Updated in real-time.</p>
-    <div id="content"><div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p style="margin-top:12px;font-size:12px">Loading...</p></div></div>
+    <h1>Scores & Fixtures</h1>
+    <p class="subtitle">All 104 matches. Live scores during the tournament.</p>
+    
+    <div class="date-nav" id="date-nav"></div>
+    
+    <div id="content">
+      <div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p style="margin-top:12px;font-size:12px">Loading fixtures...</p></div>
+    </div>
+
     <div class="cta-bar">
-      <p>Get live updates in WhatsApp. Just ask.</p>
+      <p>Get live score alerts in WhatsApp. Never miss a goal.</p>
       <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=scores" class="cta-btn">Get it on WhatsApp</a>
     </div>
   </div>
+  
   <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
+
   <script>
-    const API='https://football-api-746371360705.us-central1.run.app',KEY='0740cf9a932cee0bbaf2b31274dfca386e021a7548073bac';
+    const API='https://football-api-746371360705.us-central1.run.app';
+    const KEY='0740cf9a932cee0bbaf2b31274dfca386e021a7548073bac';
+    
     function toggleTheme(){document.body.classList.toggle('light');var k=document.getElementById('knob'),t=document.getElementById('track');if(document.body.classList.contains('light')){k.style.transform='translateX(19px)';t.style.background='#c0d8c0';localStorage.setItem('wc-theme','light')}else{k.style.transform='';t.style.background='';localStorage.setItem('wc-theme','dark')}}
     if(localStorage.getItem('wc-theme')==='light'){document.body.classList.add('light');document.getElementById('knob').style.transform='translateX(19px)'}
-    
-async function load(){try{
-  const [today,live]=await Promise.all([
-    fetch(API+'/api/fixtures/today',{headers:{'X-API-Key':KEY}}).then(r=>r.json()),
-    fetch(API+'/api/fixtures/live',{headers:{'X-API-Key':KEY}}).then(r=>r.json())
-  ]);
-  let h='';
-  if(live&&live.length>0){h+='<h2 style="color:#ff3b3b;font-size:14px;text-transform:uppercase;margin-bottom:12px;text-align:center">Live Now</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:24px">';
-    live.forEach(m=>{h+='<div class="card" style="text-align:center"><div style="color:#ff3b3b;font-size:10px;font-weight:700;margin-bottom:6px">LIVE '+m.elapsed+\'\''+'</div><div style="display:flex;align-items:center;justify-content:center;gap:12px"><span style="color:#fff;font-weight:700">'+m.home_team+'</span><span style="color:#25D366;font-size:22px;font-weight:800">'+m.home_goals+' - '+m.away_goals+'</span><span style="color:#fff;font-weight:700">'+m.away_team+'</span></div></div>'});
-    h+='</div>'}
-  if(today&&today.length>0){h+='<h2 style="color:#25D366;font-size:14px;text-transform:uppercase;margin-bottom:12px;text-align:center">Today\'s Matches</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">';
-    today.forEach(m=>{var status=m.status||'';var score=m.home_goals!==null?m.home_goals+' - '+m.away_goals:'vs';var time=m.time||'';h+='<div class="card" style="text-align:center"><div style="color:#555;font-size:10px;margin-bottom:6px">'+m.league_name+' '+time+'</div><div style="display:flex;align-items:center;justify-content:center;gap:12px"><img src="'+(m.home_logo||'')+'" style="width:20px;height:20px"><span style="color:#fff;font-weight:700;font-size:13px">'+m.home_team+'</span><span style="color:#25D366;font-size:20px;font-weight:800">'+score+'</span><span style="color:#fff;font-weight:700;font-size:13px">'+m.away_team+'</span><img src="'+(m.away_logo||'')+'" style="width:20px;height:20px"></div></div>'});
-    h+='</div>'}
-  if(!h)h='<div style="text-align:center;padding:40px;color:#a0a0a0"><p style="font-size:16px;margin-bottom:8px">No matches today</p><p style="font-size:12px">Check back on match days for live scores.</p></div>';
-  document.getElementById('content').innerHTML=h
-}catch(e){document.getElementById('content').innerHTML='<div class="error">Failed to load scores.</div>'}}
-load();
 
+    // Generate match dates (Jun 11 - Jul 19)
+    const dates = [];
+    const start = new Date('2026-06-11');
+    const end = new Date('2026-07-19');
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      dates.push(d.toISOString().split('T')[0]);
+    }
+
+    let currentDate = dates[0];
+
+    function renderDateNav() {
+      // Show key dates as buttons
+      const keyDates = [
+        {date:'2026-06-11',label:'Jun 11'},
+        {date:'2026-06-14',label:'Jun 14'},
+        {date:'2026-06-18',label:'Jun 18'},
+        {date:'2026-06-22',label:'Jun 22'},
+        {date:'2026-06-26',label:'Jun 26'},
+        {date:'2026-06-28',label:'Jun 28'},
+        {date:'2026-07-04',label:'Jul 4'},
+        {date:'2026-07-08',label:'Jul 8'},
+        {date:'2026-07-14',label:'Jul 14'},
+        {date:'2026-07-19',label:'Final'},
+      ];
+      let h = '';
+      keyDates.forEach(k => {
+        h += '<button class="date-btn'+(k.date===currentDate?' active':'')+'" onclick="loadDate(\''+k.date+'\')">'+k.label+'</button>';
+      });
+      document.getElementById('date-nav').innerHTML = h;
+    }
+
+    async function loadDate(date) {
+      currentDate = date;
+      renderDateNav();
+      document.getElementById('content').innerHTML = '<div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+      
+      try {
+        // Load 3 days around selected date for context
+        const promises = [];
+        const d = new Date(date);
+        for (let i = 0; i < 3; i++) {
+          const dd = new Date(d);
+          dd.setDate(dd.getDate() + i);
+          const ds = dd.toISOString().split('T')[0];
+          promises.push(
+            fetch(API+'/api/fixtures/date/'+ds+'?league_id=1', {headers:{'X-API-Key':KEY}})
+              .then(r=>r.json())
+              .then(data=>({date:ds, fixtures:data}))
+              .catch(()=>({date:ds, fixtures:[]}))
+          );
+        }
+        
+        const results = await Promise.all(promises);
+        let h = '';
+        let totalFixtures = 0;
+        
+        results.forEach(({date: dd, fixtures}) => {
+          if (fixtures.length === 0) return;
+          totalFixtures += fixtures.length;
+          
+          const dateObj = new Date(dd + 'T00:00:00');
+          const dayName = dateObj.toLocaleDateString('en-US', {weekday:'long', month:'short', day:'numeric'});
+          h += '<div class="day-header">' + dayName + '</div>';
+          h += '<div class="match-list">';
+          
+          fixtures.forEach(m => {
+            const matchDate = new Date(m.date);
+            const time = matchDate.toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit', hour12:true});
+            const isLive = m.status === '1H' || m.status === '2H' || m.status === 'HT' || m.status === 'ET';
+            const isFinished = m.status === 'FT' || m.status === 'AET' || m.status === 'PEN';
+            const hasScore = m.home_goals !== null && m.away_goals !== null;
+            
+            h += '<div class="match-card">';
+            h += '<div class="match-meta">';
+            h += '<span class="match-round">' + (m.round || '') + '</span>';
+            if (isLive) {
+              h += '<span class="match-status-live">LIVE ' + (m.elapsed || '') + "'</span>";
+            } else if (isFinished) {
+              h += '<span style="color:#a0a0a0;font-size:10px">FT</span>';
+            } else {
+              h += '<span class="match-time">' + time + '</span>';
+            }
+            h += '</div>';
+            
+            h += '<div class="match-teams">';
+            h += '<div class="team"><img src="' + (m.home_team_logo||'') + '" alt=""><span class="team-name">' + m.home_team_name + '</span></div>';
+            h += '<div class="match-score">';
+            if (hasScore) {
+              h += '<span class="score">' + m.home_goals + ' - ' + m.away_goals + '</span>';
+            } else {
+              h += '<span class="score-vs">vs</span>';
+            }
+            h += '</div>';
+            h += '<div class="team team-right"><span class="team-name">' + m.away_team_name + '</span><img src="' + (m.away_team_logo||'') + '" alt=""></div>';
+            h += '</div>';
+            
+            if (m.venue) {
+              h += '<div class="match-venue">' + m.venue + '</div>';
+            }
+            h += '</div>';
+          });
+          
+          h += '</div>';
+        });
+        
+        if (totalFixtures === 0) {
+          h = '<div class="empty"><p style="font-size:16px;margin-bottom:8px">No matches on this date</p><p style="font-size:12px">Try another date or check back closer to the tournament.</p></div>';
+        }
+        
+        document.getElementById('content').innerHTML = h;
+        
+      } catch(e) {
+        document.getElementById('content').innerHTML = '<div class="error">Failed to load fixtures.</div>';
+        console.error(e);
+      }
+    }
+
+    renderDateNav();
+    loadDate(currentDate);
   </script>
 </body>
 </html>
