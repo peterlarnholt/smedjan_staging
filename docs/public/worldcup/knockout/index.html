@@ -50,47 +50,109 @@
     .match:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 16px rgba(37,211,102,0.08)}
 
     /* Modal overlay */
-    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:200;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:200;align-items:flex-start;justify-content:center;padding:16px;backdrop-filter:blur(8px);overflow-y:auto}
     .modal-overlay.active{display:flex}
-    .modal{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.25);border-radius:16px;width:100%;max-width:420px;position:relative;overflow:hidden;animation:modalIn 0.25s ease}
-    @keyframes modalIn{from{transform:scale(0.92);opacity:0}to{transform:scale(1);opacity:1}}
+    .modal{background:#0d0d0d;border:1px solid rgba(37,211,102,0.2);border-radius:16px;width:100%;max-width:720px;position:relative;overflow:hidden;animation:modalIn 0.25s ease;margin:auto}
+    @keyframes modalIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
     .modal-close{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10}
     .modal-close:hover{background:rgba(255,255,255,0.15);color:#fff}
-    .modal-round{text-align:center;padding:16px 16px 0;font-size:11px;font-weight:700;text-transform:uppercase;color:#25D366;letter-spacing:1.5px}
-    .modal-vs{display:flex;align-items:center;justify-content:center;gap:20px;padding:24px 16px}
-    .modal-team{text-align:center;flex:1}
-    .modal-team-name{font-size:18px;font-weight:800;color:#fff;margin-top:6px}
-    .modal-team-badge{width:56px;height:56px;border-radius:50%;background:rgba(37,211,102,0.1);border:2px solid rgba(37,211,102,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:16px;font-weight:800;color:#25D366}
-    .modal-vs-label{font-size:14px;font-weight:800;color:#555;text-transform:uppercase}
-    .modal-info{padding:0 16px 16px}
-    .modal-info-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,0.03);border-radius:10px;margin-bottom:8px}
-    .modal-info-icon{width:32px;height:32px;border-radius:8px;background:rgba(37,211,102,0.1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-    .modal-info-label{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
-    .modal-info-value{font-size:13px;color:#e0e0e0;font-weight:600;margin-top:1px}
-    .modal-status{text-align:center;padding:6px 16px 16px}
-    .modal-status-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-    .modal-status-badge.scheduled{background:rgba(37,211,102,0.1);color:#25D366;border:1px solid rgba(37,211,102,0.2)}
-    .modal-cta{padding:0 16px 20px;text-align:center}
+
+    /* Modal header bar */
+    .modal-header{display:flex;align-items:center;gap:8px;padding:14px 50px 14px 16px;border-bottom:1px solid rgba(37,211,102,0.1)}
+    .modal-header-icon{font-size:16px}
+    .modal-header-round{font-size:12px;font-weight:700;color:#25D366;text-transform:uppercase;letter-spacing:1px}
+    .modal-header-follow{margin-left:auto;padding:5px 14px;border-radius:6px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2);color:#25D366;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none}
+
+    /* Match info strip */
+    .modal-strip{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 16px;color:#888;font-size:11px}
+    .modal-strip-item{display:flex;align-items:center;gap:4px}
+
+    /* VS section - FotMob style */
+    .modal-vs{display:flex;align-items:center;justify-content:center;gap:0;padding:24px 16px 20px}
+    .modal-team{text-align:center;flex:1;min-width:0}
+    .modal-team-name{font-size:16px;font-weight:800;color:#fff;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .modal-team-badge{width:64px;height:64px;border-radius:50%;background:rgba(37,211,102,0.08);border:2px solid rgba(37,211,102,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:18px;font-weight:800;color:#25D366}
+    .modal-kickoff{text-align:center;padding:0 12px;flex-shrink:0}
+    .modal-kickoff-time{font-size:28px;font-weight:800;color:#fff;letter-spacing:-1px}
+    .modal-kickoff-date{font-size:11px;color:#888;margin-top:2px;font-weight:600}
+
+    /* Two-column layout */
+    .modal-body{display:flex;gap:0}
+    .modal-main{flex:1;min-width:0;border-right:1px solid rgba(37,211,102,0.08)}
+    .modal-sidebar{width:240px;flex-shrink:0}
+    @media(max-width:600px){
+      .modal-body{flex-direction:column}
+      .modal-main{border-right:none;border-bottom:1px solid rgba(37,211,102,0.08)}
+      .modal-sidebar{width:100%}
+    }
+
+    /* Tabs */
+    .modal-tabs{display:flex;border-bottom:1px solid rgba(37,211,102,0.1);padding:0 16px}
+    .modal-tab{padding:10px 16px;font-size:12px;font-weight:700;color:#555;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s}
+    .modal-tab.active{color:#25D366;border-color:#25D366}
+
+    /* About section */
+    .modal-about{padding:16px}
+    .modal-about-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:10px}
+    .modal-about-text{font-size:12px;color:#a0a0a0;line-height:1.7}
+    .modal-about-text a{color:#25D366}
+    .modal-about-features{margin-top:12px;padding-left:16px}
+    .modal-about-features li{font-size:11px;color:#888;margin-bottom:4px;line-height:1.5}
+
+    /* Sidebar venue card */
+    .modal-venue-card{margin:12px;padding:14px;background:rgba(37,211,102,0.04);border:1px solid rgba(37,211,102,0.1);border-radius:12px}
+    .modal-venue-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
+    .modal-venue-row:last-child{margin-bottom:0}
+    .modal-venue-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+    .modal-venue-label{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
+    .modal-venue-value{font-size:12px;color:#e0e0e0;font-weight:600;margin-top:1px}
+
+    /* Sidebar round matches */
+    .modal-round-card{margin:0 12px 12px;padding:14px;background:rgba(37,211,102,0.04);border:1px solid rgba(37,211,102,0.1);border-radius:12px}
+    .modal-round-title{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#25D366;margin-bottom:10px}
+    .modal-round-match{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;margin-bottom:4px;font-size:11px;cursor:pointer;transition:background 0.2s}
+    .modal-round-match:hover{background:rgba(37,211,102,0.06)}
+    .modal-round-match.current{background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2)}
+    .modal-round-match:last-child{margin-bottom:0}
+    .modal-round-teams{color:#e0e0e0;font-weight:600}
+    .modal-round-date{color:#666;font-size:10px;text-align:right;white-space:nowrap}
+
+    /* Modal CTA */
+    .modal-cta{padding:16px;text-align:center;border-top:1px solid rgba(37,211,102,0.08)}
     .modal-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:13px;border-radius:10px;border:none;cursor:pointer;transition:transform 0.2s;text-decoration:none}
     .modal-cta-btn:hover{transform:scale(1.03)}
     .modal-cta-hint{font-size:11px;color:#555;margin-top:8px}
     .modal-divider{height:1px;background:rgba(37,211,102,0.1);margin:0 16px 16px}
 
     /* Light mode modal */
-    body.light .modal{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .modal{background:#fff!important;border-color:#c0d8c0!important}
     body.light .modal-close{background:rgba(0,0,0,0.05)!important;border-color:rgba(0,0,0,0.1)!important;color:#777!important}
-    body.light .modal-round{color:#0a8a4a!important}
+    body.light .modal-header{border-color:#e0e8e0!important}
+    body.light .modal-header-round{color:#0a8a4a!important}
+    body.light .modal-header-follow{background:rgba(10,138,74,0.08)!important;border-color:rgba(10,138,74,0.2)!important;color:#0a8a4a!important}
+    body.light .modal-strip{color:#999!important}
     body.light .modal-team-name{color:#0a1a0a!important}
-    body.light .modal-team-badge{background:rgba(10,138,74,0.08)!important;border-color:rgba(10,138,74,0.2)!important;color:#0a8a4a!important}
-    body.light .modal-vs-label{color:#bbb!important}
-    body.light .modal-info-row{background:rgba(0,0,0,0.03)!important}
-    body.light .modal-info-icon{background:rgba(10,138,74,0.08)!important}
-    body.light .modal-info-label{color:#999!important}
-    body.light .modal-info-value{color:#333!important}
-    body.light .modal-status-badge.scheduled{background:rgba(10,138,74,0.08)!important;color:#0a8a4a!important;border-color:rgba(10,138,74,0.2)!important}
+    body.light .modal-team-badge{background:rgba(10,138,74,0.06)!important;border-color:rgba(10,138,74,0.15)!important;color:#0a8a4a!important}
+    body.light .modal-kickoff-time{color:#0a1a0a!important}
+    body.light .modal-kickoff-date{color:#999!important}
+    body.light .modal-tabs{border-color:#e0e8e0!important}
+    body.light .modal-tab.active{color:#0a8a4a!important;border-color:#0a8a4a!important}
+    body.light .modal-about-title{color:#0a1a0a!important}
+    body.light .modal-about-text{color:#666!important}
+    body.light .modal-about-features li{color:#777!important}
+    body.light .modal-main{border-color:#e0e8e0!important}
+    body.light .modal-venue-card{background:rgba(10,138,74,0.03)!important;border-color:#c0d8c0!important}
+    body.light .modal-venue-value{color:#333!important}
+    body.light .modal-venue-label{color:#999!important}
+    body.light .modal-round-card{background:rgba(10,138,74,0.03)!important;border-color:#c0d8c0!important}
+    body.light .modal-round-title{color:#0a8a4a!important}
+    body.light .modal-round-match.current{background:rgba(10,138,74,0.08)!important;border-color:rgba(10,138,74,0.2)!important}
+    body.light .modal-round-teams{color:#333!important}
+    body.light .modal-round-date{color:#999!important}
+    body.light .modal-round-match:hover{background:rgba(10,138,74,0.04)!important}
+    body.light .modal-cta{border-color:#e0e8e0!important}
     body.light .modal-cta-btn{background:#0a8a4a!important;color:#fff!important}
     body.light .modal-cta-hint{color:#999!important}
-    body.light .modal-divider{background:rgba(10,138,74,0.1)!important}
     .match-num{font-size:9px;color:#555;font-weight:600;margin-bottom:4px}
     .match-teams{font-size:11px;color:#e0e0e0;font-weight:600;line-height:1.6}
     .match-teams .vs{color:#25D366;font-size:9px;font-weight:700}
@@ -226,25 +288,55 @@
       document.getElementById('knob').style.transform='translateX(19px)';
     }
 
-    /* Venue mapping */
+    /* Venue mapping with full details */
+    var venueData = {
+      'MetLife Stadium':{city:'East Rutherford, New Jersey',country:'USA',cap:'82,500',surface:'Grass',flag:'&#127482;&#127480;'},
+      'AT&T Stadium':{city:'Arlington, Texas',country:'USA',cap:'80,000',surface:'Grass',flag:'&#127482;&#127480;'},
+      'SoFi Stadium':{city:'Inglewood, California',country:'USA',cap:'70,240',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Hard Rock Stadium':{city:'Miami Gardens, Florida',country:'USA',cap:'64,767',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Mercedes-Benz Stadium':{city:'Atlanta, Georgia',country:'USA',cap:'71,000',surface:'Grass',flag:'&#127482;&#127480;'},
+      'NRG Stadium':{city:'Houston, Texas',country:'USA',cap:'72,220',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Lumen Field':{city:'Seattle, Washington',country:'USA',cap:'68,740',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Gillette Stadium':{city:'Foxborough, Massachusetts',country:'USA',cap:'65,878',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Lincoln Financial Field':{city:'Philadelphia, Pennsylvania',country:'USA',cap:'69,879',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Arrowhead Stadium':{city:'Kansas City, Missouri',country:'USA',cap:'76,416',surface:'Grass',flag:'&#127482;&#127480;'},
+      "Levi's Stadium":{city:'Santa Clara, California',country:'USA',cap:'68,500',surface:'Grass',flag:'&#127482;&#127480;'},
+      'Estadio Azteca':{city:'Mexico City',country:'Mexico',cap:'87,523',surface:'Grass',flag:'&#127474;&#127485;'},
+      'Estadio BBVA':{city:'Monterrey, Nuevo Le\u00f3n',country:'Mexico',cap:'53,500',surface:'Grass',flag:'&#127474;&#127485;'},
+      'Estadio Akron':{city:'Guadalajara, Jalisco',country:'Mexico',cap:'49,850',surface:'Grass',flag:'&#127474;&#127485;'},
+      'BC Place':{city:'Vancouver, British Columbia',country:'Canada',cap:'54,500',surface:'Artificial',flag:'&#127464;&#127462;'},
+      'BMO Field':{city:'Toronto, Ontario',country:'Canada',cap:'45,736',surface:'Grass',flag:'&#127464;&#127462;'}
+    };
     var venues = {
-      49:'Lincoln Financial Field, Philadelphia',50:'AT&T Stadium, Arlington',
-      51:'Hard Rock Stadium, Miami',52:'SoFi Stadium, Los Angeles',
-      53:'Mercedes-Benz Stadium, Atlanta',54:'NRG Stadium, Houston',
-      55:'Lumen Field, Seattle',56:'Gillette Stadium, Boston',
-      57:'Estadio Azteca, Mexico City',58:'BC Place, Vancouver',
-      59:'Arrowhead Stadium, Kansas City',60:"Levi's Stadium, San Francisco",
-      61:'MetLife Stadium, New Jersey',62:'AT&T Stadium, Arlington',
-      63:'Hard Rock Stadium, Miami',64:'SoFi Stadium, Los Angeles',
-      65:'Mercedes-Benz Stadium, Atlanta',67:'Estadio Azteca, Mexico City',
-      68:'SoFi Stadium, Los Angeles',69:'Hard Rock Stadium, Miami',
-      41:'Estadio BBVA, Monterrey',42:'Estadio Akron, Guadalajara',
-      43:'BMO Field, Toronto',44:'BC Place, Vancouver',
-      45:'NRG Stadium, Houston',46:'Lumen Field, Seattle',
-      47:'Gillette Stadium, Boston',48:'Arrowhead Stadium, Kansas City',
-      '65b':'NRG Stadium, Houston',66:'Lumen Field, Seattle',
-      final:'MetLife Stadium, East Rutherford, NJ',
-      third:'Hard Rock Stadium, Miami'
+      49:'Lincoln Financial Field',50:'AT&T Stadium',
+      51:'Hard Rock Stadium',52:'SoFi Stadium',
+      53:'Mercedes-Benz Stadium',54:'NRG Stadium',
+      55:'Lumen Field',56:'Gillette Stadium',
+      57:'Estadio Azteca',58:'BC Place',
+      59:'Arrowhead Stadium',60:"Levi's Stadium",
+      61:'MetLife Stadium',62:'AT&T Stadium',
+      63:'Hard Rock Stadium',64:'SoFi Stadium',
+      65:'Mercedes-Benz Stadium',67:'Estadio Azteca',
+      68:'SoFi Stadium',69:'Hard Rock Stadium',
+      41:'Estadio BBVA',42:'Estadio Akron',
+      43:'BMO Field',44:'BC Place',
+      45:'NRG Stadium',46:'Lumen Field',
+      47:'Gillette Stadium',48:'Arrowhead Stadium',
+      '65b':'NRG Stadium',66:'Lumen Field',
+      final:'MetLife Stadium',third:'Hard Rock Stadium'
+    };
+
+    /* Kickoff times */
+    var kickoffs = {
+      49:'9:00 PM',50:'3:00 PM',51:'6:00 PM',52:'12:00 PM',
+      53:'9:00 PM',54:'3:00 PM',55:'6:00 PM',56:'12:00 PM',
+      41:'9:00 PM',42:'3:00 PM',43:'6:00 PM',44:'12:00 PM',
+      45:'9:00 PM',46:'3:00 PM',47:'6:00 PM',48:'12:00 PM',
+      57:'6:00 PM',58:'3:00 PM',59:'9:00 PM',60:'6:00 PM',
+      63:'3:00 PM',64:'9:00 PM','65b':'6:00 PM',66:'3:00 PM',
+      61:'6:00 PM',62:'3:00 PM',67:'6:00 PM',68:'3:00 PM',
+      65:'9:00 PM',69:'9:00 PM',
+      final:'4:00 PM',third:'12:00 PM'
     };
 
     /* Round labels */
@@ -322,39 +414,114 @@
       '</div>';
     }
 
+    /* Get matches in the same round */
+    function getMatchesInRound(matchN){
+      var round = roundNames[matchN] || (matchN==='final'?'Final':'Third Place');
+      var result = [];
+      var allArrays = [leftR32,leftR16,leftQF,leftSF,rightR32,rightR16,rightQF,rightSF];
+      if(matchN==='final'||matchN==='third'){
+        result.push(allMatches['final']);
+        result.push(allMatches['third']);
+      } else {
+        allArrays.forEach(function(arr){
+          arr.forEach(function(mm){
+            if(roundNames[mm.n]===round) result.push(mm);
+          });
+        });
+      }
+      return result;
+    }
+
     /* Modal functions */
     function openModal(matchId){
       var m = allMatches[matchId];
       if(!m) return;
       var round = roundNames[m.n] || (m.n==='final'?'Final':'Third Place');
-      var venue = venues[m.n] || 'Venue TBD';
-      var venueParts = venue.split(', ');
-      var stadiumName = venueParts[0];
-      var city = venueParts.slice(1).join(', ');
+      var stadiumName = venues[m.n] || 'TBD';
+      var vd = venueData[stadiumName] || {};
+      var ko = kickoffs[m.n] || 'TBD';
+      var roundMatches = getMatchesInRound(m.n);
 
       var html = '<button class="modal-close" onclick="closeModal()">&times;</button>';
-      html += '<div class="modal-round">FIFA World Cup 2026 &middot; ' + round + '</div>';
 
-      /* VS header */
+      /* Header bar - like FotMob */
+      html += '<div class="modal-header">';
+      html += '<span class="modal-header-icon">&#127942;</span>';
+      html += '<span class="modal-header-round">FIFA World Cup ' + round + '</span>';
+      html += '<a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=follow&utm_campaign=soccer_worldcup_lean&utm_content=match_' + m.n + '" class="modal-header-follow">Follow</a>';
+      html += '</div>';
+
+      /* Date/venue strip */
+      html += '<div class="modal-strip">';
+      html += '<span class="modal-strip-item">&#128197; ' + m.d + ', 2026</span>';
+      html += '<span style="color:#333">&middot;</span>';
+      html += '<span class="modal-strip-item">&#127951; ' + stadiumName + '</span>';
+      html += '</div>';
+
+      /* VS section with kickoff time in center */
       html += '<div class="modal-vs">';
       html += '<div class="modal-team"><div class="modal-team-badge">' + m.t1 + '</div><div class="modal-team-name">' + m.t1 + '</div></div>';
-      html += '<div class="modal-vs-label">VS</div>';
+      html += '<div class="modal-kickoff"><div class="modal-kickoff-time">' + ko + '</div><div class="modal-kickoff-date">' + m.d + '</div></div>';
       html += '<div class="modal-team"><div class="modal-team-badge">' + m.t2 + '</div><div class="modal-team-name">' + m.t2 + '</div></div>';
       html += '</div>';
 
-      /* Status */
-      html += '<div class="modal-status"><span class="modal-status-badge scheduled">Scheduled</span></div>';
+      /* Two-column body */
+      html += '<div class="modal-body">';
 
-      html += '<div class="modal-divider"></div>';
+      /* Left: Main content */
+      html += '<div class="modal-main">';
 
-      /* Info rows */
-      html += '<div class="modal-info">';
-      html += '<div class="modal-info-row"><div class="modal-info-icon">&#128197;</div><div><div class="modal-info-label">Date</div><div class="modal-info-value">' + m.d + ', 2026</div></div></div>';
-      html += '<div class="modal-info-row"><div class="modal-info-icon">&#127951;</div><div><div class="modal-info-label">Stadium</div><div class="modal-info-value">' + stadiumName + '</div></div></div>';
-      html += '<div class="modal-info-row"><div class="modal-info-icon">&#128205;</div><div><div class="modal-info-label">City</div><div class="modal-info-value">' + (city || 'TBD') + '</div></div></div>';
+      /* Tabs */
+      html += '<div class="modal-tabs"><div class="modal-tab active">Preview</div><div class="modal-tab">Knockout</div></div>';
+
+      /* About the match */
+      html += '<div class="modal-about">';
+      html += '<div class="modal-about-title">About the match</div>';
+      html += '<div class="modal-about-text">';
+      html += '<strong style="color:#25D366">' + m.t1 + '</strong> faces <strong style="color:#25D366">' + m.t2 + '</strong>';
+      html += ' at ' + stadiumName;
+      if(vd.city) html += ' in ' + vd.city;
+      html += ' on ' + m.d + ', 2026, ' + ko + ' ET.';
+      html += ' This match is part of the <a href="../knockout/">World Cup Final Stage</a>.';
+      html += '</div>';
+      html += '<ul class="modal-about-features">';
+      html += '<li>Live updates: Every goal, card, substitution and key moment instantly delivered on WhatsApp.</li>';
+      html += '<li>Ask for lineups, formation, and match stats in real-time.</li>';
+      html += '<li>Get post-match highlights and analysis within minutes.</li>';
+      html += '</ul>';
       html += '</div>';
 
-      /* CTA */
+      html += '</div>'; /* end modal-main */
+
+      /* Right: Sidebar */
+      html += '<div class="modal-sidebar">';
+
+      /* Venue card */
+      html += '<div class="modal-venue-card">';
+      html += '<div class="modal-venue-row"><span class="modal-venue-icon">&#128205;</span><div><div class="modal-venue-value">' + stadiumName + '</div>';
+      if(vd.city) html += '<div class="modal-venue-label">' + vd.city + (vd.country ? ', ' + vd.country : '') + '</div>';
+      html += '</div></div>';
+      if(vd.cap) html += '<div class="modal-venue-row"><span class="modal-venue-icon">&#127943;</span><div><div class="modal-venue-label">Capacity</div><div class="modal-venue-value">' + vd.cap + '</div></div></div>';
+      if(vd.surface) html += '<div class="modal-venue-row"><span class="modal-venue-icon">&#127793;</span><div><div class="modal-venue-label">Surface</div><div class="modal-venue-value">' + vd.surface + '</div></div></div>';
+      html += '</div>';
+
+      /* Other matches in this round */
+      html += '<div class="modal-round-card">';
+      html += '<div class="modal-round-title">&#127942; FIFA World Cup<br>' + round + '</div>';
+      roundMatches.forEach(function(rm){
+        var isCurrent = (String(rm.n) === String(m.n));
+        var ko2 = kickoffs[rm.n] || '';
+        html += '<div class="modal-round-match' + (isCurrent?' current':'') + '" onclick="openModal(\'' + rm.n + '\')">';
+        html += '<span class="modal-round-teams">' + rm.t1 + ' vs ' + rm.t2 + '</span>';
+        html += '<span class="modal-round-date">' + rm.d + '<br>' + ko2 + '</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+
+      html += '</div>'; /* end modal-sidebar */
+      html += '</div>'; /* end modal-body */
+
+      /* Bottom CTA */
       html += '<div class="modal-cta">';
       html += '<a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=match_' + m.n + '" class="modal-cta-btn">';
       html += '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.655-6.434-1.794l-.449-.271-3.29 1.103 1.103-3.29-.271-.449A9.963 9.963 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>';
