@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup 2026 Standings — Group Tables | Handled</title>
+  <meta name="description" content="FIFA World Cup 2026 group standings and tables. 12 groups, 48 teams. Live updates via WhatsApp.">
+  <link rel="canonical" href="https://handled.sh/worldcup/standings/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a1a0a; color: #e0e0e0; font-family: 'Exo', sans-serif; min-height: 100vh; }
+    a { color: #25D366; text-decoration: none; }
+    
+    nav { position: sticky; top: 0; z-index: 50; background: #0a1a0a; border-bottom: 1px solid rgba(26,77,42,0.3); }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: #25D366; }
+    .nav-logo img { width: 22px; height: 22px; border-radius: 50%; background: #25D366; }
+    .nav-back { color: #a0a0a0; font-size: 13px; }
+    .nav-back:hover { color: #25D366; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 20px 16px 60px; }
+    
+    h1 { font-size: 24px; font-weight: 800; text-transform: uppercase; color: #fff; text-align: center; margin-bottom: 6px; }
+    .subtitle { color: #a0a0a0; font-size: 13px; text-align: center; margin-bottom: 24px; }
+    
+    .groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+    
+    .group-card { background: linear-gradient(135deg, #0d0d0d, #0d2a15); border: 1px solid rgba(37,211,102,0.15); border-radius: 12px; padding: 14px; transition: all 0.3s; }
+    .group-card:hover { border-color: rgba(37,211,102,0.4); box-shadow: 0 0 20px rgba(37,211,102,0.08); }
+    
+    .group-name { color: #25D366; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    
+    .standings-table { width: 100%; border-collapse: collapse; }
+    .standings-table th { color: #555; font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 2px 4px; border-bottom: 1px solid rgba(37,211,102,0.1); }
+    .standings-table th:first-child { text-align: left; }
+    .standings-table td { font-size: 12px; padding: 5px 4px; text-align: center; border-bottom: 1px solid rgba(26,77,42,0.1); }
+    .standings-table td:first-child { text-align: left; }
+    .team-cell { display: flex; align-items: center; gap: 6px; }
+    .team-logo { width: 16px; height: 16px; border-radius: 2px; }
+    .team-name { color: #fff; font-size: 11px; font-weight: 600; }
+    .pts { color: #25D366; font-weight: 700; }
+    
+    .loading { text-align: center; padding: 60px; color: #555; }
+    .loading-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #25D366; margin: 0 3px; animation: bounce 1.4s infinite; }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-8px); } }
+    
+    .cta-bar { text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #0d2a15, #1a4d2a); border-radius: 14px; border: 1px solid rgba(37,211,102,0.2); }
+    .cta-bar p { color: #a0a0a0; font-size: 13px; margin-bottom: 12px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #25D366; color: #0a1a0a; font-weight: 700; font-size: 14px; border-radius: 10px; }
+    .cta-btn:hover { opacity: 0.9; }
+    
+    .error { text-align: center; padding: 40px; color: #ff5555; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/worldcup/" class="nav-logo">
+        <img src="/worldcup/trionda-ball.png" alt="">
+        handled.sh
+      </a>
+      <a href="/worldcup/" class="nav-back">Back to World Cup</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>World Cup 2026 Standings</h1>
+    <p class="subtitle">12 groups. 48 teams. Updated live during the tournament.</p>
+    
+    <div id="standings-content">
+      <div class="loading">
+        <span class="loading-dot"></span>
+        <span class="loading-dot"></span>
+        <span class="loading-dot"></span>
+        <p style="margin-top:12px;font-size:12px;">Loading standings...</p>
+      </div>
+    </div>
+
+    <div class="cta-bar">
+      <p>Get live standings updates in WhatsApp. Just ask.</p>
+      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=standings" class="cta-btn">
+        <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get it on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const API = 'https://football-api-746371360705.us-central1.run.app';
+    const KEY = '0740cf9a932cee0bbaf2b31274dfca386e021a7548073bac';
+
+    async function loadStandings() {
+      try {
+        const res = await fetch(API + '/api/standings/1?season=2026', {
+          headers: { 'X-API-Key': KEY }
+        });
+        const data = await res.json();
+        
+        // Group teams by group name
+        const groups = {};
+        data.forEach(team => {
+          if (!team.group || team.group === 'Ranking of third-placed teams') return;
+          if (!groups[team.group]) groups[team.group] = [];
+          groups[team.group].push(team);
+        });
+
+        let html = '<div class="groups-grid">';
+        
+        Object.keys(groups).sort().forEach(group => {
+          html += '<div class="group-card">';
+          html += '<div class="group-name">' + group + '</div>';
+          html += '<table class="standings-table">';
+          html += '<tr><th style="width:45%">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr>';
+          
+          groups[group].forEach(team => {
+            html += '<tr>';
+            html += '<td><div class="team-cell"><img class="team-logo" src="' + team.team_logo + '" alt=""><span class="team-name">' + team.team_name + '</span></div></td>';
+            html += '<td>' + team.played + '</td>';
+            html += '<td>' + team.won + '</td>';
+            html += '<td>' + team.drawn + '</td>';
+            html += '<td>' + team.lost + '</td>';
+            html += '<td>' + (team.goal_diff > 0 ? '+' : '') + team.goal_diff + '</td>';
+            html += '<td class="pts">' + team.points + '</td>';
+            html += '</tr>';
+          });
+          
+          html += '</table></div>';
+        });
+        
+        html += '</div>';
+        document.getElementById('standings-content').innerHTML = html;
+        
+      } catch (err) {
+        document.getElementById('standings-content').innerHTML = '<div class="error">Failed to load standings. Please try again later.</div>';
+        console.error(err);
+      }
+    }
+
+    loadStandings();
+  </script>
+</body>
+</html>
