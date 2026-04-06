@@ -32,10 +32,42 @@
     .cta-bar{text-align:center;margin-top:30px;padding:20px;background:linear-gradient(135deg,#0d2a15,#1a4d2a);border-radius:14px;border:1px solid rgba(37,211,102,0.2)}
     .cta-bar p{color:#a0a0a0;font-size:13px;margin-bottom:12px}
     .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:14px;border-radius:10px}
-    .error{text-align:center;padding:40px;color:#ff5555}
     footer{border-top:1px solid rgba(26,77,42,0.2);padding:20px 16px;text-align:center}
     footer span{color:#25D366;font-size:13px;font-weight:600}
     footer p{color:#555;font-size:11px;margin-top:4px}
+
+    /* Modal */
+    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:200;align-items:flex-start;justify-content:center;padding:16px;backdrop-filter:blur(8px);overflow-y:auto}
+    .modal-overlay.active{display:flex}
+    .modal{background:#0d0d0d;border:1px solid rgba(37,211,102,0.2);border-radius:16px;width:100%;max-width:480px;position:relative;overflow:hidden;animation:modalIn 0.25s ease;margin:auto}
+    @keyframes modalIn{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
+    .modal-close{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10}
+    .modal-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+    .modal-hero{padding:24px 20px 16px;text-align:center;border-bottom:1px solid rgba(37,211,102,0.1)}
+    .modal-flag{font-size:36px;margin-bottom:8px}
+    .modal-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+    .modal-city{font-size:13px;color:#a0a0a0}
+    .modal-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid rgba(37,211,102,0.1)}
+    .modal-stat{text-align:center;padding:14px 8px;border-right:1px solid rgba(37,211,102,0.06)}
+    .modal-stat:last-child{border-right:none}
+    .modal-stat-value{font-size:16px;font-weight:800;color:#25D366}
+    .modal-stat-label{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-top:2px}
+    .modal-details{padding:16px 20px}
+    .modal-detail-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.02);border-radius:10px;margin-bottom:6px}
+    .modal-detail-icon{width:30px;height:30px;border-radius:8px;background:rgba(37,211,102,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+    .modal-detail-label{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
+    .modal-detail-value{font-size:12px;color:#e0e0e0;font-weight:600;margin-top:1px}
+    .modal-about{padding:0 20px 16px}
+    .modal-about-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px}
+    .modal-about-text{font-size:12px;color:#888;line-height:1.7}
+    .modal-matches{padding:0 20px 16px}
+    .modal-matches-title{font-size:12px;font-weight:700;color:#25D366;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+    .modal-matches-badge{display:inline-block;padding:4px 10px;border-radius:6px;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.15);color:#25D366;font-size:11px;font-weight:600;margin:0 4px 4px 0}
+    .modal-cta{padding:16px 20px;text-align:center;border-top:1px solid rgba(37,211,102,0.08)}
+    .modal-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:13px;border-radius:10px;border:none;cursor:pointer;transition:transform 0.2s;text-decoration:none}
+    .modal-cta-btn:hover{transform:scale(1.03)}
+    .modal-cta-hint{font-size:11px;color:#555;margin-top:8px}
+
     /* Light mode */
     body.light{background:#f5f7f5!important;color:#333!important}
     body.light nav{background:#f5f7f5!important;border-color:#c0d8c0!important}
@@ -49,10 +81,26 @@
     body.light footer{border-color:#c0d8c0!important}
     body.light footer span{color:#0a8a4a!important}
     body.light .toggle-track{background:#c0d8c0!important;border-color:#0a8a4a!important}
-    body.light td,body.light th{color:#333!important}
-    body.light .team-name{color:#0a1a0a!important}
-    body.light .pts{color:#0a8a4a!important}
-    
+    body.light .modal{background:#fff!important;border-color:#c0d8c0!important}
+    body.light .modal-close{background:rgba(0,0,0,0.05)!important;border-color:rgba(0,0,0,0.1)!important;color:#777!important}
+    body.light .modal-hero{border-color:#e0e8e0!important}
+    body.light .modal-name{color:#0a1a0a!important}
+    body.light .modal-city{color:#777!important}
+    body.light .modal-stats{border-color:#e0e8e0!important}
+    body.light .modal-stat{border-color:#e8ece8!important}
+    body.light .modal-stat-value{color:#0a8a4a!important}
+    body.light .modal-stat-label{color:#999!important}
+    body.light .modal-detail-row{background:rgba(0,0,0,0.02)!important}
+    body.light .modal-detail-icon{background:rgba(10,138,74,0.06)!important}
+    body.light .modal-detail-label{color:#999!important}
+    body.light .modal-detail-value{color:#333!important}
+    body.light .modal-about-title{color:#0a1a0a!important}
+    body.light .modal-about-text{color:#666!important}
+    body.light .modal-matches-title{color:#0a8a4a!important}
+    body.light .modal-matches-badge{background:rgba(10,138,74,0.06)!important;border-color:rgba(10,138,74,0.15)!important;color:#0a8a4a!important}
+    body.light .modal-cta{border-color:#e0e8e0!important}
+    body.light .modal-cta-btn{background:#0a8a4a!important;color:#fff!important}
+
   </style>
 </head>
 <body>
@@ -70,37 +118,102 @@
       <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=stadiums" class="cta-btn">Get it on WhatsApp</a>
     </div>
   </div>
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="modalContent"></div>
+  </div>
   <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
   <script>
-    const API='https://football-api-746371360705.us-central1.run.app',KEY='0740cf9a932cee0bbaf2b31274dfca386e021a7548073bac';
     function toggleTheme(){document.body.classList.toggle('light');var k=document.getElementById('knob'),t=document.getElementById('track');if(document.body.classList.contains('light')){k.style.transform='translateX(19px)';t.style.background='#c0d8c0';localStorage.setItem('wc-theme','light')}else{k.style.transform='';t.style.background='';localStorage.setItem('wc-theme','dark')}}
     if(localStorage.getItem('wc-theme')==='light'){document.body.classList.add('light');document.getElementById('knob').style.transform='translateX(19px)'}
-    
+
 const venues=[
-  {name:"MetLife Stadium",city:"East Rutherford, NJ",country:"USA",capacity:"82,500",matches:"Final + group stage"},
-  {name:"AT&T Stadium",city:"Dallas, TX",country:"USA",capacity:"80,000",matches:"Semifinal + group stage"},
-  {name:"SoFi Stadium",city:"Los Angeles, CA",country:"USA",capacity:"70,000",matches:"Semifinal + group stage"},
-  {name:"Hard Rock Stadium",city:"Miami, FL",country:"USA",capacity:"65,000",matches:"Quarterfinal + group stage"},
-  {name:"Lincoln Financial Field",city:"Philadelphia, PA",country:"USA",capacity:"69,000",matches:"Group stage"},
-  {name:"Mercedes-Benz Stadium",city:"Atlanta, GA",country:"USA",capacity:"71,000",matches:"Group stage"},
-  {name:"NRG Stadium",city:"Houston, TX",country:"USA",capacity:"72,000",matches:"Group stage"},
-  {name:"Lumen Field",city:"Seattle, WA",country:"USA",capacity:"69,000",matches:"Group stage"},
-  {name:"Gillette Stadium",city:"Foxborough, MA",country:"USA",capacity:"65,000",matches:"Group stage"},
-  {name:"Arrowhead Stadium",city:"Kansas City, MO",country:"USA",capacity:"76,000",matches:"Group stage"},
-  {name:"Levi's Stadium",city:"Santa Clara, CA",country:"USA",capacity:"68,500",matches:"Group stage"},
-  {name:"Estadio Azteca",city:"Mexico City",country:"Mexico",capacity:"87,000",matches:"Group stage"},
-  {name:"Estadio BBVA",city:"Monterrey",country:"Mexico",capacity:"53,500",matches:"Group stage"},
-  {name:"Estadio Akron",city:"Guadalajara",country:"Mexico",capacity:"49,000",matches:"Group stage"},
-  {name:"BMO Field",city:"Toronto",country:"Canada",capacity:"30,000",matches:"Group stage"},
-  {name:"BC Place",city:"Vancouver",country:"Canada",capacity:"54,500",matches:"Group stage"}
+  {name:"MetLife Stadium",city:"East Rutherford, New Jersey",country:"USA",capacity:"82,500",surface:"Grass",opened:"2010",homeTeams:["NY Giants (NFL)","NY Jets (NFL)","NY Red Bulls (MLS)"],matches:["Final","3rd Place","R32","Group Stage"],wcMatches:8,about:"The crown jewel of WC 2026 — MetLife Stadium hosts the Final on July 19. Located just outside New York City, it is the largest NFL stadium in the US and will be the center of world football for the tournament's climax."},
+  {name:"AT&T Stadium",city:"Arlington, Texas",country:"USA",capacity:"80,000",surface:"Grass",opened:"2009",homeTeams:["Dallas Cowboys (NFL)"],matches:["Semifinal","QF","R32","Group Stage"],wcMatches:7,about:"Home of the Dallas Cowboys, AT&T Stadium's retractable roof and massive video board make it one of the most technologically advanced stadiums in the world. Hosts a semifinal and multiple knockout rounds."},
+  {name:"SoFi Stadium",city:"Inglewood, California",country:"USA",capacity:"70,240",surface:"Grass",opened:"2020",homeTeams:["LA Rams (NFL)","LA Chargers (NFL)"],matches:["Semifinal","QF","R16","Group Stage"],wcMatches:7,about:"The newest major stadium in the US, SoFi hosted Super Bowl LVI in 2022. Its innovative roof design and Hollywood location make it a glamorous setting for World Cup semifinal action."},
+  {name:"Hard Rock Stadium",city:"Miami Gardens, Florida",country:"USA",capacity:"64,767",surface:"Grass",opened:"1987",homeTeams:["Miami Dolphins (NFL)","Inter Miami (MLS)"],matches:["3rd Place","QF","R16","Group Stage"],wcMatches:6,about:"Renovated with a stunning canopy roof, Hard Rock Stadium sits in the heart of South Florida. Home to Inter Miami and the Dolphins, it brings tropical energy and a passionate Latin American fan base."},
+  {name:"Lincoln Financial Field",city:"Philadelphia, Pennsylvania",country:"USA",capacity:"69,879",surface:"Grass",opened:"2003",homeTeams:["Philadelphia Eagles (NFL)","Philadelphia Union (MLS)"],matches:["R32","R16","Group Stage"],wcMatches:5,about:"The Linc, home of the Eagles, is known for its passionate fans and electric atmosphere. Philadelphia's rich sporting history adds weight to every World Cup match played here."},
+  {name:"Mercedes-Benz Stadium",city:"Atlanta, Georgia",country:"USA",capacity:"71,000",surface:"Grass",opened:"2017",homeTeams:["Atlanta Falcons (NFL)","Atlanta United (MLS)"],matches:["SF","R32","Group Stage"],wcMatches:5,about:"With its iconic retractable roof that opens like a camera aperture, Mercedes-Benz Stadium is an architectural marvel. Atlanta United's record-breaking MLS crowds prove the city's football passion."},
+  {name:"NRG Stadium",city:"Houston, Texas",country:"USA",capacity:"72,220",surface:"Grass",opened:"2002",homeTeams:["Houston Texans (NFL)"],matches:["R32","R16","Group Stage"],wcMatches:5,about:"Houston's NRG Stadium features a retractable roof perfect for the Texas heat. The city's diverse population, with strong Mexican and Central American communities, ensures a vibrant match-day atmosphere."},
+  {name:"Lumen Field",city:"Seattle, Washington",country:"USA",capacity:"68,740",surface:"Grass",opened:"2002",homeTeams:["Seattle Seahawks (NFL)","Seattle Sounders (MLS)"],matches:["R32","R16","Group Stage"],wcMatches:5,about:"Famous for being the loudest stadium in the NFL, Lumen Field and the Sounders' passionate supporters create an unmatched atmosphere. The Pacific Northwest setting adds a unique backdrop."},
+  {name:"Gillette Stadium",city:"Foxborough, Massachusetts",country:"USA",capacity:"65,878",surface:"Grass",opened:"2002",homeTeams:["New England Patriots (NFL)","New England Revolution (MLS)"],matches:["R32","Group Stage"],wcMatches:4,about:"Home of the Patriots dynasty, Gillette Stadium brings New England's sporting heritage to the World Cup. Located between Boston and Providence, it serves the entire Northeast corridor."},
+  {name:"Arrowhead Stadium",city:"Kansas City, Missouri",country:"USA",capacity:"76,416",surface:"Grass",opened:"1972",homeTeams:["Kansas City Chiefs (NFL)"],matches:["R16","Group Stage"],wcMatches:4,about:"One of the loudest stadiums in the world, Arrowhead is legendary for its atmosphere. Home of Patrick Mahomes and the Chiefs, Kansas City's heartland location makes it a true American football venue."},
+  {name:"Levi's Stadium",city:"Santa Clara, California",country:"USA",capacity:"68,500",surface:"Grass",opened:"2014",homeTeams:["San Francisco 49ers (NFL)","San Jose Earthquakes (MLS)"],matches:["R16","Group Stage"],wcMatches:4,about:"Nestled in Silicon Valley, Levi's Stadium is one of the most sustainable venues in sports. It hosted Super Bowl 50 and brings the Bay Area's tech-forward culture to the World Cup."},
+  {name:"Estadio Azteca",city:"Mexico City",country:"Mexico",capacity:"87,523",surface:"Grass",opened:"1966",homeTeams:["Club Am\u00e9rica (Liga MX)","Cruz Azul (Liga MX)","Mexico NT"],matches:["QF","R16","Group Stage"],wcMatches:6,about:"The legendary Azteca — the only stadium to host two World Cup Finals (1970, 1986). At 2,200m altitude, it's where Maradona scored the 'Hand of God' and the 'Goal of the Century'. A true cathedral of football making history again in 2026."},
+  {name:"Estadio BBVA",city:"Monterrey, Nuevo Le\u00f3n",country:"Mexico",capacity:"53,500",surface:"Grass",opened:"2015",homeTeams:["CF Monterrey (Liga MX)"],matches:["R32","Group Stage"],wcMatches:4,about:"One of the most modern stadiums in Latin America, BBVA sits against the dramatic backdrop of the Sierra Madre mountains. Monterrey's industrial capital brings a passionate northern Mexican football culture."},
+  {name:"Estadio Akron",city:"Guadalajara, Jalisco",country:"Mexico",capacity:"49,850",surface:"Grass",opened:"2010",homeTeams:["CD Guadalajara / Chivas (Liga MX)"],matches:["R32","Group Stage"],wcMatches:4,about:"Home of Chivas, Mexico's most popular club, Estadio Akron is known for its volcanic rock-inspired design. Guadalajara, birthplace of mariachi and tequila, adds unmatchable cultural flavor."},
+  {name:"BMO Field",city:"Toronto, Ontario",country:"Canada",capacity:"45,736",surface:"Grass",opened:"2007",homeTeams:["Toronto FC (MLS)","Canada NT"],matches:["R32","Group Stage"],wcMatches:4,about:"Canada's football home, BMO Field has been expanded for the World Cup. Toronto's multicultural identity means every group-stage match will feel like a home game for someone in the crowd."},
+  {name:"BC Place",city:"Vancouver, British Columbia",country:"Canada",capacity:"54,500",surface:"Artificial",opened:"1983",homeTeams:["Vancouver Whitecaps (MLS)"],matches:["R16","R32","Group Stage"],wcMatches:5,about:"BC Place's retractable roof makes it weather-proof on Canada's west coast. Vancouver's stunning mountain-and-ocean setting and diverse Asian-Pacific communities create a unique World Cup host city."}
 ];
-let h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px">';
-venues.forEach(v=>{
-  var flag=v.country==='USA'?'🇺🇸':v.country==='Mexico'?'🇲🇽':'🇨🇦';
-  h+='<div class="card" style="cursor:pointer" onmouseover="this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.transform=\'\'"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="color:#fff;font-size:13px;font-weight:700">'+v.name+'</span><span style="font-size:16px">'+flag+'</span></div><div style="color:#a0a0a0;font-size:11px;margin-bottom:4px">'+v.city+', '+v.country+'</div><div style="display:flex;justify-content:space-between"><span style="color:#25D366;font-size:11px;font-weight:600">Capacity: '+v.capacity+'</span><span style="color:#555;font-size:10px">'+v.matches+'</span></div></div>'
+
+var h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px">';
+venues.forEach(function(v,i){
+  var flag=v.country==='USA'?'&#127482;&#127480;':v.country==='Mexico'?'&#127474;&#127485;':'&#127464;&#127462;';
+  h+='<div class="card" style="cursor:pointer;transition:all 0.3s" onclick="openModal('+i+')" onmouseover="this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.transform=\'\'">';
+  h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="color:#fff;font-size:13px;font-weight:700">'+v.name+'</span><span style="font-size:16px">'+flag+'</span></div>';
+  h+='<div style="color:#a0a0a0;font-size:11px;margin-bottom:4px">'+v.city+', '+v.country+'</div>';
+  h+='<div style="display:flex;justify-content:space-between"><span style="color:#25D366;font-size:11px;font-weight:600">Capacity: '+v.capacity+'</span><span style="color:#555;font-size:10px">'+v.wcMatches+' matches</span></div>';
+  h+='</div>';
 });
 h+='</div>';
 document.getElementById('content').innerHTML=h;
+
+function openModal(idx){
+  var v=venues[idx];
+  var flag=v.country==='USA'?'&#127482;&#127480;':v.country==='Mexico'?'&#127474;&#127485;':'&#127464;&#127462;';
+  var html='<button class="modal-close" onclick="closeModal()">&times;</button>';
+
+  /* Hero */
+  html+='<div class="modal-hero">';
+  html+='<div class="modal-flag">'+flag+'</div>';
+  html+='<div class="modal-name">'+v.name+'</div>';
+  html+='<div class="modal-city">'+v.city+', '+v.country+'</div>';
+  html+='</div>';
+
+  /* Stats row */
+  html+='<div class="modal-stats">';
+  html+='<div class="modal-stat"><div class="modal-stat-value">'+v.capacity+'</div><div class="modal-stat-label">Capacity</div></div>';
+  html+='<div class="modal-stat"><div class="modal-stat-value">'+v.opened+'</div><div class="modal-stat-label">Opened</div></div>';
+  html+='<div class="modal-stat"><div class="modal-stat-value">'+v.wcMatches+'</div><div class="modal-stat-label">WC Matches</div></div>';
+  html+='</div>';
+
+  /* Detail rows */
+  html+='<div class="modal-details">';
+  html+='<div class="modal-detail-row"><div class="modal-detail-icon">&#127793;</div><div><div class="modal-detail-label">Surface</div><div class="modal-detail-value">'+v.surface+'</div></div></div>';
+  html+='<div class="modal-detail-row"><div class="modal-detail-icon">&#127968;</div><div><div class="modal-detail-label">Home Teams</div><div class="modal-detail-value">'+v.homeTeams.join(', ')+'</div></div></div>';
+  html+='</div>';
+
+  /* WC Match rounds */
+  html+='<div class="modal-matches">';
+  html+='<div class="modal-matches-title">WC 2026 Rounds Hosted</div>';
+  v.matches.forEach(function(r){
+    html+='<span class="modal-matches-badge">'+r+'</span>';
+  });
+  html+='</div>';
+
+  /* About */
+  html+='<div class="modal-about">';
+  html+='<div class="modal-about-title">About the stadium</div>';
+  html+='<div class="modal-about-text">'+v.about+'</div>';
+  html+='</div>';
+
+  /* CTA */
+  html+='<div class="modal-cta">';
+  html+='<a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=stadium_'+encodeURIComponent(v.name.toLowerCase().replace(/\s+/g,'_'))+'" class="modal-cta-btn">';
+  html+='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.655-6.434-1.794l-.449-.271-3.29 1.103 1.103-3.29-.271-.449A9.963 9.963 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>';
+  html+='Get updates on WhatsApp</a>';
+  html+='<div class="modal-cta-hint">Scores, lineups & highlights from this venue</div>';
+  html+='</div>';
+
+  document.getElementById('modalContent').innerHTML=html;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
 
   </script>
 </body>
