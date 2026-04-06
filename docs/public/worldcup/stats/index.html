@@ -52,12 +52,23 @@
     body.light td,body.light th{color:#333!important}
     body.light .team-name{color:#0a1a0a!important}
     body.light .pts{color:#0a8a4a!important}
-    
+    [dir="rtl"]{text-align:right}
+    [dir="rtl"] nav{direction:ltr}
+    [dir="rtl"] #lang-switcher{direction:ltr}
+
   </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXLGWW1JSV',{content_group:'soccer',custom_map:{dimension1:'icp_segment',dimension2:'geo_target',dimension3:'language'}});gtag('event','page_view',{icp_segment:'soccer',geo_target:'global',language:'en'});</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","w2vh7gs076");</script>
 </head>
 <body>
   <nav><div class="nav-inner">
     <a href="../" class="nav-logo"><img src="../trionda-ball.png" alt="">handled.sh</a>
+    <div style="display:flex;gap:2px;align-items:center;" id="lang-switcher">
+      <button onclick="setLang('en')" class="lang-btn" data-lang="en" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid rgba(37,211,102,0.3);background:rgba(37,211,102,0.15);color:#25D366;cursor:pointer;">EN</button>
+      <button onclick="setLang('ar')" class="lang-btn" data-lang="ar" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">AR</button>
+      <button onclick="setLang('es')" class="lang-btn" data-lang="es" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">ES</button>
+    </div>
     <a href="../" class="nav-back">Back to World Cup</a>
   </div></nav>
   <div class="toggle" onclick="toggleTheme()"><div class="toggle-track" id="track"><div class="toggle-knob" id="knob"></div></div></div>
@@ -86,6 +97,30 @@ async function load(){try{
   document.getElementById('content').innerHTML=h
 }catch(e){document.getElementById('content').innerHTML='<div class="error">Failed to load stats.</div>'}}
 load();
+
+var translations={
+  en:{title:'World Cup 2026 Stats',subtitle:'Top scorers, assists, and player statistics.',back:'Back to World Cup',ctaText:'Get live updates in WhatsApp. Just ask.',cta:'Get it on WhatsApp',footer:'Not affiliated with FIFA.'},
+  ar:{title:'إحصائيات كأس العالم 2026',subtitle:'الهدافون والتمريرات الحاسمة وإحصائيات اللاعبين.',back:'العودة إلى كأس العالم',ctaText:'احصل على التحديثات المباشرة عبر واتساب.',cta:'احصل عليه عبر واتساب',footer:'غير تابع للفيفا.'},
+  es:{title:'Estadísticas del Mundial 2026',subtitle:'Goleadores, asistencias y estadísticas de jugadores.',back:'Volver al Mundial',ctaText:'Recibe actualizaciones en vivo por WhatsApp.',cta:'Obtenerlo en WhatsApp',footer:'No afiliado a la FIFA.'}
+};
+function setLang(lang){
+  var t=translations[lang]||translations.en;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.documentElement.lang=lang;
+  var h1=document.querySelector('h1');if(h1)h1.textContent=t.title;
+  var sub=document.querySelector('.subtitle');if(sub)sub.textContent=t.subtitle;
+  var back=document.querySelector('.nav-back');if(back)back.textContent=t.back;
+  var ctaP=document.querySelector('.cta-bar p');if(ctaP)ctaP.textContent=t.ctaText;
+  var ctaBtn=document.querySelector('.cta-btn');if(ctaBtn)ctaBtn.textContent=t.cta;
+  var footerP=document.querySelector('footer p');if(footerP)footerP.innerHTML='&copy; 2026 Handled. '+t.footer;
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    if(btn.dataset.lang===lang){btn.style.border='1px solid rgba(37,211,102,0.3)';btn.style.background='rgba(37,211,102,0.15)';btn.style.color='#25D366'}
+    else{btn.style.border='1px solid transparent';btn.style.background='transparent';btn.style.color='#a0a0a0'}
+  });
+  localStorage.setItem('wc-lang',lang);
+}
+var savedLang=localStorage.getItem('wc-lang');
+if(savedLang&&savedLang!=='en')setLang(savedLang);
 
   </script>
 </body>

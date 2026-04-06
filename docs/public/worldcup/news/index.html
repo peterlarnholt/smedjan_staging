@@ -118,11 +118,22 @@
     body.light footer{border-color:#c0d8c0!important}
     body.light footer span{color:#0a8a4a!important}
     body.light .toggle-track{background:#c0d8c0!important;border-color:#0a8a4a!important}
+    [dir="rtl"]{text-align:right}
+    [dir="rtl"] nav{direction:ltr}
+    [dir="rtl"] #lang-switcher{direction:ltr}
   </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXLGWW1JSV',{content_group:'soccer',custom_map:{dimension1:'icp_segment',dimension2:'geo_target',dimension3:'language'}});gtag('event','page_view',{icp_segment:'soccer',geo_target:'global',language:'en'});</script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","w2vh7gs076");</script>
 </head>
 <body>
   <nav><div class="nav-inner">
     <a href="../" class="nav-logo"><img src="../trionda-ball.png" alt="">handled.sh</a>
+    <div style="display:flex;gap:2px;align-items:center;" id="lang-switcher">
+      <button onclick="setLang('en')" class="lang-btn" data-lang="en" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid rgba(37,211,102,0.3);background:rgba(37,211,102,0.15);color:#25D366;cursor:pointer;">EN</button>
+      <button onclick="setLang('ar')" class="lang-btn" data-lang="ar" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">AR</button>
+      <button onclick="setLang('es')" class="lang-btn" data-lang="es" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">ES</button>
+    </div>
     <a href="../" class="nav-back">Back to World Cup</a>
   </div></nav>
 
@@ -358,6 +369,33 @@
 
     renderTabs();
     renderArticles();
+
+var translations={
+  en:{title:'World Cup 2026 News',subtitle:'Latest headlines, squad updates, and tournament news',back:'Back to World Cup',ctaTitle:'Get World Cup news on WhatsApp',ctaText:'Ask for today\'s headlines, squad news, or injury updates \u2014 instant reply.',cta:'Get it on WhatsApp',moreStories:'More Stories',footer:'Not affiliated with FIFA.'},
+  ar:{title:'\u0623\u062e\u0628\u0627\u0631 \u0643\u0623\u0633 \u0627\u0644\u0639\u0627\u0644\u0645 2026',subtitle:'\u0622\u062e\u0631 \u0627\u0644\u0639\u0646\u0627\u0648\u064a\u0646 \u0648\u062a\u062d\u062f\u064a\u062b\u0627\u062a \u0627\u0644\u062a\u0634\u0643\u064a\u0644\u0627\u062a \u0648\u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u0628\u0637\u0648\u0644\u0629',back:'\u0627\u0644\u0639\u0648\u062f\u0629 \u0625\u0644\u0649 \u0643\u0623\u0633 \u0627\u0644\u0639\u0627\u0644\u0645',ctaTitle:'\u0627\u062d\u0635\u0644 \u0639\u0644\u0649 \u0623\u062e\u0628\u0627\u0631 \u0643\u0623\u0633 \u0627\u0644\u0639\u0627\u0644\u0645 \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628',ctaText:'\u0627\u0633\u0623\u0644 \u0639\u0646 \u0639\u0646\u0627\u0648\u064a\u0646 \u0627\u0644\u064a\u0648\u0645 \u0623\u0648 \u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u062a\u0634\u0643\u064a\u0644\u0627\u062a.',cta:'\u0627\u062d\u0635\u0644 \u0639\u0644\u064a\u0647 \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628',moreStories:'\u0627\u0644\u0645\u0632\u064a\u062f \u0645\u0646 \u0627\u0644\u0623\u062e\u0628\u0627\u0631',footer:'\u063a\u064a\u0631 \u062a\u0627\u0628\u0639 \u0644\u0644\u0641\u064a\u0641\u0627.'},
+  es:{title:'Noticias del Mundial 2026',subtitle:'\u00daltimos titulares, novedades de plantillas y noticias del torneo',back:'Volver al Mundial',ctaTitle:'Recibe noticias del Mundial por WhatsApp',ctaText:'Pide los titulares de hoy, noticias de plantillas o lesiones \u2014 respuesta instant\u00e1nea.',cta:'Obtenerlo en WhatsApp',moreStories:'M\u00e1s noticias',footer:'No afiliado a la FIFA.'}
+};
+function setLang(lang){
+  var t=translations[lang]||translations.en;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.documentElement.lang=lang;
+  var h1=document.querySelector('h1');if(h1)h1.textContent=t.title;
+  var sub=document.querySelector('.subtitle');if(sub)sub.textContent=t.subtitle;
+  var back=document.querySelector('.nav-back');if(back)back.textContent=t.back;
+  var ctaTitle=document.querySelector('.cta-bar-title');if(ctaTitle)ctaTitle.textContent=t.ctaTitle;
+  var ctaP=document.querySelector('.cta-bar p');if(ctaP)ctaP.textContent=t.ctaText;
+  var ctaBtn=document.querySelector('.cta-btn');if(ctaBtn){var svg=ctaBtn.querySelector('svg');ctaBtn.textContent=t.cta;if(svg)ctaBtn.prepend(svg);}
+  var moreTitle=document.querySelector('.section-title');if(moreTitle)moreTitle.textContent=t.moreStories;
+  var footerP=document.querySelector('footer p');if(footerP)footerP.innerHTML='&copy; 2026 Handled. '+t.footer;
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    if(btn.dataset.lang===lang){btn.style.border='1px solid rgba(37,211,102,0.3)';btn.style.background='rgba(37,211,102,0.15)';btn.style.color='#25D366'}
+    else{btn.style.border='1px solid transparent';btn.style.background='transparent';btn.style.color='#a0a0a0'}
+  });
+  localStorage.setItem('wc-lang',lang);
+}
+var savedLang=localStorage.getItem('wc-lang');
+if(savedLang&&savedLang!=='en')setLang(savedLang);
+
   </script>
 </body>
 </html>
