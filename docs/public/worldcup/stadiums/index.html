@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026 Standings | Handled</title>
-  <meta name="description" content="12 groups. 48 teams. Updated live during the tournament.">
-  <link rel="canonical" href="https://handled.sh/worldcup/standings/">
+  <title>World Cup 2026 Stadiums | Handled</title>
+  <meta name="description" content="16 stadiums across USA, Mexico, and Canada.">
+  <link rel="canonical" href="https://handled.sh/worldcup/stadiums/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -52,7 +52,7 @@
     body.light td,body.light th{color:#333!important}
     body.light .team-name{color:#0a1a0a!important}
     body.light .pts{color:#0a8a4a!important}
-    .team-name{color:#fff;font-size:11px;font-weight:600} .pts{color:#25D366;font-weight:700}
+    
   </style>
 </head>
 <body>
@@ -62,12 +62,12 @@
   </div></nav>
   <div class="toggle" onclick="toggleTheme()"><div class="toggle-track" id="track"><div class="toggle-knob" id="knob"></div></div></div>
   <div class="container">
-    <h1>World Cup 2026 Standings</h1>
-    <p class="subtitle">12 groups. 48 teams. Updated live during the tournament.</p>
+    <h1>World Cup 2026 Stadiums</h1>
+    <p class="subtitle">16 stadiums across USA, Mexico, and Canada.</p>
     <div id="content"><div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p style="margin-top:12px;font-size:12px">Loading...</p></div></div>
     <div class="cta-bar">
       <p>Get live updates in WhatsApp. Just ask.</p>
-      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=standings" class="cta-btn">Get it on WhatsApp</a>
+      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=stadiums" class="cta-btn">Get it on WhatsApp</a>
     </div>
   </div>
   <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
@@ -76,21 +76,31 @@
     function toggleTheme(){document.body.classList.toggle('light');var k=document.getElementById('knob'),t=document.getElementById('track');if(document.body.classList.contains('light')){k.style.transform='translateX(19px)';t.style.background='#c0d8c0';localStorage.setItem('wc-theme','light')}else{k.style.transform='';t.style.background='';localStorage.setItem('wc-theme','dark')}}
     if(localStorage.getItem('wc-theme')==='light'){document.body.classList.add('light');document.getElementById('knob').style.transform='translateX(19px)'}
     
-async function load(){try{
-  const res=await fetch(API+'/api/standings/1?season=2026',{headers:{'X-API-Key':KEY}});
-  const data=await res.json();
-  const groups={};
-  data.forEach(t=>{if(!t.group||t.group==='Ranking of third-placed teams')return;if(!groups[t.group])groups[t.group]=[];groups[t.group].push(t)});
-  let h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">';
-  Object.keys(groups).sort().forEach(g=>{
-    h+='<div class="card"><div style="color:#25D366;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">'+g+'</div><table style="width:100%;border-collapse:collapse"><tr><th style="color:#555;font-size:9px;text-transform:uppercase;text-align:left;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">Team</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">P</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">W</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">D</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">L</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">GD</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">Pts</th></tr>';
-    groups[g].forEach(t=>{h+='<tr><td style="padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)"><div style="display:flex;align-items:center;gap:6px"><img src="'+t.team_logo+'" style="width:16px;height:16px;border-radius:2px"><span class="team-name" style="color:#fff;font-size:11px;font-weight:600">'+t.team_name+'</span></div></td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.played+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.won+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.drawn+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.lost+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+(t.goal_diff>0?'+':'')+t.goal_diff+'</td><td class="pts" style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1);color:#25D366;font-weight:700">'+t.points+'</td></tr>'});
-    h+='</table></div>'
-  });
-  h+='</div>';
-  document.getElementById('content').innerHTML=h
-}catch(e){document.getElementById('content').innerHTML='<div class="error">Failed to load standings.</div>'}}
-load();
+const venues=[
+  {name:"MetLife Stadium",city:"East Rutherford, NJ",country:"USA",capacity:"82,500",matches:"Final + group stage"},
+  {name:"AT&T Stadium",city:"Dallas, TX",country:"USA",capacity:"80,000",matches:"Semifinal + group stage"},
+  {name:"SoFi Stadium",city:"Los Angeles, CA",country:"USA",capacity:"70,000",matches:"Semifinal + group stage"},
+  {name:"Hard Rock Stadium",city:"Miami, FL",country:"USA",capacity:"65,000",matches:"Quarterfinal + group stage"},
+  {name:"Lincoln Financial Field",city:"Philadelphia, PA",country:"USA",capacity:"69,000",matches:"Group stage"},
+  {name:"Mercedes-Benz Stadium",city:"Atlanta, GA",country:"USA",capacity:"71,000",matches:"Group stage"},
+  {name:"NRG Stadium",city:"Houston, TX",country:"USA",capacity:"72,000",matches:"Group stage"},
+  {name:"Lumen Field",city:"Seattle, WA",country:"USA",capacity:"69,000",matches:"Group stage"},
+  {name:"Gillette Stadium",city:"Foxborough, MA",country:"USA",capacity:"65,000",matches:"Group stage"},
+  {name:"Arrowhead Stadium",city:"Kansas City, MO",country:"USA",capacity:"76,000",matches:"Group stage"},
+  {name:"Levi's Stadium",city:"Santa Clara, CA",country:"USA",capacity:"68,500",matches:"Group stage"},
+  {name:"Estadio Azteca",city:"Mexico City",country:"Mexico",capacity:"87,000",matches:"Group stage"},
+  {name:"Estadio BBVA",city:"Monterrey",country:"Mexico",capacity:"53,500",matches:"Group stage"},
+  {name:"Estadio Akron",city:"Guadalajara",country:"Mexico",capacity:"49,000",matches:"Group stage"},
+  {name:"BMO Field",city:"Toronto",country:"Canada",capacity:"30,000",matches:"Group stage"},
+  {name:"BC Place",city:"Vancouver",country:"Canada",capacity:"54,500",matches:"Group stage"}
+];
+let h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px">';
+venues.forEach(v=>{
+  var flag=v.country==='USA'?'🇺🇸':v.country==='Mexico'?'🇲🇽':'🇨🇦';
+  h+='<div class="card" style="cursor:pointer" onmouseover="this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.transform=\'\'"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="color:#fff;font-size:13px;font-weight:700">'+v.name+'</span><span style="font-size:16px">'+flag+'</span></div><div style="color:#a0a0a0;font-size:11px;margin-bottom:4px">'+v.city+', '+v.country+'</div><div style="display:flex;justify-content:space-between"><span style="color:#25D366;font-size:11px;font-weight:600">Capacity: '+v.capacity+'</span><span style="color:#555;font-size:10px">'+v.matches+'</span></div></div>'
+});
+h+='</div>';
+document.getElementById('content').innerHTML=h;
 
   </script>
 </body>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026 Standings | Handled</title>
-  <meta name="description" content="12 groups. 48 teams. Updated live during the tournament.">
-  <link rel="canonical" href="https://handled.sh/worldcup/standings/">
+  <title>World Cup 2026 Teams | Handled</title>
+  <meta name="description" content="48 teams competing in the 2026 FIFA World Cup.">
+  <link rel="canonical" href="https://handled.sh/worldcup/teams/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -52,7 +52,7 @@
     body.light td,body.light th{color:#333!important}
     body.light .team-name{color:#0a1a0a!important}
     body.light .pts{color:#0a8a4a!important}
-    .team-name{color:#fff;font-size:11px;font-weight:600} .pts{color:#25D366;font-weight:700}
+    
   </style>
 </head>
 <body>
@@ -62,12 +62,12 @@
   </div></nav>
   <div class="toggle" onclick="toggleTheme()"><div class="toggle-track" id="track"><div class="toggle-knob" id="knob"></div></div></div>
   <div class="container">
-    <h1>World Cup 2026 Standings</h1>
-    <p class="subtitle">12 groups. 48 teams. Updated live during the tournament.</p>
+    <h1>World Cup 2026 Teams</h1>
+    <p class="subtitle">48 teams competing in the 2026 FIFA World Cup.</p>
     <div id="content"><div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p style="margin-top:12px;font-size:12px">Loading...</p></div></div>
     <div class="cta-bar">
       <p>Get live updates in WhatsApp. Just ask.</p>
-      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=standings" class="cta-btn">Get it on WhatsApp</a>
+      <a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=teams" class="cta-btn">Get it on WhatsApp</a>
     </div>
   </div>
   <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
@@ -79,17 +79,12 @@
 async function load(){try{
   const res=await fetch(API+'/api/standings/1?season=2026',{headers:{'X-API-Key':KEY}});
   const data=await res.json();
-  const groups={};
-  data.forEach(t=>{if(!t.group||t.group==='Ranking of third-placed teams')return;if(!groups[t.group])groups[t.group]=[];groups[t.group].push(t)});
-  let h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">';
-  Object.keys(groups).sort().forEach(g=>{
-    h+='<div class="card"><div style="color:#25D366;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">'+g+'</div><table style="width:100%;border-collapse:collapse"><tr><th style="color:#555;font-size:9px;text-transform:uppercase;text-align:left;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">Team</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">P</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">W</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">D</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">L</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">GD</th><th style="color:#555;font-size:9px;padding:2px 4px;border-bottom:1px solid rgba(37,211,102,0.1)">Pts</th></tr>';
-    groups[g].forEach(t=>{h+='<tr><td style="padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)"><div style="display:flex;align-items:center;gap:6px"><img src="'+t.team_logo+'" style="width:16px;height:16px;border-radius:2px"><span class="team-name" style="color:#fff;font-size:11px;font-weight:600">'+t.team_name+'</span></div></td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.played+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.won+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.drawn+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+t.lost+'</td><td style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1)">'+(t.goal_diff>0?'+':'')+t.goal_diff+'</td><td class="pts" style="font-size:12px;text-align:center;padding:5px 4px;border-bottom:1px solid rgba(26,77,42,0.1);color:#25D366;font-weight:700">'+t.points+'</td></tr>'});
-    h+='</table></div>'
-  });
+  const teams=data.filter(t=>t.group&&t.group!=='Ranking of third-placed teams');
+  let h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">';
+  teams.forEach(t=>{h+='<div class="card" style="text-align:center;padding:16px;cursor:pointer" onmouseover="this.style.transform=\'scale(1.03)\'" onmouseout="this.style.transform=\'\'"><img src="'+t.team_logo+'" style="width:40px;height:40px;margin-bottom:8px"><div style="color:#fff;font-size:12px;font-weight:700">'+t.team_name+'</div><div style="color:#25D366;font-size:10px;margin-top:4px">'+t.group+'</div></div>'});
   h+='</div>';
   document.getElementById('content').innerHTML=h
-}catch(e){document.getElementById('content').innerHTML='<div class="error">Failed to load standings.</div>'}}
+}catch(e){document.getElementById('content').innerHTML='<div class="error">Failed to load teams.</div>'}}
 load();
 
   </script>
