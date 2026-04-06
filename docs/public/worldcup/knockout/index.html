@@ -46,8 +46,51 @@
     .round-label{text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;color:#25D366;letter-spacing:1px;margin-bottom:10px;white-space:nowrap}
 
     /* Match card */
-    .match{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:10px;padding:8px 10px;width:150px;transition:all 0.3s;position:relative}
+    .match{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.15);border-radius:10px;padding:8px 10px;width:150px;transition:all 0.3s;position:relative;cursor:pointer}
     .match:hover{border-color:rgba(37,211,102,0.4);box-shadow:0 0 16px rgba(37,211,102,0.08)}
+
+    /* Modal overlay */
+    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:200;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+    .modal-overlay.active{display:flex}
+    .modal{background:linear-gradient(135deg,#0d0d0d,#0d2a15);border:1px solid rgba(37,211,102,0.25);border-radius:16px;width:100%;max-width:420px;position:relative;overflow:hidden;animation:modalIn 0.25s ease}
+    @keyframes modalIn{from{transform:scale(0.92);opacity:0}to{transform:scale(1);opacity:1}}
+    .modal-close{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10}
+    .modal-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+    .modal-round{text-align:center;padding:16px 16px 0;font-size:11px;font-weight:700;text-transform:uppercase;color:#25D366;letter-spacing:1.5px}
+    .modal-vs{display:flex;align-items:center;justify-content:center;gap:20px;padding:24px 16px}
+    .modal-team{text-align:center;flex:1}
+    .modal-team-name{font-size:18px;font-weight:800;color:#fff;margin-top:6px}
+    .modal-team-badge{width:56px;height:56px;border-radius:50%;background:rgba(37,211,102,0.1);border:2px solid rgba(37,211,102,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:16px;font-weight:800;color:#25D366}
+    .modal-vs-label{font-size:14px;font-weight:800;color:#555;text-transform:uppercase}
+    .modal-info{padding:0 16px 16px}
+    .modal-info-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,0.03);border-radius:10px;margin-bottom:8px}
+    .modal-info-icon{width:32px;height:32px;border-radius:8px;background:rgba(37,211,102,0.1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+    .modal-info-label{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
+    .modal-info-value{font-size:13px;color:#e0e0e0;font-weight:600;margin-top:1px}
+    .modal-status{text-align:center;padding:6px 16px 16px}
+    .modal-status-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+    .modal-status-badge.scheduled{background:rgba(37,211,102,0.1);color:#25D366;border:1px solid rgba(37,211,102,0.2)}
+    .modal-cta{padding:0 16px 20px;text-align:center}
+    .modal-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:#25D366;color:#0a1a0a;font-weight:700;font-size:13px;border-radius:10px;border:none;cursor:pointer;transition:transform 0.2s;text-decoration:none}
+    .modal-cta-btn:hover{transform:scale(1.03)}
+    .modal-cta-hint{font-size:11px;color:#555;margin-top:8px}
+    .modal-divider{height:1px;background:rgba(37,211,102,0.1);margin:0 16px 16px}
+
+    /* Light mode modal */
+    body.light .modal{background:linear-gradient(135deg,#fff,#f0f8f0)!important;border-color:#c0d8c0!important}
+    body.light .modal-close{background:rgba(0,0,0,0.05)!important;border-color:rgba(0,0,0,0.1)!important;color:#777!important}
+    body.light .modal-round{color:#0a8a4a!important}
+    body.light .modal-team-name{color:#0a1a0a!important}
+    body.light .modal-team-badge{background:rgba(10,138,74,0.08)!important;border-color:rgba(10,138,74,0.2)!important;color:#0a8a4a!important}
+    body.light .modal-vs-label{color:#bbb!important}
+    body.light .modal-info-row{background:rgba(0,0,0,0.03)!important}
+    body.light .modal-info-icon{background:rgba(10,138,74,0.08)!important}
+    body.light .modal-info-label{color:#999!important}
+    body.light .modal-info-value{color:#333!important}
+    body.light .modal-status-badge.scheduled{background:rgba(10,138,74,0.08)!important;color:#0a8a4a!important;border-color:rgba(10,138,74,0.2)!important}
+    body.light .modal-cta-btn{background:#0a8a4a!important;color:#fff!important}
+    body.light .modal-cta-hint{color:#999!important}
+    body.light .modal-divider{background:rgba(10,138,74,0.1)!important}
     .match-num{font-size:9px;color:#555;font-weight:600;margin-bottom:4px}
     .match-teams{font-size:11px;color:#e0e0e0;font-weight:600;line-height:1.6}
     .match-teams .vs{color:#25D366;font-size:9px;font-weight:700}
@@ -158,6 +201,11 @@
     </div>
   </div>
 
+  <!-- Match detail modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
   <footer><span>handled.sh</span><p>&copy; 2026 Handled. Not affiliated with FIFA.</p></footer>
 
   <script>
@@ -177,6 +225,34 @@
       document.body.classList.add('light');
       document.getElementById('knob').style.transform='translateX(19px)';
     }
+
+    /* Venue mapping */
+    var venues = {
+      49:'Lincoln Financial Field, Philadelphia',50:'AT&T Stadium, Arlington',
+      51:'Hard Rock Stadium, Miami',52:'SoFi Stadium, Los Angeles',
+      53:'Mercedes-Benz Stadium, Atlanta',54:'NRG Stadium, Houston',
+      55:'Lumen Field, Seattle',56:'Gillette Stadium, Boston',
+      57:'Estadio Azteca, Mexico City',58:'BC Place, Vancouver',
+      59:'Arrowhead Stadium, Kansas City',60:"Levi's Stadium, San Francisco",
+      61:'MetLife Stadium, New Jersey',62:'AT&T Stadium, Arlington',
+      63:'Hard Rock Stadium, Miami',64:'SoFi Stadium, Los Angeles',
+      65:'Mercedes-Benz Stadium, Atlanta',67:'Estadio Azteca, Mexico City',
+      68:'SoFi Stadium, Los Angeles',69:'Hard Rock Stadium, Miami',
+      41:'Estadio BBVA, Monterrey',42:'Estadio Akron, Guadalajara',
+      43:'BMO Field, Toronto',44:'BC Place, Vancouver',
+      45:'NRG Stadium, Houston',46:'Lumen Field, Seattle',
+      47:'Gillette Stadium, Boston',48:'Arrowhead Stadium, Kansas City',
+      '65b':'NRG Stadium, Houston',66:'Lumen Field, Seattle',
+      final:'MetLife Stadium, East Rutherford, NJ',
+      third:'Hard Rock Stadium, Miami'
+    };
+
+    /* Round labels */
+    var roundNames = {};
+    [49,50,51,52,53,54,55,56,41,42,43,44,45,46,47,48].forEach(function(n){roundNames[n]='Round of 32'});
+    [57,58,59,60,63,64,'65b',66].forEach(function(n){roundNames[n]='Round of 16'});
+    [61,62,67,68].forEach(function(n){roundNames[n]='Quarterfinal'});
+    [65,69].forEach(function(n){roundNames[n]='Semifinal'});
 
     /* Bracket data */
     var leftR32 = [
@@ -227,15 +303,75 @@
       {n:69,t1:'W67',t2:'W68',d:'Jul 15'}
     ];
 
+    /* All matches indexed by number for modal lookup */
+    var allMatches = {};
+    [leftR32,leftR16,leftQF,leftSF,rightR32,rightR16,rightQF,rightSF].forEach(function(arr){
+      arr.forEach(function(m){ allMatches[m.n] = m; });
+    });
+    allMatches['final'] = {n:'final',t1:'W65',t2:'W69',d:'Jul 19'};
+    allMatches['third'] = {n:'third',t1:'L65',t2:'L69',d:'Jul 18'};
+
     function matchCard(m, extra){
       var v = extra || '';
-      return '<div class="match">' +
-        '<div class="match-num">Match ' + m.n + '</div>' +
+      var label = (m.n === 'final' || m.n === 'third') ? m.n.charAt(0).toUpperCase()+m.n.slice(1) : 'Match ' + m.n;
+      return '<div class="match" onclick="openModal(\'' + m.n + '\')">' +
+        '<div class="match-num">' + label + '</div>' +
         '<div class="match-teams">' + m.t1 + ' <span class="vs">vs</span> ' + m.t2 + '</div>' +
         '<div class="match-date">' + m.d + '</div>' +
         v +
       '</div>';
     }
+
+    /* Modal functions */
+    function openModal(matchId){
+      var m = allMatches[matchId];
+      if(!m) return;
+      var round = roundNames[m.n] || (m.n==='final'?'Final':'Third Place');
+      var venue = venues[m.n] || 'Venue TBD';
+      var venueParts = venue.split(', ');
+      var stadiumName = venueParts[0];
+      var city = venueParts.slice(1).join(', ');
+
+      var html = '<button class="modal-close" onclick="closeModal()">&times;</button>';
+      html += '<div class="modal-round">FIFA World Cup 2026 &middot; ' + round + '</div>';
+
+      /* VS header */
+      html += '<div class="modal-vs">';
+      html += '<div class="modal-team"><div class="modal-team-badge">' + m.t1 + '</div><div class="modal-team-name">' + m.t1 + '</div></div>';
+      html += '<div class="modal-vs-label">VS</div>';
+      html += '<div class="modal-team"><div class="modal-team-badge">' + m.t2 + '</div><div class="modal-team-name">' + m.t2 + '</div></div>';
+      html += '</div>';
+
+      /* Status */
+      html += '<div class="modal-status"><span class="modal-status-badge scheduled">Scheduled</span></div>';
+
+      html += '<div class="modal-divider"></div>';
+
+      /* Info rows */
+      html += '<div class="modal-info">';
+      html += '<div class="modal-info-row"><div class="modal-info-icon">&#128197;</div><div><div class="modal-info-label">Date</div><div class="modal-info-value">' + m.d + ', 2026</div></div></div>';
+      html += '<div class="modal-info-row"><div class="modal-info-icon">&#127951;</div><div><div class="modal-info-label">Stadium</div><div class="modal-info-value">' + stadiumName + '</div></div></div>';
+      html += '<div class="modal-info-row"><div class="modal-info-icon">&#128205;</div><div><div class="modal-info-label">City</div><div class="modal-info-value">' + (city || 'TBD') + '</div></div></div>';
+      html += '</div>';
+
+      /* CTA */
+      html += '<div class="modal-cta">';
+      html += '<a href="https://handled.sh/whatsapp?utm_source=worldcup_lp&utm_medium=cta&utm_campaign=soccer_worldcup_lean&utm_content=match_' + m.n + '" class="modal-cta-btn">';
+      html += '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.655-6.434-1.794l-.449-.271-3.29 1.103 1.103-3.29-.271-.449A9.963 9.963 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>';
+      html += 'Get match alerts on WhatsApp</a>';
+      html += '<div class="modal-cta-hint">Score, lineups & highlights — instant</div>';
+      html += '</div>';
+
+      document.getElementById('modalContent').innerHTML = html;
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
 
     function roundCol(matches, cls, label){
       var h = '<div class="round ' + cls + '">';
@@ -311,13 +447,13 @@
       html += '<div class="round-label">Final</div>';
       html += '<div class="trophy-icon">&#127942;</div>';
       html += '<div class="trophy-label">Champion</div>';
-      html += '<div class="match final-card">';
+      html += '<div class="match final-card" onclick="openModal(\'final\')">';
       html += '<div class="match-num">Final</div>';
       html += '<div class="match-teams">W65 <span class="vs">vs</span> W69</div>';
       html += '<div class="match-date">Jul 19</div>';
       html += '<div class="match-venue">MetLife Stadium, NJ</div>';
       html += '</div>';
-      html += '<div class="match third-card">';
+      html += '<div class="match third-card" onclick="openModal(\'third\')">';
       html += '<div class="match-num">3rd Place</div>';
       html += '<div class="match-teams">L65 <span class="vs">vs</span> L69</div>';
       html += '<div class="match-date">Jul 18</div>';
