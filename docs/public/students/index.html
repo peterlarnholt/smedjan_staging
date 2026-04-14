@@ -287,7 +287,7 @@
       align-items: center;
       gap: 8px;
       background: var(--color-accent);
-      color: #fff;
+      color: #ffffff;
       font-family: var(--font);
       font-size: 15px;
       font-weight: 700;
@@ -1016,6 +1016,12 @@
       z-index: 1;
     }
 
+  
+    /* Navigation links */
+    .nav-menu a:hover { color: #8b5cf6 !important; }
+    @media (max-width: 768px) {
+      .nav-menu { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1024,13 +1030,19 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="https://handled.sh" class="nav-brand" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28">
-          <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
-          <path d="M20 8 H80 C88 8, 94 14, 94 22 V50 C94 58, 88 64, 80 64 H36 L18 82 L18 64 H20 C12 64, 6 58, 6 50 V22 C6 14, 12 8, 20 8 Z" fill="url(#lg)"/>
-          <path d="M30 36 L44 52 L72 24" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <rect x="5" y="5" width="90" height="90" rx="20" fill="url(#navgrad)"/>
+  <defs><linearGradient id="navgrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+  <path d="M30 50 L44 64 L70 36" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
         <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
       </a>
+      <div class="nav-menu" style="display:flex;gap:24px;align-items:center;">
+  <a href="#how-it-works" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Features</a>
+  <a href="#how-it-works" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">How it Works</a>
+  <a href="https://handled.sh/pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Pricing</a>
+</div>
+      <a href="https://app.handled.sh/login" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Login</a>
       <div class="nav-right">
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
           <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -1059,11 +1071,15 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.555 4.124 1.527 5.855L.058 23.708l5.994-1.574A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.955 0-3.834-.53-5.47-1.528l-.393-.232-3.557.935.948-3.467-.254-.404A9.786 9.786 0 0 1 2.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
         Try Handled Free
       </a>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;opacity:0.7;">
+  <img src="/smedjan_staging/meta-business-partner.png" alt="Meta Business Partner" style="height:24px;width:auto;" loading="lazy" />
+  <span style="font-size:11px;color:#707070;">Meta Business Partner</span>
+</div>
     </div>
   </section>
 
   <!-- ========== WHATSAPP MOCKUP ========== -->
-  <section class="section">
+  <section class="section" id="how-it-works">
     <div class="container">
       <div class="mockup-section">
         <div class="mockup-text">
@@ -1071,15 +1087,54 @@
           <h2 class="section-title reveal">Just Text What You Need</h2>
           <p class="section-subtitle reveal">No buttons, no menus. Tell Handled what you need in plain language.</p>
         </div>
-        <div class="mockup-phone reveal">
-          <div class="phone-mockup phone-glow">
-            <div class="phone-header">
-              <div class="phone-avatar">H</div>
-              <div>
-                <div class="phone-name">Handled</div>
-                <div class="phone-status"><span class="online-dot"></span>online</div>
+        <div class="phone-mockup phone-glow reveal reveal-delay-1" style="width:100%;max-width:320px;margin:0 auto;background:#0B141A;border:2px solid rgba(255,255,255,0.08);border-radius:32px;padding:0;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 40px rgba(139,92,246,0.1);overflow:hidden;">
+          <!-- WhatsApp Header -->
+          <div style="background:#1F2C34;padding:12px 16px;display:flex;align-items:center;gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">H</div>
+            <div style="flex:1;">
+              <div style="color:#e0e0e0;font-size:15px;font-weight:600;">Handled</div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;"></span>
+                <span style="color:#8696a0;font-size:12px;">online</span>
               </div>
             </div>
+          </div>
+          <!-- Chat Area -->
+          <div class="chat-area" style="background:#0B141A;padding:12px 10px;display:flex;flex-direction:column;gap:8px;min-height:280px;">
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              Remind me: Statistics assignment due next Friday
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:23 AM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Done! I'll remind you about your Statistics assignment on Thursday evening and Friday morning so you stay ahead of it.
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:23 AM</div>
+            </div>
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              Block every evening 7-9pm for thesis writing until May 15
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:24 AM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Got it. I've blocked 7-9 PM every evening through May 15 for thesis writing. I'll protect this time if anyone tries to schedule over it.
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:24 AM</div>
+            </div>
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              Schedule study group with Emma and Liam, Wednesday 3pm
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:25 AM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Study group scheduled for Wednesday at 3 PM. I'll send you a reminder 30 minutes before.
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">10:25 AM</div>
+            </div>
+          </div>
+          <!-- Input Bar -->
+          <div style="background:#1F2C34;padding:8px 12px;display:flex;align-items:center;gap:8px;">
+            <div style="flex:1;background:#2A3942;border-radius:20px;padding:8px 16px;color:#8696a0;font-size:13px;">Type a message</div>
+            <div style="width:36px;height:36px;border-radius:50%;background:#00A884;display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          </div>
+        </div>
             <div class="chat-messages">
               <div class="chat-bubble-user">
                 Remind me: Statistics assignment due next Friday
@@ -1112,8 +1167,8 @@
     </div>
   </section>
 
-  <!-- ========== USE CASES ========== -->
-  <section class="section section-alt">
+  <!-- ========== USE CASES (features) ========== -->
+  <section class="section section-alt" id="features">
     <div class="container text-center">
       <div class="eyebrow reveal">Built for Your Semester</div>
       <h2 class="section-title reveal">Three Ways Handled Keeps You on Track</h2>
@@ -1139,6 +1194,38 @@
           </div>
           <h3>Group Project Coordinator</h3>
           <p>Schedule group sessions and keep everyone aligned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section style="padding:60px 20px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Testimonials</p>
+      <h2 style="text-align:center;color:#e0e0e0;font-size:24px;font-weight:700;margin-bottom:32px;">What people are saying</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+        <div style="background:#111111;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Emma W." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">Emma W.</div><div style="color:#707070;font-size:12px;">Engineering Student</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"I missed 3 deadlines last semester. This semester, zero."</p>
+        </div>
+        <div style="background:#111111;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Carlos M." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">Carlos M.</div><div style="color:#707070;font-size:12px;">Business Major</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"Group project scheduling was always a nightmare. One message and everyone gets the invite."</p>
+        </div>
+        <div style="background:#111111;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/3771074/pexels-photo-3771074.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Aisha B." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">Aisha B.</div><div style="color:#707070;font-size:12px;">Med Student</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"I block study time every evening with one message. No app to open."</p>
         </div>
       </div>
     </div>
@@ -1431,7 +1518,7 @@
 
   <!-- ========== MOBILE STICKY CTA ========== -->
   <div id="mobileCta" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
-    <a href="https://wa.me/18453694078?text=Hi%20Handled!&utm_source=students_lp&utm_medium=mobile_sticky_cta&utm_campaign=students_q2_2026" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;display:flex;align-items:center;gap:8px;background:#8b5cf6;color:#fff;font-family:Exo,sans-serif;font-weight:700;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 16px rgba(139,92,246,0.3);">
+    <a href="https://wa.me/18453694078?text=Hi%20Handled!&utm_source=students_lp&utm_medium=mobile_sticky_cta&utm_campaign=students_q2_2026" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;display:flex;align-items:center;gap:8px;background:#8b5cf6;color:#ffffff;font-family:Exo,sans-serif;font-weight:700;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 16px rgba(139,92,246,0.3);">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
       Start Free on WhatsApp
     </a>
