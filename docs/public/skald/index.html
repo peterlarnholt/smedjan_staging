@@ -127,32 +127,46 @@
     }
 
     /* ---- STATS BAR ---- */
-    .stats-bar {
+    .counters {
       display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
-      padding: 20px 0;
-      border-bottom: 1px solid #2a1f14;
+    }
+    .counter-card {
+      background: #151210;
+      border: 1px solid #2a1f14;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      min-width: 90px;
+      flex: 1;
+      max-width: 160px;
+      transition: border-color 0.3s;
+    }
+    .counter-card:first-child {
+      border-color: #b8860b;
+    }
+    .counter-card:hover {
+      border-color: #8b4513;
+    }
+    .counter-value {
       font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: #6b5a3e;
-      text-transform: uppercase;
-    }
-
-    .stats-bar .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .stats-bar .stat-icon {
-      opacity: 0.6;
-    }
-
-    .stats-bar span.stat-value {
-      color: #b8860b;
+      font-size: 32px;
       font-weight: 700;
+      color: #b8860b;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .counter-card:nth-child(3) .counter-value { color: #22c55e; }
+    .counter-card:last-child .counter-value { color: #b8860b; font-style: italic; }
+    .counter-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      color: #8b4513;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     /* ---- NAV FILTERS ---- */
@@ -498,37 +512,27 @@
       </svg>
     </div>
 
-    <!-- STATS -->
-    <div class="stats-bar">
-      <div class="stat-item">
-        <!-- Sword icon -->
-        <svg class="stat-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="3" y1="11" x2="12" y2="2" stroke="#b8860b" stroke-width="1.2"/>
-          <line x1="10" y1="2" x2="12" y2="4" stroke="#b8860b" stroke-width="1"/>
-          <line x1="5" y1="8" x2="7" y2="10" stroke="#b8860b" stroke-width="0.8"/>
-          <line x1="4" y1="9" x2="2" y2="11" stroke="#b8860b" stroke-width="0.8"/>
-        </svg>
-        Entries: <span class="stat-value">1</span>
+    <!-- COUNTERS -->
+    <div class="counters">
+      <div class="counter-card">
+        <div class="counter-value">2</div>
+        <div class="counter-label">Next Entry</div>
       </div>
-      <div class="stat-item">
-        <!-- Shield icon -->
-        <svg class="stat-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 2 L12 4 L12 8 C12 10 9.5 12 7 13 C4.5 12 2 10 2 8 L2 4 Z" stroke="#b8860b" stroke-width="1" fill="none"/>
-          <line x1="7" y1="4" x2="7" y2="11" stroke="#b8860b" stroke-width="0.5"/>
-        </svg>
-        Chapters: <span class="stat-value">1</span>
+      <div class="counter-card">
+        <div class="counter-value">1</div>
+        <div class="counter-label">Told</div>
       </div>
-      <div class="stat-item">
-        <!-- Helm icon -->
-        <svg class="stat-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="7" cy="7" r="5" stroke="#b8860b" stroke-width="1" fill="none"/>
-          <circle cx="7" cy="7" r="1.5" stroke="#b8860b" stroke-width="0.8" fill="none"/>
-          <line x1="7" y1="2" x2="7" y2="0.5" stroke="#b8860b" stroke-width="0.8"/>
-          <line x1="7" y1="12" x2="7" y2="13.5" stroke="#b8860b" stroke-width="0.8"/>
-          <line x1="2" y1="7" x2="0.5" y2="7" stroke="#b8860b" stroke-width="0.8"/>
-          <line x1="12" y1="7" x2="13.5" y2="7" stroke="#b8860b" stroke-width="0.8"/>
-        </svg>
-        Products: <span class="stat-value">3</span>
+      <div class="counter-card">
+        <div class="counter-value">0</div>
+        <div class="counter-label">Today</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-value">287</div>
+        <div class="counter-label">Words</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter-value">0</div>
+        <div class="counter-label">Starred</div>
       </div>
     </div>
 
