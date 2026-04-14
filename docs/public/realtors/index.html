@@ -208,6 +208,19 @@
       border-color: rgba(0,0,0,0.08);
     }
 
+    [data-theme="light"] #process h3,
+    [data-theme="light"] #pricing h3 { color: #1a1a1a; }
+    [data-theme="light"] #process p,
+    [data-theme="light"] #pricing span { color: #555; }
+    [data-theme="light"] #pricing > div > div > div:first-of-type,
+    [data-theme="light"] #pricing > div > div > div:last-of-type { background: #fff; border-color: #e0e0e0; }
+
+    @media (max-width: 768px) {
+      #pricing > div > div:last-child {
+        grid-template-columns: 1fr;
+      }
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -1160,9 +1173,9 @@
         <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
       </a>
       <div class="nav-menu" style="display:flex;gap:24px;align-items:center;">
-  <a href="#how-it-works" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Features</a>
-  <a href="#how-it-works" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">How it Works</a>
-  <a href="https://handled.sh/pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Pricing</a>
+  <a href="#features" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Features</a>
+  <a href="#process" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">How it Works</a>
+  <a href="#pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Pricing</a>
 </div>
       <a href="https://app.handled.sh/login" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Login</a>
       <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=nav_cta&utm_campaign=realtors" class="btn-primary nav-cta nav-cta-desktop">
@@ -1182,9 +1195,9 @@
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#how-it-works">Features</a>
-    <a href="#how-it-works">How it Works</a>
-    <a href="https://handled.sh/pricing">Pricing</a>
+    <a href="#features">Features</a>
+    <a href="#process">How it Works</a>
+    <a href="#pricing">Pricing</a>
     <a href="https://app.handled.sh/login">Login</a>
   </div>
 
@@ -1307,6 +1320,47 @@
   </section>
 
 
+  <!-- ========== HOW IT WORKS ========== -->
+<section id="process" style="padding:60px 20px;">
+  <div style="max-width:700px;margin:0 auto;">
+    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Process</p>
+    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:40px;">How it Works</h2>
+
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      <!-- Step 1 -->
+      <div style="display:flex;align-items:flex-start;gap:20px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="color:#8b5cf6;font-size:20px;font-weight:800;">1</span>
+        </div>
+        <div>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">Connect Your Tools</h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Link Gmail, Google Calendar, Todoist, and 800+ more in under 2 minutes.</p>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div style="display:flex;align-items:flex-start;gap:20px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="color:#8b5cf6;font-size:20px;font-weight:800;">2</span>
+        </div>
+        <div>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">Just Chat</h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Message Handled on WhatsApp, Telegram, iMessage, or Slack — wherever you already are.</p>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div style="display:flex;align-items:flex-start;gap:20px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="color:#8b5cf6;font-size:20px;font-weight:800;">3</span>
+        </div>
+        <div>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">It Gets Done</h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Handled schedules meetings, sets reminders, sends emails, and manages tasks — automatically.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- ========== TESTIMONIALS ========== -->
   <section style="padding:60px 20px;">
     <div style="max-width:900px;margin:0 auto;">
@@ -1337,6 +1391,56 @@
       </div>
     </div>
   </section>
+
+  <!-- ========== PRICING ========== -->
+<section id="pricing" style="padding:60px 20px;">
+  <div style="max-width:800px;margin:0 auto;">
+    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Pricing</p>
+    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:8px;">Simple Pricing</h2>
+    <p style="text-align:center;color:#a0a0a0;font-size:14px;margin-bottom:40px;">Start free. Upgrade when you're ready.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <!-- Free Plan -->
+      <div style="background:#111111;border:1px solid #2a2a2a;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;">
+        <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(139,92,246,0.1);color:#a0a0a0;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Start Here</span>
+        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;">Pro</h3>
+        <div style="margin-bottom:24px;">
+          <span style="color:#e0e0e0;font-size:42px;font-weight:800;">$0</span>
+          <span style="color:#707070;font-size:14px;"> / forever</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Talk on WhatsApp, Telegram, or email</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Gmail, Google Calendar integrations</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Reminders</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Long-term memory</span></div>
+        </div>
+        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;border:1px solid #8b5cf6;border-radius:10px;color:#8b5cf6;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Started Free</a>
+        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+      </div>
+
+      <!-- Pro+ Plan -->
+      <div style="background:#111111;border:2px solid #8b5cf6;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(139,92,246,0.15);">
+        <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:#8b5cf6;color:#fff;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Most Popular</span>
+        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;">Pro+</h3>
+        <div style="margin-bottom:4px;">
+          <span style="color:#e0e0e0;font-size:42px;font-weight:800;">$1</span>
+          <span style="color:#707070;font-size:14px;"> / mo &middot; $79 / year</span>
+        </div>
+        <p style="color:#707070;font-size:12px;margin:0 0 24px;">Cancel Anytime</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Everything in Pro</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Unlimited tasks</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Automations and webhooks</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Team collaboration</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Priority support</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Early access to features</span></div>
+        </div>
+        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;background:#8b5cf6;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Pro+</a>
+        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ========== BOTTOM CTA ========== -->
   <section class="cta-section" id="cta">
