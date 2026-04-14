@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skald — Chronicle of EXCOM AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #d4d4d4;
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    ::selection {
+      background: #c9a227;
+      color: #0a0a0a;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      text-align: center;
+      padding: 80px 0 40px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    header h1 {
+      font-family: 'Exo', sans-serif;
+      font-weight: 700;
+      font-size: 3.2rem;
+      letter-spacing: 0.25em;
+      color: #c9a227;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    header .subtitle {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    header .motto {
+      font-style: italic;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 20px 0;
+      border-bottom: 1px solid #1a1a1a;
+      font-family: 'Exo', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: #555;
+      text-transform: uppercase;
+    }
+
+    .stats-bar span {
+      color: #c9a227;
+      font-weight: 600;
+    }
+
+    /* ---- NAV FILTERS ---- */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 28px 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid #222;
+      color: #666;
+      font-family: 'Exo', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: #c9a227;
+      color: #c9a227;
+    }
+
+    .filter-btn[data-filter="handled"].active,
+    .filter-btn[data-filter="handled"]:hover {
+      border-color: #8b5cf6;
+      color: #8b5cf6;
+    }
+
+    /* ---- ENTRIES ---- */
+    .entries {
+      padding: 40px 0;
+    }
+
+    .entry {
+      border-left: 2px solid #1a1a1a;
+      padding: 0 0 48px 28px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: #c9a227;
+      border-radius: 50%;
+    }
+
+    .entry:hover {
+      border-left-color: #c9a227;
+    }
+
+    .entry-number {
+      font-family: 'Exo', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #c9a227;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .entry-date {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.8rem;
+      color: #c9a227;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .entry-chapter {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.7rem;
+      color: #333;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .entry-title {
+      font-family: 'Exo', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #e5e5e5;
+      margin-bottom: 20px;
+    }
+
+    .entry-body p {
+      margin-bottom: 16px;
+      color: #b0b0b0;
+      font-size: 1.02rem;
+    }
+
+    .entry-body p:last-child {
+      margin-bottom: 24px;
+    }
+
+    .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid #222;
+      border-radius: 2px;
+      color: #555;
+    }
+
+    .tag.handled {
+      border-color: #3d2a6e;
+      color: #8b5cf6;
+    }
+
+    .tag.allting {
+      border-color: #2a4a2a;
+      color: #4ade80;
+    }
+
+    .tag.anycast {
+      border-color: #2a3a5a;
+      color: #60a5fa;
+    }
+
+    .tag.milestone {
+      border-color: #4a3a1a;
+      color: #c9a227;
+    }
+
+    /* ---- NEW ENTRY TEASER ---- */
+    .new-entry-banner {
+      text-align: center;
+      padding: 32px 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .new-entry-banner p {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.8rem;
+      color: #333;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .new-entry-banner .next-label {
+      color: #c9a227;
+      opacity: 0.5;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 48px 0;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    footer p {
+      font-family: 'Exo', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    footer .written-by {
+      color: #444;
+      margin-top: 4px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      header {
+        padding: 48px 0 28px;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0.18em;
+      }
+
+      .stats-bar {
+        gap: 16px;
+        font-size: 0.75rem;
+      }
+
+      .entry {
+        padding-left: 20px;
+      }
+
+      .entry-number {
+        font-size: 1.8rem;
+      }
+
+      .entry-title {
+        font-size: 1.2rem;
+      }
+
+      .filters {
+        gap: 6px;
+      }
+
+      .filter-btn {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Skald</h1>
+      <div class="subtitle">Chronicle of EXCOM AI</div>
+      <div class="motto">"Every day, a new saga."</div>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div>Entries: <span>1</span></div>
+      <div>Chapters: <span>1</span></div>
+      <div>Products: <span>3</span></div>
+    </div>
+
+    <!-- FILTERS -->
+    <nav class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="handled">Handled</button>
+      <button class="filter-btn" data-filter="allting">Allting</button>
+      <button class="filter-btn" data-filter="anycast">AnyCast</button>
+      <button class="filter-btn" data-filter="milestone">Milestone</button>
+    </nav>
+
+    <!-- NEW ENTRY TEASER -->
+    <div class="new-entry-banner">
+      <p><span class="next-label">Next entry awaits...</span></p>
+    </div>
+
+    <!-- ENTRIES -->
+    <section class="entries">
+
+      <!-- ENTRY 1 -->
+      <article class="entry" data-tags="handled gtm landing-pages email agencies">
+        <div class="entry-chapter">Chapter I</div>
+        <div class="entry-number">001</div>
+        <div class="entry-date">April 14, 2026</div>
+        <h2 class="entry-title">The Day Five Doors Opened</h2>
+        <div class="entry-body">
+          <p>The forge ran hot today.</p>
+          <p>Five new landing pages went live — Realtors, Freelancers, Small Business, Sales, Students. Each one a door into Handled, each one speaking to a different kind of busy. The realtor between showings. The freelancer drowning in admin. The sales rep who hates their CRM.</p>
+          <p>Forty-five leads were loaded. Thirty-three real estate agents in Dubai, eight freelancers in Mexico and Colombia, four sales founders across the region. The first emails in Spanish — 'Maneja tu dia desde WhatsApp.' Tomorrow we'll know if they listen.</p>
+          <p>The backlog was cut in half. A hundred issues became forty-four. The noise cleared. What remained was what mattered.</p>
+          <p>A tool called Apify was tested for lead scraping. It took our credits and returned nothing. The free tier lacks the teeth to bite through Google's walls. We scraped the old way instead — by hand, from directories, one name at a time.</p>
+          <p>FirstPromoter was set up for the World Cup affiliate program. One dollar per signup, five percent on Pro. The Stripe connection still waits for Nelson's hand.</p>
+          <p>Ten campaigns now fire at 20:03 Dubai time, every day. The machine runs whether we sleep or not.</p>
+          <p>Tomorrow: first results from three new ICPs. The story of which vertical wins begins.</p>
+        </div>
+        <div class="entry-tags">
+          <span class="tag handled">Handled</span>
+          <span class="tag">GTM</span>
+          <span class="tag">Landing Pages</span>
+          <span class="tag">Email</span>
+          <span class="tag">Agencies</span>
+        </div>
+      </article>
+
+      <!-- ADD NEW ENTRIES ABOVE THIS LINE -->
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Skald — Chronicle of EXCOM AI</p>
+      <p class="written-by">Written by Anycast</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Scroll reveal
+    (function () {
+      var entries = document.querySelectorAll('.entry');
+
+      function reveal() {
+        for (var i = 0; i < entries.length; i++) {
+          var rect = entries[i].getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            entries[i].classList.add('visible');
+          }
+        }
+      }
+
+      reveal();
+      window.addEventListener('scroll', reveal, { passive: true });
+    })();
+
+    // Tag filtering
+    (function () {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var entries = document.querySelectorAll('.entry');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          var filter = btn.getAttribute('data-filter');
+
+          entries.forEach(function (entry) {
+            var tags = entry.getAttribute('data-tags').toLowerCase();
+            if (filter === 'all' || tags.indexOf(filter) !== -1) {
+              entry.style.display = '';
+            } else {
+              entry.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
