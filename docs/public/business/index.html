@@ -903,6 +903,296 @@
       transform: translateY(0);
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
+  
+    /* =============================================
+       INTERACTIVE ANIMATIONS
+    ============================================= */
+    @keyframes breathe {
+      0%, 100% { box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+      50% { box-shadow: 0 0 40px rgba(139,92,246,0.5); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing-dot {
+      0%, 60% { opacity: 0.3; }
+      30% { opacity: 1; }
+    }
+
+    @keyframes gradientMove {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-20px, 15px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    /* Hero shimmer headline */
+    .hero-shimmer {
+      background: linear-gradient(90deg, var(--color-text) 0%, #a78bfa 25%, var(--color-text) 50%, #8b5cf6 75%, var(--color-text) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Breathing CTA button */
+    .btn-breathe {
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    /* Floating background blobs */
+    .hero-bg-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.12;
+      animation: gradientMove 12s ease-in-out infinite;
+    }
+
+    .hero-blob-1 {
+      width: 300px;
+      height: 300px;
+      background: #8b5cf6;
+      top: -50px;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .hero-blob-2 {
+      width: 200px;
+      height: 200px;
+      background: #a78bfa;
+      bottom: -30px;
+      left: 15%;
+      animation-delay: -4s;
+    }
+
+    .hero-blob-3 {
+      width: 150px;
+      height: 150px;
+      background: #7c3aed;
+      top: 40%;
+      left: 60%;
+      animation-delay: -8s;
+    }
+
+    /* Pain cards accordion */
+    .pain-card {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .pain-card-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .pain-card-toggle .pain-toggle-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .pain-card.open .pain-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .pain-card-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .pain-card.open .pain-card-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    /* Phone mockup glow */
+    .phone-glow {
+      box-shadow: 0 0 60px rgba(139,92,246,0.15), 0 8px 40px rgba(0,0,0,0.5) !important;
+    }
+
+    /* Online indicator */
+    .online-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      align-self: flex-start;
+      background: #1a1a2e;
+      border-radius: 14px 14px 14px 4px;
+      max-width: 60px;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+      animation: typing-dot 1.2s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    [data-theme="light"] .typing-indicator {
+      background: #f0f0f0;
+    }
+
+    /* Use case cards interactive */
+    .usecase-card p,
+    .use-case-card p {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .usecase-card:hover p,
+    .usecase-card.touched p,
+    .use-case-card:hover p,
+    .use-case-card.touched p {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .usecase-card,
+    .use-case-card {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .usecase-card:hover,
+    .use-case-card:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 20px rgba(139,92,246,0.15), 0 4px 16px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Stagger reveal for use case cards */
+    .usecase-card.stagger-in,
+    .use-case-card.stagger-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .usecase-card.stagger-visible,
+    .use-case-card.stagger-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* CTA breathing background */
+    .cta-bg-anim {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-anim::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+      animation: gradientMove 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* FAQ improved animations */
+    .faq-chevron {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .faq-answer {
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease, opacity 0.3s ease !important;
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-answer,
+    details[open] .faq-answer {
+      opacity: 1;
+    }
+
+    /* Footer link hover */
+    footer a {
+      transition: color 0.3s ease !important;
+    }
+
+    footer a:hover {
+      color: #8b5cf6 !important;
+    }
+
+    /* Cursor pointer on clickable */
+    .pain-card, .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+      cursor: pointer;
+    }
+
+    /* CTA sub-text */
+    .cta-sub-text {
+      font-size: 13px;
+      color: var(--color-text-dim);
+      margin-top: 12px;
+    }
+
+    /* Hero section position relative for blobs */
+    #hero, .hero {
+      position: relative;
+    }
+
+    #hero > *, .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
   </style>
 </head>
 
@@ -935,19 +1225,22 @@
 
     <!-- ============ HERO ============ -->
     <section id="hero" class="container">
+    <div class="hero-bg-blobs">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+    </div>
       <div class="reveal">
         <div class="hero-pill">
           <span class="hero-pill-dot"></span>
           Built for Small Business Owners
         </div>
         <h1 class="hero-title">
-          Run Your Business<br>From <span class="accent">One Chat</span>
+          Run Your Business<br>From <span class="accent hero-shimmer">One Chat</span>
         </h1>
-        <p class="hero-subtitle">
-          Handled gives small business owners a virtual assistant in WhatsApp &mdash; manage your calendar, tasks, and email without hiring an EA.
-        </p>
+        <p class="hero-subtitle">Calendar, tasks, and email — managed from one WhatsApp chat.</p>
         <div class="hero-cta-row">
-          <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary btn-glow">
+          <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary btn-breathe">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Try Handled Free
           </a>
@@ -966,18 +1259,18 @@
         <div class="pain-grid">
           <div class="pain-card reveal reveal-delay-1">
             <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3>Too many hats</h3>
-            <p>You're the CEO, EA, and ops manager &mdash; all at once. There's no one to delegate to, and the admin never stops.</p>
+            <h3><div class="pain-card-toggle">Too many hats<span class="pain-toggle-icon">+</span></div></h3>
+            <p class="pain-card-desc">CEO, EA, and ops manager — all at once.</p>
           </div>
           <div class="pain-card reveal reveal-delay-2">
             <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
-            <h3>Things fall through the cracks</h3>
-            <p>Meetings and tasks slip when you're juggling clients, deliveries, and operations all day long.</p>
+            <h3><div class="pain-card-toggle">Things fall through the cracks<span class="pain-toggle-icon">+</span></div></h3>
+            <p class="pain-card-desc">Tasks and meetings slip through the cracks daily.</p>
           </div>
           <div class="pain-card reveal reveal-delay-3">
             <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <h3>Email overload</h3>
-            <p>Email overload with no triage system. Important messages get buried under newsletters and noise.</p>
+            <h3><div class="pain-card-toggle">Email overload<span class="pain-toggle-icon">+</span></div></h3>
+            <p class="pain-card-desc">Important emails buried under noise.</p>
           </div>
         </div>
       </div>
@@ -987,13 +1280,13 @@
     <section class="section">
       <div class="container">
         <div class="mockup-section">
-          <div class="phone-frame reveal">
+          <div class="phone-frame phone-glow reveal">
             <div class="phone-screen">
               <div class="phone-header">
                 <div class="phone-avatar">H</div>
                 <div>
                   <div class="phone-name">Handled</div>
-                  <div class="phone-status">online</div>
+                  <div class="phone-status"><span class="online-dot"></span>online</div>
                 </div>
               </div>
               <div class="phone-messages">
@@ -1030,7 +1323,7 @@
           <div class="mockup-text reveal">
             <p class="eyebrow">Your business, one chat away</p>
             <h2 class="section-title">Talk to your business assistant like you'd text a colleague</h2>
-            <p class="section-subtitle">Schedule meetings, check your agenda, and set critical reminders &mdash; all without leaving WhatsApp. No app switching, no learning curve.</p>
+            <p class="section-subtitle">Schedule meetings, check your agenda, and set reminders — without leaving WhatsApp.</p>
             <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary" style="align-self:flex-start;">
               Try It Now
             </a>
@@ -1051,17 +1344,17 @@
           <div class="usecase-card reveal reveal-delay-1">
             <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
             <h3>Customer Appointments</h3>
-            <p>Schedule, reschedule, and confirm client meetings from WhatsApp. Handled syncs with your Google Calendar so nothing overlaps.</p>
+            <p>Schedule and confirm client meetings from chat.</p>
           </div>
           <div class="usecase-card reveal reveal-delay-2">
             <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
             <h3>Morning Briefing</h3>
-            <p>Start each day with a summary of your meetings, pending tasks, and priority emails &mdash; delivered to your chat before your first coffee.</p>
+            <p>Daily summary of meetings, tasks, and emails.</p>
           </div>
           <div class="usecase-card reveal reveal-delay-3">
             <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <h3>Task Tracking</h3>
-            <p>Add tasks, set deadlines, and get reminders &mdash; all by text. No project management tool to log into, no tabs to keep open.</p>
+            <p>Add tasks and deadlines by text message.</p>
           </div>
         </div>
       </div>
@@ -1072,10 +1365,11 @@
       <div class="container reveal">
         <h2 class="section-title">Start managing your business from WhatsApp</h2>
         <p class="section-subtitle">No app to install. No assistant to hire. Just open WhatsApp and say hello.</p>
-        <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary btn-glow">
+        <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary btn-breathe">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Get Started Free
         </a>
+        <p class="cta-sub-text">Free forever. Pro when you're ready.</p>
       </div>
     </section>
 
@@ -1089,7 +1383,7 @@
         <div class="faq-list">
           <details class="faq-item reveal reveal-delay-1">
             <summary>Do I need to install an app?</summary>
-            <div class="faq-answer">No. Handled works entirely within WhatsApp. No downloads, no new apps, no learning curve. If you have WhatsApp, you're ready.</div>
+            <div class="faq-answer">No. Handled works entirely within WhatsApp. No downloads, no new apps, no learning curve.</div>
           </details>
           <details class="faq-item reveal reveal-delay-2">
             <summary>Can Handled replace a real executive assistant?</summary>
@@ -1238,6 +1532,127 @@
       window.addEventListener('scroll', checkMobileCta);
       window.addEventListener('resize', checkMobileCta);
     })();
+  
+
+    /* ===== PAIN CARDS ACCORDION ===== */
+    (function() {
+      document.querySelectorAll('.pain-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var isOpen = card.classList.contains('open');
+          document.querySelectorAll('.pain-card').forEach(function(c) { c.classList.remove('open'); });
+          if (!isOpen) card.classList.add('open');
+        });
+      });
+    })();
+
+    /* ===== USE CASE TOUCH SUPPORT ===== */
+    (function() {
+      var cards = document.querySelectorAll('.usecase-card, .use-case-card');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          cards.forEach(function(c) { if (c !== card) c.classList.remove('touched'); });
+          card.classList.toggle('touched');
+        });
+      });
+
+      /* Stagger animation on scroll */
+      if ('IntersectionObserver' in window) {
+        var staggerObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var grid = entry.target.closest('.usecase-grid, .use-case-grid');
+              if (!grid) grid = entry.target.parentElement;
+              var items = grid.querySelectorAll('.usecase-card, .use-case-card');
+              items.forEach(function(item, i) {
+                item.classList.add('stagger-in');
+                setTimeout(function() { item.classList.add('stagger-visible'); }, i * 150);
+              });
+              staggerObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        if (cards.length > 0) {
+          staggerObs.observe(cards[0]);
+        }
+      }
+    })();
+
+    /* ===== WHATSAPP TYPING ANIMATION ===== */
+    (function() {
+      var chatContainer = document.querySelector('.chat-area, .chat-body, .chat-messages, .phone-messages');
+      if (!chatContainer) return;
+      var allBubbles = chatContainer.querySelectorAll('.chat-bubble-user, .chat-bubble-bot, .wa-msg');
+      if (!allBubbles.length) return;
+
+      allBubbles.forEach(function(b) {
+        b.style.opacity = '0';
+        b.style.transform = 'translateY(12px)';
+      });
+
+      var typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      typingDiv.style.display = 'none';
+      chatContainer.appendChild(typingDiv);
+
+      function showBubble(idx) {
+        if (idx >= allBubbles.length) {
+          typingDiv.style.display = 'none';
+          return;
+        }
+        var bubble = allBubbles[idx];
+        var isBot = bubble.classList.contains('chat-bubble-bot') || bubble.classList.contains('wa-incoming');
+
+        if (isBot) {
+          typingDiv.style.display = 'flex';
+          chatContainer.insertBefore(typingDiv, bubble);
+          setTimeout(function() {
+            typingDiv.style.display = 'none';
+            bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+            setTimeout(function() { showBubble(idx + 1); }, 600);
+          }, 800);
+        } else {
+          bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          bubble.style.opacity = '1';
+          bubble.style.transform = 'translateY(0)';
+          setTimeout(function() { showBubble(idx + 1); }, 500);
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var chatObs2 = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              setTimeout(function() { showBubble(0); }, 300);
+              chatObs2.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        chatObs2.observe(allBubbles[0]);
+      } else {
+        allBubbles.forEach(function(b) {
+          b.style.opacity = '1';
+          b.style.transform = 'translateY(0)';
+        });
+      }
+    })();
+
+    /* ===== PARALLAX BACKGROUND ===== */
+    (function() {
+      var blobs = document.querySelectorAll('.hero-blob');
+      if (!blobs.length) return;
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+        blobs.forEach(function(blob, i) {
+          var speed = 0.03 + (i * 0.02);
+          blob.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+      });
+    })();
+
   </script>
 
 

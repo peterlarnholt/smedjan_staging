@@ -799,16 +799,297 @@
       border-color: var(--color-accent);
     }
 
-    /* Chat message stagger animation */
-    .chat-animate {
-      opacity: 0;
-      transform: translateY(12px);
+    /* Chat animation styles moved to interactive section */
+  
+    /* =============================================
+       INTERACTIVE ANIMATIONS
+    ============================================= */
+    @keyframes breathe {
+      0%, 100% { box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+      50% { box-shadow: 0 0 40px rgba(139,92,246,0.5); }
     }
-    .chat-animate.show {
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing-dot {
+      0%, 60% { opacity: 0.3; }
+      30% { opacity: 1; }
+    }
+
+    @keyframes gradientMove {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-20px, 15px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    /* Hero shimmer headline */
+    .hero-shimmer {
+      background: linear-gradient(90deg, var(--color-text) 0%, #a78bfa 25%, var(--color-text) 50%, #8b5cf6 75%, var(--color-text) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Breathing CTA button */
+    .btn-breathe {
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    /* Floating background blobs */
+    .hero-bg-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.12;
+      animation: gradientMove 12s ease-in-out infinite;
+    }
+
+    .hero-blob-1 {
+      width: 300px;
+      height: 300px;
+      background: #8b5cf6;
+      top: -50px;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .hero-blob-2 {
+      width: 200px;
+      height: 200px;
+      background: #a78bfa;
+      bottom: -30px;
+      left: 15%;
+      animation-delay: -4s;
+    }
+
+    .hero-blob-3 {
+      width: 150px;
+      height: 150px;
+      background: #7c3aed;
+      top: 40%;
+      left: 60%;
+      animation-delay: -8s;
+    }
+
+    /* Pain cards accordion */
+    .pain-card {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .pain-card-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .pain-card-toggle .pain-toggle-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .pain-card.open .pain-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .pain-card-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .pain-card.open .pain-card-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    /* Phone mockup glow */
+    .phone-glow {
+      box-shadow: 0 0 60px rgba(139,92,246,0.15), 0 8px 40px rgba(0,0,0,0.5) !important;
+    }
+
+    /* Online indicator */
+    .online-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      align-self: flex-start;
+      background: #1a1a2e;
+      border-radius: 14px 14px 14px 4px;
+      max-width: 60px;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+      animation: typing-dot 1.2s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    [data-theme="light"] .typing-indicator {
+      background: #f0f0f0;
+    }
+
+    /* Use case cards interactive */
+    .usecase-card p,
+    .use-case-card p {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .usecase-card:hover p,
+    .usecase-card.touched p,
+    .use-case-card:hover p,
+    .use-case-card.touched p {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .usecase-card,
+    .use-case-card {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .usecase-card:hover,
+    .use-case-card:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 20px rgba(139,92,246,0.15), 0 4px 16px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Stagger reveal for use case cards */
+    .usecase-card.stagger-in,
+    .use-case-card.stagger-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .usecase-card.stagger-visible,
+    .use-case-card.stagger-visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
+    /* CTA breathing background */
+    .cta-bg-anim {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-anim::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+      animation: gradientMove 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* FAQ improved animations */
+    .faq-chevron {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .faq-answer {
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease, opacity 0.3s ease !important;
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-answer,
+    details[open] .faq-answer {
+      opacity: 1;
+    }
+
+    /* Footer link hover */
+    footer a {
+      transition: color 0.3s ease !important;
+    }
+
+    footer a:hover {
+      color: #8b5cf6 !important;
+    }
+
+    /* Cursor pointer on clickable */
+    .pain-card, .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+      cursor: pointer;
+    }
+
+    /* CTA sub-text */
+    .cta-sub-text {
+      font-size: 13px;
+      color: var(--color-text-dim);
+      margin-top: 12px;
+    }
+
+    /* Hero section position relative for blobs */
+    #hero, .hero {
+      position: relative;
+    }
+
+    #hero > *, .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -822,11 +1103,16 @@
        HERO
   ============================================= -->
   <section class="hero">
+    <div class="hero-bg-blobs">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+    </div>
     <div class="container">
       <div class="eyebrow reveal">Handled for Sales Teams</div>
-      <h1 class="hero-title reveal">Sell More. Type Less. <span class="accent">Close From Chat.</span></h1>
-      <p class="hero-sub">Handled turns WhatsApp into your sales command center &mdash; schedule meetings, set follow-ups, and fire off emails without touching your CRM.</p>
-      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn" id="hero-cta">
+      <h1 class="hero-title reveal">Sell More. Type Less. <span class="accent hero-shimmer">Close From Chat.</span></h1>
+      <p class="hero-sub">Schedule meetings, set follow-ups, and fire off emails — all from WhatsApp.</p>
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn btn-breathe" id="hero-cta">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Start Closing Deals
       </a>
@@ -846,18 +1132,18 @@
       <div class="pain-grid">
         <div class="pain-card reveal reveal-delay-1">
           <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <h3>Your reps spend 28% of their time NOT selling</h3>
-          <p>Data entry, scheduling, note-taking. Almost a third of every day goes to tasks that don't close deals. That's 11 hours a week your reps will never get back.</p>
+          <h3><div class="pain-card-toggle">Your reps spend 28% of their time NOT selling<span class="pain-toggle-icon">+</span></div></h3>
+          <p class="pain-card-desc">28% of rep time goes to non-selling tasks.</p>
         </div>
         <div class="pain-card reveal reveal-delay-2">
           <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Missed follow-ups kill deals</h3>
-          <p>80% of sales require 5+ follow-ups. But most reps stop after one. Not because they don't care &mdash; because they forgot. Deals die in silence.</p>
+          <h3><div class="pain-card-toggle">Missed follow-ups kill deals<span class="pain-toggle-icon">+</span></div></h3>
+          <p class="pain-card-desc">80% of sales need 5+ follow-ups. Most reps stop at one.</p>
         </div>
         <div class="pain-card reveal reveal-delay-3">
           <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h3>CRM data entry is where motivation goes to die</h3>
-          <p>Your team hates logging calls, updating stages, and writing notes after every interaction. So they don't. And your pipeline data rots.</p>
+          <h3><div class="pain-card-toggle">CRM data entry is where motivation goes to die<span class="pain-toggle-icon">+</span></div></h3>
+          <p class="pain-card-desc">CRM data entry kills motivation and pipeline accuracy.</p>
         </div>
       </div>
     </div>
@@ -873,12 +1159,12 @@
         <h2 class="section-title mx-auto">Your sales assistant lives in WhatsApp</h2>
         <p class="section-subtitle mx-auto">No new app. No browser tab. Just type what you need in the chat you already use every day.</p>
       </div>
-      <div class="phone-mockup">
+      <div class="phone-mockup phone-glow">
         <div class="phone-header">
           <div class="phone-avatar">H</div>
           <div>
             <div class="phone-name">Handled</div>
-            <div class="phone-status">online</div>
+            <div class="phone-status"><span class="online-dot"></span>online</div>
           </div>
         </div>
         <div class="chat-body">
@@ -928,17 +1214,17 @@
         <div class="use-case-card reveal">
           <div class="use-case-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <h3>Post-Call Follow-Up</h3>
-          <p>Just finished a discovery call? Tell Handled to "send a follow-up email to Johan summarizing our call and schedule a check-in for next week." Done in 10 seconds.</p>
+          <p>Send follow-up emails right after the call.</p>
         </div>
         <div class="use-case-card reveal">
           <div class="use-case-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <h3>One-Message Booking</h3>
-          <p>"Book a demo with Priya on Thursday at 3pm." Handled checks your calendar, sends the invite, and confirms. No back-and-forth email chains.</p>
+          <p>Book demos in one message. No email chains.</p>
         </div>
         <div class="use-case-card reveal">
           <div class="use-case-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <h3>Daily Pipeline Check</h3>
-          <p>"What's on my plate today?" Get a morning brief of overdue follow-ups, today's meetings, and pending actions &mdash; all in one WhatsApp message.</p>
+          <p>Morning brief of overdue follow-ups and meetings.</p>
         </div>
       </div>
     </div>
@@ -952,10 +1238,11 @@
       <div class="eyebrow">Ready?</div>
       <h2 class="section-title">Start closing deals from WhatsApp</h2>
       <p class="section-subtitle mx-auto">Join sales teams who ditched the admin and started selling. Free to try, no credit card needed.</p>
-      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn" id="bottom-cta">
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn btn-breathe" id="bottom-cta">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Start Closing Deals
       </a>
+        <p class="cta-sub-text">Free forever. Pro when you're ready.</p>
     </div>
   </section>
 
@@ -975,7 +1262,7 @@
             <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
           </div>
           <div class="faq-answer">
-            <p>No. Handled works alongside your CRM. It captures follow-ups, meetings, and action items from WhatsApp so your reps don't have to manually log everything. Think of it as the fast lane into your sales workflow.</p>
+            <p>No. Handled works alongside your CRM. It captures follow-ups, meetings, and action items from WhatsApp so your reps don't have to manually log everything.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -1083,30 +1370,7 @@
       });
     });
   
-    /* ===== CHAT MESSAGE STAGGER ===== */
-    (function() {
-      var chatBubbles = document.querySelectorAll('.chat-bubble-user, .chat-bubble-bot');
-      if (!chatBubbles.length) return;
-      chatBubbles.forEach(function(b) { b.classList.add('chat-animate'); });
-      if ('IntersectionObserver' in window) {
-        var chatObs = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var container = entry.target.closest('.chat-area, .chat-body, .chat-messages, .phone-messages');
-              if (!container) container = entry.target.parentElement;
-              var msgs = container.querySelectorAll('.chat-animate');
-              msgs.forEach(function(m, i) {
-                setTimeout(function() { m.classList.add('show'); }, i * 500);
-              });
-              chatObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.2 });
-        chatObs.observe(chatBubbles[0]);
-      } else {
-        chatBubbles.forEach(function(b) { b.classList.add('show'); });
-      }
-    })();
+    /* Chat animation handled by new typing system */
   
     /* ===== MOBILE STICKY CTA ===== */
     (function() {
@@ -1122,6 +1386,127 @@
       window.addEventListener('scroll', checkMobileCta);
       window.addEventListener('resize', checkMobileCta);
     })();
+  
+
+    /* ===== PAIN CARDS ACCORDION ===== */
+    (function() {
+      document.querySelectorAll('.pain-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var isOpen = card.classList.contains('open');
+          document.querySelectorAll('.pain-card').forEach(function(c) { c.classList.remove('open'); });
+          if (!isOpen) card.classList.add('open');
+        });
+      });
+    })();
+
+    /* ===== USE CASE TOUCH SUPPORT ===== */
+    (function() {
+      var cards = document.querySelectorAll('.usecase-card, .use-case-card');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          cards.forEach(function(c) { if (c !== card) c.classList.remove('touched'); });
+          card.classList.toggle('touched');
+        });
+      });
+
+      /* Stagger animation on scroll */
+      if ('IntersectionObserver' in window) {
+        var staggerObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var grid = entry.target.closest('.usecase-grid, .use-case-grid');
+              if (!grid) grid = entry.target.parentElement;
+              var items = grid.querySelectorAll('.usecase-card, .use-case-card');
+              items.forEach(function(item, i) {
+                item.classList.add('stagger-in');
+                setTimeout(function() { item.classList.add('stagger-visible'); }, i * 150);
+              });
+              staggerObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        if (cards.length > 0) {
+          staggerObs.observe(cards[0]);
+        }
+      }
+    })();
+
+    /* ===== WHATSAPP TYPING ANIMATION ===== */
+    (function() {
+      var chatContainer = document.querySelector('.chat-area, .chat-body, .chat-messages, .phone-messages');
+      if (!chatContainer) return;
+      var allBubbles = chatContainer.querySelectorAll('.chat-bubble-user, .chat-bubble-bot, .wa-msg');
+      if (!allBubbles.length) return;
+
+      allBubbles.forEach(function(b) {
+        b.style.opacity = '0';
+        b.style.transform = 'translateY(12px)';
+      });
+
+      var typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      typingDiv.style.display = 'none';
+      chatContainer.appendChild(typingDiv);
+
+      function showBubble(idx) {
+        if (idx >= allBubbles.length) {
+          typingDiv.style.display = 'none';
+          return;
+        }
+        var bubble = allBubbles[idx];
+        var isBot = bubble.classList.contains('chat-bubble-bot') || bubble.classList.contains('wa-incoming');
+
+        if (isBot) {
+          typingDiv.style.display = 'flex';
+          chatContainer.insertBefore(typingDiv, bubble);
+          setTimeout(function() {
+            typingDiv.style.display = 'none';
+            bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+            setTimeout(function() { showBubble(idx + 1); }, 600);
+          }, 800);
+        } else {
+          bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          bubble.style.opacity = '1';
+          bubble.style.transform = 'translateY(0)';
+          setTimeout(function() { showBubble(idx + 1); }, 500);
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var chatObs2 = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              setTimeout(function() { showBubble(0); }, 300);
+              chatObs2.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        chatObs2.observe(allBubbles[0]);
+      } else {
+        allBubbles.forEach(function(b) {
+          b.style.opacity = '1';
+          b.style.transform = 'translateY(0)';
+        });
+      }
+    })();
+
+    /* ===== PARALLAX BACKGROUND ===== */
+    (function() {
+      var blobs = document.querySelectorAll('.hero-blob');
+      if (!blobs.length) return;
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+        blobs.forEach(function(blob, i) {
+          var speed = 0.03 + (i * 0.02);
+          blob.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+      });
+    })();
+
   </script>
 
   <!-- ========== MOBILE STICKY CTA ========== -->
