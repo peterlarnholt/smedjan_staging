@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handled for Realtors — Close More Deals From Your Chat Window</title>
+  <meta name="description" content="Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for real estate agents who are always between showings." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://handled.sh/realtors/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Handled for Realtors — Close More Deals From Your Chat Window" />
+  <meta property="og:description" content="Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for real estate agents who are always between showings." />
+  <meta property="og:url" content="https://handled.sh/realtors/" />
+  <meta property="og:image" content="https://handled.sh/og-default.png" />
+  <meta property="og:site_name" content="Handled" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Handled for Realtors — Close More Deals From Your Chat Window" />
+  <meta name="twitter:description" content="Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for real estate agents." />
+  <meta name="twitter:image" content="https://handled.sh/og-default.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: Exo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Handled",
+    "applicationCategory": "BusinessApplication",
+    "description": "AI assistant for realtors — scheduling, follow-ups, and task management from WhatsApp.",
+    "url": "https://handled.sh/realtors/",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever plan with WhatsApp access, integrations, reminders, and long-term memory."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro+",
+        "price": "1",
+        "priceCurrency": "USD",
+        "description": "$1 for the first month, then $79/year. Unlimited tasks, automations, team collaboration."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need to install a separate app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Handled works entirely inside WhatsApp. If you already use WhatsApp, you're ready to start. No downloads, no new apps, no learning curve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Handled sync with my existing calendar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Handled integrates with Google Calendar so your showings, client meetings, and personal events all stay in sync. Schedule or check your calendar directly from WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my client data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards. Your client conversations stay private."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXLGWW1JSV', {
+      content_group: 'realtors',
+      custom_map: {
+        dimension1: 'icp_segment',
+        dimension2: 'geo_target',
+        dimension3: 'language'
+      }
+    });
+    gtag('event', 'page_view', {
+      icp_segment: 'realtors',
+      geo_target: 'global',
+      language: 'en'
+    });
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w2vh7gs076");
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('utm_source'))   window.clarity("set", "utm_source", params.get('utm_source'));
+    if (params.get('utm_medium'))   window.clarity("set", "utm_medium", params.get('utm_medium'));
+    if (params.get('utm_campaign')) window.clarity("set", "utm_campaign", params.get('utm_campaign'));
+    window.clarity("set", "page_type", "realtors_lp");
+  </script>
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & RESET
+    ============================================= */
+    :root {
+      --color-bg: #0a1a0a;
+      --color-bg-alt: #0d2a15;
+      --color-bg-card: #111a11;
+      --color-text: #e0e0e0;
+      --color-text-muted: #a0a0a0;
+      --color-text-dim: #707070;
+      --color-accent: #25D366;
+      --color-accent-dark: #1fad54;
+      --color-accent-glow: rgba(37, 211, 102, 0.3);
+      --color-border: rgba(37, 211, 102, 0.15);
+      --color-border-hover: rgba(37, 211, 102, 0.4);
+      --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+      --shadow-glow: 0 0 20px var(--color-accent-glow);
+      --transition: 0.2s ease;
+      --transition-md: 0.35s ease;
+    }
+
+    /* Light mode overrides */
+    body.light-mode {
+      --color-bg: #f5f7f5;
+      --color-bg-alt: #e8f0e8;
+      --color-bg-card: #ffffff;
+      --color-text: #0a1a0a;
+      --color-text-muted: #5a6a5a;
+      --color-text-dim: #7a8a7a;
+      --color-accent: #0a8a4a;
+      --color-accent-dark: #087a40;
+      --color-accent-glow: rgba(10, 138, 74, 0.2);
+      --color-border: rgba(10, 138, 74, 0.15);
+      --color-border-hover: rgba(10, 138, 74, 0.4);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --shadow-glow: 0 0 20px var(--color-accent-glow);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-alt {
+      background: var(--color-bg-alt);
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #0a1a0a;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.4), 0 4px 16px rgba(37,211,102,0.3);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #1fad54;
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 6px rgba(37,211,102,0.15), 0 8px 28px rgba(37,211,102,0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--color-accent);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 10px;
+      border: 1.5px solid var(--color-accent);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(37,211,102,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37,211,102,0.2);
+    }
+
+    /* =============================================
+       SCROLL REVEAL
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background: rgba(10,26,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.3s ease;
+    }
+
+    body.light-mode #nav {
+      background: rgba(245,247,245,0.92);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-brand svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      padding: 9px 18px;
+    }
+
+    /* =============================================
+       THEME TOGGLE (Apple-style)
+    ============================================= */
+    #theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1001;
+      cursor: pointer;
+    }
+
+    #toggle-track {
+      width: 40px;
+      height: 22px;
+      border-radius: 11px;
+      background: #1a4d2a;
+      border: 1px solid rgba(37,211,102,0.3);
+      position: relative;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    #toggle-knob {
+      width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      background: #25D366;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--color-text);
+    }
+
+    .hero-title .accent {
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =============================================
+       PAIN POINTS
+    ============================================= */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .pain-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .pain-card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(37,211,102,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+    }
+
+    body.light-mode .pain-icon {
+      background: rgba(10,138,74,0.1);
+    }
+
+    .pain-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .pain-card p {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       WHATSAPP MOCKUP
+    ============================================= */
+    .mockup-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .mockup-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .phone-frame {
+      width: 300px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      border-radius: 32px;
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    body.light-mode .phone-frame {
+      background: #e0e0e0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .phone-screen {
+      background: #0b141a;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    body.light-mode .phone-screen {
+      background: #ECE5DD;
+    }
+
+    .phone-header {
+      background: #1f2c34;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.light-mode .phone-header {
+      background: #075E54;
+    }
+
+    .phone-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a1a0a;
+    }
+
+    .phone-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e9edef;
+    }
+
+    .phone-status {
+      font-size: 11px;
+      color: #8696a0;
+    }
+
+    .phone-messages {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 280px;
+    }
+
+    .wa-msg {
+      max-width: 85%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .wa-outgoing {
+      background: #005c4b;
+      color: #e9edef;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+    }
+
+    body.light-mode .wa-outgoing {
+      background: #DCF8C6;
+      color: #333;
+    }
+
+    .wa-incoming {
+      background: #1f2c34;
+      color: #e9edef;
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+
+    body.light-mode .wa-incoming {
+      background: #fff;
+      color: #333;
+    }
+
+    .wa-time {
+      font-size: 10px;
+      color: #8696a0;
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .phone-input {
+      background: #1f2c34;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    body.light-mode .phone-input {
+      background: #f0f0f0;
+    }
+
+    .phone-input-field {
+      flex: 1;
+      background: #2a3942;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #8696a0;
+    }
+
+    body.light-mode .phone-input-field {
+      background: #fff;
+      color: #333;
+    }
+
+    /* =============================================
+       USE CASES
+    ============================================= */
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .usecase-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .usecase-card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .usecase-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(37,211,102,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    body.light-mode .usecase-icon {
+      background: rgba(10,138,74,0.1);
+    }
+
+    .usecase-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .usecase-card p {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .final-cta {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    }
+
+    .final-cta .section-title {
+      margin-bottom: 12px;
+    }
+
+    .final-cta .section-subtitle {
+      margin: 0 auto 32px;
+    }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .faq-list {
+      max-width: 700px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color var(--transition);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--color-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item summary:hover {
+      color: var(--color-accent);
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-dim);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .pain-grid,
+      .usecase-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .mockup-section {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .mockup-text {
+        order: 2;
+      }
+
+      .phone-frame {
+        width: 280px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      #hero {
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary, .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* =============================================
+       CTA GLOW ANIMATION
+    ============================================= */
+    @keyframes ctaGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(37,211,102,0.3); }
+      50% { box-shadow: 0 0 40px rgba(37,211,102,0.6); }
+    }
+
+    .btn-glow {
+      animation: ctaGlow 2s ease-in-out infinite;
+    }
+
+    /* Chat message animation */
+    .chat-msg {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .chat-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Theme Toggle (Apple-style) -->
+  <div id="theme-toggle" aria-label="Toggle light/dark mode">
+    <div id="toggle-track">
+      <div id="toggle-knob"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="https://handled.sh/" class="nav-brand">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="14" fill="#25D366"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#0a1a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        handled.sh
+      </a>
+      <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary nav-cta">
+        Try Free
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="container">
+      <div class="reveal">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          Built for Real Estate Agents
+        </div>
+        <h1 class="hero-title">
+          Close More Deals<br>From Your <span class="accent">Chat Window</span>
+        </h1>
+        <p class="hero-subtitle">
+          Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for agents who are always between showings.
+        </p>
+        <div class="hero-cta-row">
+          <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary btn-glow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Try Handled Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAIN POINTS ============ -->
+    <section class="section" id="pain-points">
+      <div class="container text-center">
+        <div class="reveal">
+          <p class="eyebrow">Sound familiar?</p>
+          <h2 class="section-title">The busywork is killing your deals</h2>
+          <p class="section-subtitle">You didn't get into real estate to drown in admin. Yet here we are.</p>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card reveal reveal-delay-1">
+            <div class="pain-icon">&#9200;</div>
+            <h3>50-70% of your time on non-revenue tasks</h3>
+            <p>Scheduling, rescheduling, chasing paperwork, updating spreadsheets. You're a deal-closer stuck doing data entry.</p>
+          </div>
+          <div class="pain-card reveal reveal-delay-2">
+            <div class="pain-icon">&#128683;</div>
+            <h3>Missed follow-ups cost you deals</h3>
+            <p>That lead from last Tuesday? Gone. They signed with the agent who texted back first. Speed wins in real estate.</p>
+          </div>
+          <div class="pain-card reveal reveal-delay-3">
+            <div class="pain-icon">&#128197;</div>
+            <h3>Scheduling chaos with multiple parties</h3>
+            <p>Buyers, sellers, inspectors, mortgage brokers — all on different timelines. One missed text and the chain breaks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHATSAPP MOCKUP ============ -->
+    <section class="section section-alt" id="demo">
+      <div class="container">
+        <div class="mockup-section">
+          <div class="phone-frame reveal">
+            <div class="phone-screen">
+              <div class="phone-header">
+                <div class="phone-avatar">H</div>
+                <div>
+                  <div class="phone-name">Handled</div>
+                  <div class="phone-status">online</div>
+                </div>
+              </div>
+              <div class="phone-messages">
+                <div class="wa-msg wa-outgoing chat-msg">
+                  Schedule showing at 42 Palm Jumeirah tomorrow 4pm
+                  <div class="wa-time">3:42 PM</div>
+                </div>
+                <div class="wa-msg wa-incoming chat-msg">
+                  Done! Showing scheduled for 42 Palm Jumeirah, tomorrow at 4:00 PM. Added to your Google Calendar. Want me to notify the buyer?
+                  <div class="wa-time">3:42 PM</div>
+                </div>
+                <div class="wa-msg wa-outgoing chat-msg">
+                  Remind me to follow up with Al Barsha leads in 3 days
+                  <div class="wa-time">3:43 PM</div>
+                </div>
+                <div class="wa-msg wa-incoming chat-msg">
+                  Reminder set for Wednesday. I'll ping you about your Al Barsha leads at 9 AM.
+                  <div class="wa-time">3:43 PM</div>
+                </div>
+                <div class="wa-msg wa-outgoing chat-msg">
+                  What's on my calendar this weekend?
+                  <div class="wa-time">3:44 PM</div>
+                </div>
+                <div class="wa-msg wa-incoming chat-msg">
+                  This weekend you have:<br>
+                  Sat 10am - Open house, Marina Vista<br>
+                  Sat 2pm - Buyer meeting, JBR<br>
+                  Sun 11am - Property inspection, Downtown
+                  <div class="wa-time">3:44 PM</div>
+                </div>
+              </div>
+              <div class="phone-input">
+                <div class="phone-input-field">Type a message...</div>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-text reveal reveal-delay-1">
+            <p class="eyebrow">Your assistant, in WhatsApp</p>
+            <h2 class="section-title">Just text it. Handled does the rest.</h2>
+            <p class="section-subtitle">Schedule showings, set follow-up reminders, check your calendar — all from the chat app you already live in. No login. No dashboard. Just results.</p>
+            <div style="margin-top: 16px;">
+              <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Try It Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ USE CASES ============ -->
+    <section class="section" id="use-cases">
+      <div class="container text-center">
+        <div class="reveal">
+          <p class="eyebrow">Built for your workflow</p>
+          <h2 class="section-title">Three ways Handled closes more deals</h2>
+        </div>
+        <div class="usecase-grid">
+          <div class="usecase-card reveal reveal-delay-1">
+            <div class="usecase-icon">&#128197;</div>
+            <h3>Showing Scheduler</h3>
+            <p>Text a property address and time — Handled books the showing, syncs to your calendar, and can notify clients. No more back-and-forth.</p>
+          </div>
+          <div class="usecase-card reveal reveal-delay-2">
+            <div class="usecase-icon">&#128276;</div>
+            <h3>Follow-Up Engine</h3>
+            <p>Set reminders for leads, callbacks, and check-ins. Handled pings you at exactly the right moment so no prospect slips through the cracks.</p>
+          </div>
+          <div class="usecase-card reveal reveal-delay-3">
+            <div class="usecase-icon">&#128203;</div>
+            <h3>Daily Briefing</h3>
+            <p>Ask "What's on today?" and get a clean rundown of showings, follow-ups, and tasks. Start every morning knowing exactly where you stand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta" id="cta">
+      <div class="container reveal">
+        <p class="eyebrow">Ready?</p>
+        <h2 class="section-title">Start managing your deals from WhatsApp</h2>
+        <p class="section-subtitle">Free to start. No app to install. Works in the chat you already use every day.</p>
+        <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary btn-glow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Get Handled on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container text-center">
+        <div class="reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="section-title">Questions? Handled.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>Do I need to install a separate app?</summary>
+            <div class="faq-answer">
+              No. Handled works entirely inside WhatsApp. If you already use WhatsApp, you're ready to start. No downloads, no new apps, no learning curve.
+            </div>
+          </details>
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>Can Handled sync with my existing calendar?</summary>
+            <div class="faq-answer">
+              Yes. Handled integrates with Google Calendar so your showings, client meetings, and personal events all stay in sync. Schedule or check your calendar directly from WhatsApp.
+            </div>
+          </details>
+          <details class="faq-item reveal reveal-delay-3">
+            <summary>Is my client data secure?</summary>
+            <div class="faq-answer">
+              Absolutely. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards. Your client conversations stay private.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">handled.sh</div>
+      <p class="footer-copy">&copy; 2026 Handled. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Chat message staggered animation
+    var chatMsgs = document.querySelectorAll('.chat-msg');
+    chatMsgs.forEach(function(msg, i) {
+      setTimeout(function() { msg.classList.add('show'); }, 800 + i * 500);
+    });
+
+    // Theme toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.getElementById('theme-toggle');
+      var body = document.body;
+      var knob = document.getElementById('toggle-knob');
+      var track = document.getElementById('toggle-track');
+      var isLight = localStorage.getItem('realtor-theme') === 'light';
+
+      function applyTheme() {
+        if (isLight) {
+          body.classList.add('light-mode');
+          if (knob) knob.style.transform = 'translateX(19px)';
+          if (track) { track.style.background = '#c0d8c0'; track.style.borderColor = '#0a8a4a'; }
+        } else {
+          body.classList.remove('light-mode');
+          if (knob) knob.style.transform = 'translateX(0)';
+          if (track) { track.style.background = '#1a4d2a'; track.style.borderColor = 'rgba(37,211,102,0.3)'; }
+        }
+      }
+
+      applyTheme();
+
+      if (toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          isLight = !isLight;
+          localStorage.setItem('realtor-theme', isLight ? 'light' : 'dark');
+          applyTheme();
+        });
+      }
+    });
+
+    // CTA click tracking
+    document.querySelectorAll('a[href*="utm_source=realtors_lp"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'cta_click', {
+            event_category: 'conversion',
+            event_label: 'realtors_whatsapp_cta',
+            icp_segment: 'realtors'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

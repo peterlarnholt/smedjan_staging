@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handled for Sales Teams — Close Deals From WhatsApp</title>
+  <meta name="description" content="Handled turns WhatsApp into your sales command center. Schedule meetings, set follow-ups, and fire off emails without touching your CRM. Sell more, type less." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://handled.sh/sales/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Handled for Sales Teams — Close Deals From WhatsApp" />
+  <meta property="og:description" content="Handled turns WhatsApp into your sales command center. Schedule meetings, set follow-ups, and fire off emails without touching your CRM." />
+  <meta property="og:url" content="https://handled.sh/sales/" />
+  <meta property="og:site_name" content="Handled" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Handled for Sales Teams — Close Deals From WhatsApp" />
+  <meta name="twitter:description" content="Sell more. Type less. Close from chat." />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://handled.sh/sales/" />
+  <link rel="alternate" hreflang="x-default" href="https://handled.sh/sales/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: Exo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Handled",
+    "applicationCategory": "BusinessApplication",
+    "description": "AI sales assistant that lives in WhatsApp — schedule meetings, manage follow-ups, and close deals from chat.",
+    "url": "https://handled.sh/sales/",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever plan with WhatsApp access, integrations, reminders, and long-term memory."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro+",
+        "price": "1",
+        "priceCurrency": "USD",
+        "description": "$1 for the first month, then $79/year. Unlimited tasks, automations, and integrations."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Handled replace my CRM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Handled works alongside your CRM. It captures follow-ups, meetings, and action items from WhatsApp so your reps don't have to manually log everything. Think of it as the fast lane into your sales workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Handled help with follow-ups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Just tell Handled in WhatsApp: 'Remind me to follow up with Priya at Acme in 3 days.' It sets the reminder and pings you when it's time. You can also ask 'What follow-ups are overdue?' to see everything in one place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXLGWW1JSV', {
+      content_group: 'sales',
+      custom_map: {
+        dimension1: 'icp_segment',
+        dimension2: 'geo_target',
+        dimension3: 'language'
+      }
+    });
+    gtag('event', 'page_view', {
+      icp_segment: 'sales',
+      geo_target: 'global',
+      language: 'en'
+    });
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w2vh7gs076");
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('utm_source'))   window.clarity("set", "utm_source", params.get('utm_source'));
+    if (params.get('utm_medium'))   window.clarity("set", "utm_medium", params.get('utm_medium'));
+    if (params.get('utm_campaign')) window.clarity("set", "utm_campaign", params.get('utm_campaign'));
+    window.clarity("set", "page_type", "sales_lp");
+  </script>
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & RESET
+    ============================================= */
+    :root {
+      --color-bg: #0a1a0a;
+      --color-bg-alt: #0f240f;
+      --color-bg-card: #112211;
+      --color-text: #e0e0e0;
+      --color-text-muted: #9ca3af;
+      --color-text-dim: #6b7280;
+      --color-accent: #25D366;
+      --color-accent-light: rgba(37,211,102,0.12);
+      --color-accent-dark: #1fb855;
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-light: rgba(255,255,255,0.05);
+      --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.25);
+      --transition: 0.2s ease;
+      --transition-md: 0.35s ease;
+    }
+
+    /* Light mode */
+    [data-theme="light"] {
+      --color-bg: #f8faf8;
+      --color-bg-alt: #eef3ee;
+      --color-bg-card: #ffffff;
+      --color-text: #0a1a0a;
+      --color-text-muted: #4b5563;
+      --color-text-dim: #9ca3af;
+      --color-accent: #1a9e4a;
+      --color-accent-light: rgba(37,211,102,0.1);
+      --color-accent-dark: #148040;
+      --color-border: rgba(0,0,0,0.1);
+      --color-border-light: rgba(0,0,0,0.05);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.2);
+    }
+
+    [data-theme="light"] .phone-mockup {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    [data-theme="light"] .chat-bubble-user {
+      background: #dcf8c6;
+      color: #0a1a0a;
+    }
+
+    [data-theme="light"] .chat-bubble-bot {
+      background: #f0f0f0;
+      color: #0a1a0a;
+    }
+
+    [data-theme="light"] .pain-card {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    [data-theme="light"] .use-case-card {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    [data-theme="light"] .faq-item {
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-alt {
+      background: var(--color-bg-alt);
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =============================================
+       THEME TOGGLE (Apple-style)
+    ============================================= */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      width: 52px;
+      height: 28px;
+      border-radius: 14px;
+      background: #333;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #fff;
+      transition: transform var(--transition);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: var(--color-accent);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(24px);
+    }
+
+    .theme-toggle-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .theme-toggle-icon.moon {
+      left: 6px;
+    }
+
+    .theme-toggle-icon.sun {
+      right: 6px;
+    }
+
+    /* =============================================
+       CTA BUTTON
+    ============================================= */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: var(--color-accent);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      box-shadow: var(--shadow-green);
+    }
+
+    .cta-btn:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 6px rgba(37,211,102,0.2), 0 12px 40px rgba(37,211,102,0.3);
+    }
+
+    .cta-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      box-shadow: none;
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--color-accent-light);
+      box-shadow: none;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      padding: 140px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(37,211,102,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-title .accent {
+      color: var(--color-accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       PAIN POINTS
+    ============================================= */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .pain-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all var(--transition-md);
+    }
+
+    .pain-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37,211,102,0.2);
+    }
+
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .pain-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .pain-card p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       PHONE MOCKUP / CHAT
+    ============================================= */
+    .phone-mockup {
+      max-width: 380px;
+      margin: 48px auto 0;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .phone-header {
+      background: #075e54;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phone-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .phone-name {
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .phone-status {
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+    }
+
+    .chat-body {
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 320px;
+    }
+
+    .chat-bubble-user,
+    .chat-bubble-bot {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .chat-bubble-user {
+      background: #005c4b;
+      color: #e0e0e0;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-bubble-bot {
+      background: #1a2e1a;
+      color: #e0e0e0;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-time {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       USE CASES
+    ============================================= */
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .use-case-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all var(--transition-md);
+    }
+
+    .use-case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37,211,102,0.2);
+    }
+
+    .use-case-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .use-case-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .use-case-card p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       BOTTOM CTA
+    ============================================= */
+    .bottom-cta {
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37,211,102,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bottom-cta .section-title {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 24px;
+    }
+
+    .bottom-cta .section-subtitle {
+      margin: 0 auto 40px;
+    }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .faq-list {
+      max-width: 720px;
+      margin: 48px auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px 0;
+    }
+
+    .faq-question {
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      user-select: none;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--color-accent);
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      transition: transform var(--transition);
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-top: 14px;
+    }
+
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--color-text-dim);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 80px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .pain-grid,
+      .use-case-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cta-btn {
+        padding: 14px 28px;
+        font-size: 15px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .phone-mockup {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+
+      .bottom-cta {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+    <span class="theme-toggle-icon moon">&#9790;</span>
+    <span class="theme-toggle-icon sun">&#9728;</span>
+  </button>
+
+  <!-- ============================================
+       HERO
+  ============================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Handled for Sales Teams</div>
+      <h1 class="hero-title">Sell More. Type Less. <span class="accent">Close From Chat.</span></h1>
+      <p class="hero-sub">Handled turns WhatsApp into your sales command center &mdash; schedule meetings, set follow-ups, and fire off emails without touching your CRM.</p>
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn" id="hero-cta">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Start Closing Deals
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PAIN POINTS
+  ============================================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <div class="eyebrow">The Problem</div>
+        <h2 class="section-title mx-auto">Your sales team is fighting the wrong battles</h2>
+        <p class="section-subtitle mx-auto">Admin work is silently killing your pipeline. Here's what your reps deal with every single day.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">&#9201;</div>
+          <h3>Your reps spend 28% of their time NOT selling</h3>
+          <p>Data entry, scheduling, note-taking. Almost a third of every day goes to tasks that don't close deals. That's 11 hours a week your reps will never get back.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128165;</div>
+          <h3>Missed follow-ups kill deals</h3>
+          <p>80% of sales require 5+ follow-ups. But most reps stop after one. Not because they don't care &mdash; because they forgot. Deals die in silence.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128128;</div>
+          <h3>CRM data entry is where motivation goes to die</h3>
+          <p>Your team hates logging calls, updating stages, and writing notes after every interaction. So they don't. And your pipeline data rots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHATSAPP MOCKUP
+  ============================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center">
+        <div class="eyebrow">How It Works</div>
+        <h2 class="section-title mx-auto">Your sales assistant lives in WhatsApp</h2>
+        <p class="section-subtitle mx-auto">No new app. No browser tab. Just type what you need in the chat you already use every day.</p>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-header">
+          <div class="phone-avatar">H</div>
+          <div>
+            <div class="phone-name">Handled</div>
+            <div class="phone-status">online</div>
+          </div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-bubble-user">
+            Remind me to follow up with Priya at Acme in 3 days
+            <div class="chat-time">10:32</div>
+          </div>
+          <div class="chat-bubble-bot">
+            Done! I'll remind you on Wednesday to follow up with Priya at Acme. &#9989;
+            <div class="chat-time">10:32</div>
+          </div>
+          <div class="chat-bubble-user">
+            Schedule demo with Johan next Tuesday 2pm CET
+            <div class="chat-time">10:34</div>
+          </div>
+          <div class="chat-bubble-bot">
+            Booked! Demo with Johan on Tuesday at 2:00 PM CET. Calendar invite sent. &#128197;
+            <div class="chat-time">10:34</div>
+          </div>
+          <div class="chat-bubble-user">
+            What follow-ups are overdue?
+            <div class="chat-time">10:35</div>
+          </div>
+          <div class="chat-bubble-bot">
+            You have 3 overdue follow-ups:<br>
+            &#8226; Sarah @ TechCorp (2 days ago)<br>
+            &#8226; Marcus @ NovaPay (1 day ago)<br>
+            &#8226; Lena @ BuildCo (3 days ago)
+            <div class="chat-time">10:35</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       USE CASES
+  ============================================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <div class="eyebrow">Use Cases</div>
+        <h2 class="section-title mx-auto">Three messages. Three wins.</h2>
+        <p class="section-subtitle mx-auto">See how sales teams use Handled to stay on top of their pipeline without opening a single dashboard.</p>
+      </div>
+      <div class="use-case-grid">
+        <div class="use-case-card">
+          <div class="use-case-icon">&#128222;</div>
+          <h3>Post-Call Follow-Up</h3>
+          <p>Just finished a discovery call? Tell Handled to "send a follow-up email to Johan summarizing our call and schedule a check-in for next week." Done in 10 seconds.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#128197;</div>
+          <h3>One-Message Booking</h3>
+          <p>"Book a demo with Priya on Thursday at 3pm." Handled checks your calendar, sends the invite, and confirms. No back-and-forth email chains.</p>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#128200;</div>
+          <h3>Daily Pipeline Check</h3>
+          <p>"What's on my plate today?" Get a morning brief of overdue follow-ups, today's meetings, and pending actions &mdash; all in one WhatsApp message.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BOTTOM CTA
+  ============================================= -->
+  <section class="bottom-cta">
+    <div class="container">
+      <div class="eyebrow">Ready?</div>
+      <h2 class="section-title">Start closing deals from WhatsApp</h2>
+      <p class="section-subtitle mx-auto">Join sales teams who ditched the admin and started selling. Free to try, no credit card needed.</p>
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn" id="bottom-cta">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Start Closing Deals
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ
+  ============================================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">Questions? Answered.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Does Handled replace my CRM?</span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>No. Handled works alongside your CRM. It captures follow-ups, meetings, and action items from WhatsApp so your reps don't have to manually log everything. Think of it as the fast lane into your sales workflow.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How does Handled help with follow-ups?</span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Just tell Handled in WhatsApp: "Remind me to follow up with Priya at Acme in 3 days." It sets the reminder and pings you when it's time. You can also ask "What follow-ups are overdue?" to see everything in one place.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Is my data secure?</span>
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Handled. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       SCRIPTS
+  ============================================= -->
+  <script>
+    // Theme toggle with localStorage persistence
+    (function() {
+      var toggle = document.getElementById('themeToggle');
+      var html = document.documentElement;
+      var stored = localStorage.getItem('handled-theme');
+
+      if (stored) {
+        html.setAttribute('data-theme', stored);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        html.setAttribute('data-theme', 'light');
+      }
+
+      toggle.addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('handled-theme', next);
+      });
+    })();
+
+    // GA4 CTA click tracking
+    document.querySelectorAll('.cta-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        gtag('event', 'cta_click', {
+          event_category: 'engagement',
+          event_label: btn.id || 'cta',
+          icp_segment: 'sales'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
