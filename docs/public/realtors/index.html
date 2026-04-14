@@ -1173,15 +1173,20 @@
         <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
       </a>
       <div class="nav-menu" style="display:flex;gap:24px;align-items:center;">
-  <a href="#features" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Features</a>
-  <a href="#process" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">How it Works</a>
-  <a href="#pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Pricing</a>
+  <a href="#features" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_features">Features</a>
+  <a href="#process" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_how">How it Works</a>
+  <a href="#pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_pricing">Pricing</a>
 </div>
-      <a href="https://app.handled.sh/login" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;">Login</a>
+      <a href="https://app.handled.sh/login" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_login">Login</a>
       <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=nav_cta&utm_campaign=realtors" class="btn-primary nav-cta nav-cta-desktop">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-          Try Free
+          <span data-i18n="cta_try">Try Free</span>
         </a>
+      <div class="lang-switcher" style="display:flex;gap:2px;align-items:center;">
+  <button onclick="setLang('en')" class="lang-btn active" data-lang="en" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid rgba(139,92,246,0.3);background:rgba(139,92,246,0.15);color:#8b5cf6;cursor:pointer;">EN</button>
+  <button onclick="setLang('es')" class="lang-btn" data-lang="es" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">ES</button>
+  <button onclick="setLang('fr')" class="lang-btn" data-lang="fr" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">FR</button>
+</div>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
           <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -1195,10 +1200,10 @@
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#features">Features</a>
-    <a href="#process">How it Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="https://app.handled.sh/login">Login</a>
+    <a href="#features" data-i18n="nav_features">Features</a>
+    <a href="#process" data-i18n="nav_how">How it Works</a>
+    <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a href="https://app.handled.sh/login" data-i18n="nav_login">Login</a>
   </div>
 
   <!-- ========== HERO ========== -->
@@ -1211,17 +1216,17 @@
     <div class="reveal">
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
-        Built for Real Estate Agents
+        <span data-i18n="hero_eyebrow">Built for Real Estate Agents</span>
       </div>
-      <h1 class="hero-h1">Close More Deals From<br>Your <span class="hero-shimmer">Chat Window</span></h1>
-      <p class="hero-subtitle">Schedule showings, set follow-ups, check your calendar — all from WhatsApp.</p>
+      <h1 class="hero-h1" data-i18n="hero_title">Close More Deals From One Chat</h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">Handled turns your WhatsApp into a scheduling, follow-up, and task machine.</p>
       <div class="hero-cta-row">
         <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=hero_cta&utm_campaign=realtors" class="btn-primary btn-breathe">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-          Start Free on WhatsApp
+          <span data-i18n="hero_cta">Start Free on WhatsApp</span>
         </a>
       </div>
-      <p class="hero-sub-cta">No app to install. No credit card. Just chat.</p>
+      <p class="hero-sub-cta" data-i18n="hero_sub_cta">No app to install. No credit card. Just chat.</p>
       <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;opacity:0.7;">
   <img src="/smedjan_staging/meta-business-partner.png" alt="Meta Business Partner" style="height:24px;width:auto;" loading="lazy" />
   <span style="font-size:11px;color:#707070;">Meta Business Partner</span>
@@ -1296,7 +1301,7 @@
   <section class="section section-alt" id="features" >
     <div class="container text-center">
       <div class="reveal">
-        <p class="eyebrow">Built for Your Workflow</p>
+        <p class="eyebrow" data-i18n="usecases_title">Built for your workflow</p>
         <h2 class="section-title">Three ways Handled closes more deals</h2>
       </div>
       <div class="usecase-grid">
@@ -1323,8 +1328,8 @@
   <!-- ========== HOW IT WORKS ========== -->
 <section id="process" style="padding:60px 20px;">
   <div style="max-width:700px;margin:0 auto;">
-    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Process</p>
-    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:40px;">How it Works</h2>
+    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;"><span data-i18n="process_eyebrow">Process</span></p>
+    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:40px;"><span data-i18n="process_title">How it Works</span></h2>
 
     <div style="display:flex;flex-direction:column;gap:32px;">
       <!-- Step 1 -->
@@ -1333,8 +1338,8 @@
           <span style="color:#8b5cf6;font-size:20px;font-weight:800;">1</span>
         </div>
         <div>
-          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">Connect Your Tools</h3>
-          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Link Gmail, Google Calendar, Todoist, and 800+ more in under 2 minutes.</p>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;"><span data-i18n="step1_title">Connect Your Tools</span></h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;"><span data-i18n="step1_desc">Link Gmail, Google Calendar, Todoist, and 800+ more in under 2 minutes.</span></p>
         </div>
       </div>
       <!-- Step 2 -->
@@ -1343,8 +1348,8 @@
           <span style="color:#8b5cf6;font-size:20px;font-weight:800;">2</span>
         </div>
         <div>
-          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">Just Chat</h3>
-          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Message Handled on WhatsApp, Telegram, iMessage, or Slack — wherever you already are.</p>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;"><span data-i18n="step2_title">Just Chat</span></h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;"><span data-i18n="step2_desc">Message Handled on WhatsApp, Telegram, iMessage, or Slack — wherever you already are.</span></p>
         </div>
       </div>
       <!-- Step 3 -->
@@ -1353,8 +1358,8 @@
           <span style="color:#8b5cf6;font-size:20px;font-weight:800;">3</span>
         </div>
         <div>
-          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;">It Gets Done</h3>
-          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;">Handled schedules meetings, sets reminders, sends emails, and manages tasks — automatically.</p>
+          <h3 style="color:#e0e0e0;font-size:18px;font-weight:700;margin:0 0 6px;"><span data-i18n="step3_title">It Gets Done</span></h3>
+          <p style="color:#a0a0a0;font-size:14px;line-height:1.6;margin:0;"><span data-i18n="step3_desc">Handled schedules meetings, sets reminders, sends emails, and manages tasks — automatically.</span></p>
         </div>
       </div>
     </div>
@@ -1364,8 +1369,8 @@
   <!-- ========== TESTIMONIALS ========== -->
   <section style="padding:60px 20px;">
     <div style="max-width:900px;margin:0 auto;">
-      <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Testimonials</p>
-      <h2 style="text-align:center;color:#e0e0e0;font-size:24px;font-weight:700;margin-bottom:32px;">What people are saying</h2>
+      <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;"><span data-i18n="testimonials_eyebrow">Testimonials</span></p>
+      <h2 style="text-align:center;color:#e0e0e0;font-size:24px;font-weight:700;margin-bottom:32px;"><span data-i18n="testimonials_title">What people are saying</span></h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
         <div style="background:#111111;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
@@ -1395,18 +1400,18 @@
   <!-- ========== PRICING ========== -->
 <section id="pricing" style="padding:60px 20px;">
   <div style="max-width:800px;margin:0 auto;">
-    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Pricing</p>
-    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:8px;">Simple Pricing</h2>
-    <p style="text-align:center;color:#a0a0a0;font-size:14px;margin-bottom:40px;">Start free. Upgrade when you're ready.</p>
+    <p style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;"><span data-i18n="pricing_eyebrow">Pricing</span></p>
+    <h2 style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:8px;"><span data-i18n="pricing_title">Simple Pricing</span></h2>
+    <p style="text-align:center;color:#a0a0a0;font-size:14px;margin-bottom:40px;"><span data-i18n=\"pricing_sub\">Start free. Upgrade when you're ready.</span></p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
       <!-- Free Plan -->
       <div style="background:#111111;border:1px solid #2a2a2a;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;">
         <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(139,92,246,0.1);color:#a0a0a0;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Start Here</span>
-        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;">Pro</h3>
+        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;"><span data-i18n="plan_free">Pro</span></h3>
         <div style="margin-bottom:24px;">
           <span style="color:#e0e0e0;font-size:42px;font-weight:800;">$0</span>
-          <span style="color:#707070;font-size:14px;"> / forever</span>
+          <span style="color:#707070;font-size:14px;"> <span data-i18n="plan_free_period">/ forever</span></span>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
           <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Talk on WhatsApp, Telegram, or email</span></div>
@@ -1414,17 +1419,17 @@
           <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Reminders</span></div>
           <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Long-term memory</span></div>
         </div>
-        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;border:1px solid #8b5cf6;border-radius:10px;color:#8b5cf6;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Started Free</a>
-        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;border:1px solid #8b5cf6;border-radius:10px;color:#8b5cf6;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;"><span data-i18n="cta_free">Get Started Free</span></a>
+        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;"><span data-i18n="no_cc">No credit card required</span></p>
       </div>
 
       <!-- Pro+ Plan -->
       <div style="background:#111111;border:2px solid #8b5cf6;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(139,92,246,0.15);">
         <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:#8b5cf6;color:#fff;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Most Popular</span>
-        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;">Pro+</h3>
+        <h3 style="color:#e0e0e0;font-size:20px;font-weight:800;margin:0 0 8px;"><span data-i18n="plan_pro">Pro+</span></h3>
         <div style="margin-bottom:4px;">
           <span style="color:#e0e0e0;font-size:42px;font-weight:800;">$1</span>
-          <span style="color:#707070;font-size:14px;"> / mo &middot; $79 / year</span>
+          <span style="color:#707070;font-size:14px;"> <span data-i18n="plan_pro_period">/ mo &middot; $79 / year</span></span>
         </div>
         <p style="color:#707070;font-size:12px;margin:0 0 24px;">Cancel Anytime</p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
@@ -1435,8 +1440,8 @@
           <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Priority support</span></div>
           <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#a0a0a0;font-size:13px;">Early access to features</span></div>
         </div>
-        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;background:#8b5cf6;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Pro+</a>
-        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+        <a href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;background:#8b5cf6;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;"><span data-i18n="cta_pro">Get Pro+</span></a>
+        <p style="text-align:center;color:#707070;font-size:11px;margin-top:8px;"><span data-i18n="no_cc">No credit card required</span></p>
       </div>
     </div>
   </div>
@@ -1450,9 +1455,9 @@
         <p>Takes 30 seconds. No app to install.</p>
         <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=bottom_cta&utm_campaign=realtors" class="btn-primary btn-breathe">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-          Start Free on WhatsApp
+          <span data-i18n="hero_cta">Start Free on WhatsApp</span>
         </a>
-        <p class="cta-sub-text">Free forever. Pro when you're ready.</p>
+        <p class="cta-sub-text"><span data-i18n="bottom_cta_sub">Free forever. Pro when you\'re ready.</span></p>
       </div>
     </div>
   </section>
@@ -1461,7 +1466,7 @@
   <section class="section section-alt" id="faq">
     <div class="container text-center">
       <div class="reveal">
-        <p class="eyebrow">FAQ</p>
+        <p class="eyebrow"><span data-i18n="faq_title">FAQ</span></p>
         <h2 class="section-title">Questions? Answered.</h2>
       </div>
       <div class="faq-list">
@@ -1530,7 +1535,7 @@
   <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
     <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=mobile_sticky_cta&utm_campaign=realtors" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-      Start Free on WhatsApp
+      <span data-i18n="hero_cta">Start Free on WhatsApp</span>
     </a>
   </div>
 
@@ -1740,6 +1745,135 @@
         });
       });
     }
+
+  
+    /* ===== LANGUAGE TOGGLE ===== */
+    var translations = {
+      en: {
+        process_eyebrow: 'Process',
+        process_title: 'How it Works',
+        step1_title: 'Connect Your Tools',
+        step1_desc: 'Link Gmail, Google Calendar, Todoist, and 800+ more in under 2 minutes.',
+        step2_title: 'Just Chat',
+        step2_desc: 'Message Handled on WhatsApp, Telegram, iMessage, or Slack — wherever you already are.',
+        step3_title: 'It Gets Done',
+        step3_desc: 'Handled schedules meetings, sets reminders, sends emails, and manages tasks — automatically.',
+        pricing_eyebrow: 'Pricing',
+        pricing_title: 'Simple Pricing',
+        pricing_sub: "Start free. Upgrade when you're ready.",
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ forever',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mo \u00b7 $79 / year',
+        cta_free: 'Get Started Free',
+        cta_pro: 'Get Pro+',
+        no_cc: 'No credit card required',
+        testimonials_eyebrow: 'Testimonials',
+        testimonials_title: 'What people are saying',
+        nav_features: 'Features',
+        nav_how: 'How it Works',
+        nav_pricing: 'Pricing',
+        nav_login: 'Login',
+        cta_try: 'Try Free',
+        hero_cta: 'Start Free on WhatsApp',
+        hero_sub_cta: 'No app to install. No credit card. Just chat.',
+        faq_title: 'FAQ',
+        bottom_cta_sub: 'Free forever. Pro when you\'re ready.',
+        hero_eyebrow: 'Built for Real Estate Agents', hero_title: 'Close More Deals From One Chat', hero_sub: 'Handled turns your WhatsApp into a scheduling, follow-up, and task machine.', usecases_eyebrow: 'What you can do', usecases_title: 'Built for your workflow'
+      },
+      es: {
+        process_eyebrow: 'Proceso',
+        process_title: 'Como Funciona',
+        step1_title: 'Conecta tus Herramientas',
+        step1_desc: 'Vincula Gmail, Google Calendar, Todoist y mas de 800 herramientas en menos de 2 minutos.',
+        step2_title: 'Solo Escribe',
+        step2_desc: 'Escribe a Handled por WhatsApp, Telegram, iMessage o Slack — donde ya estes.',
+        step3_title: 'Se Hace Solo',
+        step3_desc: 'Handled agenda reuniones, pone recordatorios, envia correos y gestiona tareas — automaticamente.',
+        pricing_eyebrow: 'Precios',
+        pricing_title: 'Precios Simples',
+        pricing_sub: 'Empieza gratis. Mejora cuando quieras.',
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ siempre',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mes \u00b7 $79 / ano',
+        cta_free: 'Empieza Gratis',
+        cta_pro: 'Obtener Pro+',
+        no_cc: 'Sin tarjeta de credito',
+        testimonials_eyebrow: 'Testimonios',
+        testimonials_title: 'Lo que dicen nuestros usuarios',
+        nav_features: 'Funciones',
+        nav_how: 'Como Funciona',
+        nav_pricing: 'Precios',
+        nav_login: 'Iniciar Sesion',
+        cta_try: 'Probar Gratis',
+        hero_cta: 'Empieza Gratis en WhatsApp',
+        hero_sub_cta: 'Sin app. Sin tarjeta. Solo escribe.',
+        faq_title: 'Preguntas Frecuentes',
+        bottom_cta_sub: 'Gratis para siempre. Pro cuando quieras.',
+        hero_eyebrow: 'Para Agentes Inmobiliarios', hero_title: 'Cierra Mas Tratos Desde un Chat', hero_sub: 'Handled convierte tu WhatsApp en una maquina de agenda, seguimiento y tareas.', usecases_eyebrow: 'Que puedes hacer', usecases_title: 'Hecho para tu flujo de trabajo'
+      },
+      fr: {
+        process_eyebrow: 'Processus',
+        process_title: 'Comment ca Marche',
+        step1_title: 'Connectez vos Outils',
+        step1_desc: 'Liez Gmail, Google Calendar, Todoist et plus de 800 outils en moins de 2 minutes.',
+        step2_title: 'Ecrivez',
+        step2_desc: 'Envoyez un message a Handled sur WhatsApp, Telegram, iMessage ou Slack — ou que vous soyez.',
+        step3_title: "C\'est Fait",
+        step3_desc: 'Handled planifie vos reunions, definit des rappels, envoie des emails et gere vos taches — automatiquement.',
+        pricing_eyebrow: 'Tarifs',
+        pricing_title: 'Tarifs Simples',
+        pricing_sub: 'Commencez gratuitement. Passez a Pro quand vous voulez.',
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ pour toujours',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mois \u00b7 $79 / an',
+        cta_free: 'Commencer Gratuitement',
+        cta_pro: 'Obtenir Pro+',
+        no_cc: 'Sans carte de credit',
+        testimonials_eyebrow: 'Temoignages',
+        testimonials_title: 'Ce que disent nos utilisateurs',
+        nav_features: 'Fonctions',
+        nav_how: 'Comment ca Marche',
+        nav_pricing: 'Tarifs',
+        nav_login: 'Connexion',
+        cta_try: 'Essai Gratuit',
+        hero_cta: 'Commencez sur WhatsApp',
+        hero_sub_cta: "Pas d\'app. Pas de carte. Ecrivez simplement.",
+        faq_title: 'Questions Frequentes',
+        bottom_cta_sub: 'Gratuit pour toujours. Pro quand vous voulez.',
+        hero_eyebrow: 'Pour les Agents Immobiliers', hero_title: 'Concluez Plus de Ventes en un Chat', hero_sub: 'Handled transforme votre WhatsApp en outil de planification et de suivi.', usecases_eyebrow: 'Ce que vous pouvez faire', usecases_title: 'Concu pour votre workflow'
+      }
+    };
+
+    function setLang(lang) {
+      var t = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        if (btn.dataset.lang === lang) {
+          btn.style.border = '1px solid rgba(139,92,246,0.3)';
+          btn.style.background = 'rgba(139,92,246,0.15)';
+          btn.style.color = '#8b5cf6';
+        } else {
+          btn.style.border = '1px solid transparent';
+          btn.style.background = 'transparent';
+          btn.style.color = '#a0a0a0';
+        }
+      });
+      localStorage.setItem('handled-lang', lang);
+    }
+    var savedLang = localStorage.getItem('handled-lang');
+    if (savedLang && savedLang !== 'en') setLang(savedLang);
 
   </script>
 
