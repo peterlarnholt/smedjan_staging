@@ -163,7 +163,7 @@
     }
 
     /* Light mode overrides */
-    body.light-mode {
+    [data-theme="light"] {
       --color-bg: #f8f8fc;
       --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
@@ -341,21 +341,26 @@
       right: 0;
       z-index: 1000;
       padding: 0 24px;
-      height: 60px;
+      height: 64px;
       display: flex;
       align-items: center;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--color-border);
-      transition: background 0.3s ease;
+      background: rgba(10,10,10,0);
+      backdrop-filter: blur(0px);
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     }
 
-    body.light-mode #nav {
+    #nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    [data-theme="light"] #nav.scrolled {
       background: rgba(248,248,252,0.92);
     }
 
     .nav-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -369,7 +374,7 @@
       gap: 10px;
       font-size: 18px;
       font-weight: 800;
-      color: var(--color-accent);
+      color: var(--color-text);
       letter-spacing: -0.02em;
       text-decoration: none;
     }
@@ -379,49 +384,45 @@
       height: 28px;
     }
 
-    .nav-cta {
-      font-size: 13px;
-      padding: 9px 18px;
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    /* =============================================
-       THEME TOGGLE (Apple-style)
-    ============================================= */
-    #theme-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 1001;
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 8px;
       cursor: pointer;
+      color: var(--color-text-muted);
+      transition: color 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #toggle-track {
-      width: 40px;
-      height: 22px;
-      border-radius: 11px;
-      background: #1a1a1a;
-      border: 1px solid rgba(139,92,246,0.3);
-      position: relative;
-      transition: background 0.3s, border-color 0.3s;
+    .theme-toggle:hover {
+      color: var(--color-text);
+      border-color: var(--color-accent);
     }
 
-    #toggle-knob {
+    .theme-toggle svg {
       width: 18px;
       height: 18px;
-      border-radius: 9px;
-      background: #8b5cf6;
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      transition: transform 0.3s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .nav-cta {
+      font-size: 13.5px;
+      padding: 9px 18px;
     }
 
     /* =============================================
        HERO
     ============================================= */
     #hero {
-      padding-top: 120px;
+      padding-top: 140px;
       padding-bottom: 80px;
       text-align: center;
     }
@@ -481,60 +482,6 @@
     }
 
     /* =============================================
-       PAIN POINTS
-    ============================================= */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .pain-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      text-align: center;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-    }
-
-    .pain-card:hover {
-      border-color: var(--color-border-hover);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .pain-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(139,92,246,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 24px;
-    }
-
-    body.light-mode .pain-icon {
-      background: rgba(139,92,246,0.1);
-    }
-
-    .pain-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--color-text);
-    }
-
-    .pain-card p {
-      font-size: 14px;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-    }
-
-    /* =============================================
        WHATSAPP MOCKUP
     ============================================= */
     .mockup-section {
@@ -559,7 +506,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    body.light-mode .phone-frame {
+    [data-theme="light"] .phone-frame {
       background: #e0e0e0;
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     }
@@ -570,7 +517,7 @@
       overflow: hidden;
     }
 
-    body.light-mode .phone-screen {
+    [data-theme="light"] .phone-screen {
       background: #ECE5DD;
     }
 
@@ -582,7 +529,7 @@
       gap: 10px;
     }
 
-    body.light-mode .phone-header {
+    [data-theme="light"] .phone-header {
       background: #075E54;
     }
 
@@ -634,7 +581,7 @@
       border-bottom-right-radius: 2px;
     }
 
-    body.light-mode .wa-outgoing {
+    [data-theme="light"] .wa-outgoing {
       background: #DCF8C6;
       color: #333;
     }
@@ -646,7 +593,7 @@
       border-bottom-left-radius: 2px;
     }
 
-    body.light-mode .wa-incoming {
+    [data-theme="light"] .wa-incoming {
       background: #fff;
       color: #333;
     }
@@ -666,7 +613,7 @@
       gap: 8px;
     }
 
-    body.light-mode .phone-input {
+    [data-theme="light"] .phone-input {
       background: #f0f0f0;
     }
 
@@ -680,7 +627,7 @@
       color: #8696a0;
     }
 
-    body.light-mode .phone-input-field {
+    [data-theme="light"] .phone-input-field {
       background: #fff;
       color: #333;
     }
@@ -721,7 +668,7 @@
       font-size: 24px;
     }
 
-    body.light-mode .usecase-icon {
+    [data-theme="light"] .usecase-icon {
       background: rgba(139,92,246,0.1);
     }
 
@@ -838,7 +785,6 @@
        RESPONSIVE
     ============================================= */
     @media (max-width: 768px) {
-      .pain-grid,
       .usecase-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -865,6 +811,10 @@
       #hero {
         padding-top: 100px;
         padding-bottom: 60px;
+      }
+
+      .nav-cta-desktop {
+        display: none;
       }
     }
 
@@ -994,50 +944,6 @@
       top: 40%;
       left: 60%;
       animation-delay: -8s;
-    }
-
-    /* Pain cards accordion */
-    .pain-card {
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    .pain-card-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .pain-card-toggle .pain-toggle-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-accent);
-      transition: transform 0.3s ease;
-    }
-
-    .pain-card.open .pain-toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .pain-card-desc {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
-      opacity: 0;
-      margin-top: 0;
-    }
-
-    .pain-card.open .pain-card-desc {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 12px;
     }
 
     /* Phone mockup glow */
@@ -1172,7 +1078,7 @@
     }
 
     /* Cursor pointer on clickable */
-    .pain-card, .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
       cursor: pointer;
     }
 
@@ -1198,14 +1104,7 @@
 
 <body>
 
-  <!-- Theme Toggle (Apple-style) -->
-  <div id="theme-toggle" aria-label="Toggle light/dark mode">
-    <div id="toggle-track">
-      <div id="toggle-knob"></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
+  <!-- ========== NAVIGATION ========== -->
   <nav id="nav">
     <div class="nav-inner">
       <a href="https://handled.sh" class="nav-brand" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
@@ -1216,9 +1115,15 @@
         </svg>
         <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
       </a>
-      <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary nav-cta">
-        Try Free
-      </a>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="https://handled.sh/whatsapp?utm_source=business_lp&utm_medium=cta&utm_campaign=business_q2_2026" class="btn-primary nav-cta nav-cta-desktop">
+          Try Free
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -1245,34 +1150,6 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Try Handled Free
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PAIN POINTS ============ -->
-    <section class="section section-alt">
-      <div class="container text-center">
-        <div class="reveal">
-          <p class="eyebrow">Sound familiar?</p>
-          <h2 class="section-title">The struggle is real</h2>
-          <p class="section-subtitle">Running a small business means wearing every hat. Handled takes the admin off your plate.</p>
-        </div>
-        <div class="pain-grid">
-          <div class="pain-card reveal reveal-delay-1">
-            <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3><div class="pain-card-toggle">Too many hats<span class="pain-toggle-icon">+</span></div></h3>
-            <p class="pain-card-desc">CEO, EA, and ops manager — all at once.</p>
-          </div>
-          <div class="pain-card reveal reveal-delay-2">
-            <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
-            <h3><div class="pain-card-toggle">Things fall through the cracks<span class="pain-toggle-icon">+</span></div></h3>
-            <p class="pain-card-desc">Tasks and meetings slip through the cracks daily.</p>
-          </div>
-          <div class="pain-card reveal reveal-delay-3">
-            <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <h3><div class="pain-card-toggle">Email overload<span class="pain-toggle-icon">+</span></div></h3>
-            <p class="pain-card-desc">Important emails buried under noise.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -1432,41 +1309,38 @@
 
   <!-- Scripts -->
   <script>
-    // Theme toggle (Apple-style, localStorage)
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      var knob = document.getElementById('toggle-knob');
-      var track = document.getElementById('toggle-track');
-      var stored = localStorage.getItem('theme');
+    /* ===== NAV SCROLL ===== */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
 
-      function setLight() {
-        document.body.classList.add('light-mode');
-        knob.style.transform = 'translateX(18px)';
-        track.style.background = '#c8e6c9';
-        track.style.borderColor = 'rgba(139,92,246,0.3)';
-        localStorage.setItem('theme', 'light');
+    /* ===== THEME TOGGLE ===== */
+    var toggle = document.getElementById('themeToggle');
+    var iconMoon = document.getElementById('iconMoon');
+    var iconSun = document.getElementById('iconSun');
+    var html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('handled-theme', theme);
+      if (theme === 'light') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+      } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
       }
+    }
 
-      function setDark() {
-        document.body.classList.remove('light-mode');
-        knob.style.transform = 'translateX(0)';
-        track.style.background = '#1a1a1a';
-        track.style.borderColor = 'rgba(139,92,246,0.3)';
-        localStorage.setItem('theme', 'dark');
-      }
+    // Init from preference
+    var saved = localStorage.getItem('handled-theme');
+    if (saved) setTheme(saved);
 
-      if (stored === 'light') {
-        setLight();
-      }
-
-      toggle.addEventListener('click', function() {
-        if (document.body.classList.contains('light-mode')) {
-          setDark();
-        } else {
-          setLight();
-        }
-      });
-    })();
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
 
     // Scroll reveal (IntersectionObserver)
     (function() {
@@ -1534,17 +1408,6 @@
       window.addEventListener('resize', checkMobileCta);
     })();
   
-
-    /* ===== PAIN CARDS ACCORDION ===== */
-    (function() {
-      document.querySelectorAll('.pain-card').forEach(function(card) {
-        card.addEventListener('click', function() {
-          var isOpen = card.classList.contains('open');
-          document.querySelectorAll('.pain-card').forEach(function(c) { c.classList.remove('open'); });
-          if (!isOpen) card.classList.add('open');
-        });
-      });
-    })();
 
     /* ===== USE CASE TOUCH SUPPORT ===== */
     (function() {

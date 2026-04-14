@@ -228,11 +228,6 @@
       color: #0a0a0a;
     }
 
-    [data-theme="light"] .pain-card {
-      background: #ffffff;
-      border-color: rgba(0,0,0,0.08);
-    }
-
     [data-theme="light"] .faq-item {
       border-color: rgba(0,0,0,0.08);
     }
@@ -525,54 +520,6 @@
     }
 
     /* =============================================
-       PAIN POINTS
-    ============================================= */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .pain-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .pain-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .pain-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: var(--color-accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
-
-    .pain-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--color-text);
-    }
-
-    .pain-card p {
-      font-size: 15px;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-    }
-
-    /* =============================================
        WHATSAPP MOCKUP
     ============================================= */
     .mockup-layout {
@@ -836,7 +783,6 @@
         padding: 64px 0;
       }
 
-      .pain-grid,
       .usecase-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -977,50 +923,6 @@
       animation-delay: -8s;
     }
 
-    /* Pain cards accordion */
-    .pain-card {
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    .pain-card-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .pain-card-toggle .pain-toggle-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-accent);
-      transition: transform 0.3s ease;
-    }
-
-    .pain-card.open .pain-toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .pain-card-desc {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
-      opacity: 0;
-      margin-top: 0;
-    }
-
-    .pain-card.open .pain-card-desc {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 12px;
-    }
-
     /* Phone mockup glow */
     .phone-glow {
       box-shadow: 0 0 60px rgba(139,92,246,0.15), 0 8px 40px rgba(0,0,0,0.5) !important;
@@ -1153,7 +1055,7 @@
     }
 
     /* Cursor pointer on clickable */
-    .pain-card, .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
       cursor: pointer;
     }
 
@@ -1223,34 +1125,6 @@
         </a>
       </div>
       <p class="hero-sub-cta">No app to install. No credit card. Just chat.</p>
-    </div>
-  </section>
-
-  <!-- ========== PAIN POINTS ========== -->
-  <section class="section section-alt" id="pain-points">
-    <div class="container text-center">
-      <div class="reveal">
-        <p class="eyebrow">Sound Familiar?</p>
-        <h2 class="section-title">Freelancing is freedom.<br>The admin work isn't.</h2>
-        <p class="section-subtitle">You became a freelancer to do great work, not to drown in scheduling, invoicing, and tool-switching.</p>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card reveal reveal-delay-1">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <h3><div class="pain-card-toggle">You're the EA, PM, and accountant<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">Every admin task steals billable hours.</p>
-        </div>
-        <div class="pain-card reveal reveal-delay-2">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-          <h3><div class="pain-card-toggle">Scattered tools eat into your margins<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">Context-switching across apps kills focus.</p>
-        </div>
-        <div class="pain-card reveal reveal-delay-3">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <h3><div class="pain-card-toggle">Forgetting to invoice costs you money<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">One missed invoice = lost revenue.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1531,17 +1405,6 @@
   
     /* Chat animation handled by new typing system */
   
-
-    /* ===== PAIN CARDS ACCORDION ===== */
-    (function() {
-      document.querySelectorAll('.pain-card').forEach(function(card) {
-        card.addEventListener('click', function() {
-          var isOpen = card.classList.contains('open');
-          document.querySelectorAll('.pain-card').forEach(function(c) { c.classList.remove('open'); });
-          if (!isOpen) card.classList.add('open');
-        });
-      });
-    })();
 
     /* ===== USE CASE TOUCH SUPPORT ===== */
     (function() {

@@ -196,11 +196,6 @@
       color: #0a0a0a;
     }
 
-    [data-theme="light"] .pain-card {
-      background: #ffffff;
-      border-color: rgba(0,0,0,0.08);
-    }
-
     [data-theme="light"] .use-case-card {
       background: #ffffff;
       border-color: rgba(0,0,0,0.08);
@@ -282,57 +277,90 @@
     }
 
     /* =============================================
-       THEME TOGGLE (Apple-style)
+       NAVIGATION
     ============================================= */
-    .theme-toggle {
+    #nav {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-      width: 52px;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: rgba(10,10,10,0);
+      backdrop-filter: blur(0px);
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    [data-theme="light"] #nav.scrolled {
+      background: rgba(248,248,252,0.92);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-brand svg {
+      width: 28px;
       height: 28px;
-      border-radius: 14px;
-      background: #333;
-      border: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 8px;
       cursor: pointer;
-      padding: 2px;
-      transition: background var(--transition);
+      color: var(--color-text-muted);
+      transition: color var(--transition), border-color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .theme-toggle::after {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #fff;
-      transition: transform var(--transition);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    .theme-toggle:hover {
+      color: var(--color-text);
+      border-color: var(--color-accent);
     }
 
-    [data-theme="light"] .theme-toggle {
-      background: var(--color-accent);
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
     }
 
-    [data-theme="light"] .theme-toggle::after {
-      transform: translateX(24px);
-    }
-
-    .theme-toggle-icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 14px;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .theme-toggle-icon.moon {
-      left: 6px;
-    }
-
-    .theme-toggle-icon.sun {
-      right: 6px;
+    .nav-cta {
+      font-size: 13.5px;
+      padding: 9px 18px;
     }
 
     /* =============================================
@@ -427,55 +455,6 @@
       max-width: 640px;
       margin: 0 auto 40px;
       line-height: 1.65;
-    }
-
-    /* =============================================
-       PAIN POINTS
-    ============================================= */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .pain-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      transition: all var(--transition-md);
-    }
-
-    .pain-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(139,92,246,0.2);
-    }
-
-    .pain-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: var(--color-accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    .pain-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .pain-card p {
-      font-size: 15px;
-      color: var(--color-text-muted);
-      line-height: 1.6;
     }
 
     /* =============================================
@@ -726,7 +705,6 @@
         padding: 72px 0;
       }
 
-      .pain-grid,
       .use-case-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -746,6 +724,10 @@
 
       .bottom-cta {
         padding: 72px 0;
+      }
+
+      .nav-cta-desktop {
+        display: none;
       }
     }
 
@@ -792,7 +774,6 @@
     /* =============================================
        CARD HOVER EFFECTS
     ============================================= */
-    .pain-card:hover,
     .use-case-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
@@ -891,50 +872,6 @@
       top: 40%;
       left: 60%;
       animation-delay: -8s;
-    }
-
-    /* Pain cards accordion */
-    .pain-card {
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    .pain-card-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .pain-card-toggle .pain-toggle-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-accent);
-      transition: transform 0.3s ease;
-    }
-
-    .pain-card.open .pain-toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .pain-card-desc {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
-      opacity: 0;
-      margin-top: 0;
-    }
-
-    .pain-card.open .pain-card-desc {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 12px;
     }
 
     /* Phone mockup glow */
@@ -1069,7 +1006,7 @@
     }
 
     /* Cursor pointer on clickable */
-    .pain-card, .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
       cursor: pointer;
     }
 
@@ -1094,9 +1031,9 @@
 </head>
 <body>
   <!-- ========== NAVIGATION ========== -->
-  <nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 24px;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);">
-    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
-      <a href="https://handled.sh" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="https://handled.sh" class="nav-brand" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28">
           <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
           <path d="M20 8 H80 C88 8, 94 14, 94 22 V50 C94 58, 88 64, 80 64 H36 L18 82 L18 64 H20 C12 64, 6 58, 6 50 V22 C6 14, 12 8, 20 8 Z" fill="url(#lg)"/>
@@ -1104,14 +1041,17 @@
         </svg>
         <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
       </a>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=nav_cta&utm_campaign=sales_q2_2026" class="cta-btn nav-cta nav-cta-desktop">
+          Try Free
+        </a>
+      </div>
     </div>
   </nav>
-
-  <!-- Theme Toggle -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-    <span class="theme-toggle-icon moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-    <span class="theme-toggle-icon sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-  </button>
 
   <!-- ============================================
        HERO
@@ -1130,36 +1070,6 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Start Closing Deals
       </a>
-    </div>
-  </section>
-
-  <!-- ============================================
-       PAIN POINTS
-  ============================================= -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="text-center">
-        <div class="eyebrow">The Problem</div>
-        <h2 class="section-title mx-auto">Your sales team is fighting the wrong battles</h2>
-        <p class="section-subtitle mx-auto">Admin work is silently killing your pipeline. Here's what your reps deal with every single day.</p>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card reveal reveal-delay-1">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <h3><div class="pain-card-toggle">Your reps spend 28% of their time NOT selling<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">28% of rep time goes to non-selling tasks.</p>
-        </div>
-        <div class="pain-card reveal reveal-delay-2">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3><div class="pain-card-toggle">Missed follow-ups kill deals<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">80% of sales need 5+ follow-ups. Most reps stop at one.</p>
-        </div>
-        <div class="pain-card reveal reveal-delay-3">
-          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h3><div class="pain-card-toggle">CRM data entry is where motivation goes to die<span class="pain-toggle-icon">+</span></div></h3>
-          <p class="pain-card-desc">CRM data entry kills motivation and pipeline accuracy.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1335,25 +1245,38 @@
        SCRIPTS
   ============================================= -->
   <script>
-    // Theme toggle with localStorage persistence
-    (function() {
-      var toggle = document.getElementById('themeToggle');
-      var html = document.documentElement;
-      var stored = localStorage.getItem('handled-theme');
+    /* ===== NAV SCROLL ===== */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
 
-      if (stored) {
-        html.setAttribute('data-theme', stored);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        html.setAttribute('data-theme', 'light');
+    /* ===== THEME TOGGLE ===== */
+    var toggle = document.getElementById('themeToggle');
+    var iconMoon = document.getElementById('iconMoon');
+    var iconSun = document.getElementById('iconSun');
+    var html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('handled-theme', theme);
+      if (theme === 'light') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+      } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
       }
+    }
 
-      toggle.addEventListener('click', function() {
-        var current = html.getAttribute('data-theme');
-        var next = current === 'light' ? 'dark' : 'light';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('handled-theme', next);
-      });
-    })();
+    // Init from preference
+    var saved = localStorage.getItem('handled-theme');
+    if (saved) setTheme(saved);
+
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
 
     // Scroll reveal (IntersectionObserver)
     (function() {
@@ -1401,17 +1324,6 @@
       window.addEventListener('resize', checkMobileCta);
     })();
   
-
-    /* ===== PAIN CARDS ACCORDION ===== */
-    (function() {
-      document.querySelectorAll('.pain-card').forEach(function(card) {
-        card.addEventListener('click', function() {
-          var isOpen = card.classList.contains('open');
-          document.querySelectorAll('.pain-card').forEach(function(c) { c.classList.remove('open'); });
-          if (!isOpen) card.classList.add('open');
-        });
-      });
-    })();
 
     /* ===== USE CASE TOUCH SUPPORT ===== */
     (function() {
