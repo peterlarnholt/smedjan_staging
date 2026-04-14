@@ -6,6 +6,7 @@
   <title>Handled for Students — Your Study Buddy in WhatsApp</title>
   <meta name="description" content="Deadlines, exams, group projects, and life — managed from the app you already check 100 times a day. No new app. No learning curve." />
   <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="student assistant, WhatsApp study buddy, AI deadline tracker, student productivity app, exam scheduler, group project coordinator" />
   <link rel="canonical" href="https://handled.sh/students/" />
 
   <!-- Open Graph -->
@@ -13,12 +14,14 @@
   <meta property="og:title" content="Handled for Students — Your Study Buddy in WhatsApp" />
   <meta property="og:description" content="Deadlines, exams, group projects, and life — managed from WhatsApp. No new app. No learning curve." />
   <meta property="og:url" content="https://handled.sh/students/" />
+  <meta property="og:image" content="https://handled.sh/og-default.png" />
   <meta property="og:site_name" content="Handled" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Handled for Students — Your Study Buddy in WhatsApp" />
   <meta name="twitter:description" content="Deadlines, exams, group projects, and life — managed from WhatsApp." />
+  <meta name="twitter:image" content="https://handled.sh/og-default.png" />
 
   <!-- Hreflang -->
   <link rel="alternate" hreflang="en" href="https://handled.sh/students/" />
@@ -824,6 +827,17 @@
         padding: 72px 24px;
       }
     }
+  
+    /* Chat message stagger animation */
+    .chat-animate {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .chat-animate.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -1025,10 +1039,35 @@
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <p>&copy; 2026 Handled. <a href="https://handled.sh">handled.sh</a></p>
-  </footer>
+  <footer style="border-top:1px solid #1f1f1f;padding:30px 20px;background:#0a0a0a;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div style="margin-bottom:12px;">
+      <a href="https://handled.sh" style="color:#8b5cf6;font-family:Exo,sans-serif;font-weight:700;font-size:15px;text-decoration:none;">handled.sh</a>
+    </div>
+    <div style="margin-bottom:16px;line-height:2;">
+      <a href="https://handled.sh/about" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">About</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/contact" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Contact</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/security" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Security</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/privacy" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Privacy Policy</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/terms" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Terms of Service</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/referral" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Referral Program</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/business" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">For Business</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/help" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Help</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/feedback" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Feedback</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/blog" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Blog</a>
+    </div>
+    <p style="color:#707070;font-size:11px;margin:0;">Copyright &copy; 2025&ndash;2026 handled.sh &mdash; a product of EXCOM AI L.L.C-FZ</p>
+  </div>
+</footer>
 
   <!-- ========== SCRIPTS ========== -->
   <script>
@@ -1104,7 +1143,55 @@
         reveals.forEach(function(el) { el.classList.add('visible'); });
       }
     })();
+  
+    /* ===== CHAT MESSAGE STAGGER ===== */
+    (function() {
+      var chatBubbles = document.querySelectorAll('.chat-bubble-user, .chat-bubble-bot');
+      if (!chatBubbles.length) return;
+      chatBubbles.forEach(function(b) { b.classList.add('chat-animate'); });
+      if ('IntersectionObserver' in window) {
+        var chatObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var container = entry.target.closest('.chat-area, .chat-body, .chat-messages, .phone-messages');
+              if (!container) container = entry.target.parentElement;
+              var msgs = container.querySelectorAll('.chat-animate');
+              msgs.forEach(function(m, i) {
+                setTimeout(function() { m.classList.add('show'); }, i * 500);
+              });
+              chatObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        chatObs.observe(chatBubbles[0]);
+      } else {
+        chatBubbles.forEach(function(b) { b.classList.add('show'); });
+      }
+    })();
+  
+    /* ===== MOBILE STICKY CTA ===== */
+    (function() {
+      var mobileCta = document.getElementById('mobileCta');
+      if (!mobileCta) return;
+      function checkMobileCta() {
+        if (window.innerWidth <= 768 && window.scrollY > 400) {
+          mobileCta.style.display = 'block';
+        } else {
+          mobileCta.style.display = 'none';
+        }
+      }
+      window.addEventListener('scroll', checkMobileCta);
+      window.addEventListener('resize', checkMobileCta);
+    })();
   </script>
 
+
+  <!-- ========== MOBILE STICKY CTA ========== -->
+  <div id="mobileCta" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
+    <a href="https://wa.me/18453694078?text=Hi%20Handled!&utm_source=students_lp&utm_medium=mobile_sticky_cta&utm_campaign=students_q2_2026" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;display:flex;align-items:center;gap:8px;background:#8b5cf6;color:#fff;font-family:Exo,sans-serif;font-weight:700;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 16px rgba(139,92,246,0.3);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      Start Free on WhatsApp
+    </a>
+  </div>
 </body>
 </html>

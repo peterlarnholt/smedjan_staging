@@ -6,6 +6,7 @@
   <title>Handled for Freelancers — Your Virtual Assistant in WhatsApp</title>
   <meta name="description" content="Stop juggling 6 apps. Schedule meetings, manage tasks, and send emails — all from one WhatsApp chat. Built for freelancers who bill for their time, not waste it." />
   <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="freelancer assistant, WhatsApp virtual assistant, freelance productivity tool, AI task manager for freelancers, invoice reminder app, freelance scheduling" />
   <link rel="canonical" href="https://handled.sh/freelancers/" />
 
   <!-- Open Graph -->
@@ -13,12 +14,14 @@
   <meta property="og:title" content="Handled for Freelancers — Your Virtual Assistant in WhatsApp" />
   <meta property="og:description" content="Stop juggling 6 apps. Schedule meetings, manage tasks, and send emails — all from one WhatsApp chat. Built for freelancers who bill for their time." />
   <meta property="og:url" content="https://handled.sh/freelancers/" />
+  <meta property="og:image" content="https://handled.sh/og-default.png" />
   <meta property="og:site_name" content="Handled" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Handled for Freelancers — Your Virtual Assistant in WhatsApp" />
   <meta name="twitter:description" content="Stop juggling 6 apps. Your AI assistant lives in WhatsApp." />
+  <meta name="twitter:image" content="https://handled.sh/og-default.png" />
 
   <!-- Hreflang -->
   <link rel="alternate" hreflang="en" href="https://handled.sh/freelancers/" />
@@ -879,6 +882,17 @@
         display: none;
       }
     }
+  
+    /* Chat message stagger animation */
+    .chat-animate {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .chat-animate.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -935,17 +949,17 @@
       </div>
       <div class="pain-grid">
         <div class="pain-card reveal reveal-delay-1">
-          <div class="pain-icon">&#x1F9D1;&#x200D;&#x1F4BC;</div>
+          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
           <h3>You're the EA, PM, and accountant</h3>
           <p>No admin support means every calendar conflict, task list, and expense report lands on you. Time spent on overhead is time you can't bill.</p>
         </div>
         <div class="pain-card reveal reveal-delay-2">
-          <div class="pain-icon">&#x1F4F1;</div>
+          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3>Scattered tools eat into your margins</h3>
           <p>Calendar here, tasks there, notes somewhere else. Context-switching between 6 apps costs you focus and hours every week.</p>
         </div>
         <div class="pain-card reveal reveal-delay-3">
-          <div class="pain-icon">&#x1F4B8;</div>
+          <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <h3>Forgetting to invoice costs you money</h3>
           <p>When you're deep in client work, admin slips through the cracks. A missed invoice is revenue gone. A missed follow-up is a client lost.</p>
         </div>
@@ -1010,17 +1024,17 @@
       </div>
       <div class="usecase-grid">
         <div class="usecase-card reveal reveal-delay-1">
-          <div class="usecase-icon">&#x1F4C5;</div>
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <h3>Client scheduling</h3>
           <p>Book meetings, reschedule calls, and check availability across time zones &mdash; all without leaving WhatsApp. Handled syncs with Google Calendar so nothing slips.</p>
         </div>
         <div class="usecase-card reveal reveal-delay-2">
-          <div class="usecase-icon">&#x1F514;</div>
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
           <h3>Invoice &amp; payment reminders</h3>
           <p>Set recurring reminders for invoicing, follow-ups on unpaid bills, and end-of-month accounting tasks. Never leave money on the table again.</p>
         </div>
         <div class="usecase-card reveal reveal-delay-3">
-          <div class="usecase-icon">&#x2709;&#xFE0F;</div>
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <h3>Email &amp; task triage</h3>
           <p>Dictate emails, create task lists, and capture ideas on the go. Handled drafts, organizes, and reminds &mdash; so your brain stays on billable work.</p>
         </div>
@@ -1108,12 +1122,35 @@
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Handled. All rights reserved. &nbsp;|&nbsp; <a href="https://handled.sh/lp/privacy">Privacy</a> &nbsp;|&nbsp; <a href="https://handled.sh/lp/terms">Terms</a> &nbsp;|&nbsp; <a href="https://handled.sh/lp/security">Security</a></p>
+  <footer style="border-top:1px solid #1f1f1f;padding:30px 20px;background:#0a0a0a;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div style="margin-bottom:12px;">
+      <a href="https://handled.sh" style="color:#8b5cf6;font-family:Exo,sans-serif;font-weight:700;font-size:15px;text-decoration:none;">handled.sh</a>
     </div>
-  </footer>
+    <div style="margin-bottom:16px;line-height:2;">
+      <a href="https://handled.sh/about" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">About</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/contact" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Contact</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/security" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Security</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/privacy" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Privacy Policy</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/terms" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Terms of Service</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/referral" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Referral Program</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/business" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">For Business</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/help" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Help</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/feedback" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Feedback</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/blog" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Blog</a>
+    </div>
+    <p style="color:#707070;font-size:11px;margin:0;">Copyright &copy; 2025&ndash;2026 handled.sh &mdash; a product of EXCOM AI L.L.C-FZ</p>
+  </div>
+</footer>
 
   <!-- ========== MOBILE STICKY CTA ========== -->
   <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
@@ -1203,6 +1240,31 @@
         });
       });
     });
+  
+    /* ===== CHAT MESSAGE STAGGER ===== */
+    (function() {
+      var chatBubbles = document.querySelectorAll('.chat-bubble-user, .chat-bubble-bot');
+      if (!chatBubbles.length) return;
+      chatBubbles.forEach(function(b) { b.classList.add('chat-animate'); });
+      if ('IntersectionObserver' in window) {
+        var chatObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var container = entry.target.closest('.chat-area, .chat-body, .chat-messages, .phone-messages');
+              if (!container) container = entry.target.parentElement;
+              var msgs = container.querySelectorAll('.chat-animate');
+              msgs.forEach(function(m, i) {
+                setTimeout(function() { m.classList.add('show'); }, i * 500);
+              });
+              chatObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        chatObs.observe(chatBubbles[0]);
+      } else {
+        chatBubbles.forEach(function(b) { b.classList.add('show'); });
+      }
+    })();
   </script>
 
 </body>
