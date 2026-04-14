@@ -364,48 +364,40 @@
     }
 
     /* =============================================
-       CTA BUTTON
+       BUTTONS
     ============================================= */
-    .cta-btn {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
+      gap: 8px;
       background: var(--color-accent);
       color: #fff;
       font-family: var(--font);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      border-radius: 60px;
+      padding: 14px 28px;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
-      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.3);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-green);
     }
 
-    .cta-btn:hover {
-      background: var(--color-accent-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 6px rgba(139,92,246,0.2), 0 12px 40px rgba(139,92,246,0.3);
+    .btn-primary:active {
+      transform: translateY(0);
     }
 
-    .cta-btn svg {
-      width: 22px;
-      height: 22px;
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
       fill: currentColor;
-    }
-
-    .cta-btn-secondary {
-      background: transparent;
-      border: 2px solid var(--color-accent);
-      color: var(--color-accent);
-      box-shadow: none;
-    }
-
-    .cta-btn-secondary:hover {
-      background: var(--color-accent-light);
-      box-shadow: none;
     }
 
     /* =============================================
@@ -710,7 +702,7 @@
         gap: 16px;
       }
 
-      .cta-btn {
+      .btn-primary {
         padding: 14px 28px;
         font-size: 15px;
         width: 100%;
@@ -760,16 +752,8 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* =============================================
-       CTA BUTTON HOVER
+       CTA BUTTON HOVER (covered by .btn-primary rules above)
     ============================================= */
-    .cta-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
-    }
-
-    .cta-btn:active {
-      transform: translateY(0);
-    }
 
     /* =============================================
        CARD HOVER EFFECTS
@@ -1006,7 +990,7 @@
     }
 
     /* Cursor pointer on clickable */
-    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary {
       cursor: pointer;
     }
 
@@ -1046,8 +1030,8 @@
           <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=nav_cta&utm_campaign=sales_q2_2026" class="cta-btn nav-cta nav-cta-desktop">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=nav_cta&utm_campaign=sales_q2_2026" class="btn-primary nav-cta nav-cta-desktop">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Try Free
         </a>
       </div>
@@ -1067,9 +1051,9 @@
       <div class="eyebrow reveal">Handled for Sales Teams</div>
       <h1 class="hero-title reveal">Sell More. Type Less. <span class="accent hero-shimmer">Close From Chat.</span></h1>
       <p class="hero-sub">Schedule meetings, set follow-ups, and fire off emails — all from WhatsApp.</p>
-      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn btn-breathe" id="hero-cta">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Start Closing Deals
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="btn-primary btn-breathe" id="hero-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Start Free on WhatsApp
       </a>
     </div>
   </section>
@@ -1163,9 +1147,9 @@
       <div class="eyebrow">Ready?</div>
       <h2 class="section-title">Start closing deals from WhatsApp</h2>
       <p class="section-subtitle mx-auto">Join sales teams who ditched the admin and started selling. Free to try, no credit card needed.</p>
-      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="cta-btn btn-breathe" id="bottom-cta">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Start Closing Deals
+      <a href="https://wa.me/message/HANDLED?text=Hi%20Handled!&utm_source=sales_lp&utm_medium=cta&utm_campaign=sales_q2_2026" class="btn-primary btn-breathe" id="bottom-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Start Free on WhatsApp
       </a>
         <p class="cta-sub-text">Free forever. Pro when you're ready.</p>
     </div>
@@ -1298,7 +1282,7 @@
     })();
 
     // GA4 CTA click tracking
-    document.querySelectorAll('.cta-btn').forEach(function(btn) {
+    document.querySelectorAll('.btn-primary').forEach(function(btn) {
       btn.addEventListener('click', function() {
         gtag('event', 'cta_click', {
           event_category: 'engagement',
