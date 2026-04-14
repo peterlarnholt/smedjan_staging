@@ -159,15 +159,15 @@
        CSS VARIABLES & RESET
     ============================================= */
     :root {
-      --color-bg: #0a1a0a;
-      --color-bg-alt: #0f240f;
-      --color-bg-card: #112211;
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
       --color-text: #e0e0e0;
       --color-text-muted: #9ca3af;
       --color-text-dim: #6b7280;
-      --color-accent: #25D366;
-      --color-accent-light: rgba(37,211,102,0.12);
-      --color-accent-dark: #1fb855;
+      --color-accent: #8b5cf6;
+      --color-accent-light: rgba(139,92,246,0.12);
+      --color-accent-dark: #7c3aed;
       --color-border: rgba(255,255,255,0.08);
       --color-border-light: rgba(255,255,255,0.05);
       --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -178,36 +178,36 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.25);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
       --transition: 0.2s ease;
       --transition-md: 0.35s ease;
     }
 
     /* Light mode */
     [data-theme="light"] {
-      --color-bg: #f8faf8;
-      --color-bg-alt: #eef3ee;
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
-      --color-text: #0a1a0a;
+      --color-text: #0a0a0a;
       --color-text-muted: #4b5563;
       --color-text-dim: #9ca3af;
-      --color-accent: #1a9e4a;
-      --color-accent-light: rgba(37,211,102,0.1);
-      --color-accent-dark: #148040;
+      --color-accent: #7c3aed;
+      --color-accent-light: rgba(139,92,246,0.1);
+      --color-accent-dark: #6d28d9;
       --color-border: rgba(0,0,0,0.1);
       --color-border-light: rgba(0,0,0,0.05);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.2);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.2);
     }
 
     [data-theme="light"] #nav.scrolled {
-      background: rgba(248,250,248,0.92);
+      background: rgba(248,248,252,0.92);
     }
 
     [data-theme="light"] #mobile-nav {
-      background: rgba(248,250,248,0.97);
+      background: rgba(248,248,252,0.97);
     }
 
     [data-theme="light"] .phone-mockup {
@@ -216,13 +216,13 @@
     }
 
     [data-theme="light"] .chat-bubble-user {
-      background: #dcf8c6;
-      color: #0a1a0a;
+      background: #e8e0ff;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .chat-bubble-bot {
       background: #f0f0f0;
-      color: #0a1a0a;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .pain-card {
@@ -321,7 +321,7 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.3);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       text-decoration: none;
     }
@@ -373,13 +373,13 @@
       height: 64px;
       display: flex;
       align-items: center;
-      background: rgba(10,26,10,0);
+      background: rgba(10,10,10,0);
       backdrop-filter: blur(0px);
       transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     }
 
     #nav.scrolled {
-      background: rgba(10,26,10,0.92);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 rgba(255,255,255,0.06);
     }
@@ -492,7 +492,7 @@
     }
 
     .hero-h1 span {
-      background: linear-gradient(135deg, #25D366, #34e879);
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -589,7 +589,7 @@
       width: 100%;
       max-width: 340px;
       margin: 0 auto;
-      background: #1a2e1a;
+      background: #1a1a1a;
       border: 2px solid rgba(255,255,255,0.08);
       border-radius: 32px;
       padding: 16px;
@@ -649,7 +649,7 @@
 
     .chat-bubble-bot {
       align-self: flex-start;
-      background: #1f3520;
+      background: #1a1a2e;
       color: #e0e0e0;
       padding: 10px 14px;
       border-radius: 14px 14px 14px 4px;
@@ -716,8 +716,8 @@
     }
 
     .cta-box {
-      background: linear-gradient(135deg, rgba(37,211,102,0.08), rgba(37,211,102,0.02));
-      border: 1px solid rgba(37,211,102,0.2);
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));
+      border: 1px solid rgba(139,92,246,0.2);
       border-radius: var(--radius-xl);
       padding: 64px 40px;
       max-width: 720px;
@@ -888,7 +888,7 @@
     <div class="nav-inner">
       <a href="https://handled.sh" class="nav-brand">
         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#25D366"/>
+          <rect width="32" height="32" rx="8" fill="#8b5cf6"/>
           <path d="M9 16.5L14 21L23 11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Handled
@@ -1116,7 +1116,7 @@
   </footer>
 
   <!-- ========== MOBILE STICKY CTA ========== -->
-  <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,26,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
+  <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
     <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20freelancer.&utm_source=freelancers_lp&utm_medium=mobile_sticky_cta&utm_campaign=freelancers" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
       Start Free on WhatsApp

@@ -135,15 +135,15 @@
        CSS VARIABLES & RESET
     ============================================= */
     :root {
-      --color-bg: #0a1a0a;
-      --color-bg-alt: #0f240f;
-      --color-bg-card: #112211;
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
       --color-text: #e0e0e0;
       --color-text-muted: #9ca3af;
       --color-text-dim: #6b7280;
-      --color-accent: #25D366;
-      --color-accent-light: rgba(37,211,102,0.12);
-      --color-accent-dark: #1fb855;
+      --color-accent: #8b5cf6;
+      --color-accent-light: rgba(139,92,246,0.12);
+      --color-accent-dark: #7c3aed;
       --color-border: rgba(255,255,255,0.08);
       --color-border-light: rgba(255,255,255,0.05);
       --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -154,28 +154,28 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.25);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
       --transition: 0.2s ease;
       --transition-md: 0.35s ease;
     }
 
     /* Light mode */
     [data-theme="light"] {
-      --color-bg: #f8faf8;
-      --color-bg-alt: #eef3ee;
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
-      --color-text: #0a1a0a;
+      --color-text: #0a0a0a;
       --color-text-muted: #4b5563;
       --color-text-dim: #9ca3af;
-      --color-accent: #1a9e4a;
-      --color-accent-light: rgba(37,211,102,0.1);
-      --color-accent-dark: #148040;
+      --color-accent: #7c3aed;
+      --color-accent-light: rgba(139,92,246,0.1);
+      --color-accent-dark: #6d28d9;
       --color-border: rgba(0,0,0,0.1);
       --color-border-light: rgba(0,0,0,0.05);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.2);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.2);
     }
 
     [data-theme="light"] .phone-mockup {
@@ -184,13 +184,13 @@
     }
 
     [data-theme="light"] .chat-bubble-user {
-      background: #dcf8c6;
-      color: #0a1a0a;
+      background: #e8e0ff;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .chat-bubble-bot {
       background: #f0f0f0;
-      color: #0a1a0a;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .pain-card {
@@ -356,7 +356,7 @@
     .cta-btn:hover {
       background: var(--color-accent-dark);
       transform: translateY(-2px);
-      box-shadow: 0 0 0 6px rgba(37,211,102,0.2), 0 12px 40px rgba(37,211,102,0.3);
+      box-shadow: 0 0 0 6px rgba(139,92,246,0.2), 0 12px 40px rgba(139,92,246,0.3);
     }
 
     .cta-btn svg {
@@ -395,7 +395,7 @@
       transform: translateX(-50%);
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(37,211,102,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -447,7 +447,7 @@
     .pain-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(37,211,102,0.2);
+      border-color: rgba(139,92,246,0.2);
     }
 
     .pain-icon {
@@ -546,7 +546,7 @@
     }
 
     .chat-bubble-bot {
-      background: #1a2e1a;
+      background: #1a1a1a;
       color: #e0e0e0;
       align-self: flex-start;
       border-bottom-left-radius: 4px;
@@ -580,7 +580,7 @@
     .use-case-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(37,211,102,0.2);
+      border-color: rgba(139,92,246,0.2);
     }
 
     .use-case-icon {
@@ -625,7 +625,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(37,211,102,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 

@@ -22,13 +22,17 @@
   <meta name="twitter:description" content="Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for real estate agents." />
   <meta name="twitter:image" content="https://handled.sh/og-default.png" />
 
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://handled.sh/realtors/" />
+  <link rel="alternate" hreflang="x-default" href="https://handled.sh/realtors/" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Google Fonts: Exo -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- JSON-LD: SoftwareApplication -->
   <script type="application/ld+json">
@@ -133,17 +137,17 @@
        CSS VARIABLES & RESET
     ============================================= */
     :root {
-      --color-bg: #0a1a0a;
-      --color-bg-alt: #0d2a15;
-      --color-bg-card: #111a11;
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
       --color-text: #e0e0e0;
       --color-text-muted: #a0a0a0;
       --color-text-dim: #707070;
-      --color-accent: #25D366;
-      --color-accent-dark: #1fad54;
-      --color-accent-glow: rgba(37, 211, 102, 0.3);
-      --color-border: rgba(37, 211, 102, 0.15);
-      --color-border-hover: rgba(37, 211, 102, 0.4);
+      --color-accent: #8b5cf6;
+      --color-accent-light: rgba(139,92,246,0.12);
+      --color-accent-dark: #7c3aed;
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-light: rgba(255,255,255,0.05);
       --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius-sm: 8px;
       --radius-md: 12px;
@@ -152,28 +156,60 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-      --shadow-glow: 0 0 20px var(--color-accent-glow);
+      --shadow-glow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
       --transition: 0.2s ease;
       --transition-md: 0.35s ease;
     }
 
-    /* Light mode overrides */
-    body.light-mode {
-      --color-bg: #f5f7f5;
-      --color-bg-alt: #e8f0e8;
+    /* Light mode */
+    [data-theme="light"] {
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
-      --color-text: #0a1a0a;
-      --color-text-muted: #5a6a5a;
-      --color-text-dim: #7a8a7a;
-      --color-accent: #0a8a4a;
-      --color-accent-dark: #087a40;
-      --color-accent-glow: rgba(10, 138, 74, 0.2);
-      --color-border: rgba(10, 138, 74, 0.15);
-      --color-border-hover: rgba(10, 138, 74, 0.4);
+      --color-text: #0a0a0a;
+      --color-text-muted: #4b5563;
+      --color-text-dim: #9ca3af;
+      --color-accent: #7c3aed;
+      --color-accent-light: rgba(139,92,246,0.1);
+      --color-accent-dark: #6d28d9;
+      --color-border: rgba(0,0,0,0.1);
+      --color-border-light: rgba(0,0,0,0.05);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
-      --shadow-glow: 0 0 20px var(--color-accent-glow);
+      --shadow-glow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.2);
+    }
+
+    [data-theme="light"] #nav.scrolled {
+      background: rgba(248,248,252,0.92);
+    }
+
+    [data-theme="light"] #mobile-nav {
+      background: rgba(248,248,252,0.97);
+    }
+
+    [data-theme="light"] .phone-mockup {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    [data-theme="light"] .chat-bubble-user {
+      background: #dcf8c6;
+      color: #0a0a0a;
+    }
+
+    [data-theme="light"] .chat-bubble-bot {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+
+    [data-theme="light"] .pain-card {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    [data-theme="light"] .faq-item {
+      border-color: rgba(0,0,0,0.08);
     }
 
     *, *::before, *::after {
@@ -192,29 +228,22 @@
       color: var(--color-text);
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
 
     /* =============================================
        LAYOUT UTILITIES
     ============================================= */
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     .section-alt {
@@ -231,7 +260,7 @@
     }
 
     .section-title {
-      font-size: clamp(26px, 4vw, 40px);
+      font-size: clamp(28px, 4vw, 42px);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.02em;
@@ -261,8 +290,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #25D366;
-      color: #0a1a0a;
+      background: var(--color-accent);
+      color: #fff;
       font-family: var(--font);
       font-size: 15px;
       font-weight: 700;
@@ -270,42 +299,25 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 0 0 0 rgba(37,211,102,0.4), 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.3);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       text-decoration: none;
     }
 
     .btn-primary:hover {
-      background: #1fad54;
+      background: var(--color-accent-dark);
       transform: translateY(-2px);
-      box-shadow: 0 0 0 6px rgba(37,211,102,0.15), 0 8px 28px rgba(37,211,102,0.4);
+      box-shadow: var(--shadow-glow);
     }
 
     .btn-primary:active {
       transform: translateY(0);
     }
 
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--color-accent);
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px 28px;
-      border-radius: 10px;
-      border: 1.5px solid var(--color-accent);
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-      text-decoration: none;
-    }
-
-    .btn-outline:hover {
-      background: rgba(37,211,102,0.1);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(37,211,102,0.2);
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
     }
 
     /* =============================================
@@ -336,21 +348,22 @@
       right: 0;
       z-index: 1000;
       padding: 0 24px;
-      height: 60px;
+      height: 64px;
       display: flex;
       align-items: center;
-      background: rgba(10,26,10,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--color-border);
-      transition: background 0.3s ease;
+      background: rgba(10,10,10,0);
+      backdrop-filter: blur(0px);
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     }
 
-    body.light-mode #nav {
-      background: rgba(245,247,245,0.92);
+    #nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
     }
 
     .nav-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -364,7 +377,7 @@
       gap: 10px;
       font-size: 18px;
       font-weight: 800;
-      color: var(--color-accent);
+      color: var(--color-text);
       letter-spacing: -0.02em;
       text-decoration: none;
     }
@@ -374,51 +387,51 @@
       height: 28px;
     }
 
-    .nav-cta {
-      font-size: 13px;
-      padding: 9px 18px;
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    /* =============================================
-       THEME TOGGLE (Apple-style)
-    ============================================= */
-    #theme-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 1001;
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 8px;
       cursor: pointer;
+      color: var(--color-text-muted);
+      transition: color var(--transition), border-color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #toggle-track {
-      width: 40px;
-      height: 22px;
-      border-radius: 11px;
-      background: #1a4d2a;
-      border: 1px solid rgba(37,211,102,0.3);
-      position: relative;
-      transition: background 0.3s, border-color 0.3s;
+    .theme-toggle:hover {
+      color: var(--color-text);
+      border-color: var(--color-accent);
     }
 
-    #toggle-knob {
+    .theme-toggle svg {
       width: 18px;
       height: 18px;
-      border-radius: 9px;
-      background: #25D366;
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      transition: transform 0.3s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .nav-cta {
+      font-size: 13.5px;
+      padding: 9px 18px;
     }
 
     /* =============================================
        HERO
     ============================================= */
     #hero {
-      padding-top: 120px;
+      padding-top: 140px;
       padding-bottom: 80px;
       text-align: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
     .hero-pill {
@@ -429,9 +442,9 @@
       border: 1.5px solid var(--color-accent);
       border-radius: 100px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-accent);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .hero-pill-dot {
@@ -443,36 +456,47 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
     }
 
-    .hero-title {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 800;
-      line-height: 1.1;
+    .hero-h1 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 900;
+      line-height: 1.08;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
       color: var(--color-text);
+      margin-bottom: 20px;
     }
 
-    .hero-title .accent {
-      color: var(--color-accent);
+    .hero-h1 span {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-subtitle {
-      font-size: clamp(16px, 2vw, 19px);
+      font-size: 19px;
       color: var(--color-text-muted);
+      line-height: 1.65;
       max-width: 600px;
       margin: 0 auto 36px;
-      line-height: 1.6;
     }
 
     .hero-cta-row {
       display: flex;
-      gap: 16px;
+      align-items: center;
       justify-content: center;
+      gap: 16px;
       flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub-cta {
+      font-size: 13px;
+      color: var(--color-text-dim);
+      margin-top: 8px;
     }
 
     /* =============================================
@@ -489,42 +513,36 @@
       background: var(--color-bg-card);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      text-align: center;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition);
     }
 
     .pain-card:hover {
-      border-color: var(--color-border-hover);
       transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
+      box-shadow: var(--shadow-md);
     }
 
     .pain-icon {
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: rgba(37,211,102,0.1);
+      background: var(--color-accent-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 24px;
-    }
-
-    body.light-mode .pain-icon {
-      background: rgba(10,138,74,0.1);
+      margin-bottom: 20px;
+      font-size: 22px;
     }
 
     .pain-card h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--color-text);
     }
 
     .pain-card p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--color-text-muted);
       line-height: 1.6;
     }
@@ -532,156 +550,101 @@
     /* =============================================
        WHATSAPP MOCKUP
     ============================================= */
-    .mockup-section {
+    .mockup-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 60px;
       align-items: center;
     }
 
     .mockup-text {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
 
-    .phone-frame {
-      width: 300px;
+    .phone-mockup {
+      width: 100%;
+      max-width: 340px;
       margin: 0 auto;
       background: #1a1a1a;
+      border: 2px solid rgba(255,255,255,0.08);
       border-radius: 32px;
-      padding: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-
-    body.light-mode .phone-frame {
-      background: #e0e0e0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    }
-
-    .phone-screen {
-      background: #0b141a;
-      border-radius: 22px;
-      overflow: hidden;
-    }
-
-    body.light-mode .phone-screen {
-      background: #ECE5DD;
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
     }
 
     .phone-header {
-      background: #1f2c34;
-      padding: 12px 16px;
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    body.light-mode .phone-header {
-      background: #075E54;
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 12px;
     }
 
     .phone-avatar {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: #25D366;
+      background: var(--color-accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
-      color: #0a1a0a;
+      color: #fff;
     }
 
     .phone-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #e9edef;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text);
     }
 
     .phone-status {
-      font-size: 11px;
-      color: #8696a0;
+      font-size: 12px;
+      color: var(--color-accent);
     }
 
-    .phone-messages {
-      padding: 12px;
+    .chat-area {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      min-height: 280px;
+      gap: 10px;
+      padding: 8px 4px;
     }
 
-    .wa-msg {
-      max-width: 85%;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      line-height: 1.5;
-      position: relative;
-    }
-
-    .wa-outgoing {
-      background: #005c4b;
-      color: #e9edef;
+    .chat-bubble-user {
       align-self: flex-end;
-      border-bottom-right-radius: 2px;
+      background: #005c4b;
+      color: #e0e0e0;
+      padding: 10px 14px;
+      border-radius: 14px 14px 4px 14px;
+      font-size: 14px;
+      max-width: 85%;
+      line-height: 1.5;
     }
 
-    body.light-mode .wa-outgoing {
-      background: #DCF8C6;
-      color: #333;
-    }
-
-    .wa-incoming {
-      background: #1f2c34;
-      color: #e9edef;
+    .chat-bubble-bot {
       align-self: flex-start;
-      border-bottom-left-radius: 2px;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 10px 14px;
+      border-radius: 14px 14px 14px 4px;
+      font-size: 14px;
+      max-width: 85%;
+      line-height: 1.5;
     }
 
-    body.light-mode .wa-incoming {
-      background: #fff;
-      color: #333;
-    }
-
-    .wa-time {
-      font-size: 10px;
-      color: #8696a0;
+    .chat-time {
+      font-size: 11px;
+      color: var(--color-text-dim);
+      margin-top: 2px;
       text-align: right;
-      margin-top: 4px;
-    }
-
-    .phone-input {
-      background: #1f2c34;
-      padding: 8px 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    body.light-mode .phone-input {
-      background: #f0f0f0;
-    }
-
-    .phone-input-field {
-      flex: 1;
-      background: #2a3942;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 16px;
-      font-size: 13px;
-      color: #8696a0;
-    }
-
-    body.light-mode .phone-input-field {
-      background: #fff;
-      color: #333;
     }
 
     /* =============================================
-       USE CASES
+       USE CASE CARDS
     ============================================= */
     .usecase-grid {
       display: grid;
@@ -694,60 +657,67 @@
       background: var(--color-bg-card);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
 
     .usecase-card:hover {
-      border-color: var(--color-border-hover);
       transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent);
     }
 
     .usecase-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(37,211,102,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 24px;
-    }
-
-    body.light-mode .usecase-icon {
-      background: rgba(10,138,74,0.1);
+      font-size: 32px;
+      margin-bottom: 18px;
     }
 
     .usecase-card h3 {
       font-size: 18px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--color-text);
     }
 
     .usecase-card p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--color-text-muted);
       line-height: 1.6;
     }
 
     /* =============================================
-       FINAL CTA
+       BOTTOM CTA
     ============================================= */
-    .final-cta {
+    .cta-section {
       text-align: center;
-      padding: 80px 0;
-      background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+      padding: 100px 0;
     }
 
-    .final-cta .section-title {
-      margin-bottom: 12px;
+    .cta-box {
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: var(--radius-xl);
+      padding: 64px 40px;
+      max-width: 720px;
+      margin: 0 auto;
     }
 
-    .final-cta .section-subtitle {
-      margin: 0 auto 32px;
+    .cta-box h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+
+    .cta-box p {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
 
     /* =============================================
@@ -756,434 +726,432 @@
     .faq-list {
       max-width: 700px;
       margin: 48px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
     }
 
     .faq-item {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .faq-item summary {
-      padding: 20px 24px;
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      font-family: var(--font);
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--color-text);
+      text-align: left;
       cursor: pointer;
-      list-style: none;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       transition: color var(--transition);
     }
 
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: '+';
-      font-size: 20px;
-      font-weight: 600;
+    .faq-question:hover {
       color: var(--color-accent);
-      transition: transform 0.3s ease;
     }
 
-    .faq-item[open] summary::after {
-      transform: rotate(45deg);
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--color-text-dim);
     }
 
-    .faq-item summary:hover {
-      color: var(--color-accent);
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
     }
 
     .faq-answer {
-      padding: 0 24px 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 0 20px;
       font-size: 15px;
       color: var(--color-text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* =============================================
        FOOTER
     ============================================= */
     footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--color-border);
+      padding: 40px 24px;
       text-align: center;
-    }
-
-    .footer-brand {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--color-accent);
-      margin-bottom: 8px;
-    }
-
-    .footer-copy {
       font-size: 13px;
       color: var(--color-text-dim);
+      border-top: 1px solid var(--color-border);
+    }
+
+    footer a {
+      color: var(--color-accent);
+      transition: opacity var(--transition);
+    }
+
+    footer a:hover {
+      opacity: 0.8;
     }
 
     /* =============================================
        RESPONSIVE
     ============================================= */
     @media (max-width: 768px) {
+      .section {
+        padding: 64px 0;
+      }
+
       .pain-grid,
       .usecase-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
 
-      .mockup-section {
+      .mockup-layout {
         grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
+        gap: 40px;
       }
 
       .mockup-text {
+        order: 1;
+      }
+
+      .phone-mockup {
         order: 2;
       }
 
-      .phone-frame {
-        width: 280px;
-      }
-
-      .section {
-        padding: 60px 0;
-      }
-
       #hero {
-        padding-top: 100px;
+        padding-top: 110px;
         padding-bottom: 60px;
       }
-    }
 
-    @media (max-width: 480px) {
-      .hero-cta-row {
-        flex-direction: column;
-        align-items: center;
+      .hero-h1 {
+        font-size: clamp(30px, 7vw, 42px);
       }
 
-      .btn-primary, .btn-outline {
-        width: 100%;
-        justify-content: center;
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+      }
+
+      .nav-cta-desktop {
+        display: none;
       }
     }
 
-    /* =============================================
-       CTA GLOW ANIMATION
-    ============================================= */
-    @keyframes ctaGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(37,211,102,0.3); }
-      50% { box-shadow: 0 0 40px rgba(37,211,102,0.6); }
-    }
-
-    .btn-glow {
-      animation: ctaGlow 2s ease-in-out infinite;
-    }
-
-    /* Chat message animation */
-    .chat-msg {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .chat-msg.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+    @media (min-width: 769px) {
+      .nav-cta-mobile {
+        display: none;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Theme Toggle (Apple-style) -->
-  <div id="theme-toggle" aria-label="Toggle light/dark mode">
-    <div id="toggle-track">
-      <div id="toggle-knob"></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
+  <!-- ========== NAVIGATION ========== -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="https://handled.sh/" class="nav-brand">
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="14" r="14" fill="#25D366"/>
-          <path d="M9 14.5L12.5 18L19 11" stroke="#0a1a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <a href="https://handled.sh" class="nav-brand">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#8b5cf6"/>
+          <path d="M9 16.5L14 21L23 11" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        handled.sh
+        Handled
       </a>
-      <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary nav-cta">
-        Try Free
-      </a>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=nav_cta&utm_campaign=realtors" class="btn-primary nav-cta nav-cta-desktop">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Try Free
+        </a>
+      </div>
     </div>
   </nav>
 
-  <main>
-
-    <!-- ============ HERO ============ -->
-    <section id="hero" class="container">
-      <div class="reveal">
-        <div class="hero-pill">
-          <span class="hero-pill-dot"></span>
-          Built for Real Estate Agents
-        </div>
-        <h1 class="hero-title">
-          Close More Deals<br>From Your <span class="accent">Chat Window</span>
-        </h1>
-        <p class="hero-subtitle">
-          Handled turns your WhatsApp into a scheduling, follow-up, and task machine — built for agents who are always between showings.
-        </p>
-        <div class="hero-cta-row">
-          <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary btn-glow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Try Handled Free
-          </a>
-        </div>
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="reveal">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        Built for Real Estate Agents
       </div>
-    </section>
-
-    <!-- ============ PAIN POINTS ============ -->
-    <section class="section" id="pain-points">
-      <div class="container text-center">
-        <div class="reveal">
-          <p class="eyebrow">Sound familiar?</p>
-          <h2 class="section-title">The busywork is killing your deals</h2>
-          <p class="section-subtitle">You didn't get into real estate to drown in admin. Yet here we are.</p>
-        </div>
-        <div class="pain-grid">
-          <div class="pain-card reveal reveal-delay-1">
-            <div class="pain-icon">&#9200;</div>
-            <h3>50-70% of your time on non-revenue tasks</h3>
-            <p>Scheduling, rescheduling, chasing paperwork, updating spreadsheets. You're a deal-closer stuck doing data entry.</p>
-          </div>
-          <div class="pain-card reveal reveal-delay-2">
-            <div class="pain-icon">&#128683;</div>
-            <h3>Missed follow-ups cost you deals</h3>
-            <p>That lead from last Tuesday? Gone. They signed with the agent who texted back first. Speed wins in real estate.</p>
-          </div>
-          <div class="pain-card reveal reveal-delay-3">
-            <div class="pain-icon">&#128197;</div>
-            <h3>Scheduling chaos with multiple parties</h3>
-            <p>Buyers, sellers, inspectors, mortgage brokers — all on different timelines. One missed text and the chain breaks.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WHATSAPP MOCKUP ============ -->
-    <section class="section section-alt" id="demo">
-      <div class="container">
-        <div class="mockup-section">
-          <div class="phone-frame reveal">
-            <div class="phone-screen">
-              <div class="phone-header">
-                <div class="phone-avatar">H</div>
-                <div>
-                  <div class="phone-name">Handled</div>
-                  <div class="phone-status">online</div>
-                </div>
-              </div>
-              <div class="phone-messages">
-                <div class="wa-msg wa-outgoing chat-msg">
-                  Schedule showing at 42 Palm Jumeirah tomorrow 4pm
-                  <div class="wa-time">3:42 PM</div>
-                </div>
-                <div class="wa-msg wa-incoming chat-msg">
-                  Done! Showing scheduled for 42 Palm Jumeirah, tomorrow at 4:00 PM. Added to your Google Calendar. Want me to notify the buyer?
-                  <div class="wa-time">3:42 PM</div>
-                </div>
-                <div class="wa-msg wa-outgoing chat-msg">
-                  Remind me to follow up with Al Barsha leads in 3 days
-                  <div class="wa-time">3:43 PM</div>
-                </div>
-                <div class="wa-msg wa-incoming chat-msg">
-                  Reminder set for Wednesday. I'll ping you about your Al Barsha leads at 9 AM.
-                  <div class="wa-time">3:43 PM</div>
-                </div>
-                <div class="wa-msg wa-outgoing chat-msg">
-                  What's on my calendar this weekend?
-                  <div class="wa-time">3:44 PM</div>
-                </div>
-                <div class="wa-msg wa-incoming chat-msg">
-                  This weekend you have:<br>
-                  Sat 10am - Open house, Marina Vista<br>
-                  Sat 2pm - Buyer meeting, JBR<br>
-                  Sun 11am - Property inspection, Downtown
-                  <div class="wa-time">3:44 PM</div>
-                </div>
-              </div>
-              <div class="phone-input">
-                <div class="phone-input-field">Type a message...</div>
-              </div>
-            </div>
-          </div>
-          <div class="mockup-text reveal reveal-delay-1">
-            <p class="eyebrow">Your assistant, in WhatsApp</p>
-            <h2 class="section-title">Just text it. Handled does the rest.</h2>
-            <p class="section-subtitle">Schedule showings, set follow-up reminders, check your calendar — all from the chat app you already live in. No login. No dashboard. Just results.</p>
-            <div style="margin-top: 16px;">
-              <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Try It Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ USE CASES ============ -->
-    <section class="section" id="use-cases">
-      <div class="container text-center">
-        <div class="reveal">
-          <p class="eyebrow">Built for your workflow</p>
-          <h2 class="section-title">Three ways Handled closes more deals</h2>
-        </div>
-        <div class="usecase-grid">
-          <div class="usecase-card reveal reveal-delay-1">
-            <div class="usecase-icon">&#128197;</div>
-            <h3>Showing Scheduler</h3>
-            <p>Text a property address and time — Handled books the showing, syncs to your calendar, and can notify clients. No more back-and-forth.</p>
-          </div>
-          <div class="usecase-card reveal reveal-delay-2">
-            <div class="usecase-icon">&#128276;</div>
-            <h3>Follow-Up Engine</h3>
-            <p>Set reminders for leads, callbacks, and check-ins. Handled pings you at exactly the right moment so no prospect slips through the cracks.</p>
-          </div>
-          <div class="usecase-card reveal reveal-delay-3">
-            <div class="usecase-icon">&#128203;</div>
-            <h3>Daily Briefing</h3>
-            <p>Ask "What's on today?" and get a clean rundown of showings, follow-ups, and tasks. Start every morning knowing exactly where you stand.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FINAL CTA ============ -->
-    <section class="final-cta" id="cta">
-      <div class="container reveal">
-        <p class="eyebrow">Ready?</p>
-        <h2 class="section-title">Start managing your deals from WhatsApp</h2>
-        <p class="section-subtitle">Free to start. No app to install. Works in the chat you already use every day.</p>
-        <a href="https://handled.sh/whatsapp?utm_source=realtors_lp&utm_medium=cta&utm_campaign=realtors_q2_2026" class="btn-primary btn-glow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Get Handled on WhatsApp
+      <h1 class="hero-h1">Close More Deals From<br>Your <span>Chat Window</span></h1>
+      <p class="hero-subtitle">Handled turns your WhatsApp into a scheduling, follow-up, and task machine &mdash; built for agents who are always between showings.</p>
+      <div class="hero-cta-row">
+        <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=hero_cta&utm_campaign=realtors" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Start Free on WhatsApp
         </a>
       </div>
-    </section>
+      <p class="hero-sub-cta">No app to install. No credit card. Just chat.</p>
+    </div>
+  </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="section" id="faq">
-      <div class="container text-center">
-        <div class="reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2 class="section-title">Questions? Handled.</h2>
+  <!-- ========== PAIN POINTS ========== -->
+  <section class="section section-alt" id="pain-points">
+    <div class="container text-center">
+      <div class="reveal">
+        <p class="eyebrow">Sound Familiar?</p>
+        <h2 class="section-title">The busywork is killing your deals</h2>
+        <p class="section-subtitle">You didn't get into real estate to drown in admin. Yet here we are.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card reveal reveal-delay-1">
+          <div class="pain-icon">&#9200;</div>
+          <h3>50-70% of your time on non-revenue tasks</h3>
+          <p>Scheduling, rescheduling, chasing paperwork, updating spreadsheets. You're a deal-closer stuck doing data entry.</p>
         </div>
-        <div class="faq-list">
-          <details class="faq-item reveal reveal-delay-1">
-            <summary>Do I need to install a separate app?</summary>
-            <div class="faq-answer">
-              No. Handled works entirely inside WhatsApp. If you already use WhatsApp, you're ready to start. No downloads, no new apps, no learning curve.
-            </div>
-          </details>
-          <details class="faq-item reveal reveal-delay-2">
-            <summary>Can Handled sync with my existing calendar?</summary>
-            <div class="faq-answer">
-              Yes. Handled integrates with Google Calendar so your showings, client meetings, and personal events all stay in sync. Schedule or check your calendar directly from WhatsApp.
-            </div>
-          </details>
-          <details class="faq-item reveal reveal-delay-3">
-            <summary>Is my client data secure?</summary>
-            <div class="faq-answer">
-              Absolutely. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards. Your client conversations stay private.
-            </div>
-          </details>
+        <div class="pain-card reveal reveal-delay-2">
+          <div class="pain-icon">&#128683;</div>
+          <h3>Missed follow-ups cost you deals</h3>
+          <p>That lead from last Tuesday? Gone. They signed with the agent who texted back first. Speed wins in real estate.</p>
+        </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <div class="pain-icon">&#128197;</div>
+          <h3>Scheduling chaos with multiple parties</h3>
+          <p>Buyers, sellers, inspectors, mortgage brokers &mdash; all on different timelines. One missed text and the chain breaks.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- ========== WHATSAPP MOCKUP ========== -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="mockup-layout">
+        <div class="mockup-text reveal">
+          <p class="eyebrow">See It in Action</p>
+          <h2 class="section-title">Just text it. Handled does the rest.</h2>
+          <p class="section-subtitle">Schedule showings, set follow-up reminders, check your calendar &mdash; all from the chat app you already live in. No login. No dashboard. Just results.</p>
+        </div>
+        <div class="phone-mockup reveal reveal-delay-1">
+          <div class="phone-header">
+            <div class="phone-avatar">H</div>
+            <div>
+              <div class="phone-name">Handled</div>
+              <div class="phone-status">online</div>
+            </div>
+          </div>
+          <div class="chat-area">
+            <div class="chat-bubble-user">
+              Schedule showing at 42 Palm Jumeirah tomorrow 4pm
+              <div class="chat-time">3:42 PM</div>
+            </div>
+            <div class="chat-bubble-bot">
+              Done! Showing scheduled for 42 Palm Jumeirah, tomorrow at 4:00 PM. Added to your Google Calendar. Want me to notify the buyer?
+              <div class="chat-time">3:42 PM</div>
+            </div>
+            <div class="chat-bubble-user">
+              Remind me to follow up with Al Barsha leads in 3 days
+              <div class="chat-time">3:43 PM</div>
+            </div>
+            <div class="chat-bubble-bot">
+              Reminder set for Wednesday. I'll ping you about your Al Barsha leads at 9 AM.
+              <div class="chat-time">3:43 PM</div>
+            </div>
+            <div class="chat-bubble-user">
+              What's on my calendar this weekend?
+              <div class="chat-time">3:44 PM</div>
+            </div>
+            <div class="chat-bubble-bot">
+              This weekend you have:<br>Sat 10am - Open house, Marina Vista<br>Sat 2pm - Buyer meeting, JBR<br>Sun 11am - Property inspection, Downtown
+              <div class="chat-time">3:44 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer -->
+  <!-- ========== USE CASES ========== -->
+  <section class="section section-alt" id="use-cases">
+    <div class="container text-center">
+      <div class="reveal">
+        <p class="eyebrow">Built for Your Workflow</p>
+        <h2 class="section-title">Three ways Handled closes more deals</h2>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-card reveal reveal-delay-1">
+          <div class="usecase-icon">&#128197;</div>
+          <h3>Showing Scheduler</h3>
+          <p>Text a property address and time &mdash; Handled books the showing, syncs to your calendar, and can notify clients. No more back-and-forth.</p>
+        </div>
+        <div class="usecase-card reveal reveal-delay-2">
+          <div class="usecase-icon">&#128276;</div>
+          <h3>Follow-Up Engine</h3>
+          <p>Set reminders for leads, callbacks, and check-ins. Handled pings you at exactly the right moment so no prospect slips through the cracks.</p>
+        </div>
+        <div class="usecase-card reveal reveal-delay-3">
+          <div class="usecase-icon">&#128203;</div>
+          <h3>Daily Briefing</h3>
+          <p>Ask "What's on today?" and get a clean rundown of showings, follow-ups, and tasks. Start every morning knowing exactly where you stand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BOTTOM CTA ========== -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Start managing your deals from WhatsApp</h2>
+        <p>Free forever. No app to install. Takes 30 seconds.</p>
+        <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=bottom_cta&utm_campaign=realtors" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Start Free on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section section-alt" id="faq">
+    <div class="container text-center">
+      <div class="reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="section-title">Questions? Answered.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to install a separate app?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. Handled works entirely inside WhatsApp. If you already use WhatsApp, you're ready to start. No downloads, no new apps, no learning curve.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can Handled sync with my existing calendar?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Handled integrates with Google Calendar so your showings, client meetings, and personal events all stay in sync. Schedule or check your calendar directly from WhatsApp.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Is my client data secure?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards. Your client conversations stay private.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
   <footer>
     <div class="container">
-      <div class="footer-brand">handled.sh</div>
-      <p class="footer-copy">&copy; 2026 Handled. All rights reserved.</p>
+      <p>&copy; 2026 Handled. All rights reserved. &nbsp;|&nbsp; <a href="https://handled.sh/lp/privacy">Privacy</a> &nbsp;|&nbsp; <a href="https://handled.sh/lp/terms">Terms</a> &nbsp;|&nbsp; <a href="https://handled.sh/lp/security">Security</a></p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ========== MOBILE STICKY CTA ========== -->
+  <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
+    <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I'm%20a%20realtor.&utm_source=realtors_lp&utm_medium=mobile_sticky_cta&utm_campaign=realtors" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      Start Free on WhatsApp
+    </a>
+  </div>
+
   <script>
-    // Scroll reveal
-    const revealObserver = new IntersectionObserver(function(entries) {
+    /* ===== NAV SCROLL ===== */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ===== THEME TOGGLE ===== */
+    var toggle = document.getElementById('themeToggle');
+    var iconMoon = document.getElementById('iconMoon');
+    var iconSun = document.getElementById('iconSun');
+    var html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('handled-theme', theme);
+      if (theme === 'light') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+      } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
+      }
+    }
+
+    // Init from preference
+    var saved = localStorage.getItem('handled-theme');
+    if (saved) setTheme(saved);
+
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ===== FAQ ACCORDION ===== */
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    /* ===== SCROLL REVEAL ===== */
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(el) { observer.observe(el); });
 
-    document.querySelectorAll('.reveal').forEach(function(el) {
-      revealObserver.observe(el);
-    });
-
-    // Chat message staggered animation
-    var chatMsgs = document.querySelectorAll('.chat-msg');
-    chatMsgs.forEach(function(msg, i) {
-      setTimeout(function() { msg.classList.add('show'); }, 800 + i * 500);
-    });
-
-    // Theme toggle
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggle = document.getElementById('theme-toggle');
-      var body = document.body;
-      var knob = document.getElementById('toggle-knob');
-      var track = document.getElementById('toggle-track');
-      var isLight = localStorage.getItem('realtor-theme') === 'light';
-
-      function applyTheme() {
-        if (isLight) {
-          body.classList.add('light-mode');
-          if (knob) knob.style.transform = 'translateX(19px)';
-          if (track) { track.style.background = '#c0d8c0'; track.style.borderColor = '#0a8a4a'; }
-        } else {
-          body.classList.remove('light-mode');
-          if (knob) knob.style.transform = 'translateX(0)';
-          if (track) { track.style.background = '#1a4d2a'; track.style.borderColor = 'rgba(37,211,102,0.3)'; }
-        }
+    /* ===== MOBILE STICKY CTA ===== */
+    var mobileCta = document.getElementById('mobileCta');
+    function checkMobileCta() {
+      if (window.innerWidth <= 768 && window.scrollY > 400) {
+        mobileCta.style.display = 'block';
+      } else {
+        mobileCta.style.display = 'none';
       }
+    }
+    window.addEventListener('scroll', checkMobileCta);
+    window.addEventListener('resize', checkMobileCta);
 
-      applyTheme();
-
-      if (toggle) {
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          isLight = !isLight;
-          localStorage.setItem('realtor-theme', isLight ? 'light' : 'dark');
-          applyTheme();
+    /* ===== GA4 CTA CLICK TRACKING ===== */
+    document.querySelectorAll('.btn-primary').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        gtag('event', 'cta_click', {
+          icp_segment: 'realtors',
+          cta_location: btn.closest('#hero') ? 'hero' : btn.closest('.cta-box') ? 'bottom' : btn.closest('#mobileCta') ? 'mobile_sticky' : 'nav',
+          link_url: btn.href
         });
-      }
-    });
-
-    // CTA click tracking
-    document.querySelectorAll('a[href*="utm_source=realtors_lp"]').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (typeof gtag === 'function') {
-          gtag('event', 'cta_click', {
-            event_category: 'conversion',
-            event_label: 'realtors_whatsapp_cta',
-            icp_segment: 'realtors'
-          });
-        }
       });
     });
   </script>

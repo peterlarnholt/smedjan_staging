@@ -135,15 +135,15 @@
        CSS VARIABLES & RESET
     ============================================= */
     :root {
-      --color-bg: #0a1a0a;
-      --color-bg-alt: #0f240f;
-      --color-bg-card: #112211;
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
       --color-text: #e0e0e0;
       --color-text-muted: #9ca3af;
       --color-text-dim: #6b7280;
-      --color-accent: #25D366;
-      --color-accent-light: rgba(37,211,102,0.12);
-      --color-accent-dark: #1fb855;
+      --color-accent: #8b5cf6;
+      --color-accent-light: rgba(139,92,246,0.12);
+      --color-accent-dark: #7c3aed;
       --color-border: rgba(255,255,255,0.08);
       --color-border-light: rgba(255,255,255,0.05);
       --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -154,32 +154,32 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.25);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
       --transition: 0.2s ease;
       --transition-md: 0.35s ease;
     }
 
     /* Light mode */
     [data-theme="light"] {
-      --color-bg: #f8faf8;
-      --color-bg-alt: #eef3ee;
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
-      --color-text: #0a1a0a;
+      --color-text: #0a0a0a;
       --color-text-muted: #4b5563;
       --color-text-dim: #9ca3af;
-      --color-accent: #1a9e4a;
-      --color-accent-light: rgba(37,211,102,0.1);
-      --color-accent-dark: #148040;
+      --color-accent: #7c3aed;
+      --color-accent-light: rgba(139,92,246,0.1);
+      --color-accent-dark: #6d28d9;
       --color-border: rgba(0,0,0,0.1);
       --color-border-light: rgba(0,0,0,0.05);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
-      --shadow-green: 0 0 0 4px rgba(37,211,102,0.15), 0 8px 32px rgba(37,211,102,0.2);
+      --shadow-green: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.2);
     }
 
     [data-theme="light"] #nav.scrolled {
-      background: rgba(248,250,248,0.92);
+      background: rgba(248,248,252,0.92);
     }
 
     [data-theme="light"] .phone-mockup {
@@ -188,13 +188,13 @@
     }
 
     [data-theme="light"] .chat-bubble-user {
-      background: #dcf8c6;
-      color: #0a1a0a;
+      background: #e8e0ff;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .chat-bubble-bot {
       background: #f0f0f0;
-      color: #0a1a0a;
+      color: #0a0a0a;
     }
 
     [data-theme="light"] .pain-card {
@@ -297,7 +297,7 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.3);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       text-decoration: none;
     }
@@ -349,13 +349,13 @@
       height: 64px;
       display: flex;
       align-items: center;
-      background: rgba(10,26,10,0);
+      background: rgba(10,10,10,0);
       backdrop-filter: blur(0px);
       transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     }
 
     #nav.scrolled {
-      background: rgba(10,26,10,0.92);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 rgba(255,255,255,0.06);
     }
@@ -436,7 +436,7 @@
       transform: translateX(-50%);
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(37,211,102,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -459,7 +459,7 @@
       padding: 8px 16px;
       border-radius: 100px;
       margin-bottom: 28px;
-      border: 1px solid rgba(37,211,102,0.2);
+      border: 1px solid rgba(139,92,246,0.2);
     }
 
     .hero h1 {
@@ -610,7 +610,7 @@
     }
 
     .chat-bubble-bot {
-      background: #1a2e1a;
+      background: #1a1a1a;
       color: #e0e0e0;
       padding: 10px 14px;
       border-radius: 12px 12px 12px 4px;
@@ -699,7 +699,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(37,211,102,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -832,7 +832,7 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="https://handled.sh" class="nav-brand">
-        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M10 16.5L14 20.5L22 12.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#8b5cf6"/><path d="M10 16.5L14 20.5L22 12.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Handled
       </a>
       <div class="nav-right">

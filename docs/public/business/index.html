@@ -137,17 +137,17 @@
        CSS VARIABLES & RESET
     ============================================= */
     :root {
-      --color-bg: #0a1a0a;
-      --color-bg-alt: #0d2a15;
-      --color-bg-card: #111a11;
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
       --color-text: #e0e0e0;
       --color-text-muted: #a0a0a0;
       --color-text-dim: #707070;
-      --color-accent: #25D366;
-      --color-accent-dark: #1fad54;
-      --color-accent-glow: rgba(37, 211, 102, 0.3);
-      --color-border: rgba(37, 211, 102, 0.15);
-      --color-border-hover: rgba(37, 211, 102, 0.4);
+      --color-accent: #8b5cf6;
+      --color-accent-dark: #7c3aed;
+      --color-accent-glow: rgba(139, 92, 246, 0.3);
+      --color-border: rgba(139, 92, 246, 0.15);
+      --color-border-hover: rgba(139, 92, 246, 0.4);
       --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius-sm: 8px;
       --radius-md: 12px;
@@ -163,17 +163,17 @@
 
     /* Light mode overrides */
     body.light-mode {
-      --color-bg: #f5f7f5;
-      --color-bg-alt: #e8f0e8;
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
       --color-bg-card: #ffffff;
-      --color-text: #0a1a0a;
-      --color-text-muted: #5a6a5a;
-      --color-text-dim: #7a8a7a;
-      --color-accent: #0a8a4a;
-      --color-accent-dark: #087a40;
-      --color-accent-glow: rgba(10, 138, 74, 0.2);
-      --color-border: rgba(10, 138, 74, 0.15);
-      --color-border-hover: rgba(10, 138, 74, 0.4);
+      --color-text: #0a0a0a;
+      --color-text-muted: #4b5563;
+      --color-text-dim: #707070;
+      --color-accent: #7c3aed;
+      --color-accent-dark: #6d28d9;
+      --color-accent-glow: rgba(139, 92, 246, 0.2);
+      --color-border: rgba(139, 92, 246, 0.15);
+      --color-border-hover: rgba(139, 92, 246, 0.4);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
@@ -265,8 +265,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #25D366;
-      color: #0a1a0a;
+      background: #8b5cf6;
+      color: #0a0a0a;
       font-family: var(--font);
       font-size: 15px;
       font-weight: 700;
@@ -274,15 +274,15 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 0 0 0 rgba(37,211,102,0.4), 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 0 0 0 rgba(139,92,246,0.4), 0 4px 16px rgba(139,92,246,0.3);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       text-decoration: none;
     }
 
     .btn-primary:hover {
-      background: #1fad54;
+      background: #7c3aed;
       transform: translateY(-2px);
-      box-shadow: 0 0 0 6px rgba(37,211,102,0.15), 0 8px 28px rgba(37,211,102,0.4);
+      box-shadow: 0 0 0 6px rgba(139,92,246,0.15), 0 8px 28px rgba(139,92,246,0.4);
     }
 
     .btn-primary:active {
@@ -307,9 +307,9 @@
     }
 
     .btn-outline:hover {
-      background: rgba(37,211,102,0.1);
+      background: rgba(139,92,246,0.1);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(37,211,102,0.2);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.2);
     }
 
     /* =============================================
@@ -343,14 +343,14 @@
       height: 60px;
       display: flex;
       align-items: center;
-      background: rgba(10,26,10,0.85);
+      background: rgba(10,10,10,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--color-border);
       transition: background 0.3s ease;
     }
 
     body.light-mode #nav {
-      background: rgba(245,247,245,0.92);
+      background: rgba(248,248,252,0.92);
     }
 
     .nav-inner {
@@ -398,8 +398,8 @@
       width: 40px;
       height: 22px;
       border-radius: 11px;
-      background: #1a4d2a;
-      border: 1px solid rgba(37,211,102,0.3);
+      background: #1a1a1a;
+      border: 1px solid rgba(139,92,246,0.3);
       position: relative;
       transition: background 0.3s, border-color 0.3s;
     }
@@ -408,7 +408,7 @@
       width: 18px;
       height: 18px;
       border-radius: 9px;
-      background: #25D366;
+      background: #8b5cf6;
       position: absolute;
       top: 1px;
       left: 1px;
@@ -508,7 +508,7 @@
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: rgba(37,211,102,0.1);
+      background: rgba(139,92,246,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -517,7 +517,7 @@
     }
 
     body.light-mode .pain-icon {
-      background: rgba(10,138,74,0.1);
+      background: rgba(139,92,246,0.1);
     }
 
     .pain-card h3 {
@@ -589,13 +589,13 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #25D366;
+      background: #8b5cf6;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 14px;
       font-weight: 700;
-      color: #0a1a0a;
+      color: #0a0a0a;
     }
 
     .phone-name {
@@ -712,7 +712,7 @@
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: rgba(37,211,102,0.1);
+      background: rgba(139,92,246,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -721,7 +721,7 @@
     }
 
     body.light-mode .usecase-icon {
-      background: rgba(10,138,74,0.1);
+      background: rgba(139,92,246,0.1);
     }
 
     .usecase-card h3 {
@@ -883,8 +883,8 @@
        CTA GLOW ANIMATION
     ============================================= */
     @keyframes ctaGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(37,211,102,0.3); }
-      50% { box-shadow: 0 0 40px rgba(37,211,102,0.6); }
+      0%, 100% { box-shadow: 0 0 20px rgba(139,92,246,0.3); }
+      50% { box-shadow: 0 0 40px rgba(139,92,246,0.6); }
     }
 
     .btn-glow {
@@ -919,8 +919,8 @@
     <div class="nav-inner">
       <a href="https://handled.sh/" class="nav-brand">
         <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="14" r="14" fill="#25D366"/>
-          <path d="M9 14.5L12.5 18L19 11" stroke="#0a1a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="14" r="14" fill="#8b5cf6"/>
+          <path d="M9 14.5L12.5 18L19 11" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         handled.sh
       </a>
@@ -1125,15 +1125,15 @@
         document.body.classList.add('light-mode');
         knob.style.transform = 'translateX(18px)';
         track.style.background = '#c8e6c9';
-        track.style.borderColor = 'rgba(10,138,74,0.3)';
+        track.style.borderColor = 'rgba(139,92,246,0.3)';
         localStorage.setItem('theme', 'light');
       }
 
       function setDark() {
         document.body.classList.remove('light-mode');
         knob.style.transform = 'translateX(0)';
-        track.style.background = '#1a4d2a';
-        track.style.borderColor = 'rgba(37,211,102,0.3)';
+        track.style.background = '#1a1a1a';
+        track.style.borderColor = 'rgba(139,92,246,0.3)';
         localStorage.setItem('theme', 'dark');
       }
 
