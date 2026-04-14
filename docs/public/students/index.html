@@ -1021,6 +1021,13 @@
     .nav-menu a:hover { color: #8b5cf6 !important; }
     @media (max-width: 768px) {
       .nav-menu { display: none !important; }
+      a[href*="app.handled.sh/login"] { display: none !important; }
+      .nav-cta-desktop, .btn-primary.nav-cta, .btn-primary.btn-breathe.btn-sm { 
+        display: inline-flex !important;
+        font-size: 11px !important; 
+        padding: 6px 12px !important; 
+      }
+      .nav-cta-desktop svg, .btn-primary.nav-cta svg, .btn-primary.btn-breathe.btn-sm svg { display: none !important; }
     }
   </style>
 </head>
