@@ -105,6 +105,37 @@
   .btn:hover { background: var(--cyan); color: var(--bg); }
   .btn.danger { color: var(--cap); border-color: var(--border); }
   .btn.danger:hover { background: var(--border); color: var(--white); }
+  /* Comment field */
+  .comment-toggle { font-size: 11px; color: var(--cyan); cursor: pointer; margin-top: 8px; display: inline-block; }
+  .comment-toggle:hover { text-decoration: underline; }
+  .comment-toggle.has-content::after { content: " ●"; color: var(--cyan); }
+  .comment-box { margin-top: 8px; display: none; }
+  .comment-box.open { display: block; }
+  .comment-box textarea { width: 100%; min-height: 60px; background: rgba(0,0,0,0.25); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 8px 10px; font: 12px/1.5 'Inter'; resize: vertical; outline: none; }
+  .comment-box textarea:focus { border-color: var(--cyan); }
+  .comment-box .hint { font-size: 10px; color: var(--cap); margin-top: 4px; }
+  /* Modal */
+  .modal-bg { position: fixed; inset: 0; background: rgba(10,14,23,0.92); z-index: 200; display: none; align-items: flex-start; justify-content: center; padding: 32px 16px; overflow-y: auto; }
+  .modal-bg.open { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 12px; max-width: 920px; width: 100%; padding: 28px 32px 24px; position: relative; }
+  .modal::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--cyan); border-radius: 12px 12px 0 0; }
+  .modal-close { position: absolute; top: 14px; right: 18px; background: transparent; border: none; color: var(--cap); font-size: 24px; cursor: pointer; line-height: 1; }
+  .modal-close:hover { color: var(--white); }
+  .modal h2 { color: var(--white); font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .modal h3 { color: var(--cyan); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; margin: 22px 0 10px; }
+  .plan-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0 8px; padding: 14px 16px; background: rgba(0,180,216,0.06); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px; }
+  .plan-meta-item .lbl { font-size: 9px; color: var(--cap); text-transform: uppercase; letter-spacing: 0.1em; }
+  .plan-meta-item .val { color: var(--white); font-weight: 600; font-size: 16px; margin-top: 2px; }
+  .plan-week { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-left: 2px solid var(--cyan); border-radius: 6px; padding: 12px 14px; margin-bottom: 8px; }
+  .plan-week-title { color: var(--white); font-size: 12px; font-weight: 600; display: flex; justify-content: space-between; }
+  .plan-week-title .hours { color: var(--cap); font-weight: 400; font-size: 11px; }
+  .plan-week ul { list-style: none; margin-top: 8px; }
+  .plan-week li { font-size: 11px; color: var(--text); padding: 3px 0; line-height: 1.5; }
+  .plan-week .topic-tag { display: inline-block; font-size: 9px; padding: 1px 6px; border-radius: 3px; margin-right: 6px; font-weight: 600; }
+  .plan-week .topic-tag.red { background: rgba(239,68,68,0.18); color: var(--red); }
+  .plan-week .topic-tag.yellow { background: rgba(251,191,36,0.18); color: var(--yellow); }
+  .plan-week .topic-tag.green { background: rgba(34,197,94,0.18); color: var(--green); }
+  .plan-empty { padding: 32px; text-align: center; color: var(--cap); font-size: 13px; }
   /* Footer */
   footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 10px; color: var(--cap); }
   footer a { color: var(--cyan); text-decoration: none; }
@@ -191,6 +222,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> reconfirm blitz scope; clarify whether reserve $15K is committed to Santra rebuild line or remains channel-flexible.</div>
+      <span class="comment-toggle" data-target="cm-h1">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-h1"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="HANDLED" data-id="h2">
@@ -216,6 +249,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> lock targets above; assign owner per metric.</div>
+      <span class="comment-toggle" data-target="cm-h2">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-h2"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="HANDLED" data-id="h3">
@@ -235,6 +270,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> one final follow-up this week, then mark closed if no response.</div>
+      <span class="comment-toggle" data-target="cm-h3">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-h3"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="HANDLED" data-id="h4">
@@ -255,6 +292,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> close #175 as resolved; open new line on commercial scope (white-label? services? affiliate?).</div>
+      <span class="comment-toggle" data-target="cm-h4">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-h4"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="HANDLED" data-id="h5">
@@ -275,6 +314,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> confirm Q3 prospecting list; identify 3 next-customer candidates.</div>
+      <span class="comment-toggle" data-target="cm-h5">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-h5"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
   </div>
@@ -303,6 +344,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> if Phase 3 demo not yet run, schedule by 16 May; lock Phase 4 firm shortlist.</div>
+      <span class="comment-toggle" data-target="cm-a1">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-a1"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ANYCAST" data-id="a2">
@@ -324,6 +367,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> draft Anycast Entrepren&ouml;r pricing v1 from Hasse&apos;s usage data this week; soft-launch tier by 1 June.</div>
+      <span class="comment-toggle" data-target="cm-a2">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-a2"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ANYCAST" data-id="a3">
@@ -345,6 +390,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> Beidos check-in this week to confirm setup status and clarify go-forward scope.</div>
+      <span class="comment-toggle" data-target="cm-a3">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-a3"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ANYCAST" data-id="a4">
@@ -367,6 +414,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> lock signature week of 12 May; align on Y1 customer-pipeline (5 paying needed by 31 Dec 2026).</div>
+      <span class="comment-toggle" data-target="cm-a4">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-a4"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ANYCAST" data-id="a5">
@@ -387,6 +436,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> hold; revisit when Hasse pilot data shapes Entrepren&ouml;r tier landing page.</div>
+      <span class="comment-toggle" data-target="cm-a5">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-a5"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
   </div>
@@ -417,6 +468,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> confirm Manufacturing (external OpCo) milestones; flag if Sport needs LatAm operating attention.</div>
+      <span class="comment-toggle" data-target="cm-al1">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-al1"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ALLTING" data-id="al2">
@@ -439,6 +492,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> set kickoff date; confirm whether HSA-Santra Stage 1 close (Sep 2026) anchors the Series A pitch deck v2.</div>
+      <span class="comment-toggle" data-target="cm-al2">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-al2"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
     <div class="topic" data-block="ALLTING" data-id="al3">
@@ -459,6 +514,8 @@
         </div>
       </div>
       <div class="action"><b>Recommended:</b> reconfirm low-prio; revisit at next quarterly sync.</div>
+      <span class="comment-toggle" data-target="cm-al3">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-al3"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
     </div>
 
   </div>
@@ -471,8 +528,22 @@
   </div>
 
   <div class="btn-row">
+    <button class="btn" id="plan-btn" style="background: var(--cyan); color: var(--bg); font-weight: 600;">Generate 90-day execution plan</button>
     <button class="btn" id="export-btn">Copy markdown summary</button>
     <button class="btn danger" id="reset-btn">Reset workshop state</button>
+  </div>
+
+  <!-- ============== EXECUTION PLAN MODAL ============== -->
+  <div class="modal-bg" id="plan-modal">
+    <div class="modal">
+      <button class="modal-close" id="plan-close">&times;</button>
+      <h2>Prospect Execution Plan &mdash; 90 Days</h2>
+      <div style="font-size: 12px; color: var(--cap);">Weekly breakdown across the topics you scored. 100h/week workforce assumption.</div>
+      <div id="plan-content"></div>
+      <div class="btn-row" style="margin-top: 18px;">
+        <button class="btn" id="plan-export-btn" style="background: var(--cyan); color: var(--bg); font-weight: 600;">Copy plan as markdown</button>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -572,6 +643,23 @@
         save();
         renderLog();
       });
+
+      // Comment field
+      const toggle = card.querySelector(".comment-toggle");
+      if (toggle) {
+        const target = document.getElementById(toggle.dataset.target);
+        const ta = target.querySelector("textarea");
+        if (saved.comment) {
+          ta.value = saved.comment;
+          toggle.classList.add("has-content");
+        }
+        toggle.addEventListener("click", () => target.classList.toggle("open"));
+        ta.addEventListener("input", () => {
+          if (ta.value.trim()) toggle.classList.add("has-content");
+          else toggle.classList.remove("has-content");
+          save();
+        });
+      }
     });
 
     // Wire sliders
@@ -591,10 +679,13 @@
       const s = {};
       document.querySelectorAll(".topic").forEach(card => {
         const k = card.dataset.block + ":" + card.dataset.id;
+        const toggle = card.querySelector(".comment-toggle");
+        const ta = toggle ? document.getElementById(toggle.dataset.target).querySelector("textarea") : null;
         s[k] = {
           score: card.dataset.score || null,
           discussed: card.querySelector(".check").classList.contains("checked"),
-          title: card.querySelector("h3").innerText.split(" ")[0]
+          title: card.querySelector("h3").innerText.split(" ")[0],
+          comment: ta ? ta.value : ""
         };
       });
       ["t-30","t-60","t-90"].forEach(id => { s[id] = document.getElementById(id).value; });
@@ -632,36 +723,181 @@
 
     renderLog();
 
+    // Helper: collect scored/commented topics
+    function collectTopics() {
+      const out = [];
+      document.querySelectorAll(".topic").forEach(card => {
+        const score = card.dataset.score;
+        const discussed = card.querySelector(".check").classList.contains("checked");
+        const toggle = card.querySelector(".comment-toggle");
+        const ta = toggle ? document.getElementById(toggle.dataset.target).querySelector("textarea") : null;
+        const comment = ta ? ta.value.trim() : "";
+        const title = card.querySelector("h3").childNodes[0].textContent.trim();
+        const action = card.querySelector(".action") ? card.querySelector(".action").innerText.replace(/^Recommended:\s*/i, "").trim() : "";
+        if (score || discussed || comment) {
+          out.push({
+            block: card.dataset.block,
+            id: card.dataset.id,
+            title: title,
+            score: score || null,
+            discussed: discussed,
+            comment: comment,
+            action: action
+          });
+        }
+      });
+      return out;
+    }
+
     // Export markdown
     document.getElementById("export-btn").addEventListener("click", () => {
       const lines = ["# Smedjan Sync — Workshop Decisions", "", "Generated: " + new Date().toISOString().slice(0,16).replace("T"," "), ""];
+      const topics = collectTopics();
       ["HANDLED","ANYCAST","ALLTING"].forEach(block => {
-        const cards = document.querySelectorAll(`.topic[data-block="${block}"]`);
-        let blockOut = [];
-        cards.forEach(card => {
-          const score = card.dataset.score;
-          const discussed = card.querySelector(".check").classList.contains("checked");
-          if (score || discussed) {
-            const title = card.querySelector("h3").childNodes[0].textContent.trim();
-            blockOut.push(`- ${score ? `[${score.toUpperCase()}]` : "[—]"} ${title}${discussed ? " · ✓ discussed" : ""}`);
-          }
-        });
-        if (blockOut.length) {
+        const blockTopics = topics.filter(t => t.block === block);
+        if (blockTopics.length) {
           lines.push(`## ${block}`, "");
-          lines.push(...blockOut, "");
+          blockTopics.forEach(t => {
+            lines.push(`- ${t.score ? `[${t.score.toUpperCase()}]` : "[—]"} ${t.title}${t.discussed ? " · ✓ discussed" : ""}`);
+            if (t.comment) lines.push(`  - Comment: ${t.comment}`);
+          });
+          lines.push("");
         }
       });
-      // Targets
       const t30 = document.getElementById("t-30").value;
       const t60 = document.getElementById("t-60").value;
       const t90 = document.getElementById("t-90").value;
       lines.push("## KPI targets set", "", `- 30-day signups: ${t30}`, `- 60-day MAU: ${t60}`, `- 90-day Pro: ${t90}`, "");
-      const md = lines.join("\n");
-      navigator.clipboard.writeText(md).then(() => {
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
         const btn = document.getElementById("export-btn");
         btn.textContent = "Copied to clipboard";
         setTimeout(() => { btn.textContent = "Copy markdown summary"; }, 1800);
       });
+    });
+
+    // ============== PROSPECT EXECUTION PLAN ==============
+    // 90 days = ~13 weeks; 100h/week budget
+    function generatePlan() {
+      const topics = collectTopics();
+      const scored = topics.filter(t => t.score);
+      if (scored.length === 0) {
+        return { empty: true };
+      }
+      const TOTAL_WEEKS = 13;
+      const HOURS_PER_WEEK = 100;
+      // Weight by score: red urgent (heavy front), yellow steady, green light steady
+      const weights = { red: 3, yellow: 2, green: 1 };
+      // For each topic, build a weekly hour curve
+      const topicPlans = scored.map(t => {
+        const w = weights[t.score];
+        // Distribution shape per score
+        let curve = new Array(TOTAL_WEEKS).fill(0);
+        if (t.score === "red") {
+          // Heavy weeks 1-4, taper
+          for (let i = 0; i < TOTAL_WEEKS; i++) {
+            curve[i] = Math.max(2, Math.round(14 * Math.exp(-i / 4)));
+          }
+        } else if (t.score === "yellow") {
+          // Steady weeks 1-8, taper after
+          for (let i = 0; i < TOTAL_WEEKS; i++) {
+            curve[i] = i < 8 ? 8 : 4;
+          }
+        } else {
+          // Green: light steady
+          for (let i = 0; i < TOTAL_WEEKS; i++) {
+            curve[i] = 4;
+          }
+        }
+        return { ...t, curve };
+      });
+      // Normalize so total ≤ 100h/week
+      const weeks = [];
+      for (let i = 0; i < TOTAL_WEEKS; i++) {
+        const total = topicPlans.reduce((s, tp) => s + tp.curve[i], 0);
+        const factor = total > HOURS_PER_WEEK ? HOURS_PER_WEEK / total : 1;
+        const items = topicPlans
+          .filter(tp => tp.curve[i] > 0)
+          .map(tp => ({ ...tp, hours: Math.round(tp.curve[i] * factor) }))
+          .filter(x => x.hours > 0)
+          .sort((a, b) => b.hours - a.hours);
+        const usedHours = items.reduce((s, x) => s + x.hours, 0);
+        weeks.push({ week: i + 1, items, usedHours, reserve: HOURS_PER_WEEK - usedHours });
+      }
+      return { empty: false, weeks, totals: {
+        topics: scored.length,
+        red: scored.filter(t => t.score === "red").length,
+        yellow: scored.filter(t => t.score === "yellow").length,
+        green: scored.filter(t => t.score === "green").length
+      } };
+    }
+
+    function renderPlan() {
+      const plan = generatePlan();
+      const content = document.getElementById("plan-content");
+      if (plan.empty) {
+        content.innerHTML = '<div class="plan-empty">Score at least one topic above (red / yellow / green) before generating the plan. The execution plan is built from your prioritised topics.</div>';
+        return;
+      }
+      const totalHours = plan.weeks.reduce((s, w) => s + w.usedHours, 0);
+      let html = `
+        <div class="plan-meta">
+          <div class="plan-meta-item"><div class="lbl">Scored topics</div><div class="val">${plan.totals.topics}</div></div>
+          <div class="plan-meta-item"><div class="lbl">Mix (R / Y / G)</div><div class="val" style="font-size:13px;">${plan.totals.red} / ${plan.totals.yellow} / ${plan.totals.green}</div></div>
+          <div class="plan-meta-item"><div class="lbl">Total team-hours</div><div class="val">${totalHours.toLocaleString()}</div></div>
+          <div class="plan-meta-item"><div class="lbl">Horizon</div><div class="val">13 weeks</div></div>
+        </div>
+        <h3>Weekly breakdown</h3>
+      `;
+      plan.weeks.forEach(w => {
+        const date = new Date();
+        date.setDate(date.getDate() + (w.week - 1) * 7);
+        const weekLabel = date.toISOString().slice(0,10);
+        html += `
+          <div class="plan-week">
+            <div class="plan-week-title"><span>Week ${w.week} · w/c ${weekLabel}</span><span class="hours">${w.usedHours}h scheduled · ${w.reserve}h reserve</span></div>
+            <ul>
+              ${w.items.map(it => `<li><span class="topic-tag ${it.score}">${it.score.toUpperCase()}</span><b>${it.title}</b> &mdash; ${it.action}${it.comment ? ` <i style="color:var(--cap);">[note: ${it.comment}]</i>` : ""} <span style="color:var(--cap);">(${it.hours}h)</span></li>`).join("")}
+            </ul>
+          </div>
+        `;
+      });
+      content.innerHTML = html;
+    }
+
+    document.getElementById("plan-btn").addEventListener("click", () => {
+      renderPlan();
+      document.getElementById("plan-modal").classList.add("open");
+    });
+    document.getElementById("plan-close").addEventListener("click", () => {
+      document.getElementById("plan-modal").classList.remove("open");
+    });
+    document.getElementById("plan-modal").addEventListener("click", (e) => {
+      if (e.target.id === "plan-modal") document.getElementById("plan-modal").classList.remove("open");
+    });
+    document.getElementById("plan-export-btn").addEventListener("click", () => {
+      const plan = generatePlan();
+      if (plan.empty) return;
+      const lines = ["# Prospect Execution Plan — 90 days", "", "Generated: " + new Date().toISOString().slice(0,16).replace("T"," "), "", `Workforce assumption: 100h/week × 13 weeks = 1,300h total budget.`, "", `Scored topics: ${plan.totals.topics} (${plan.totals.red} red / ${plan.totals.yellow} yellow / ${plan.totals.green} green)`, ""];
+      plan.weeks.forEach(w => {
+        const date = new Date();
+        date.setDate(date.getDate() + (w.week - 1) * 7);
+        const weekLabel = date.toISOString().slice(0,10);
+        lines.push(`## Week ${w.week} · w/c ${weekLabel} — ${w.usedHours}h scheduled, ${w.reserve}h reserve`, "");
+        w.items.forEach(it => {
+          lines.push(`- **[${it.score.toUpperCase()}] ${it.title}** (${it.hours}h) — ${it.action}`);
+          if (it.comment) lines.push(`  - Note: ${it.comment}`);
+        });
+        lines.push("");
+      });
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        const btn = document.getElementById("plan-export-btn");
+        btn.textContent = "Copied to clipboard";
+        setTimeout(() => { btn.textContent = "Copy plan as markdown"; }, 1800);
+      });
+    });
+    // close modal on Escape
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") document.getElementById("plan-modal").classList.remove("open");
     });
 
     // Reset
