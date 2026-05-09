@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Smedjan Sync — Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E17;
+    --card: #141C30;
+    --border: #1E2A45;
+    --cyan: #00B4D8;
+    --cyan-dim: #006c83;
+    --white: #FFFFFF;
+    --text: #C8D0E0;
+    --cap: #8892A4;
+    --dark: #3A4560;
+    --red: #EF4444;
+    --orange: #FB923C;
+    --yellow: #FBBF24;
+    --green: #22C55E;
+    --purple: #A855F7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body { padding: 0; }
+  body::before { content: ""; position: fixed; top: 0; left: 0; right: 0; height: 4px; background: var(--cyan); z-index: 1000; }
+  .gate { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .gate-inner { text-align: center; padding: 32px; }
+  .gate input { background: var(--card); border: 1px solid var(--border); color: var(--white); font: 16px/1 'Inter'; padding: 12px 16px; border-radius: 8px; width: 240px; margin-right: 8px; }
+  .gate button { background: var(--cyan); color: var(--bg); border: none; padding: 12px 18px; border-radius: 8px; font: 600 14px 'Inter'; cursor: pointer; }
+  .gate-msg { color: var(--cap); font-size: 12px; margin-top: 16px; min-height: 16px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 24px 80px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .logo { font-weight: 700; font-size: 16px; color: var(--white); letter-spacing: -0.01em; }
+  .logo .ai { color: var(--cyan); }
+  .logo .sub { display: block; font-size: 9px; font-weight: 400; color: var(--cap); margin-top: 2px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .doc-meta { text-align: right; font-size: 11px; color: var(--cap); }
+  .doc-meta strong { color: var(--cyan); display: block; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; }
+  h1 { color: var(--white); font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; margin: 32px 0 8px; font-weight: 700; }
+  h1 + p.lede { color: var(--cap); font-size: 14px; margin-bottom: 24px; }
+  h2.section-label { color: var(--cyan); text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; font-weight: 600; margin: 36px 0 8px; }
+  h2.block-title { color: var(--white); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 6px 0 18px; }
+  h3 { color: var(--white); font-size: 14px; font-weight: 600; margin: 0 0 6px; }
+  h4 { color: var(--cap); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 10px; }
+  /* KPI grid */
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .kpi-label { font-size: 10px; color: var(--cap); text-transform: uppercase; letter-spacing: 0.12em; }
+  .kpi-value { color: var(--white); font-size: 22px; font-weight: 700; margin: 4px 0; }
+  .kpi-sub { font-size: 11px; color: var(--cap); }
+  .kpi-accent { width: 36px; height: 3px; background: var(--cyan); border-radius: 2px; margin-bottom: 12px; }
+  /* Topic cards */
+  .topics { display: flex; flex-direction: column; gap: 10px; }
+  .topic { background: var(--card); border: 1px solid var(--border); border-left: 3px solid transparent; border-radius: 12px; padding: 16px 18px; transition: all 0.2s; }
+  .topic.discussed { opacity: 0.55; }
+  .topic.discussed h3 { text-decoration: line-through; }
+  .topic[data-score="red"]    { border-left-color: var(--red); }
+  .topic[data-score="yellow"] { border-left-color: var(--yellow); }
+  .topic[data-score="green"]  { border-left-color: var(--green); }
+  .topic-row { display: flex; gap: 16px; align-items: flex-start; }
+  .topic-main { flex: 1; }
+  .topic-meta { font-size: 11px; color: var(--cap); margin-top: 6px; line-height: 1.6; }
+  .topic-meta b { color: var(--text); font-weight: 500; }
+  .ctrl { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; background: transparent; border: 1.5px solid var(--dark); cursor: pointer; transition: all 0.15s; }
+  .dot:hover { transform: scale(1.1); }
+  .dot.red    { background: var(--red); border-color: var(--red); }
+  .dot.yellow { background: var(--yellow); border-color: var(--yellow); }
+  .dot.green  { background: var(--green); border-color: var(--green); }
+  .dot.inactive { opacity: 0.25; }
+  .check { width: 22px; height: 22px; background: transparent; border: 1.5px solid var(--dark); border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--cyan); font-weight: 700; }
+  .check.checked { background: var(--cyan); border-color: var(--cyan); color: var(--bg); }
+  .action { background: rgba(0,180,216,0.06); border: 1px solid rgba(0,180,216,0.18); border-radius: 8px; padding: 10px 12px; margin-top: 10px; font-size: 12px; color: var(--text); }
+  .action b { color: var(--cyan); font-weight: 600; }
+  /* Sliders */
+  .slider-row { display: grid; grid-template-columns: 80px 1fr 60px; gap: 12px; align-items: center; padding: 6px 0; font-size: 12px; }
+  .slider-row label { color: var(--cap); }
+  input[type=range] { width: 100%; -webkit-appearance: none; height: 4px; background: var(--border); border-radius: 2px; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); cursor: pointer; border: none; }
+  .slider-val { color: var(--white); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+  /* Pilot countdown */
+  .countdown { display: inline-flex; align-items: baseline; gap: 6px; font-variant-numeric: tabular-nums; padding: 4px 10px; border-radius: 6px; background: rgba(0,180,216,0.08); border: 1px solid rgba(0,180,216,0.2); margin-left: 8px; }
+  .countdown b { color: var(--cyan); font-size: 13px; font-weight: 600; }
+  .countdown span { font-size: 10px; color: var(--cap); text-transform: uppercase; letter-spacing: 0.08em; }
+  /* Decision log */
+  .log { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; min-height: 100px; }
+  .log-empty { color: var(--cap); font-style: italic; font-size: 12px; }
+  .log-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px; display: flex; gap: 10px; align-items: baseline; }
+  .log-item:last-child { border-bottom: none; }
+  .log-block { color: var(--cyan); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; min-width: 70px; }
+  .log-text { flex: 1; }
+  .log-score { font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+  .log-score.red    { background: rgba(239,68,68,0.15); color: var(--red); }
+  .log-score.yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .log-score.green  { background: rgba(34,197,94,0.15); color: var(--green); }
+  /* Buttons */
+  .btn-row { display: flex; gap: 8px; margin-top: 16px; }
+  .btn { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); padding: 8px 14px; border-radius: 6px; font: 500 12px 'Inter'; cursor: pointer; transition: all 0.15s; }
+  .btn:hover { background: var(--cyan); color: var(--bg); }
+  .btn.danger { color: var(--cap); border-color: var(--border); }
+  .btn.danger:hover { background: var(--border); color: var(--white); }
+  /* Footer */
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 10px; color: var(--cap); }
+  footer a { color: var(--cyan); text-decoration: none; }
+  /* Half-row layouts */
+  .half-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  @media (max-width: 720px) {
+    .kpis { grid-template-columns: 1fr; }
+    .half-row { grid-template-columns: 1fr; }
+    .topic-row { flex-direction: column; }
+    .ctrl { flex-direction: row; align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== ENTRY GATE ============== -->
+<div id="gate" class="gate" style="display:none;">
+  <div class="gate-inner">
+    <div class="logo" style="font-size: 24px; margin-bottom: 24px;">ExCom<span class="ai">.ai</span><span class="sub">Internal · Workshop</span></div>
+    <input id="gate-input" type="password" placeholder="Access key" autofocus>
+    <button id="gate-btn">Enter</button>
+    <div id="gate-msg" class="gate-msg"></div>
+  </div>
+</div>
+
+<!-- ============== MAIN ============== -->
+<div class="wrap" id="main" style="display:none;">
+
+  <header class="top">
+    <div class="logo">ExCom<span class="ai">.ai</span><span class="sub">powered by anycast</span></div>
+    <div class="doc-meta">
+      <strong>Smedjan Sync · Workshop</strong>
+      <span id="today-date">Internal · Confidential</span>
+    </div>
+  </header>
+
+  <h1>Smedjan Sync &mdash; Workshop Agenda</h1>
+  <p class="lede">Three-track sync: Handled &middot; AnyCast &middot; Allting. Score, check off, log decisions, export.</p>
+
+  <!-- Quick Stats Dashboard -->
+  <h2 class="section-label">Live Snapshot</h2>
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-accent"></div>
+      <div class="kpi-label">Handled</div>
+      <div class="kpi-value">286</div>
+      <div class="kpi-sub">total users · 124 MAU · 15 paying · 7.1% trial&rarr;paid</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-accent" style="background: var(--purple);"></div>
+      <div class="kpi-label">Allting</div>
+      <div class="kpi-value">41,500+</div>
+      <div class="kpi-sub">platform users · 4 OpCos live · ~$1M ARR</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-accent" style="background: var(--green);"></div>
+      <div class="kpi-label">Anycast</div>
+      <div class="kpi-value">5 / 5</div>
+      <div class="kpi-sub">industries &times; solutions · 2 active pilots (Hasse, Dolfin)</div>
+    </div>
+  </div>
+
+  <!-- ============== BLOCK 1 — HANDLED ============== -->
+  <h2 class="section-label">Block 1 &middot; 45 min</h2>
+  <h2 class="block-title">Handled</h2>
+
+  <div class="topics" id="topics-handled">
+
+    <div class="topic" data-block="HANDLED" data-id="h1">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Marketing &mdash; campaign state</h3>
+          <div class="topic-meta">
+            Email crons live (6 batches/day across timezones). Handled blitz marketing campaign in flight.
+            Budget envelope absorbing the USD 15K Santra rebuild.
+            <br><b>Decision needed:</b> reaffirm or redirect blitz campaign focus.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> reconfirm blitz scope; clarify whether reserve $15K is committed to Santra rebuild line or remains channel-flexible.</div>
+    </div>
+
+    <div class="topic" data-block="HANDLED" data-id="h2">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>KPIs &mdash; what to expect</h3>
+          <div class="topic-meta">
+            6-month plan: 5K signups &middot; 500 Pro &middot; <USD 2 CPA. Email/agentic primary engine ($1.21 CPA).
+            Reserve $15K deployed Month 3 into winning channel.
+            <br><b>Decision needed:</b> set 30 / 60 / 90-day targets.
+          </div>
+          <div style="margin-top: 14px;">
+            <div class="slider-row"><label>30-day signups</label><input type="range" id="t-30" min="0" max="500" step="10" value="100"><span class="slider-val" id="t-30-v">100</span></div>
+            <div class="slider-row"><label>60-day MAU</label><input type="range" id="t-60" min="0" max="600" step="10" value="200"><span class="slider-val" id="t-60-v">200</span></div>
+            <div class="slider-row"><label>90-day Pro</label><input type="range" id="t-90" min="0" max="200" step="1" value="50"><span class="slider-val" id="t-90-v">50</span></div>
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> lock targets above; assign owner per metric.</div>
+    </div>
+
+    <div class="topic" data-block="HANDLED" data-id="h3">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>KJ Marketing</h3>
+          <div class="topic-meta">
+            Backlog #174 (KJ Marketing &mdash; awaiting reply). Open since 23 April &mdash; ~17 days no response.
+            <br><b>Decision needed:</b> escalate / walk away / new contact path.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> one final follow-up this week, then mark closed if no response.</div>
+    </div>
+
+    <div class="topic" data-block="HANDLED" data-id="h4">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Soluci&oacute;n</h3>
+          <div class="topic-meta">
+            Backlog #175 (share access &mdash; was blocked by Nakama).
+            <b>Status genuinely changed:</b> Soluci&oacute;n / Infinity Global Ventures signed up as Handled user 5 May 22:21.
+            <br><b>Decision needed:</b> what does &quot;share access&quot; mean now they&apos;re a user; commercial relationship next?
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> close #175 as resolved; open new line on commercial scope (white-label? services? affiliate?).</div>
+    </div>
+
+    <div class="topic" data-block="HANDLED" data-id="h5">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Handled Marketplace (MP) &mdash; timeplan</h3>
+          <div class="topic-meta">
+            Productisation 100% per Peter; Santra is flagship deployment.
+            Rebuild 10&ndash;12 wks post-Stage-1 close. Managed-service tier framing locked.
+            <br><b>Decision needed:</b> reaffirm timeplan; decide if a non-Santra second customer gets pitched in Q3.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> confirm Q3 prospecting list; identify 3 next-customer candidates.</div>
+    </div>
+
+  </div>
+
+  <!-- ============== BLOCK 2 — ANYCAST ============== -->
+  <h2 class="section-label">Block 2 &middot; 35 min</h2>
+  <h2 class="block-title">AnyCast</h2>
+
+  <div class="topics" id="topics-anycast">
+
+    <div class="topic" data-block="ANYCAST" data-id="a1">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Kontralaw</h3>
+          <div class="topic-meta">
+            NDA-LOI signed 28 April 2026. Phase 3 (demo) + Phase 4 (testing 2&ndash;3 firms).
+            6-month exclusivity in Sweden. Contact: Fadi Al-Aieshy (Solnav&auml;gen 13G, Solna).
+            <br><b>Decision needed:</b> Phase 3 status (demo session held?); Phase 4 firm-selection timing.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> if Phase 3 demo not yet run, schedule by 16 May; lock Phase 4 firm shortlist.</div>
+    </div>
+
+    <div class="topic" data-block="ANYCAST" data-id="a2">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Hasse &mdash; Hotclean AB pilot <span class="countdown" id="hasse-countdown"><b>--</b><span>days left</span></span></h3>
+          <div class="topic-meta">
+            <b>Hasse Ali</b> &middot; Hotclean AB &mdash; Swedish moving services (bortforsla.nu) + fiber-optic infrastructure audits.
+            30-day pilot started 20 April 2026 &middot; Telegram group, direct Molle support.
+            <br><b>Output goal:</b> user feedback + price-calculation data for &quot;Anycast Entrepren&ouml;r&quot; tier.
+            <br><b>Decision needed:</b> pricing model for Entrepren&ouml;r tier; pilot extension or productisation post-19 May?
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> draft Anycast Entrepren&ouml;r pricing v1 from Hasse&apos;s usage data this week; soft-launch tier by 1 June.</div>
+    </div>
+
+    <div class="topic" data-block="ANYCAST" data-id="a3">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Nakama</h3>
+          <div class="topic-meta">
+            Beidos Ali (top referrer in dashboard &mdash; 17 invites, 1 conversion).
+            Backlog #173 (verify setup delivery, 23 April &mdash; ~17 days open).
+            Workspace memory: &quot;growth-hacking machine&quot;.
+            <br><b>Decision needed:</b> setup delivered y/n; if y, scope of engagement; if n, why stalled.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> Beidos check-in this week to confirm setup status and clarify go-forward scope.</div>
+    </div>
+
+    <div class="topic" data-block="ANYCAST" data-id="a4">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Dolfin &mdash; white-label reseller v3.1</h3>
+          <div class="topic-meta">
+            <b>Dream Properties Abroad SL</b> (Marcel van Gemerden, Sandra Hokfelt). Brand: Dolfin.
+            <b>Industry:</b> small-dollar lending. <b>Territory:</b> Spain + Portugal + 16 LatAm (Spanish-speaking).
+            <b>Wholesale:</b> Starter $399 / Business $599 / Pro $799 monthly.
+            <b>Milestones:</b> Y1 &ge;5 paying customers / Y2 &ge;15 / Y3+ &ge;30. 4-yr term + 4-yr renew.
+            <br><b>Decision needed:</b> agreement signature window; first-customer onboarding timeline.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> lock signature week of 12 May; align on Y1 customer-pipeline (5 paying needed by 31 Dec 2026).</div>
+    </div>
+
+    <div class="topic" data-block="ANYCAST" data-id="a5">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Anycast app + live site</h3>
+          <div class="topic-meta">
+            iPhone app v2.0 live; site live at <a href="https://www.anycast.excom.ai" target="_blank" style="color:var(--cyan);">anycast.excom.ai</a>.
+            Positioning: <i>&quot;The service layer for enterprise AI&quot; &middot; &quot;We don&apos;t sell software. We deploy team members.&quot;</i>
+            <br><b>Decision needed:</b> any product / marketing / messaging call this cycle?
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> hold; revisit when Hasse pilot data shapes Entrepren&ouml;r tier landing page.</div>
+    </div>
+
+  </div>
+
+  <!-- ============== BLOCK 3 — ALLTING ============== -->
+  <h2 class="section-label">Block 3 &middot; 25 min</h2>
+  <h2 class="block-title">Allting</h2>
+
+  <div class="topics" id="topics-allting">
+
+    <div class="topic" data-block="ALLTING" data-id="al1">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Platform state &amp; 4 OpCos</h3>
+          <div class="topic-meta">
+            <b>Hero:</b> &quot;One platform. Many AI companies. Serving the next billion users.&quot;
+            <b>Live:</b> 41,500+ users &middot; 4 OpCos &middot; ~$1M ARR.
+            <b>OpCos:</b> Sport (40K LatAm) &middot; Productivity &middot; Decisions &middot; Manufacturing (first external).
+            <b>Pipeline:</b> BioTech &middot; E-commerce &middot; Finance &middot; Compliance &middot; Marketplace.
+            <br><b>Decision needed:</b> any OpCo needing operational attention this quarter?
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> confirm Manufacturing (external OpCo) milestones; flag if Sport needs LatAm operating attention.</div>
+    </div>
+
+    <div class="topic" data-block="ALLTING" data-id="al2">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Series A timing</h3>
+          <div class="topic-meta">
+            ~USD 15M target. Allocation: 35% engineering &middot; 25% S&amp;BD &middot; 20% regional &middot; 15% ops &middot; 5% legal.
+            ARR scenarios: $5&ndash;7M Y3 conservative &rarr; $40&ndash;55M Y5 aggressive.
+            Investors pitched: Charlie Ejerholm (Sweden, asset mgmt), Alfakraft Fonder, Danish Chotni (UAE).
+            Andsjo as EQT intro path.
+            <br><b>Decision needed:</b> lock or defer Series A start. Feeds the Excom-Santra-HSA narrative (Stage 1 close Sep 2026).
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> set kickoff date; confirm whether HSA-Santra Stage 1 close (Sep 2026) anchors the Series A pitch deck v2.</div>
+    </div>
+
+    <div class="topic" data-block="ALLTING" data-id="al3">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>AIF Fund &mdash; low prio</h3>
+          <div class="topic-meta">
+            $100&ndash;150M target &middot; 2/20/8/(7+1+1) structure &middot; LP/GP. Investment period 3&ndash;4 yrs.
+            <b>Status:</b> low priority per Peter for this cycle. Memory note flag, no recent movement.
+            <br><b>Decision needed:</b> confirm low-prio remains true for the next quarter.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> reconfirm low-prio; revisit at next quarterly sync.</div>
+    </div>
+
+  </div>
+
+  <!-- ============== DECISION LOG ============== -->
+  <h2 class="section-label">Decision Log</h2>
+  <p style="font-size: 12px; color: var(--cap); margin-bottom: 12px;">Auto-aggregates as you score and check off topics above.</p>
+  <div class="log" id="log">
+    <div class="log-empty">No decisions logged yet. Score and tick topics above to populate.</div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn" id="export-btn">Copy markdown summary</button>
+    <button class="btn danger" id="reset-btn">Reset workshop state</button>
+  </div>
+
+  <footer>
+    <div>EXCOM AI L.L.C-FZ &middot; Confidential &middot; Internal Sync Tool</div>
+    <div>Data persists locally in your browser. <a href="https://www.anycast.excom.ai" target="_blank">anycast.excom.ai</a></div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const KEY = "smedjan2026";
+  const STORE = "smedjan_workshop_v1";
+
+  // Gate logic
+  function checkGate() {
+    const url = new URL(location.href);
+    const k = url.searchParams.get("key");
+    const remembered = localStorage.getItem(STORE + "_auth");
+    if (k === KEY || remembered === KEY) {
+      localStorage.setItem(STORE + "_auth", KEY);
+      document.getElementById("gate").style.display = "none";
+      document.getElementById("main").style.display = "block";
+      init();
+    } else {
+      document.getElementById("gate").style.display = "flex";
+      document.getElementById("main").style.display = "none";
+    }
+  }
+  document.getElementById("gate-btn").addEventListener("click", () => {
+    const v = document.getElementById("gate-input").value.trim();
+    if (v === KEY) {
+      localStorage.setItem(STORE + "_auth", KEY);
+      const u = new URL(location.href);
+      u.searchParams.set("key", KEY);
+      location.replace(u.toString());
+    } else {
+      document.getElementById("gate-msg").textContent = "Wrong key.";
+    }
+  });
+  document.getElementById("gate-input").addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("gate-btn").click(); });
+
+  function init() {
+    // Date in header
+    const d = new Date();
+    document.getElementById("today-date").textContent = d.toISOString().slice(0,10) + " · Internal";
+
+    // Hasse pilot countdown
+    const pilotEnd = new Date("2026-05-19T23:59:59");
+    const ms = pilotEnd - new Date();
+    const days = Math.max(0, Math.ceil(ms / 86400000));
+    document.querySelector("#hasse-countdown b").textContent = days;
+
+    // Restore state
+    const state = JSON.parse(localStorage.getItem(STORE) || "{}");
+
+    // Wire topics
+    document.querySelectorAll(".topic").forEach(card => {
+      const block = card.dataset.block;
+      const id = card.dataset.id;
+      const k = block + ":" + id;
+      const saved = state[k] || {};
+
+      // Restore score
+      if (saved.score) card.dataset.score = saved.score;
+      const dots = card.querySelectorAll(".dot");
+      const colors = ["red","yellow","green"];
+      dots.forEach((d, i) => {
+        if (saved.score && saved.score !== colors[i]) d.classList.add("inactive");
+        else if (!saved.score) d.classList.add("inactive");
+        d.addEventListener("click", () => {
+          const cur = card.dataset.score;
+          if (cur === colors[i]) {
+            delete card.dataset.score;
+            dots.forEach(dd => dd.classList.add("inactive"));
+          } else {
+            card.dataset.score = colors[i];
+            dots.forEach((dd, j) => {
+              if (j === i) dd.classList.remove("inactive");
+              else dd.classList.add("inactive");
+            });
+          }
+          save();
+          renderLog();
+        });
+      });
+      // Active dot styling
+      if (saved.score) {
+        dots.forEach((d, i) => { if (colors[i] === saved.score) d.classList.remove("inactive"); });
+      }
+
+      // Restore checkbox
+      const check = card.querySelector(".check");
+      if (saved.discussed) { check.classList.add("checked"); card.classList.add("discussed"); }
+      check.addEventListener("click", () => {
+        check.classList.toggle("checked");
+        card.classList.toggle("discussed");
+        save();
+        renderLog();
+      });
+    });
+
+    // Wire sliders
+    ["t-30","t-60","t-90"].forEach(id => {
+      const inp = document.getElementById(id);
+      const out = document.getElementById(id + "-v");
+      if (state[id]) inp.value = state[id];
+      out.textContent = inp.value;
+      inp.addEventListener("input", () => {
+        out.textContent = inp.value;
+        save();
+      });
+    });
+
+    // Save state
+    function save() {
+      const s = {};
+      document.querySelectorAll(".topic").forEach(card => {
+        const k = card.dataset.block + ":" + card.dataset.id;
+        s[k] = {
+          score: card.dataset.score || null,
+          discussed: card.querySelector(".check").classList.contains("checked"),
+          title: card.querySelector("h3").innerText.split(" ")[0]
+        };
+      });
+      ["t-30","t-60","t-90"].forEach(id => { s[id] = document.getElementById(id).value; });
+      localStorage.setItem(STORE, JSON.stringify(s));
+    }
+
+    // Render decision log
+    function renderLog() {
+      const log = document.getElementById("log");
+      const items = [];
+      document.querySelectorAll(".topic").forEach(card => {
+        const score = card.dataset.score;
+        const discussed = card.querySelector(".check").classList.contains("checked");
+        if (score || discussed) {
+          items.push({
+            block: card.dataset.block,
+            title: card.querySelector("h3").childNodes[0].textContent.trim(),
+            score: score,
+            discussed: discussed
+          });
+        }
+      });
+      if (items.length === 0) {
+        log.innerHTML = '<div class="log-empty">No decisions logged yet. Score and tick topics above to populate.</div>';
+        return;
+      }
+      log.innerHTML = items.map(it => `
+        <div class="log-item">
+          <span class="log-block">${it.block}</span>
+          <span class="log-text">${it.title}${it.discussed ? " · discussed" : ""}</span>
+          ${it.score ? `<span class="log-score ${it.score}">${it.score.toUpperCase()}</span>` : ""}
+        </div>
+      `).join("");
+    }
+
+    renderLog();
+
+    // Export markdown
+    document.getElementById("export-btn").addEventListener("click", () => {
+      const lines = ["# Smedjan Sync — Workshop Decisions", "", "Generated: " + new Date().toISOString().slice(0,16).replace("T"," "), ""];
+      ["HANDLED","ANYCAST","ALLTING"].forEach(block => {
+        const cards = document.querySelectorAll(`.topic[data-block="${block}"]`);
+        let blockOut = [];
+        cards.forEach(card => {
+          const score = card.dataset.score;
+          const discussed = card.querySelector(".check").classList.contains("checked");
+          if (score || discussed) {
+            const title = card.querySelector("h3").childNodes[0].textContent.trim();
+            blockOut.push(`- ${score ? `[${score.toUpperCase()}]` : "[—]"} ${title}${discussed ? " · ✓ discussed" : ""}`);
+          }
+        });
+        if (blockOut.length) {
+          lines.push(`## ${block}`, "");
+          lines.push(...blockOut, "");
+        }
+      });
+      // Targets
+      const t30 = document.getElementById("t-30").value;
+      const t60 = document.getElementById("t-60").value;
+      const t90 = document.getElementById("t-90").value;
+      lines.push("## KPI targets set", "", `- 30-day signups: ${t30}`, `- 60-day MAU: ${t60}`, `- 90-day Pro: ${t90}`, "");
+      const md = lines.join("\n");
+      navigator.clipboard.writeText(md).then(() => {
+        const btn = document.getElementById("export-btn");
+        btn.textContent = "Copied to clipboard";
+        setTimeout(() => { btn.textContent = "Copy markdown summary"; }, 1800);
+      });
+    });
+
+    // Reset
+    document.getElementById("reset-btn").addEventListener("click", () => {
+      if (confirm("Clear all scores, ticks, and target sliders?")) {
+        localStorage.removeItem(STORE);
+        location.reload();
+      }
+    });
+  }
+
+  checkGate();
+})();
+</script>
+</body>
+</html>
