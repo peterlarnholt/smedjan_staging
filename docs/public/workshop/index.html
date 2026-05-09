@@ -136,6 +136,28 @@
   .plan-week .topic-tag.yellow { background: rgba(251,191,36,0.18); color: var(--yellow); }
   .plan-week .topic-tag.green { background: rgba(34,197,94,0.18); color: var(--green); }
   .plan-empty { padding: 32px; text-align: center; color: var(--cap); font-size: 13px; }
+  /* Risk matrix */
+  .risk-project { margin: 22px 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; justify-content: space-between; }
+  .risk-project h3 { color: var(--white); font-size: 16px; font-weight: 700; text-transform: none; letter-spacing: 0; margin: 0; }
+  .risk-project .sub { font-size: 10px; color: var(--cap); text-transform: uppercase; letter-spacing: 0.12em; }
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0 8px; }
+  .risk-cell { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .risk-cell h4 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .risk-cell.reward { border-left: 3px solid var(--green); }
+  .risk-cell.reward h4 { color: var(--green); }
+  .risk-cell.risk { border-left: 3px solid var(--yellow); }
+  .risk-cell.risk h4 { color: var(--yellow); }
+  .risk-cell.avoid { border-left: 3px solid var(--red); }
+  .risk-cell.avoid h4 { color: var(--red); }
+  .risk-cell ul { list-style: none; }
+  .risk-cell li { font-size: 11px; color: var(--text); padding: 4px 0; line-height: 1.5; padding-left: 14px; position: relative; }
+  .risk-cell li::before { content: ""; position: absolute; left: 0; top: 10px; width: 4px; height: 4px; border-radius: 50%; background: var(--cap); }
+  .risk-cell.reward li::before { background: var(--green); }
+  .risk-cell.risk li::before { background: var(--yellow); }
+  .risk-cell.avoid li::before { background: var(--red); }
+  @media (max-width: 720px) {
+    .risk-grid { grid-template-columns: 1fr; }
+  }
   /* Footer */
   footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 10px; color: var(--cap); }
   footer a { color: var(--cyan); text-decoration: none; }
@@ -520,6 +542,38 @@
 
   </div>
 
+  <!-- ============== BLOCK 4 — SANTRA / HSA ============== -->
+  <h2 class="section-label">Block 4 &middot; 15 min</h2>
+  <h2 class="block-title">Santra / HSA</h2>
+
+  <div class="topics" id="topics-santra">
+
+    <div class="topic" data-block="SANTRA" data-id="s1">
+      <div class="topic-row">
+        <div class="topic-main">
+          <h3>Pivot Santra: Claude Team &rarr; Anycast Startup (30+30 day demo)</h3>
+          <div class="topic-meta">
+            Apply the same pilot model as Hasse / Hotclean AB and Nakama: a free 30-day pilot, optional 30-day extension, dedicated comms group, direct support.
+            Pivot Santra off Claude Team subscription onto an <b>Anycast Startup</b> tier &mdash; right-sized for a 10+ person team.
+            <br><b>Their win:</b> a fit-for-size AI solution (instead of paying enterprise rates for Claude Team).
+            <br><b>Our win:</b> practice the full operational flow at real-customer scale &mdash; <i>contract &rarr; payment &rarr; onboarding 10+ team startup &rarr; usage signals &rarr; feedback</i>. Lands as live operating data inside the HSA Stage 1 conversation, not as a hypothesis.
+            <br><b>Decision needed:</b> approve the pivot, draft the 30+30 day pilot agreement (Hasse template), set start date.
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <div class="check">&#10003;</div>
+        </div>
+      </div>
+      <div class="action"><b>Recommended:</b> reuse the Hotclean pilot template; offer Santra a 30-day pilot starting w/c 12 May with a 30-day extension on milestone delivery; data and learnings feed directly into HSA Wave 2 / Stage 1 narrative.</div>
+      <span class="comment-toggle" data-target="cm-s1">+ Add comment / reframe note</span>
+      <div class="comment-box" id="cm-s1"><textarea placeholder="Reframe this point, add your decision rationale, or note an alternative direction..."></textarea><div class="hint">Saved automatically, included in markdown export and execution plan.</div></div>
+    </div>
+
+  </div>
+
   <!-- ============== DECISION LOG ============== -->
   <h2 class="section-label">Decision Log</h2>
   <p style="font-size: 12px; color: var(--cap); margin-bottom: 12px;">Auto-aggregates as you score and check off topics above.</p>
@@ -529,8 +583,22 @@
 
   <div class="btn-row">
     <button class="btn" id="plan-btn" style="background: var(--cyan); color: var(--bg); font-weight: 600;">Generate 90-day execution plan</button>
+    <button class="btn" id="risk-btn" style="background: var(--purple); color: var(--bg); font-weight: 600; border-color: var(--purple);">Risk &middot; Reward &middot; Avoid matrix</button>
     <button class="btn" id="export-btn">Copy markdown summary</button>
     <button class="btn danger" id="reset-btn">Reset workshop state</button>
+  </div>
+
+  <!-- ============== RISK / REWARD / AVOID MODAL ============== -->
+  <div class="modal-bg" id="risk-modal">
+    <div class="modal" style="max-width: 1080px;">
+      <button class="modal-close" id="risk-close">&times;</button>
+      <h2>Risk &middot; Reward &middot; Avoid Matrix</h2>
+      <div style="font-size: 12px; color: var(--cap);">Per-project view across the four ExCom.ai sub-businesses.</div>
+      <div id="risk-content"></div>
+      <div class="btn-row" style="margin-top: 18px;">
+        <button class="btn" id="risk-export-btn" style="background: var(--purple); color: var(--bg); font-weight: 600; border-color: var(--purple);">Copy matrix as markdown</button>
+      </div>
+    </div>
   </div>
 
   <!-- ============== EXECUTION PLAN MODAL ============== -->
@@ -753,7 +821,7 @@
     document.getElementById("export-btn").addEventListener("click", () => {
       const lines = ["# Smedjan Sync — Workshop Decisions", "", "Generated: " + new Date().toISOString().slice(0,16).replace("T"," "), ""];
       const topics = collectTopics();
-      ["HANDLED","ANYCAST","ALLTING"].forEach(block => {
+      ["HANDLED","ANYCAST","ALLTING","SANTRA"].forEach(block => {
         const blockTopics = topics.filter(t => t.block === block);
         if (blockTopics.length) {
           lines.push(`## ${block}`, "");
@@ -864,6 +932,142 @@
       content.innerHTML = html;
     }
 
+    // ============== RISK / REWARD / AVOID MATRIX ==============
+    const RISK_MATRIX = [
+      {
+        project: "Handled",
+        sub: "Sub of ExCom.ai · GTM / Marketing service line",
+        reward: [
+          "$20K → 5K signups, 500 Pro path; current MAU jumped +40 in 4 days (124)",
+          "Email/agentic engine validated at $1.21 CPA — well below $2 target",
+          "Productisation 100% complete; Handled MP ready for second customer",
+          "Reserve $15K can deploy into proven channel by Month 3 (=7,500 signups at $2 CPA)"
+        ],
+        risk: [
+          "MAU → paying conversion still thin (15/124 = 12%)",
+          "WC 2026 wildcard could deliver 200 signups (conservative) or 2,000+ (optimistic) — high variance",
+          "KJ Marketing dead in water — backlog #174 17 days no reply",
+          "Solución signed up as user but commercial relationship undefined post-signup"
+        ],
+        avoid: [
+          "Spreading $15K reserve before Month 3 channel data lands",
+          "Launching new channels without baseline measurement in place",
+          "Pre-pitching Handled MP to non-strategic prospects (productise discipline)"
+        ]
+      },
+      {
+        project: "AnyCast",
+        sub: "Sub of ExCom.ai · Product / assistant tier",
+        reward: [
+          "Three concurrent productisable tier-defining engagements: Kontralaw (legal SE), Hasse (Entreprenör), Dolfin (Finance)",
+          "Hasse pilot ends 19 May with usage data feeding Anycast Entreprenör tier pricing",
+          "Dolfin v3.1 reseller agreement covers Spain + Portugal + 16 LatAm countries — large addressable territory",
+          "Kontralaw 6-month exclusivity in Sweden if Phase 4 succeeds — defensible early footprint"
+        ],
+        risk: [
+          "Hasse pilot ends in 10 days with no committed Entreprenör pricing yet",
+          "Dolfin Y1 milestone (≥5 paying) requires real GTM in Spanish-speaking small-dollar lending — unfamiliar segment",
+          "Kontralaw Phase 3 demo not confirmed as run; Phase 4 firm shortlist undefined",
+          "Nakama 17 invites / 1 conversion suggests referral channel not yet productive"
+        ],
+        avoid: [
+          "Launching Anycast Entreprenör tier without pricing proof from Hasse data",
+          "Signing Dolfin without Y1 GTM plan that includes pipeline build for the 5-customer milestone",
+          "Treating Nakama referrals as a channel without verified setup status (#173 still open)"
+        ]
+      },
+      {
+        project: "Allting",
+        sub: "Sub of ExCom.ai · Infrastructure platform",
+        reward: [
+          "$1M ARR + 41,500 users + 4 OpCos live (1 external proven)",
+          "Series A ($15M) ready to launch; AIF Fund ($100–150M) as Phase 2",
+          "American Tower 63% EBITDA comparable supports infrastructure-grade margin story",
+          "Pipeline: BioTech, E-commerce, Finance, Compliance, Marketplace — 5 OpCo candidates"
+        ],
+        risk: [
+          "Sport OpCo dominates user base (40K of 41.5K LatAm) — single-market concentration risk",
+          "Manufacturing is the only external OpCo proof point — model needs more reps",
+          "No committed Series A lead investor yet (Ejerholm, Alfakraft, Chotni pitched, Andsjo as EQT path)",
+          "12–15% rev share applied across all OpCos creates dependency on OpCo growth, not infra economics"
+        ],
+        avoid: [
+          "Opening Series A before Manufacturing OpCo metrics solidify (need 12 months of external traction)",
+          "Pitching AIF Fund before Series A close — confuses LP/VC narrative",
+          "Geographic over-rotation to MENA before Series A lands; LatAm Sport is current revenue base"
+        ]
+      },
+      {
+        project: "Santra / HSA",
+        sub: "Cross-cutting · Anchors HSA Stage 1 + Excom Series A narrative",
+        reward: [
+          "HSA Stage 1 close (target Sep 2026) becomes the anchor reference for Excom Series A",
+          "Handled MP gets flagship MENA consumer deployment via Santra",
+          "Pivoting Santra → Anycast Startup tier produces real contract / payment / onboarding signals",
+          "Wave 3 Handled MP one-pager already drafted; Commercial Framework v1 locked"
+        ],
+        risk: [
+          "Stage 1 close depends on Mr. Shawki's family-business deliberation cycle (slow)",
+          "Aziz cover paragraph + Wave 3 review still pending",
+          "MSA does not exist yet — pre-Stage-1 condition; external counsel uplift not started",
+          "Anycast Startup pivot needs a clean tier definition before pitching Santra (price, scope, support)"
+        ],
+        avoid: [
+          "Pitching Excom across HSA's broader portfolio (Decision #5 cross-portfolio rule holds)",
+          "Going past Wave 3 disclosure timing in the dossier",
+          "Introducing new pricing models that confuse the existing Wave 2 dossier (the 5-pricing-frame fog already cost time once)"
+        ]
+      }
+    ];
+
+    function renderRiskMatrix() {
+      const content = document.getElementById("risk-content");
+      let html = "";
+      RISK_MATRIX.forEach(p => {
+        html += `
+          <div class="risk-project">
+            <h3>${p.project}</h3>
+            <div class="sub">${p.sub}</div>
+          </div>
+          <div class="risk-grid">
+            <div class="risk-cell reward"><h4>Reward</h4><ul>${p.reward.map(x => `<li>${x}</li>`).join("")}</ul></div>
+            <div class="risk-cell risk"><h4>Risk</h4><ul>${p.risk.map(x => `<li>${x}</li>`).join("")}</ul></div>
+            <div class="risk-cell avoid"><h4>Avoid</h4><ul>${p.avoid.map(x => `<li>${x}</li>`).join("")}</ul></div>
+          </div>
+        `;
+      });
+      content.innerHTML = html;
+    }
+
+    document.getElementById("risk-btn").addEventListener("click", () => {
+      renderRiskMatrix();
+      document.getElementById("risk-modal").classList.add("open");
+    });
+    document.getElementById("risk-close").addEventListener("click", () => {
+      document.getElementById("risk-modal").classList.remove("open");
+    });
+    document.getElementById("risk-modal").addEventListener("click", (e) => {
+      if (e.target.id === "risk-modal") document.getElementById("risk-modal").classList.remove("open");
+    });
+    document.getElementById("risk-export-btn").addEventListener("click", () => {
+      const lines = ["# Risk · Reward · Avoid Matrix", "", "All four projects are subs of ExCom.ai.", "", "Generated: " + new Date().toISOString().slice(0,16).replace("T"," "), ""];
+      RISK_MATRIX.forEach(p => {
+        lines.push(`## ${p.project}`, `*${p.sub}*`, "");
+        lines.push("**Reward**");
+        p.reward.forEach(x => lines.push(`- ${x}`));
+        lines.push("", "**Risk**");
+        p.risk.forEach(x => lines.push(`- ${x}`));
+        lines.push("", "**Avoid**");
+        p.avoid.forEach(x => lines.push(`- ${x}`));
+        lines.push("");
+      });
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        const btn = document.getElementById("risk-export-btn");
+        btn.textContent = "Copied to clipboard";
+        setTimeout(() => { btn.textContent = "Copy matrix as markdown"; }, 1800);
+      });
+    });
+
     document.getElementById("plan-btn").addEventListener("click", () => {
       renderPlan();
       document.getElementById("plan-modal").classList.add("open");
@@ -895,9 +1099,12 @@
         setTimeout(() => { btn.textContent = "Copy plan as markdown"; }, 1800);
       });
     });
-    // close modal on Escape
+    // close any open modal on Escape
     document.addEventListener("keydown", e => {
-      if (e.key === "Escape") document.getElementById("plan-modal").classList.remove("open");
+      if (e.key === "Escape") {
+        document.getElementById("plan-modal").classList.remove("open");
+        document.getElementById("risk-modal").classList.remove("open");
+      }
     });
 
     // Reset
