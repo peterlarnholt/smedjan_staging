@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handled for Restaurants &amp; Cafés — Run Your Place From One Chat</title>
+  <meta name="description" content="Manage staff shifts, supplier orders, inventory alerts, customer follow-ups, and the daily plan from a single WhatsApp chat. Built for cafe and restaurant owners." />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="restaurant operations, cafe owner tools, WhatsApp for restaurants, staff scheduling cafe, supplier orders restaurant, inventory alerts cafe, customer follow-ups restaurant" />
+  <link rel="canonical" href="https://handled.sh/restaurants/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Handled for Restaurants &amp; Cafés — Run Your Place From One Chat" />
+  <meta property="og:description" content="Manage staff shifts, supplier orders, inventory alerts, customer follow-ups, and the daily plan from a single WhatsApp chat." />
+  <meta property="og:url" content="https://handled.sh/restaurants/" />
+  <meta property="og:image" content="https://handled.sh/og-default.png" />
+  <meta property="og:site_name" content="Handled" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Handled for Restaurants &amp; Cafés — Run Your Place From One Chat" />
+  <meta name="twitter:description" content="Run your café or restaurant from a single WhatsApp chat. Staff, suppliers, inventory, customers — handled." />
+  <meta name="twitter:image" content="https://handled.sh/og-default.png" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://handled.sh/restaurants/" />
+  <link rel="alternate" hreflang="x-default" href="https://handled.sh/restaurants/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: Exo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Handled",
+    "applicationCategory": "BusinessApplication",
+    "description": "Productivity assistant for cafe and restaurant owners — staff shifts, supplier orders, inventory alerts, customer follow-ups, and daily insights from WhatsApp.",
+    "url": "https://handled.sh/restaurants/",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free forever plan with WhatsApp access, integrations, reminders, and long-term memory."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro+",
+        "price": "1",
+        "priceCurrency": "USD",
+        "description": "$1 for the first month, then $79/year. Unlimited tasks, automations, team collaboration."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need to install a separate app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Handled works entirely inside WhatsApp. If you already use WhatsApp, you're ready to start. No downloads, no new apps, no learning curve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Handled sync with my existing calendar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Handled integrates with Google Calendar so your staff shifts, supplier deliveries, and reservations all stay in sync. Schedule or check your calendar directly from WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my team and customer data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. All messages are protected by WhatsApp's end-to-end encryption. Handled is a META verified Business Partner, meeting Meta's strict security and privacy standards. Your team and customer conversations stay private."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXLGWW1JSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXLGWW1JSV', {
+      content_group: 'restaurants',
+      custom_map: {
+        dimension1: 'icp_segment',
+        dimension2: 'geo_target',
+        dimension3: 'language'
+      }
+    });
+    gtag('event', 'page_view', {
+      icp_segment: 'restaurants',
+      geo_target: 'global',
+      language: 'en'
+    });
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w2vh7gs076");
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('utm_source'))   window.clarity("set", "utm_source", params.get('utm_source'));
+    if (params.get('utm_medium'))   window.clarity("set", "utm_medium", params.get('utm_medium'));
+    if (params.get('utm_campaign')) window.clarity("set", "utm_campaign", params.get('utm_campaign'));
+    window.clarity("set", "page_type", "restaurants_lp");
+  </script>
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & RESET
+    ============================================= */
+    :root {
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #111111;
+      --color-bg-card: #111111;
+      --color-text: #e0e0e0;
+      --color-text-muted: #a0a0a0;
+      --color-text-dim: #707070;
+      --color-accent: #8b5cf6;
+      --color-accent-light: rgba(139,92,246,0.12);
+      --color-accent-dark: #7c3aed;
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-light: rgba(255,255,255,0.05);
+      --font: 'Exo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+      --shadow-glow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.25);
+      --transition: 0.2s ease;
+      --transition-md: 0.35s ease;
+    }
+
+    /* Light mode */
+    [data-theme="light"] {
+      --color-bg: #f8f8fc;
+      --color-bg-alt: #eeeef5;
+      --color-bg-card: #ffffff;
+      --color-text: #0a0a0a;
+      --color-text-muted: #4b5563;
+      --color-text-dim: #9ca3af;
+      --color-accent: #7c3aed;
+      --color-accent-light: rgba(139,92,246,0.1);
+      --color-accent-dark: #6d28d9;
+      --color-border: rgba(0,0,0,0.1);
+      --color-border-light: rgba(0,0,0,0.05);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --shadow-glow: 0 0 0 4px rgba(139,92,246,0.15), 0 8px 32px rgba(139,92,246,0.2);
+    }
+
+    [data-theme="light"] #nav.scrolled {
+      background: rgba(248,248,252,0.92);
+    }
+
+    [data-theme="light"] #mobile-nav {
+      background: rgba(248,248,252,0.97);
+    }
+
+    [data-theme="light"] .phone-mockup {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    [data-theme="light"] .chat-bubble-user {
+      background: #dcf8c6;
+      color: #0a0a0a;
+    }
+
+    [data-theme="light"] .chat-bubble-bot {
+      background: #f0f0f0;
+      color: #0a0a0a;
+    }
+
+    [data-theme="light"] .faq-item {
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    [data-theme="light"] #process h3,
+    [data-theme="light"] #pricing h3 { color: #1a1a1a; }
+    [data-theme="light"] #process p,
+    [data-theme="light"] #pricing span { color: #555; }
+    [data-theme="light"] #pricing > div > div > div:first-of-type,
+    [data-theme="light"] #pricing > div > div > div:last-of-type { background: #fff; border-color: #e0e0e0; }
+
+    @media (max-width: 768px) {
+      #pricing > div > div:last-child {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-alt {
+      background: var(--color-bg-alt);
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-accent);
+      color: #ffffff;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(139,92,246,0.3);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* =============================================
+       SCROLL REVEAL
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: rgba(10,10,10,0);
+      backdrop-filter: blur(0px);
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-brand svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: color var(--transition), border-color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      color: var(--color-text);
+      border-color: var(--color-accent);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .nav-cta {
+      font-size: 13.5px;
+      padding: 9px 18px;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      text-align: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 28px;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .hero-h1 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 span {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 19px;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub-cta {
+      font-size: 13px;
+      color: var(--color-text-dim);
+      margin-top: 8px;
+    }
+
+    /* =============================================
+       WHATSAPP MOCKUP
+    ============================================= */
+    .mockup-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .mockup-text {
+      align-items: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phone-mockup {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      border: 2px solid rgba(255,255,255,0.08);
+      border-radius: 32px;
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .phone-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 12px;
+    }
+
+    .phone-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .phone-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .phone-status {
+      font-size: 12px;
+      color: var(--color-accent);
+    }
+
+    .chat-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 8px 4px;
+    }
+
+    .chat-bubble-user {
+      align-self: flex-end;
+      background: #005c4b;
+      color: #e0e0e0;
+      padding: 10px 14px;
+      border-radius: 14px 14px 4px 14px;
+      font-size: 14px;
+      max-width: 85%;
+      line-height: 1.5;
+    }
+
+    .chat-bubble-bot {
+      align-self: flex-start;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 10px 14px;
+      border-radius: 14px 14px 14px 4px;
+      font-size: 14px;
+      max-width: 85%;
+      line-height: 1.5;
+    }
+
+    .chat-time {
+      font-size: 11px;
+      color: var(--color-text-dim);
+      margin-top: 2px;
+      text-align: right;
+    }
+
+    /* =============================================
+       USE CASE CARDS
+    ============================================= */
+    .usecase-grid {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .usecase-card {
+      text-align: center;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .usecase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent);
+    }
+
+    .usecase-icon {
+      margin: 0 auto 12px;
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .usecase-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .usecase-card p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       BOTTOM CTA
+    ============================================= */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: var(--radius-xl);
+      padding: 64px 40px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+
+    .cta-box p {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .faq-list {
+      max-width: 700px;
+      margin: 48px auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--color-accent);
+    }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--color-text-dim);
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 0 20px;
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--color-text-dim);
+      border-top: 1px solid var(--color-border);
+    }
+
+    footer a {
+      color: var(--color-accent);
+      transition: opacity var(--transition);
+    }
+
+    footer a:hover {
+      opacity: 0.8;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .section {
+        padding: 64px 0;
+      }
+
+      .usecase-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .mockup-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .mockup-text {
+      align-items: center;
+      text-align: center;
+        order: 1;
+      }
+
+      .phone-mockup {
+        order: 2;
+      }
+
+      #hero {
+        padding-top: 110px;
+        padding-bottom: 60px;
+      }
+
+      .hero-h1 {
+        font-size: clamp(30px, 7vw, 42px);
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+      }
+
+      .nav-menu { display: none !important; }
+      a[href*="app.handled.sh/login"] { display: none !important; }
+      .nav-cta-desktop, .btn-primary.nav-cta, .btn-primary.btn-breathe.btn-sm { 
+        display: inline-flex !important;
+        font-size: 11px !important; 
+        padding: 6px 12px !important; 
+      }
+      .nav-cta-desktop svg, .btn-primary.nav-cta svg, .btn-primary.btn-breathe.btn-sm svg { display: none !important; }
+      .nav-cta-desktop {
+        font-size: 11px !important;
+        padding: 6px 12px !important;
+      }
+      .nav-cta-desktop svg {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .nav-cta-mobile {
+        display: none;
+      }
+    }
+  
+    /* Chat animation styles moved to interactive section */
+  
+    /* =============================================
+       INTERACTIVE ANIMATIONS
+    ============================================= */
+    @keyframes breathe {
+      0%, 100% { box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+      50% { box-shadow: 0 0 40px rgba(139,92,246,0.5); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing-dot {
+      0%, 60% { opacity: 0.3; }
+      30% { opacity: 1; }
+    }
+
+    @keyframes gradientMove {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-20px, 15px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    /* Hero shimmer headline */
+    .hero-shimmer {
+      background: linear-gradient(90deg, var(--color-text) 0%, #a78bfa 25%, var(--color-text) 50%, #8b5cf6 75%, var(--color-text) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Breathing CTA button */
+    .btn-breathe {
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    /* Floating background blobs */
+    .hero-bg-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.12;
+      animation: gradientMove 12s ease-in-out infinite;
+    }
+
+    .hero-blob-1 {
+      width: 300px;
+      height: 300px;
+      background: #8b5cf6;
+      top: -50px;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .hero-blob-2 {
+      width: 200px;
+      height: 200px;
+      background: #a78bfa;
+      bottom: -30px;
+      left: 15%;
+      animation-delay: -4s;
+    }
+
+    .hero-blob-3 {
+      width: 150px;
+      height: 150px;
+      background: #7c3aed;
+      top: 40%;
+      left: 60%;
+      animation-delay: -8s;
+    }
+
+    /* Phone mockup glow */
+    .phone-glow {
+      box-shadow: 0 0 60px rgba(139,92,246,0.15), 0 8px 40px rgba(0,0,0,0.5) !important;
+    }
+
+    /* Online indicator */
+    .online-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      align-self: flex-start;
+      background: #1a1a2e;
+      border-radius: 14px 14px 14px 4px;
+      max-width: 60px;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+      animation: typing-dot 1.2s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    [data-theme="light"] .typing-indicator {
+      background: #f0f0f0;
+    }
+
+    /* Use case cards interactive */
+    .usecase-card p,
+    .use-case-card p {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .usecase-card:hover p,
+    .usecase-card.touched p,
+    .use-case-card:hover p,
+    .use-case-card.touched p {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .usecase-card,
+    .use-case-card {
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .usecase-card:hover,
+    .use-case-card:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 20px rgba(139,92,246,0.15), 0 4px 16px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Stagger reveal for use case cards */
+    .usecase-card.stagger-in,
+    .use-case-card.stagger-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .usecase-card.stagger-visible,
+    .use-case-card.stagger-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* CTA breathing background */
+    .cta-bg-anim {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-anim::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+      animation: gradientMove 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* FAQ improved animations */
+    .faq-chevron {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .faq-answer {
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease, opacity 0.3s ease !important;
+      opacity: 0;
+    }
+
+    .faq-item.open .faq-answer,
+    details[open] .faq-answer {
+      opacity: 1;
+    }
+
+    /* Footer link hover */
+    footer a {
+      transition: color 0.3s ease !important;
+    }
+
+    footer a:hover {
+      color: #8b5cf6 !important;
+    }
+
+    /* Cursor pointer on clickable */
+    .usecase-card, .use-case-card, .faq-question, .faq-item summary, .btn-primary, .cta-btn {
+      cursor: pointer;
+    }
+
+    /* CTA sub-text */
+    .cta-sub-text {
+      font-size: 13px;
+      color: var(--color-text-dim);
+      margin-top: 12px;
+    }
+
+    /* Hero section position relative for blobs */
+    #hero, .hero {
+      position: relative;
+    }
+
+    #hero > *, .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+  
+    /* Navigation links */
+    .nav-menu a:hover { color: #8b5cf6 !important; }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 100;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #a0a0a0;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #0a0a0a;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 16px 20px;
+      z-index: 90;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-menu.active {
+      display: flex;
+    }
+    .mobile-menu a {
+      color: #a0a0a0;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #1f1f1f;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover {
+      color: #8b5cf6;
+    }
+    [data-theme="light"] .mobile-menu {
+      background: #f5f5f5;
+      border-color: #e0e0e0;
+    }
+    [data-theme="light"] .mobile-menu a {
+      color: #555;
+      border-color: #e8e8e8;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none !important; }
+      .hamburger { display: block; }
+    }
+
+
+    @media (max-width: 768px) {
+
+      #process > div > div:last-child { grid-template-columns: 1fr; }
+    }
+  
+    /* Light mode text fixes */
+    [data-theme="light"] { background: #f5f5f5 !important; color: #1a1a1a !important; }
+    [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 { color: #1a1a1a !important; }
+    [data-theme="light"] p { color: #444 !important; }
+    [data-theme="light"] .hero-sub-cta { color: #666 !important; }
+    [data-theme="light"] span[style*="color:#e0e0e0"], [data-theme="light"] span[style*="color: #e0e0e0"] { color: #1a1a1a !important; }
+    [data-theme="light"] span[style*="color:#a0a0a0"], [data-theme="light"] span[style*="color: #a0a0a0"] { color: #555 !important; }
+    [data-theme="light"] span[style*="color:#707070"], [data-theme="light"] span[style*="color: #707070"] { color: #666 !important; }
+    [data-theme="light"] span[style*="color:#c0c0c0"] { color: #444 !important; }
+    [data-theme="light"] div[style*="color:#e0e0e0"] { color: #1a1a1a !important; }
+    [data-theme="light"] div[style*="color:#a0a0a0"] { color: #555 !important; }
+    [data-theme="light"] div[style*="color:#707070"] { color: #666 !important; }
+    [data-theme="light"] p[style*="color:#a0a0a0"] { color: #555 !important; }
+    [data-theme="light"] p[style*="color:#707070"] { color: #666 !important; }
+    [data-theme="light"] p[style*="color:#e0e0e0"] { color: #1a1a1a !important; }
+    [data-theme="light"] .section-title { color: #1a1a1a !important; }
+    [data-theme="light"] .section-subtitle { color: #555 !important; }
+    [data-theme="light"] .eyebrow { color: #7c3aed !important; }
+    [data-theme="light"] .usecase-card, [data-theme="light"] .use-case-card { background: #fff !important; border-color: #e0e0e0 !important; }
+    [data-theme="light"] .usecase-card h3, [data-theme="light"] .use-case-card h3 { color: #1a1a1a !important; }
+    [data-theme="light"] #pricing div[style*="background:#1a1a1a"] { background: #fff !important; border-color: #e0e0e0 !important; }
+    [data-theme="light"] #pricing h3 { color: #1a1a1a !important; }
+    [data-theme="light"] #pricing span[style*="color:#e0e0e0"], [data-theme="light"] #pricing span[style*="color:#ffffff"] { color: #1a1a1a !important; }
+    [data-theme="light"] #pricing span[style*="color:#707070"] { color: #666 !important; }
+    [data-theme="light"] #pricing span[style*="color:#a0a0a0"], [data-theme="light"] #pricing span[style*="color:#c0c0c0"] { color: #555 !important; }
+    [data-theme="light"] section[style*="background:#0f0f0f"] { background: #f0f0f0 !important; }
+    [data-theme="light"] div[style*="background:#111111"], [data-theme="light"] div[style*="background:#1a1a1a"] { background: #fff !important; border-color: #e0e0e0 !important; }
+    [data-theme="light"] .faq-question, [data-theme="light"] .faq-item summary { color: #1a1a1a !important; }
+    [data-theme="light"] .faq-item p { color: #555 !important; }
+    [data-theme="light"] footer { background: #f5f5f5 !important; border-color: #e0e0e0 !important; }
+    [data-theme="light"] footer a { color: #666 !important; }
+    [data-theme="light"] footer p { color: #888 !important; }
+    [data-theme="light"] #nav { background: rgba(245,245,245,0.95) !important; border-color: #e0e0e0 !important; }
+    [data-theme="light"] #nav.scrolled { background: rgba(245,245,245,0.95) !important; }
+    [data-theme="light"] .nav-brand span { color: #7c3aed !important; }
+    [data-theme="light"] .nav-menu a { color: #555 !important; }
+    [data-theme="light"] a[href*="login"] { color: #555 !important; }
+    [data-theme="light"] .hamburger span { background: #555 !important; }
+
+  </style>
+<!-- FirstPromoter -->
+<script>(function(w){w.fpr=w.fpr||function(){w.fpr.q=w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
+fpr("init",{cid:"yz3qfwty"});
+fpr("click");
+</script>
+<script src="https://cdn.firstpromoter.com/fpr.js" async></script>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="nav-brand" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <rect x="5" y="5" width="90" height="90" rx="20" fill="url(#navgrad)"/>
+  <defs><linearGradient id="navgrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+  <path d="M30 50 L44 64 L70 36" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
+        <span style="font-family:Exo,sans-serif;font-weight:700;font-size:16px;color:#a78bfa;">handled.sh</span>
+      </a>
+      <div class="nav-menu" style="display:flex;gap:24px;align-items:center;">
+  <a href="#features" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_features">Features</a>
+  <a href="#process" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_how">How it Works</a>
+  <a href="#pricing" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_pricing">Pricing</a>
+</div>
+      <a href="https://app.handled.sh/login" style="color:#a0a0a0;font-size:13px;font-weight:500;text-decoration:none;" data-i18n="nav_login">Login</a>
+      <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I%20run%20a%20cafe.&utm_source=restaurants_lp&utm_medium=nav_cta&utm_campaign=restaurants" class="btn-primary nav-cta nav-cta-desktop">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          <span data-i18n="cta_try">Try Free</span>
+        </a>
+      <div class="lang-switcher" style="display:flex;gap:2px;align-items:center;">
+  <button onclick="setLang('en')" class="lang-btn active" data-lang="en" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid rgba(139,92,246,0.3);background:rgba(139,92,246,0.15);color:#8b5cf6;cursor:pointer;">EN</button>
+  <button onclick="setLang('es')" class="lang-btn" data-lang="es" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">ES</button>
+  <button onclick="setLang('fr')" class="lang-btn" data-lang="fr" style="padding:2px 6px;font-size:9px;font-weight:600;border-radius:4px;border:1px solid transparent;background:transparent;color:#a0a0a0;cursor:pointer;">FR</button>
+</div>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" data-i18n="nav_features">Features</a>
+    <a href="#process" data-i18n="nav_how">How it Works</a>
+    <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a href="https://app.handled.sh/login" data-i18n="nav_login">Login</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-bg-blobs">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+    </div>
+    <div class="reveal">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        <span data-i18n="hero_eyebrow">Built for Restaurants &amp; Cafés</span>
+      </div>
+      <h1 class="hero-h1" data-i18n="hero_title">Run Your Café From One Chat</h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">Staff shifts, supplier follow-ups, inventory alerts, customer reservations — managed from a single WhatsApp message.</p>
+      <div class="hero-cta-row">
+        <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I%20run%20a%20cafe.&utm_source=restaurants_lp&utm_medium=hero_cta&utm_campaign=restaurants" class="btn-primary btn-breathe">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          <span data-i18n="hero_cta">Start Free on WhatsApp</span>
+        </a>
+      </div>
+      <p class="hero-sub-cta" data-i18n="hero_sub_cta">No app to install. No credit card. Just chat.</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;opacity:0.7;">
+  <img src="/smedjan_staging/meta-business-partner.png" alt="Meta Business Partner" style="height:24px;width:auto;" loading="lazy" />
+  <span style="font-size:11px;color:#707070;">Meta Business Partner</span>
+</div>
+    </div>
+  </section>
+
+  <!-- ========== WHATSAPP MOCKUP ========== -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="mockup-layout">
+        <div class="mockup-text reveal">
+          <p class="eyebrow">See It in Action</p>
+          <h2 class="section-title">Just text it. Handled does the rest.</h2>
+          <p class="section-subtitle">Brief the team, order from suppliers, check yesterday's sales — all from one chat.</p>
+        </div>
+        <div class="phone-mockup phone-glow reveal reveal-delay-1" style="width:100%;max-width:320px;margin:0 auto;background:#0B141A;border:2px solid rgba(255,255,255,0.08);border-radius:32px;padding:0;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 40px rgba(139,92,246,0.1);overflow:hidden;">
+          <!-- WhatsApp Header -->
+          <div style="background:#1F2C34;padding:12px 16px;display:flex;align-items:center;gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">H</div>
+            <div style="flex:1;">
+              <div style="color:#e0e0e0;font-size:15px;font-weight:600;">Handled</div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;"></span>
+                <span style="color:#8696a0;font-size:12px;">online</span>
+              </div>
+            </div>
+          </div>
+          <!-- Chat Area -->
+          <div class="chat-area" style="background:#0B141A;padding:12px 10px;display:flex;flex-direction:column;gap:8px;min-height:280px;">
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              Brief the kitchen for tomorrow's brunch service
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:42 PM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Done. Brunch briefing drafted: 8 team in, focus on egg station, mimosa special live, expected covers 110. Want me to send to staff group?
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:42 PM</div>
+            </div>
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              Order milk and tomatoes from Khalid before 5pm
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:43 PM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Draft sent to Khalid: 20L whole milk, 10kg roma tomatoes, deliver Saturday before 7am. Reply 'send' to confirm.
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:43 PM</div>
+            </div>
+            <div class="chat-bubble-user" style="align-self:flex-end;background:#005C4B;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 2px 8px;font-size:13px;max-width:80%;line-height:1.5;position:relative;margin-left:auto;">
+              How did we do yesterday?
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:44 PM</div>
+            </div>
+            <div class="chat-bubble-bot" style="align-self:flex-start;background:#1F2C34;color:#e0e0e0;padding:8px 12px 4px;border-radius:8px 8px 8px 2px;font-size:13px;max-width:80%;line-height:1.5;position:relative;">
+              Yesterday: AED 7,840 sales · 142 orders · top item Avocado Toast (28) · 1 stock alert (oat milk) · 2 supplier deliveries due today
+              <div style="font-size:10px;color:rgba(255,255,255,0.45);text-align:right;margin-top:2px;">3:44 PM</div>
+            </div>
+          </div>
+          <!-- Input Bar -->
+          <div style="background:#1F2C34;padding:8px 12px;display:flex;align-items:center;gap:8px;">
+            <div style="flex:1;background:#2A3942;border-radius:20px;padding:8px 16px;color:#8696a0;font-size:13px;">Type a message</div>
+            <div style="width:36px;height:36px;border-radius:50%;background:#00A884;display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USE CASES ========== -->
+  <section class="section section-alt" id="features" >
+    <div class="container text-center">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="usecases_title">Built for your workflow</p>
+        <h2 class="section-title">Three ways Handled keeps your café running</h2>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-card reveal reveal-delay-1">
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Daily Briefing</h3>
+          <p>Dictate the day, get a checklist for the floor. Hourly check-ins keep it honest.</p>
+        </div>
+        <div class="usecase-card reveal reveal-delay-2">
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <h3>Inventory &amp; Suppliers</h3>
+          <p>Low-stock alerts. Draft supplier orders by text. Photo a product, get a price back.</p>
+        </div>
+        <div class="usecase-card reveal reveal-delay-3">
+          <div class="usecase-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+          <h3>Business Insights</h3>
+          <p>Yesterday's sales, top SKUs, low-stock alerts, and refunds — every morning in one message.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== HOW IT WORKS ========== -->
+<section id="process" style="padding:60px 20px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <p data-i18n="process_eyebrow" style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Process</p>
+    <h2 data-i18n="process_title" style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:12px;">How it Works</h2>
+    <p style="text-align:center;color:#a0a0a0;font-size:14px;margin-bottom:40px;">Chat on any platform you already use</p>
+
+    <!-- Visual Flow Card -->
+<div style="background:#f8f8f8;border-radius:20px;padding:32px 24px;margin-bottom:32px;">
+  <p style="font-size:14px;font-weight:700;color:#555;margin-bottom:24px;">Chat on any platform you already use</p>
+  <div style="position:relative;min-height:240px;display:flex;align-items:center;justify-content:center;">
+    <svg viewBox="0 0 500 240" style="width:100%;height:auto;" fill="none">
+      <!-- Curved paths from apps to center -->
+      <path d="M60 30 C180 30, 180 120, 250 120" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <path d="M60 85 C160 85, 180 120, 250 120" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <path d="M60 155 C160 155, 180 120, 250 120" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <path d="M60 210 C180 210, 180 120, 250 120" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <!-- Highlighted line -->
+      <path d="M60 85 C160 85, 180 120, 250 120" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.4"/>
+      <!-- Curved paths from center to outputs -->
+      <path d="M250 120 C320 120, 320 50, 400 50" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <path d="M250 120 C320 120, 340 120, 400 120" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <path d="M250 120 C320 120, 320 190, 400 190" stroke="#e5e7eb" stroke-width="1.5" fill="none"/>
+      <!-- Flowing dots on input paths -->
+      <circle r="4" fill="#8b5cf6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M60 30 C180 30, 180 120, 250 120"/></circle>
+      <circle r="4" fill="#8b5cf6"><animateMotion dur="2s" repeatCount="indefinite" path="M60 85 C160 85, 180 120, 250 120" begin="0.5s"/></circle>
+      <circle r="4" fill="#8b5cf6"><animateMotion dur="2.8s" repeatCount="indefinite" path="M60 155 C160 155, 180 120, 250 120" begin="1s"/></circle>
+      <circle r="4" fill="#8b5cf6"><animateMotion dur="2.3s" repeatCount="indefinite" path="M60 210 C180 210, 180 120, 250 120" begin="0.3s"/></circle>
+      <!-- Flowing dots on output paths -->
+      <circle r="3.5" fill="#22c55e"><animateMotion dur="2s" repeatCount="indefinite" path="M250 120 C320 120, 320 50, 400 50" begin="1.2s"/></circle>
+      <circle r="3.5" fill="#22c55e"><animateMotion dur="1.8s" repeatCount="indefinite" path="M250 120 C320 120, 340 120, 400 120" begin="0.8s"/></circle>
+      <circle r="3.5" fill="#22c55e"><animateMotion dur="2.2s" repeatCount="indefinite" path="M250 120 C320 120, 320 190, 400 190" begin="1.5s"/></circle>
+      <!-- Platform icons (left) -->
+      <rect x="38" y="14" width="36" height="36" rx="10" fill="#0088cc"/>
+      <text x="56" y="38" text-anchor="middle" fill="white" font-size="16" font-weight="700">T</text>
+      <rect x="38" y="69" width="36" height="36" rx="10" fill="#25D366"/>
+      <text x="56" y="93" text-anchor="middle" fill="white" font-size="16" font-weight="700">W</text>
+      <rect x="38" y="139" width="36" height="36" rx="10" fill="#4A154B"/>
+      <text x="56" y="163" text-anchor="middle" fill="white" font-size="14" font-weight="700">#</text>
+      <rect x="38" y="194" width="36" height="36" rx="10" fill="#0078D4"/>
+      <text x="56" y="218" text-anchor="middle" fill="white" font-size="14" font-weight="700">O</text>
+      <!-- Center: Handled logo -->
+      <rect x="222" y="92" width="56" height="56" rx="16" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <defs>
+        <filter id="hubShadow" x="210" y="84" width="80" height="80"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#8b5cf6" flood-opacity="0.2"/></filter>
+        <linearGradient id="hubGrad2" x1="228" y1="98" x2="272" y2="142" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+      </defs>
+      <rect x="222" y="92" width="56" height="56" rx="16" fill="white" filter="url(#hubShadow)"/>
+      <path d="M236 106C236 103.79 237.79 102 240 102H260C262.21 102 264 103.79 264 106V122C264 124.21 262.21 126 260 126H253L248 132V126H240C237.79 126 236 124.21 236 122V106Z" fill="url(#hubGrad2)"/>
+      <path d="M243 114L246.5 117.5L253 111" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Output pills (right) - ICP SPECIFIC -->
+      <rect x="380" y="34" width="120" height="32" rx="16" fill="#ede9fe"/>
+      <text x="440" y="55" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">Team briefed ✓</text>
+      <rect x="380" y="104" width="110" height="32" rx="16" fill="#ede9fe"/>
+      <text x="435" y="125" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">Order drafted ✓</text>
+      <rect x="380" y="174" width="110" height="32" rx="16" fill="#ede9fe"/>
+      <text x="435" y="195" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">Sales summary ✓</text>
+    </svg>
+  </div>
+</div>
+    </div>
+
+    <!-- 3 Steps below the diagram -->
+    
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section style="padding:60px 20px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <p data-i18n="testimonials_eyebrow" style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Testimonials</p>
+      <h2 data-i18n="testimonials_title" style="text-align:center;color:#e0e0e0;font-size:24px;font-weight:700;margin-bottom:32px;">What people are saying</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/774909/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Sarah M." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">Sarah M.</div><div style="color:#707070;font-size:12px;">Café Owner, Dubai</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"Mornings used to be five apps before my coffee. Now I dictate the day to Handled and the schedule, supplier order, and social post are sorted by 10am."</p>
+        </div>
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="James R." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">James R.</div><div style="color:#707070;font-size:12px;">Restaurant Operator</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"Stock surprises killed our Saturdays. Now Handled flags low items the night before and drafts the supplier message for me."</p>
+        </div>
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Amira K." style="width:48px;height:48px;border-radius:50%;object-fit:cover;" loading="lazy" />
+            <div><div style="color:#e0e0e0;font-weight:600;font-size:14px;">Amira K.</div><div style="color:#707070;font-size:12px;">Pizzeria Owner</div></div>
+          </div>
+          <p style="color:#a0a0a0;font-size:13px;line-height:1.6;margin:0;">"Yesterday's sales, top item, profit margin — every morning at 9am in one WhatsApp message. I run smarter, not longer."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+<section id="pricing" style="padding:60px 20px;background:#0f0f0f;">
+  <div style="max-width:800px;margin:0 auto;">
+    <p data-i18n="pricing_eyebrow" style="text-align:center;color:#8b5cf6;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Pricing</p>
+    <h2 data-i18n="pricing_title" style="text-align:center;color:#e0e0e0;font-size:28px;font-weight:800;margin-bottom:8px;">Simple Pricing</h2>
+    <p data-i18n="pricing_sub" style="text-align:center;color:#a0a0a0;font-size:14px;margin-bottom:40px;">Start free. Upgrade when you're ready.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <!-- Free Plan -->
+      <div style="background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;">
+        <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(139,92,246,0.1);color:#a0a0a0;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Start Here</span>
+        <h3 style="color:#ffffff;font-size:20px;font-weight:800;margin:0 0 8px;">Pro</h3>
+        <div style="margin-bottom:24px;"><span style="color:#ffffff;font-size:42px;font-weight:800;">$0</span><span style="color:#707070;font-size:14px;"> / forever</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Talk on WhatsApp, Telegram, or email</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Gmail, Google Calendar integrations</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Reminders</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Long-term memory</span></div>
+        </div>
+        <a data-i18n="cta_free" href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;border:1px solid #8b5cf6;border-radius:10px;color:#8b5cf6;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Started Free</a>
+        <p data-i18n="no_cc" style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+      </div>
+      <!-- Pro+ Plan -->
+      <div style="background:#1a1a1a;border:2px solid #8b5cf6;border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(139,92,246,0.15);">
+        <span style="display:inline-block;padding:4px 12px;border-radius:20px;background:#8b5cf6;color:#ffffff !important;font-size:11px;font-weight:600;margin-bottom:16px;width:fit-content;">Most Popular</span>
+        <h3 style="color:#ffffff;font-size:20px;font-weight:800;margin:0 0 8px;">Pro+</h3>
+        <div style="margin-bottom:4px;"><span style="color:#ffffff;font-size:42px;font-weight:800;">$1</span><span style="color:#707070;font-size:14px;"> / mo &middot; $79 / year</span></div>
+        <p style="color:#707070;font-size:12px;margin:0 0 24px;">Cancel Anytime</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Everything in Pro</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Unlimited tasks</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Automations and webhooks</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Team collaboration</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Priority support</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span style="color:#c0c0c0;font-size:13px;">Early access to features</span></div>
+        </div>
+        <a data-i18n="cta_pro" href="https://handled.sh/whatsapp" style="display:block;text-align:center;padding:14px;background:#8b5cf6;border:none;border-radius:10px;color:#ffffff !important;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s;">Get Pro+</a>
+        <p data-i18n="no_cc" style="text-align:center;color:#707070;font-size:11px;margin-top:8px;">No credit card required</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer style="border-top:1px solid #1f1f1f;padding:30px 20px;background:#0a0a0a;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div style="margin-bottom:12px;">
+      <a href="https://handled.sh" style="color:#8b5cf6;font-family:Exo,sans-serif;font-weight:700;font-size:15px;text-decoration:none;">handled.sh</a>
+    </div>
+    <div style="margin-bottom:16px;line-height:2;">
+      <a href="https://handled.sh/about" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">About</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/contact" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Contact</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/security" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Security</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/privacy" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Privacy Policy</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/terms" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Terms of Service</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/referral" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Referral Program</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/business" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">For Business</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/help" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Help</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/feedback" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Feedback</a>
+      <span style="color:#2a2a2a;">&middot;</span>
+      <a href="https://handled.sh/blog" style="color:#707070;font-size:12px;text-decoration:none;margin:0 6px;">Blog</a>
+    </div>
+    <p style="color:#707070;font-size:11px;margin:0;">Copyright &copy; 2025&ndash;2026 handled.sh &mdash; a product of EXCOM AI L.L.C-FZ</p>
+  </div>
+</footer>
+
+  <!-- ========== MOBILE STICKY CTA ========== -->
+  <div id="mobileCta" class="nav-cta-mobile" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.06);display:none;">
+    <a href="https://wa.me/13157974075?text=Hi%20Handled!%20I%20run%20a%20cafe.&utm_source=restaurants_lp&utm_medium=mobile_sticky_cta&utm_campaign=restaurants" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.617.617l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.596-.8-6.364-2.147l-.444-.335-3.28 1.098 1.098-3.28-.335-.444A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      <span data-i18n="hero_cta">Start Free on WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    /* ===== NAV SCROLL ===== */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ===== THEME TOGGLE ===== */
+    var toggle = document.getElementById('themeToggle');
+    var iconMoon = document.getElementById('iconMoon');
+    var iconSun = document.getElementById('iconSun');
+    var html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('handled-theme', theme);
+      if (theme === 'light') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+      } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
+      }
+    }
+
+    // Init from preference
+    var saved = localStorage.getItem('handled-theme');
+    if (saved) setTheme(saved);
+
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ===== FAQ ACCORDION ===== */
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    /* ===== SCROLL REVEAL ===== */
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(el) { observer.observe(el); });
+
+    /* ===== MOBILE STICKY CTA ===== */
+    var mobileCta = document.getElementById('mobileCta');
+    function checkMobileCta() {
+      if (window.innerWidth <= 768 && window.scrollY > 400) {
+        mobileCta.style.display = 'block';
+      } else {
+        mobileCta.style.display = 'none';
+      }
+    }
+    window.addEventListener('scroll', checkMobileCta);
+    window.addEventListener('resize', checkMobileCta);
+
+    /* ===== GA4 CTA CLICK TRACKING ===== */
+    document.querySelectorAll('.btn-primary').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        gtag('event', 'cta_click', {
+          icp_segment: 'restaurants',
+          cta_location: btn.closest('#hero') ? 'hero' : btn.closest('.cta-box') ? 'bottom' : btn.closest('#mobileCta') ? 'mobile_sticky' : 'nav',
+          link_url: btn.href
+        });
+      });
+    });
+  
+    /* Chat animation handled by new typing system */
+  
+
+    /* ===== USE CASE TOUCH SUPPORT ===== */
+    (function() {
+      var cards = document.querySelectorAll('.usecase-card, .use-case-card');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          cards.forEach(function(c) { if (c !== card) c.classList.remove('touched'); });
+          card.classList.toggle('touched');
+        });
+      });
+
+      /* Stagger animation on scroll */
+      if ('IntersectionObserver' in window) {
+        var staggerObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var grid = entry.target.closest('.usecase-grid, .use-case-grid');
+              if (!grid) grid = entry.target.parentElement;
+              var items = grid.querySelectorAll('.usecase-card, .use-case-card');
+              items.forEach(function(item, i) {
+                item.classList.add('stagger-in');
+                setTimeout(function() { item.classList.add('stagger-visible'); }, i * 150);
+              });
+              staggerObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        if (cards.length > 0) {
+          staggerObs.observe(cards[0]);
+        }
+      }
+    })();
+
+    /* ===== WHATSAPP TYPING ANIMATION ===== */
+    (function() {
+      var chatContainer = document.querySelector('.chat-area, .chat-body, .chat-messages, .phone-messages');
+      if (!chatContainer) return;
+      var allBubbles = chatContainer.querySelectorAll('.chat-bubble-user, .chat-bubble-bot, .wa-msg');
+      if (!allBubbles.length) return;
+
+      allBubbles.forEach(function(b) {
+        b.style.opacity = '0';
+        b.style.transform = 'translateY(12px)';
+      });
+
+      var typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      typingDiv.style.display = 'none';
+      chatContainer.appendChild(typingDiv);
+
+      function showBubble(idx) {
+        if (idx >= allBubbles.length) {
+          typingDiv.style.display = 'none';
+          return;
+        }
+        var bubble = allBubbles[idx];
+        var isBot = bubble.classList.contains('chat-bubble-bot') || bubble.classList.contains('wa-incoming');
+
+        if (isBot) {
+          typingDiv.style.display = 'flex';
+          chatContainer.insertBefore(typingDiv, bubble);
+          setTimeout(function() {
+            typingDiv.style.display = 'none';
+            bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+            setTimeout(function() { showBubble(idx + 1); }, 600);
+          }, 800);
+        } else {
+          bubble.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          bubble.style.opacity = '1';
+          bubble.style.transform = 'translateY(0)';
+          setTimeout(function() { showBubble(idx + 1); }, 500);
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var chatObs2 = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              setTimeout(function() { showBubble(0); }, 300);
+              chatObs2.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        chatObs2.observe(allBubbles[0]);
+      } else {
+        allBubbles.forEach(function(b) {
+          b.style.opacity = '1';
+          b.style.transform = 'translateY(0)';
+        });
+      }
+    })();
+
+    /* ===== PARALLAX BACKGROUND ===== */
+    (function() {
+      var blobs = document.querySelectorAll('.hero-blob');
+      if (!blobs.length) return;
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+        blobs.forEach(function(blob, i) {
+          var speed = 0.03 + (i * 0.02);
+          blob.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+      });
+    })();
+
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        });
+      });
+    }
+
+  
+    /* ===== LANGUAGE TOGGLE ===== */
+    var translations = {
+      en: {
+        process_eyebrow: 'Process',
+        process_title: 'How it Works',
+        step1_title: 'Connect Your Tools',
+        step1_desc: 'Link Gmail, Google Calendar, Todoist, and 800+ more in under 2 minutes.',
+        step2_title: 'Just Chat',
+        step2_desc: 'Message Handled on WhatsApp, Telegram, iMessage, or Slack — wherever you already are.',
+        step3_title: 'It Gets Done',
+        step3_desc: 'Handled schedules meetings, sets reminders, sends emails, and manages tasks — automatically.',
+        pricing_eyebrow: 'Pricing',
+        pricing_title: 'Simple Pricing',
+        pricing_sub: "Start free. Upgrade when you're ready.",
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ forever',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mo \u00b7 $79 / year',
+        cta_free: 'Get Started Free',
+        cta_pro: 'Get Pro+',
+        no_cc: 'No credit card required',
+        testimonials_eyebrow: 'Testimonials',
+        testimonials_title: 'What people are saying',
+        nav_features: 'Features',
+        nav_how: 'How it Works',
+        nav_pricing: 'Pricing',
+        nav_login: 'Login',
+        cta_try: 'Try Free',
+        hero_cta: 'Start Free on WhatsApp',
+        hero_sub_cta: 'No app to install. No credit card. Just chat.',
+        faq_title: 'FAQ',
+        bottom_cta_sub: 'Free forever. Pro when you\'re ready.',
+        hero_eyebrow: 'Built for Restaurants & Cafés', hero_title: 'Run Your Café From One Chat', hero_sub: 'Staff shifts, supplier follow-ups, inventory alerts, customer reservations — managed from a single WhatsApp message.', usecases_eyebrow: 'What you can do', usecases_title: 'Built for the floor, not the office'
+      },
+      es: {
+        process_eyebrow: 'Proceso',
+        process_title: 'Como Funciona',
+        step1_title: 'Conecta tus Herramientas',
+        step1_desc: 'Vincula Gmail, Google Calendar, Todoist y mas de 800 herramientas en menos de 2 minutos.',
+        step2_title: 'Solo Escribe',
+        step2_desc: 'Escribe a Handled por WhatsApp, Telegram, iMessage o Slack — donde ya estes.',
+        step3_title: 'Se Hace Solo',
+        step3_desc: 'Handled agenda reuniones, pone recordatorios, envia correos y gestiona tareas — automaticamente.',
+        pricing_eyebrow: 'Precios',
+        pricing_title: 'Precios Simples',
+        pricing_sub: 'Empieza gratis. Mejora cuando quieras.',
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ siempre',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mes \u00b7 $79 / ano',
+        cta_free: 'Empieza Gratis',
+        cta_pro: 'Obtener Pro+',
+        no_cc: 'Sin tarjeta de credito',
+        testimonials_eyebrow: 'Testimonios',
+        testimonials_title: 'Lo que dicen nuestros usuarios',
+        nav_features: 'Funciones',
+        nav_how: 'Como Funciona',
+        nav_pricing: 'Precios',
+        nav_login: 'Iniciar Sesion',
+        cta_try: 'Probar Gratis',
+        hero_cta: 'Empieza Gratis en WhatsApp',
+        hero_sub_cta: 'Sin app. Sin tarjeta. Solo escribe.',
+        faq_title: 'Preguntas Frecuentes',
+        bottom_cta_sub: 'Gratis para siempre. Pro cuando quieras.',
+        hero_eyebrow: 'Para Restaurantes y Cafeterias', hero_title: 'Lleva tu Cafeteria desde un Chat', hero_sub: 'Turnos, pedidos a proveedores, alertas de inventario y reservas — todo desde un mensaje de WhatsApp.', usecases_eyebrow: 'Que puedes hacer', usecases_title: 'Hecho para el salon, no la oficina'
+      },
+      fr: {
+        process_eyebrow: 'Processus',
+        process_title: 'Comment ca Marche',
+        step1_title: 'Connectez vos Outils',
+        step1_desc: 'Liez Gmail, Google Calendar, Todoist et plus de 800 outils en moins de 2 minutes.',
+        step2_title: 'Ecrivez',
+        step2_desc: 'Envoyez un message a Handled sur WhatsApp, Telegram, iMessage ou Slack — ou que vous soyez.',
+        step3_title: "C\'est Fait",
+        step3_desc: 'Handled planifie vos reunions, definit des rappels, envoie des emails et gere vos taches — automatiquement.',
+        pricing_eyebrow: 'Tarifs',
+        pricing_title: 'Tarifs Simples',
+        pricing_sub: 'Commencez gratuitement. Passez a Pro quand vous voulez.',
+        plan_free: 'Pro',
+        plan_free_price: '$0',
+        plan_free_period: '/ pour toujours',
+        plan_pro: 'Pro+',
+        plan_pro_price: '$1',
+        plan_pro_period: '/ mois \u00b7 $79 / an',
+        cta_free: 'Commencer Gratuitement',
+        cta_pro: 'Obtenir Pro+',
+        no_cc: 'Sans carte de credit',
+        testimonials_eyebrow: 'Temoignages',
+        testimonials_title: 'Ce que disent nos utilisateurs',
+        nav_features: 'Fonctions',
+        nav_how: 'Comment ca Marche',
+        nav_pricing: 'Tarifs',
+        nav_login: 'Connexion',
+        cta_try: 'Essai Gratuit',
+        hero_cta: 'Commencez sur WhatsApp',
+        hero_sub_cta: "Pas d\'app. Pas de carte. Ecrivez simplement.",
+        faq_title: 'Questions Frequentes',
+        bottom_cta_sub: 'Gratuit pour toujours. Pro quand vous voulez.',
+        hero_eyebrow: 'Pour Restaurants et Cafes', hero_title: 'Gerez Votre Cafe depuis un Chat', hero_sub: 'Plannings, commandes fournisseurs, alertes stock, reservations — tout depuis un message WhatsApp.', usecases_eyebrow: 'Ce que vous pouvez faire', usecases_title: 'Concu pour la salle, pas le bureau'
+      }
+    };
+
+    function setLang(lang) {
+      var t = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        if (btn.dataset.lang === lang) {
+          btn.style.border = '1px solid rgba(139,92,246,0.3)';
+          btn.style.background = 'rgba(139,92,246,0.15)';
+          btn.style.color = '#8b5cf6';
+        } else {
+          btn.style.border = '1px solid transparent';
+          btn.style.background = 'transparent';
+          btn.style.color = '#a0a0a0';
+        }
+      });
+      localStorage.setItem('handled-lang', lang);
+    }
+    var savedLang = localStorage.getItem('handled-lang');
+    if (savedLang && savedLang !== 'en') setLang(savedLang);
+
+  </script>
+
+</body>
+</html>
