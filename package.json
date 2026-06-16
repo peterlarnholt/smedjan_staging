@@ -1,13 +1,13 @@
 {
   "name": "handled-site",
   "version": "1.0.0",
-  "description": "Handled - Your AI agent on Telegram",
+  "description": "Handled — productivity assistant on WhatsApp, Telegram & Teams",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
   },
-  "keywords": ["ai", "telegram", "claude", "agent", "automation"],
+  "keywords": ["productivity", "whatsapp", "telegram", "teams", "automation"],
   "author": "",
   "license": "ISC",
   "type": "module",
